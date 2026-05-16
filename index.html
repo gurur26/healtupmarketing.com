@@ -31,7 +31,7 @@
   --toggle-bg:rgba(255,255,255,0.09);
 }
 :root{
-  --accent:#c8f03c;--teal:#0f5f56;--teal-mid:#1a8a7a;--teal-light:#d0ecea;
+  --accent:#fe0d6d;--teal:#fe0d6d;--teal-mid:#e0005a;--teal-light:#ffe0ee;
   --radius:4px;--radius-card:12px;
 }
 
@@ -64,7 +64,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 /* HERO */
 #hero{min-height:100vh;padding-top:64px;display:grid;grid-template-rows:1fr auto;background:var(--hero-bg);color:var(--hero-text);position:relative;overflow:hidden;transition:background .3s}
 .hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
-.hero-accent-blob{position:absolute;top:-120px;right:-80px;width:600px;height:600px;background:radial-gradient(circle,rgba(200,240,60,.1) 0%,transparent 70%);pointer-events:none}
+.hero-accent-blob{position:absolute;top:-120px;right:-80px;width:600px;height:600px;background:radial-gradient(circle,rgba(254,13,109,.12) 0%,transparent 70%);pointer-events:none}
 .hero-inner{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:6rem 3rem 3rem;max-width:1200px;margin:0 auto;width:100%}
 .hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:2.5rem}
 .hero-eyebrow-line{width:40px;height:1px;background:var(--accent)}
@@ -74,7 +74,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-sub{font-size:1.1rem;font-weight:300;color:var(--hero-muted);max-width:520px;margin-bottom:3rem;line-height:1.7}
 .hero-actions{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
 .btn-primary{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:var(--accent);color:#0a0a0a;padding:14px 32px;border-radius:var(--radius);text-decoration:none;transition:background .2s,transform .15s;display:inline-flex;align-items:center;gap:8px}
-.btn-primary:hover{background:#d8ff50;transform:translateY(-1px)}
+.btn-primary:hover{background:#e0005a;transform:translateY(-1px)}
 .btn-primary svg{width:14px;height:14px}
 .btn-ghost{font-size:.9rem;font-weight:400;color:rgba(250,250,248,.5);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:color .2s}
 .btn-ghost:hover{color:var(--hero-text)}
@@ -85,7 +85,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-testi-stat{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:var(--accent);margin-bottom:.4rem;letter-spacing:-.02em}
 .hero-testi-quote{font-size:.85rem;color:rgba(250,250,248,.45);line-height:1.5;font-style:italic;margin-bottom:1rem}
 .hero-testi-author{display:flex;align-items:center;gap:10px}
-.testi-avatar{width:32px;height:32px;border-radius:50%;background:rgba(200,240,60,.15);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:var(--accent);flex-shrink:0}
+.testi-avatar{width:32px;height:32px;border-radius:50%;background:rgba(254,13,109,.15);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:var(--accent);flex-shrink:0}
 .testi-name{font-size:.8rem;color:var(--hero-text);font-weight:500}
 .testi-role{font-size:.75rem;color:rgba(250,250,248,.4)}
 
@@ -115,7 +115,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 #brand-transform{background:var(--bg);padding:8rem 3rem;transition:background .3s}
 .bt-inner{max-width:1200px;margin:0 auto}
 .bt-header{text-align:center;margin-bottom:4rem}
-.bt-tag{display:inline-block;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);border:1px solid rgba(15,95,86,.3);padding:6px 14px;border-radius:2px;margin-bottom:1.5rem;background:rgba(15,95,86,.06)}
+.bt-tag{display:inline-block;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);border:1px solid rgba(254,13,109,.3);padding:6px 14px;border-radius:2px;margin-bottom:1.5rem;background:rgba(254,13,109,.06)}
 .bt-headline{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.02em;color:var(--text)}
 .bt-cards{display:grid;grid-template-columns:repeat(4,1fr) 200px;gap:0;border:1px solid var(--border-strong);border-radius:var(--radius-card);overflow:hidden;box-shadow:0 2px 24px rgba(0,0,0,.06)}
 .bt-card{background:var(--bg-card);padding:2rem 1.75rem;border-right:1px solid var(--border);display:flex;flex-direction:column;transition:background .2s}
@@ -129,7 +129,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .bt-card-btn:hover{background:var(--teal-mid)}
 .bt-card-cta{background:var(--teal);border-right:none;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1.5rem;gap:1.5rem}
 .bt-card-cta:hover{background:var(--teal-mid)}
-.bt-cta-icon{width:48px;height:48px;background:rgba(255,255,255,.15);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.bt-cta-icon{width:48px;height:48px;background:rgba(255,255,255,.2);border-radius:10px;display:flex;align-items:center;justify-content:center}
 .bt-cta-icon svg{width:24px;height:24px;color:#fff}
 .bt-cta-text{font-family:'DM Serif Display',serif;font-size:1.6rem;font-style:italic;color:#fff;text-align:center;line-height:1.2}
 .bt-footer-text{text-align:center;margin-top:2rem;font-size:.9rem;color:var(--text-muted);font-style:italic}
@@ -205,13 +205,52 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
 .footer-links a{font-size:.8rem;color:rgba(250,250,248,.3);text-decoration:none;transition:color .2s}
 .footer-links a:hover{color:rgba(250,250,248,.6)}
 
-/* i18n */
+/* HUP FOOTER */
+.hup-footer{background:#0e1a2e;border-top:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.7)}
+.hup-footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:280px 1fr 1fr;gap:4rem;padding:4rem 3rem 3rem}
+.hup-footer-brand{display:flex;flex-direction:column;gap:1.2rem}
+.hup-footer-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.hup-footer-logo-text{display:flex;flex-direction:column;line-height:1.1}
+.hup-footer-logo-main{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;color:#fff;letter-spacing:-.02em}
+.hup-footer-logo-sub{font-family:'Syne',sans-serif;font-weight:400;font-size:.8rem;letter-spacing:.08em;color:rgba(255,255,255,.5)}
+.hup-footer-slogan{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.5;max-width:220px}
+.hup-footer-social{display:flex;gap:10px;margin-top:.4rem}
+.hup-social-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);text-decoration:none;transition:border-color .2s,color .2s}
+.hup-social-btn:hover{border-color:var(--accent);color:var(--accent)}
+.hup-social-btn svg{width:16px;height:16px}
+.hup-footer-col-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:#fff;letter-spacing:-.01em;margin-bottom:.6rem}
+.hup-footer-col-sub{font-size:.82rem;color:rgba(255,255,255,.4);margin-bottom:1.2rem}
+.hup-contact-list{list-style:none;display:flex;flex-direction:column;gap:.9rem}
+.hup-contact-list li{display:flex;align-items:flex-start;gap:10px;font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.5}
+.hup-contact-list a{color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s}
+.hup-contact-list a:hover{color:var(--accent)}
+.hup-contact-icon{flex-shrink:0;width:20px;color:var(--accent);margin-top:2px}
+.hup-contact-icon svg{width:16px;height:16px}
+.hup-footer-nav{display:grid;grid-template-columns:1fr 1fr;gap:.6rem 2rem}
+.hup-footer-nav a{font-size:.83rem;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s;padding:.2rem 0}
+.hup-footer-nav a:hover{color:#fff}
+.hup-footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding:1.2rem 3rem}
+.hup-footer-bottom span{font-size:.75rem;color:rgba(255,255,255,.25)}
+@media(max-width:900px){
+  .hup-footer-inner{grid-template-columns:1fr;gap:2.5rem;padding:3rem 1.5rem 2rem}
+  .hup-footer-bottom{padding:1rem 1.5rem}
+}
+
+.hero-brand-badges{display:flex;align-items:center;gap:14px;margin-left:1rem;padding-left:1rem;border-left:1px solid rgba(255,255,255,.15)}
+.hero-brand-logos{display:flex;align-items:center}
+.brand-logo-circle{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-left:-10px;overflow:hidden;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.brand-logo-circle:first-child{margin-left:0}
+.brand-logo-count{background:rgba(254,13,109,.9);border:2px solid rgba(255,255,255,.3)!important;font-family:'Syne',sans-serif;font-size:.6rem;font-weight:800;color:#fff}
+.hero-brand-text{font-size:.75rem;color:rgba(250,250,248,.6);max-width:160px;line-height:1.4}
+.hero-brand-text em{font-style:normal;color:var(--accent);font-weight:600}
+
+/* FOOTER */
 [data-lang]{display:none}[data-lang].active{display:inline}
 [data-lang-block]{display:none}[data-lang-block].active{display:block}
 
 @media(max-width:1100px){
-  .bt-cards{grid-template-columns:repeat(2,1fr)}
-  .bt-card-cta{border-right:none;border-top:1px solid var(--border);grid-column:1/-1;flex-direction:row}
+  .bt-cards{grid-template-columns:repeat(2,1fr)!important}
+  .bt-card-cta{border-right:none;border-top:1px solid rgba(255,255,255,.15);grid-column:1/-1;grid-row:auto!important;flex-direction:row}
 }
 @media(max-width:900px){
   nav{padding:0 1.5rem}.nav-links{display:none}
@@ -235,7 +274,15 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
 <body>
 
 <nav>
-  <a href="#" class="nav-logo">Ajans<span class="nav-badge">Partner</span></a>
+  <a href="#" class="nav-logo" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+    <svg width="36" height="36" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="hupgrad" x1="0" y1="120" x2="120" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#fe5f20"/><stop offset="1" stop-color="#fe0d6d"/></linearGradient></defs>
+      <path d="M30 90 C30 90 20 70 35 52 C45 40 55 38 60 30 C65 22 64 10 74 8 C84 6 92 18 88 30 C84 42 72 44 68 56 C64 68 70 80 60 88 C52 94 40 92 30 90Z" fill="url(#hupgrad)"/>
+      <path d="M60 88 C68 80 76 70 74 58 C72 46 60 44 64 32" stroke="url(#hupgrad)" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M74 8 L82 2 L88 10" stroke="#ff3d8a" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:-.02em;color:var(--text);line-height:1.1">HealthUp<br><span style="font-weight:400;font-size:.85rem;letter-spacing:.04em;color:var(--text-muted)">Marketing</span></span>
+  </a>
   <ul class="nav-links">
     <li><a href="#brand-transform"><span data-lang="tr" class="active">Hizmetler</span><span data-lang="en">Services</span></a></li>
     <li><a href="#story"><span data-lang="tr" class="active">Hakkımızda</span><span data-lang="en">About</span></a></li>
@@ -265,7 +312,26 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
   <div class="hero-inner">
     <div class="hero-eyebrow">
       <div class="hero-eyebrow-line"></div>
-      <span>Google Premier Partner · İstanbul</span>
+      <div class="hero-brand-badges" style="margin-left:0;padding-left:0;border-left:none">
+        <div class="hero-brand-logos">
+          <div class="brand-logo-circle" title="Acıbadem" style="background:#fff;border:2px solid rgba(255,255,255,.2)">
+            <svg viewBox="0 0 40 40" fill="none" style="width:22px;height:22px"><circle cx="20" cy="20" r="18" fill="#003b6f"/><text x="20" y="25" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="sans-serif">A</text></svg>
+          </div>
+          <div class="brand-logo-circle" title="Liv Hospital" style="background:#fff;border:2px solid rgba(255,255,255,.2)">
+            <svg viewBox="0 0 40 40" fill="none" style="width:22px;height:22px"><circle cx="20" cy="20" r="18" fill="#e8002d"/><text x="20" y="25" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold" font-family="sans-serif">LIV</text></svg>
+          </div>
+          <div class="brand-logo-circle" title="Medicana" style="background:#fff;border:2px solid rgba(255,255,255,.2)">
+            <svg viewBox="0 0 40 40" fill="none" style="width:22px;height:22px"><circle cx="20" cy="20" r="18" fill="#009b77"/><text x="20" y="25" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="sans-serif">MED</text></svg>
+          </div>
+          <div class="brand-logo-circle" title="Memoria" style="background:#fff;border:2px solid rgba(255,255,255,.2)">
+            <svg viewBox="0 0 40 40" fill="none" style="width:22px;height:22px"><circle cx="20" cy="20" r="18" fill="#c0392b"/><text x="20" y="25" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="sans-serif">MEM</text></svg>
+          </div>
+          <div class="brand-logo-circle brand-logo-count" title="50+ marka">
+            <span>50+</span>
+          </div>
+        </div>
+        <span class="hero-brand-text">50'den fazla <em>saygın marka</em> ile güçlü iş birliği</span>
+      </div>
     </div>
     <h1 class="hero-headline">
       <span data-lang-block="tr" class="active">Büyüme<br><em>kasıtlı</em><br>olur.</span>
@@ -360,49 +426,67 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
   </div>
 </section>
 
-<!-- BRAND TRANSFORM -->
+<!-- BRAND TRANSFORM / HİZMETLER -->
 <section id="brand-transform">
   <div class="bt-inner">
     <div class="bt-header">
-      <div class="bt-tag"><span data-lang="tr" class="active">Marka Dönüşümü</span><span data-lang="en">Brand Transformation</span></div>
+      <div class="bt-tag"><span data-lang="tr" class="active">Hizmetlerimiz</span><span data-lang="en">Our Services</span></div>
       <h2 class="bt-headline"><span data-lang-block="tr" class="active">Markanızın Dönüşümünü Başlatın</span><span data-lang-block="en">Start Your Brand Transformation</span></h2>
     </div>
-    <div class="bt-cards">
+    <div class="bt-cards" style="grid-template-columns:repeat(3,1fr)">
+      <!-- Google Reklamları -->
+      <div class="bt-card">
+        <div class="bt-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="bt-card-title"><span data-lang="tr" class="active">Google Reklamları</span><span data-lang="en">Google Ads</span></div>
+        <p class="bt-card-desc"><span data-lang="tr" class="active">Google Ads, sağlık sektöründe dijital pazarlama stratejilerinin merkezinde yer alarak hedef kitlenize en doğru anda ulaşmanızı sağlar.</span><span data-lang="en">Google Ads sits at the center of digital marketing strategies in health, reaching your target audience at exactly the right moment.</span></p>
+        <a href="#" class="bt-card-btn"><span data-lang="tr" class="active">Devamını Gör</span><span data-lang="en">Learn More</span></a>
+      </div>
+      <!-- Web Sitesi -->
+      <div class="bt-card">
+        <div class="bt-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="bt-card-title"><span data-lang="tr" class="active">Web Sitesi</span><span data-lang="en">Website</span></div>
+        <p class="bt-card-desc"><span data-lang="tr" class="active">Web sitesi yazılımı, bir web sitesinin işlevselliğini belirleyen kodlama ve tasarım süreçlerinin bütünüdür. Güçlü altyapılar kuruyoruz.</span><span data-lang="en">Website software defines the functionality of a web site through coding and design processes. We build powerful infrastructures.</span></p>
+        <a href="#" class="bt-card-btn"><span data-lang="tr" class="active">Devamını Gör</span><span data-lang="en">Learn More</span></a>
+      </div>
+      <!-- Sosyal Medya Yönetimi -->
+      <div class="bt-card">
+        <div class="bt-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2h10zM12 18h.01"/></svg>
+        </div>
+        <div class="bt-card-title"><span data-lang="tr" class="active">Sosyal Medya Yönetimi</span><span data-lang="en">Social Media Management</span></div>
+        <p class="bt-card-desc"><span data-lang="tr" class="active">Sağlık turizminde sosyal medyanın gücü; sağlık turizmi sektörü uluslararası rekabette öne çıkmanızı sağlar.</span><span data-lang="en">The power of social media in health tourism helps you stand out in international competition in the health tourism sector.</span></p>
+        <a href="#" class="bt-card-btn"><span data-lang="tr" class="active">Devamını Gör</span><span data-lang="en">Learn More</span></a>
+      </div>
+      <!-- Meta Reklamları -->
+      <div class="bt-card">
+        <div class="bt-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+        </div>
+        <div class="bt-card-title"><span data-lang="tr" class="active">Meta Reklamları</span><span data-lang="en">Meta Ads</span></div>
+        <p class="bt-card-desc"><span data-lang="tr" class="active">Facebook, Instagram ve WhatsApp reklamları, hedeflenmiş demografik ve davranışsal verilerle sağlık turizminizde büyüme sağlar.</span><span data-lang="en">Facebook, Instagram and WhatsApp ads drive growth in your health tourism through targeted demographic and behavioral data.</span></p>
+        <a href="#" class="bt-card-btn"><span data-lang="tr" class="active">Devamını Gör</span><span data-lang="en">Learn More</span></a>
+      </div>
+      <!-- Satış Eğitimi ve Danışmanlığı -->
       <div class="bt-card">
         <div class="bt-card-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         </div>
-        <div class="bt-card-title"><span data-lang="tr" class="active">Medya İlişkileri Yönetimi</span><span data-lang="en">Media Relations Management</span></div>
-        <p class="bt-card-desc"><span data-lang="tr" class="active">Geniş gazeteci, yazar, editör ve muhabir ağımızla markanızın yüksek trafikli mecralarda görünür olmasını sağlarız.</span><span data-lang="en">With our extensive network of journalists, writers and editors, we ensure your brand is visible on high-traffic platforms.</span></p>
+        <div class="bt-card-title"><span data-lang="tr" class="active">Satış Eğitimi ve Danışmanlığı</span><span data-lang="en">Sales Training & Consulting</span></div>
+        <p class="bt-card-desc"><span data-lang="tr" class="active">Sağlık turizmi sektörü, global ölçekte büyümeye devam ederken rekabet de her geçen gün artmaktadır. Ekibinizi hazırlıyoruz.</span><span data-lang="en">As the health tourism sector continues to grow globally, competition increases every day. We prepare your team.</span></p>
         <a href="#" class="bt-card-btn"><span data-lang="tr" class="active">Devamını Gör</span><span data-lang="en">Learn More</span></a>
       </div>
-      <div class="bt-card">
-        <div class="bt-card-label">PR</div>
-        <div class="bt-card-title"><span data-lang="tr" class="active">Halka İlişkiler Yönetimi</span><span data-lang="en">Public Relations Management</span></div>
-        <p class="bt-card-desc"><span data-lang="tr" class="active">Markaların küresel ölçekte görünürlük kazanmasını sağlayan stratejik PR ve iletişim hizmetleri sunuyoruz.</span><span data-lang="en">We provide strategic PR and communication services that help brands gain visibility on a global scale.</span></p>
-        <a href="#" class="bt-card-btn"><span data-lang="tr" class="active">Devamını Gör</span><span data-lang="en">Learn More</span></a>
-      </div>
-      <div class="bt-card">
+      <!-- HealthUp CRM -->
+      <div class="bt-card" style="border-right:none">
         <div class="bt-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
         </div>
-        <div class="bt-card-title"><span data-lang="tr" class="active">Medya Planlama ve Satın Alma</span><span data-lang="en">Media Planning &amp; Buying</span></div>
-        <p class="bt-card-desc"><span data-lang="tr" class="active">Stratejik medya satın alma ile markanızı öne çıkarıyor, premium yerleşimlerle görünürlüğünüzü artırıp sürdürülebilir büyüme sağlıyoruz.</span><span data-lang="en">We elevate your brand with strategic media buying and premium placements, driving visibility and sustainable growth.</span></p>
+        <div class="bt-card-title"><span data-lang="tr" class="active">HealthUp CRM</span><span data-lang="en">HealthUp CRM</span></div>
+        <p class="bt-card-desc"><span data-lang="tr" class="active">HealthUp CRM, HealthUp Marketing tarafından sağlık turizmi sektörüne yönelik özel olarak geliştirilmiş bir müşteri yönetim sistemidir.</span><span data-lang="en">HealthUp CRM is a customer management system specifically developed by HealthUp Marketing for the health tourism sector.</span></p>
         <a href="#" class="bt-card-btn"><span data-lang="tr" class="active">Devamını Gör</span><span data-lang="en">Learn More</span></a>
-      </div>
-      <div class="bt-card">
-        <div class="bt-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        </div>
-        <div class="bt-card-title"><span data-lang="tr" class="active">İtibar Yönetimi</span><span data-lang="en">Reputation Management</span></div>
-        <p class="bt-card-desc"><span data-lang="tr" class="active">Olumsuz içerikleri bastırırken aynı anda markanız için güçlü ve olumlu bir dijital itibar inşa ediyoruz.</span><span data-lang="en">We suppress negative content while simultaneously building a strong and positive digital reputation for your brand.</span></p>
-        <a href="#" class="bt-card-btn"><span data-lang="tr" class="active">Devamını Gör</span><span data-lang="en">Learn More</span></a>
-      </div>
-      <div class="bt-card bt-card-cta">
-        <div class="bt-cta-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
-        </div>
-        <div class="bt-cta-text"><span data-lang-block="tr" class="active">Tümünü Keşfet</span><span data-lang-block="en">Explore All</span></div>
       </div>
     </div>
     <p class="bt-footer-text"><span data-lang="tr" class="active">Markanızın hikayesini daha geniş kitlelere ulaştıralım.</span><span data-lang="en">Let's bring your brand's story to a wider audience.</span></p>
@@ -509,13 +593,80 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
   </div>
 </section>
 
-<footer>
-  <span>© 2026 Ajans. <span data-lang="tr" class="active">Tüm hakları saklıdır.</span><span data-lang="en">All rights reserved.</span></span>
-  <ul class="footer-links">
-    <li><a href="#"><span data-lang="tr" class="active">Gizlilik</span><span data-lang="en">Privacy</span></a></li>
-    <li><a href="#"><span data-lang="tr" class="active">Kullanım Koşulları</span><span data-lang="en">Terms</span></a></li>
-    <li><a href="#"><span data-lang="tr" class="active">İletişim</span><span data-lang="en">Contact</span></a></li>
-  </ul>
+<footer class="hup-footer">
+  <div class="hup-footer-inner">
+    <!-- Sol: Logo + slogan + sosyal -->
+    <div class="hup-footer-brand">
+      <a href="#" class="hup-footer-logo">
+        <svg width="40" height="40" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="hupgrad2" x1="0" y1="120" x2="120" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#fe5f20"/><stop offset="1" stop-color="#fe0d6d"/></linearGradient></defs>
+          <path d="M30 90 C30 90 20 70 35 52 C45 40 55 38 60 30 C65 22 64 10 74 8 C84 6 92 18 88 30 C84 42 72 44 68 56 C64 68 70 80 60 88 C52 94 40 92 30 90Z" fill="url(#hupgrad2)"/>
+          <path d="M60 88 C68 80 76 70 74 58 C72 46 60 44 64 32" stroke="url(#hupgrad2)" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M74 8 L82 2 L88 10" stroke="#ff3d8a" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="hup-footer-logo-text">
+          <span class="hup-footer-logo-main">HealthUp</span>
+          <span class="hup-footer-logo-sub">Marketing</span>
+        </div>
+      </a>
+      <p class="hup-footer-slogan">Sağlıkta Güçlü Pazarlama, Akıllı Büyüme</p>
+      <div class="hup-footer-social">
+        <a href="#" class="hup-social-btn" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="#" class="hup-social-btn" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#" class="hup-social-btn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="#" class="hup-social-btn" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Orta: İletişim -->
+    <div class="hup-footer-col">
+      <h4 class="hup-footer-col-title">İletişim Bilgileri</h4>
+      <p class="hup-footer-col-sub">Bizimle iletişime geçin!</p>
+      <ul class="hup-contact-list">
+        <li>
+          <span class="hup-contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </span>
+          <span>Çınarlı Mah, 1572 Sk. No:33, 35170 Konak/İzmir</span>
+        </li>
+        <li>
+          <span class="hup-contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </span>
+          <a href="tel:+905367967126">(536) 796-7126</a>
+        </li>
+        <li>
+          <span class="hup-contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </span>
+          <a href="mailto:info@healthupmarketing.com">info@healthupmarketing.com</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Sağ: Hızlı Erişim -->
+    <div class="hup-footer-col">
+      <h4 class="hup-footer-col-title">Hızlı Erişim</h4>
+      <div class="hup-footer-nav">
+        <a href="#">Hakkımızda</a>
+        <a href="#brand-transform">Hizmetlerimiz</a>
+        <a href="#">SSS</a>
+        <a href="#cta">İletişim</a>
+        <a href="#">Gizlilik Politikası</a>
+      </div>
+    </div>
+  </div>
+  <div class="hup-footer-bottom">
+    <span>© 2026 HealthUp Marketing. Tüm hakları saklıdır.</span>
+  </div>
 </footer>
 
 <script>
