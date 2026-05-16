@@ -120,8 +120,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .bt-cards{display:grid;grid-template-columns:repeat(4,1fr) 200px;gap:0;border:1px solid var(--border-strong);border-radius:var(--radius-card);overflow:hidden;box-shadow:0 2px 24px rgba(0,0,0,.06)}
 .bt-card{background:var(--bg-card);padding:2rem 1.75rem;border-right:1px solid var(--border);display:flex;flex-direction:column;transition:background .2s}
 .bt-card:hover{background:var(--card-hover)}
-.bt-card-icon{width:44px;height:44px;background:var(--icon-bg);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;flex-shrink:0}
-.bt-card-icon svg{width:22px;height:22px;color:var(--teal)}
+.bt-card-photo{width:100%;height:160px;border-radius:8px;overflow:hidden;margin-bottom:1.4rem;background:var(--surface);position:relative}
+.bt-card-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.bt-card:hover .bt-card-photo img{transform:scale(1.04)}
+.bt-card-photo.no-photo{display:flex;align-items:center;justify-content:center;border:2px dashed var(--border)}
+.bt-card-photo.no-photo::after{content:'📷  Fotoğraf ekleyin';font-size:.78rem;color:var(--text-muted);letter-spacing:.04em}
 .bt-card-label{display:inline-flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.65rem;font-weight:800;letter-spacing:.08em;background:var(--teal);color:#fff;width:32px;height:22px;border-radius:4px;margin-bottom:1.2rem}
 .bt-card-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:.8rem;line-height:1.3;letter-spacing:-.01em}
 .bt-card-desc{font-size:.82rem;color:var(--text-muted);line-height:1.6;flex:1;margin-bottom:1.5rem}
@@ -189,14 +192,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .blog-arrow{font-size:.85rem;color:var(--text-muted);font-weight:600}
 
 /* CTA */
-#cta{background:var(--teal);color:#fff;padding:8rem 3rem;text-align:center;position:relative;overflow:hidden}
+#cta{background:linear-gradient(135deg,#fd7a49 0%,#fe0d6d 100%);color:#fff;padding:8rem 3rem;text-align:center;position:relative;overflow:hidden}
 .cta-blob{position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(255,255,255,.07) 0%,transparent 70%);pointer-events:none}
 .cta-inner{position:relative;z-index:1}
 .cta-eyebrow{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:1.5rem}
 .cta-headline{font-family:'DM Serif Display',serif;font-size:clamp(2.5rem,5vw,4rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:2.5rem;color:#fff}
 .cta-headline em{font-style:italic;color:var(--accent)}
-.btn-primary-white{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:#fff;color:var(--teal);padding:16px 40px;border-radius:var(--radius);text-decoration:none;transition:background .2s,transform .15s;display:inline-flex;align-items:center;gap:8px}
-.btn-primary-white:hover{background:var(--accent);color:#0a0a0a;transform:translateY(-1px)}
+.btn-primary-white{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:#fff;color:#fd7a49;padding:16px 40px;border-radius:var(--radius);text-decoration:none;transition:background .2s,transform .15s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary-white:hover{background:rgba(255,255,255,.9);transform:translateY(-1px)}
 .btn-primary-white svg{width:14px;height:14px}
 
 footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
@@ -205,8 +208,37 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
 .footer-links a{font-size:.8rem;color:rgba(250,250,248,.3);text-decoration:none;transition:color .2s}
 .footer-links a:hover{color:rgba(250,250,248,.6)}
 
+/* TEAM SECTION */
+#team{padding:7rem 3rem;background:var(--surface)}
+.team-inner{max-width:1200px;margin:0 auto}
+.team-sub{color:var(--text-muted);font-size:.95rem;max-width:520px;margin-bottom:3.5rem;line-height:1.7}
+/* Kurucular: 2 eşit kart yan yana */
+.team-founders{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem}
+/* Ekip: 3 kart */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.team-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-card);overflow:hidden;transition:transform .2s,box-shadow .2s}
+.team-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08)}
+.team-card-img-wrap{position:relative;aspect-ratio:3/4;background:var(--surface);overflow:hidden}
+.team-card-img-wrap.no-photo{display:flex;align-items:center;justify-content:center}
+.team-card-img-wrap.no-photo::after{content:'📷';font-size:2rem;opacity:.25}
+.team-card-img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .3s}
+.team-card:hover .team-card-img{transform:scale(1.04)}
+.team-card-num{position:absolute;top:12px;left:14px;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:800;color:#fff;background:var(--accent);padding:3px 8px;border-radius:4px;letter-spacing:.06em}
+.team-card-info{padding:1.1rem 1.2rem 1.3rem}
+.team-card-role{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.3rem}
+.team-card-name{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text);margin:0}
+@media(max-width:900px){
+  .team-founders{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:600px){
+  .team-founders{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  #team{padding:4rem 1.5rem}
+}
+
 /* HUP FOOTER */
-.hup-footer{background:#0e1a2e;border-top:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.7)}
+.hup-footer{background:#000000;border-top:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.7)}
 .hup-footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:280px 1fr 1fr;gap:4rem;padding:4rem 3rem 3rem}
 .hup-footer-brand{display:flex;flex-direction:column;gap:1.2rem}
 .hup-footer-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
@@ -244,9 +276,45 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
 .hero-brand-text{font-size:.75rem;color:rgba(250,250,248,.6);max-width:160px;line-height:1.4}
 .hero-brand-text em{font-style:normal;color:var(--accent);font-weight:600}
 
-/* FOOTER */
-[data-lang]{display:none}[data-lang].active{display:inline}
-[data-lang-block]{display:none}[data-lang-block].active{display:block}
+/* STORY CONTACT + GALLERY */
+.story-contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.story-form-col{}
+.story-form-title{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.1;letter-spacing:-.02em;color:var(--text);margin-bottom:1.2rem}
+.story-form-desc{font-size:.9rem;color:var(--text-muted);line-height:1.7;margin-bottom:.4rem}
+.story-form{display:flex;flex-direction:column;gap:14px;margin-top:2rem}
+.sf-field input{width:100%;font-family:'DM Sans',sans-serif;font-size:.88rem;padding:13px 16px;border:1px solid var(--border-strong);border-radius:8px;background:var(--bg-card);color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s}
+.sf-field input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(254,13,109,.1)}
+.sf-field input::placeholder{color:var(--text-muted)}
+.sf-btn{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--accent);color:#fff;border:none;padding:14px 32px;border-radius:40px;cursor:pointer;transition:background .2s,transform .15s;align-self:flex-end;margin-top:6px}
+.sf-btn:hover{background:var(--teal-mid);transform:translateY(-1px)}
+
+/* Scrolling Gallery */
+.story-gallery-col{height:560px;overflow:hidden;border-radius:16px;position:relative}
+.gallery-scroll-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;height:100%}
+.gallery-col{overflow:hidden;position:relative}
+.gallery-track{display:flex;flex-direction:column;gap:10px}
+.gallery-down{animation:scrollDown 22s linear infinite}
+.gallery-up{animation:scrollUp 26s linear infinite}
+.gallery-track:hover{animation-play-state:paused}
+@keyframes scrollDown{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+@keyframes scrollUp{0%{transform:translateY(-50%)}100%{transform:translateY(0)}}
+.gallery-img{border-radius:10px;overflow:hidden;flex-shrink:0;background:var(--border)}
+.gallery-img img{width:100%;height:100%;object-fit:cover;display:block}
+.gallery-img{height:160px}
+.gallery-img--tall{height:220px}
+
+/* Blog thumb */
+.blog-thumb{width:100%;height:160px;border-radius:8px;overflow:hidden;margin-bottom:1.2rem;flex-shrink:0;background:var(--bg-off)}
+.blog-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.blog-card:hover .blog-thumb img{transform:scale(1.04)}
+
+@media(max-width:900px){
+  .story-contact-wrap{grid-template-columns:1fr;gap:3rem}
+  .story-gallery-col{height:340px}
+  #story{padding:4rem 1.5rem}
+}
+
+/* existing story-grid kept unused but not visible */
 
 @media(max-width:1100px){
   .bt-cards{grid-template-columns:repeat(2,1fr)!important}
@@ -269,6 +337,63 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
   .clients-stats{gap:2rem;flex-wrap:wrap}
   .nav-right{gap:6px}
 }
+
+/* ── PROJECTS SLIDER ── */
+#projects{padding:0;background:var(--hero-bg);overflow:hidden}
+.proj-outer{max-width:100%;padding:6rem 0 4rem}
+
+.proj-header{display:flex;align-items:flex-end;justify-content:space-between;padding:0 3rem;margin-bottom:3.5rem}
+.proj-header-left{display:flex;flex-direction:column;gap:1.4rem}
+.proj-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.5vw,3rem);letter-spacing:-.02em;line-height:1.1;color:var(--hero-text)}
+.proj-title em{font-style:italic;color:var(--accent)}
+.proj-all-link{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(250,250,248,.6);text-decoration:none;border:1px solid rgba(255,255,255,.2);padding:9px 20px;border-radius:30px;display:inline-flex;align-items:center;gap:6px;transition:color .2s,border-color .2s;width:fit-content}
+.proj-all-link:hover{color:#fff;border-color:rgba(255,255,255,.5)}
+
+.proj-nav-btns{display:flex;gap:10px}
+.proj-nav-btn{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(250,250,248,.7);transition:background .2s,border-color .2s,color .2s}
+.proj-nav-btn svg{width:18px;height:18px}
+.proj-nav-btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4);color:#fff}
+
+.proj-slider-wrap{overflow:hidden;padding:0 3rem;cursor:grab;user-select:none}
+.proj-slider-wrap:active{cursor:grabbing}
+.proj-slider{display:flex;gap:20px;transition:transform .5s cubic-bezier(.25,.46,.45,.94);will-change:transform}
+
+.proj-card{flex:0 0 calc((100% - 40px) / 3);min-width:0;border-radius:16px;overflow:hidden;background:#111;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .3s;border:1px solid rgba(255,255,255,.06)}
+.proj-card:hover{transform:translateY(-4px)}
+
+.proj-card-img{position:relative;aspect-ratio:3/2.2;overflow:hidden;background:#1a1a1a}
+.proj-card-img img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.75);transition:filter .4s,transform .4s}
+.proj-card:hover .proj-card-img img{filter:brightness(.6);transform:scale(1.04)}
+
+.proj-card-badges{position:absolute;top:14px;left:14px;display:flex;gap:8px}
+.proj-badge{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.06em;background:rgba(10,10,10,.65);backdrop-filter:blur(6px);color:rgba(255,255,255,.9);padding:4px 10px;border-radius:20px;border:1px solid rgba(255,255,255,.15)}
+
+.proj-card-logo{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.85);white-space:nowrap;background:rgba(0,0,0,.4);backdrop-filter:blur(8px);padding:5px 14px;border-radius:20px;border:1px solid rgba(255,255,255,.12)}
+
+.proj-card-body{display:flex;align-items:center;justify-content:space-between;padding:1.4rem 1.6rem;background:#0d0d0b;border-top:1px solid rgba(255,255,255,.06)}
+.proj-card-info{}
+.proj-card-name{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:#fff;letter-spacing:-.01em;margin-bottom:2px}
+.proj-card-cat{font-size:.75rem;color:rgba(255,255,255,.4);letter-spacing:.03em}
+.proj-card-cta{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.5);flex-shrink:0;transition:color .2s}
+.proj-card:hover .proj-card-cta{color:#fff}
+
+.proj-footer-bar{display:flex;align-items:center;justify-content:space-between;padding:2rem 3rem 0;border-top:1px solid rgba(255,255,255,.07);margin-top:3rem}
+.proj-drag-hint{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.3);font-family:'Syne',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.proj-count{font-family:'Syne',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.1em;color:rgba(255,255,255,.3)}
+
+@media(max-width:900px){
+  .proj-outer{padding:4rem 0 3rem}
+  .proj-header{padding:0 1.5rem}
+  .proj-slider-wrap{padding:0 1.5rem}
+  .proj-footer-bar{padding:1.5rem 1.5rem 0}
+  .proj-card{flex:0 0 calc(100vw - 4rem)}
+}
+
+/* ── i18n — MUST be last, !important prevents any override ── */
+[data-lang]               { display: none !important; }
+[data-lang].active        { display: inline !important; }
+[data-lang-block]         { display: none !important; }
+[data-lang-block].active  { display: block !important; }
 </style>
 </head>
 <body>
@@ -279,7 +404,7 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
   </a>
   <ul class="nav-links">
     <li><a href="#brand-transform"><span data-lang="tr" class="active">Hizmetler</span><span data-lang="en">Services</span></a></li>
-    <li><a href="#story"><span data-lang="tr" class="active">Hakkımızda</span><span data-lang="en">About</span></a></li>
+    <li><a href="hakkimizda.html"><span data-lang="tr" class="active">Hakkımızda</span><span data-lang="en">About</span></a></li>
     <li><a href="#projects"><span data-lang="tr" class="active">Projeler</span><span data-lang="en">Projects</span></a></li>
     <li><a href="#blog">Blog</a></li>
   </ul>
@@ -328,12 +453,12 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
       </div>
     </div>
     <h1 class="hero-headline">
-      <span data-lang-block="tr" class="active">Büyüme<br><em>kasıtlı</em><br>olur.</span>
-      <span data-lang-block="en">Growth<br><em>is</em><br>intentional.</span>
+      <span data-lang-block="tr" class="active">Sağlıkta<br><em>Güçlü Pazarlama</em><br>Akıllı Büyüme.</span>
+      <span data-lang-block="en">Strong Marketing<br><em>in Health.</em><br>Smart Growth.</span>
     </h1>
     <p class="hero-sub">
-      <span data-lang="tr" class="active">Sağlık, SaaS ve otomotiv sektörlerindeki iddialı markalar için ölçülebilir ve sürdürülebilir dijital büyüme sistemleri inşa ediyoruz.</span>
-      <span data-lang="en">We build measurable and sustainable digital growth systems for ambitious brands in health, SaaS and automotive sectors.</span>
+      <span data-lang="tr" class="active">Çağla Çakırgöz ve Tolga Çakırgöz liderliğinde, 10 yıllık sağlık turizmi deneyimine sahip ekibimiz; stratejik pazarlama ve satış uzmanlığıyla markanıza profesyonel çözümler sunarak büyümenizi destekler.</span>
+      <span data-lang="en">Led by Çağla Çakırgöz and Tolga Çakırgöz, our team with 10 years of health tourism experience supports your growth with strategic marketing and sales expertise.</span>
     </p>
     <div class="hero-actions">
       <a href="#cta" class="btn-primary">
@@ -416,7 +541,8 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
   <div class="clients-stats">
     <div class="clients-stat"><div class="clients-stat-num">20+</div><div class="clients-stat-label"><span data-lang="tr" class="active">Aktif marka</span><span data-lang="en">Active brands</span></div></div>
     <div class="clients-stat"><div class="clients-stat-num">$4M+</div><div class="clients-stat-label"><span data-lang="tr" class="active">Yönetilen reklam bütçesi</span><span data-lang="en">Ad spend managed</span></div></div>
-    <div class="clients-stat"><div class="clients-stat-num">6 <span data-lang="tr" class="active">yıl</span><span data-lang="en">yrs</span></div><div class="clients-stat-label"><span data-lang="tr" class="active">Sektör deneyimi</span><span data-lang="en">Industry experience</span></div></div>
+    <div class="clients-stat"><div class="clients-stat-num">10+ <span data-lang="tr" class="active">yıl</span><span data-lang="en">yrs</span></div><div class="clients-stat-label"><span data-lang="tr" class="active">Sektör deneyimi</span><span data-lang="en">Industry experience</span></div></div>
+    <div class="clients-stat"><div class="clients-stat-num">42+</div><div class="clients-stat-label"><span data-lang="tr" class="active">Ülkede reklam yönetimi</span><span data-lang="en">Countries managed</span></div></div>
   </div>
 </section>
 
@@ -430,8 +556,9 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
     <div class="bt-cards" style="grid-template-columns:repeat(3,1fr)">
       <!-- Google Reklamları -->
       <div class="bt-card">
-        <div class="bt-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <div class="bt-card-photo">
+          <!-- FOTOĞRAF LİNKİ: Google Reklamları -->
+          <img src="GOOGLE_REKLAMLARI_FOTO_URL" alt="Google Reklamları" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
         </div>
         <div class="bt-card-title"><span data-lang="tr" class="active">Google Reklamları</span><span data-lang="en">Google Ads</span></div>
         <p class="bt-card-desc"><span data-lang="tr" class="active">Google Ads, sağlık sektöründe dijital pazarlama stratejilerinin merkezinde yer alarak hedef kitlenize en doğru anda ulaşmanızı sağlar.</span><span data-lang="en">Google Ads sits at the center of digital marketing strategies in health, reaching your target audience at exactly the right moment.</span></p>
@@ -439,8 +566,9 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
       </div>
       <!-- Web Sitesi -->
       <div class="bt-card">
-        <div class="bt-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <div class="bt-card-photo">
+          <!-- FOTOĞRAF LİNKİ: Web Sitesi -->
+          <img src="WEB_SITESI_FOTO_URL" alt="Web Sitesi" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
         </div>
         <div class="bt-card-title"><span data-lang="tr" class="active">Web Sitesi</span><span data-lang="en">Website</span></div>
         <p class="bt-card-desc"><span data-lang="tr" class="active">Web sitesi yazılımı, bir web sitesinin işlevselliğini belirleyen kodlama ve tasarım süreçlerinin bütünüdür. Güçlü altyapılar kuruyoruz.</span><span data-lang="en">Website software defines the functionality of a web site through coding and design processes. We build powerful infrastructures.</span></p>
@@ -448,8 +576,9 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
       </div>
       <!-- Sosyal Medya Yönetimi -->
       <div class="bt-card">
-        <div class="bt-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2h10zM12 18h.01"/></svg>
+        <div class="bt-card-photo">
+          <!-- FOTOĞRAF LİNKİ: Sosyal Medya Yönetimi -->
+          <img src="SOSYAL_MEDYA_FOTO_URL" alt="Sosyal Medya Yönetimi" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
         </div>
         <div class="bt-card-title"><span data-lang="tr" class="active">Sosyal Medya Yönetimi</span><span data-lang="en">Social Media Management</span></div>
         <p class="bt-card-desc"><span data-lang="tr" class="active">Sağlık turizminde sosyal medyanın gücü; sağlık turizmi sektörü uluslararası rekabette öne çıkmanızı sağlar.</span><span data-lang="en">The power of social media in health tourism helps you stand out in international competition in the health tourism sector.</span></p>
@@ -457,8 +586,9 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
       </div>
       <!-- Meta Reklamları -->
       <div class="bt-card">
-        <div class="bt-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+        <div class="bt-card-photo">
+          <!-- FOTOĞRAF LİNKİ: Meta Reklamları -->
+          <img src="META_REKLAMLARI_FOTO_URL" alt="Meta Reklamları" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
         </div>
         <div class="bt-card-title"><span data-lang="tr" class="active">Meta Reklamları</span><span data-lang="en">Meta Ads</span></div>
         <p class="bt-card-desc"><span data-lang="tr" class="active">Facebook, Instagram ve WhatsApp reklamları, hedeflenmiş demografik ve davranışsal verilerle sağlık turizminizde büyüme sağlar.</span><span data-lang="en">Facebook, Instagram and WhatsApp ads drive growth in your health tourism through targeted demographic and behavioral data.</span></p>
@@ -466,8 +596,9 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
       </div>
       <!-- Satış Eğitimi ve Danışmanlığı -->
       <div class="bt-card">
-        <div class="bt-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        <div class="bt-card-photo">
+          <!-- FOTOĞRAF LİNKİ: Satış Eğitimi -->
+          <img src="SATIS_EGITIMI_FOTO_URL" alt="Satış Eğitimi ve Danışmanlığı" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
         </div>
         <div class="bt-card-title"><span data-lang="tr" class="active">Satış Eğitimi ve Danışmanlığı</span><span data-lang="en">Sales Training & Consulting</span></div>
         <p class="bt-card-desc"><span data-lang="tr" class="active">Sağlık turizmi sektörü, global ölçekte büyümeye devam ederken rekabet de her geçen gün artmaktadır. Ekibinizi hazırlıyoruz.</span><span data-lang="en">As the health tourism sector continues to grow globally, competition increases every day. We prepare your team.</span></p>
@@ -475,8 +606,9 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
       </div>
       <!-- HealthUp CRM -->
       <div class="bt-card" style="border-right:none">
-        <div class="bt-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        <div class="bt-card-photo">
+          <!-- FOTOĞRAF LİNKİ: HealthUp CRM -->
+          <img src="HEALTHUP_CRM_FOTO_URL" alt="HealthUp CRM" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
         </div>
         <div class="bt-card-title"><span data-lang="tr" class="active">HealthUp CRM</span><span data-lang="en">HealthUp CRM</span></div>
         <p class="bt-card-desc"><span data-lang="tr" class="active">HealthUp CRM, HealthUp Marketing tarafından sağlık turizmi sektörüne yönelik özel olarak geliştirilmiş bir müşteri yönetim sistemidir.</span><span data-lang="en">HealthUp CRM is a customer management system specifically developed by HealthUp Marketing for the health tourism sector.</span></p>
@@ -501,27 +633,79 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
         <a href="#cta" class="story-link"><span data-lang="tr" class="active">Birlikte çalışalım →</span><span data-lang="en">Let's work together →</span></a>
       </div>
     </div>
-    <div class="story-grid">
-      <div class="story-card">
-        <div class="story-card-num">01 / <span data-lang="tr" class="active">Sonuç</span><span data-lang="en">Result</span></div>
-        <div class="story-card-val">40×</div>
-        <div class="story-card-label"><span data-lang="tr" class="active">Organik trafik artışı</span><span data-lang="en">Organic traffic growth</span></div>
-        <div class="story-card-bar"><div class="story-card-bar-fill" style="width:100%"></div></div>
-        <div class="story-card-desc"><span data-lang="tr" class="active">DentPrime için 10'dan 400 günlük tıklamaya. 6 aylık SEO çalışması.</span><span data-lang="en">From 10 to 400 daily clicks for DentPrime. 6 months of SEO work.</span></div>
+    <!-- İletişim Formu + Kayan Galeri -->
+    <div class="story-contact-wrap">
+      <!-- Sol: Form -->
+      <div class="story-form-col">
+        <h3 class="story-form-title"><span data-lang="tr" class="active">İletişime Geçin</span><span data-lang="en">Get in Touch</span></h3>
+        <p class="story-form-desc">
+          <span data-lang="tr" class="active">Benzersiz hizmetlerimiz kafanızı karıştırıyor olabilir. Çünkü biz, <strong>halkla ilişkileri</strong> yeniden tanımlıyor, konvansiyonel PR ile <strong>dijital PR'ı</strong> kusursuz bir şekilde entegre ederek markanızın Google'daki görünürlüğünü üst sıralara taşıyoruz.</span>
+          <span data-lang="en">Our unique services may seem complex. Because we redefine <strong>public relations</strong>, seamlessly integrating conventional PR with <strong>digital PR</strong> to take your brand to the top of Google rankings.</span>
+        </p>
+        <p class="story-form-desc" style="margin-top:.6rem">
+          <span data-lang="tr" class="active">Dijital dünyadaki bilinirliğinizi konvansiyonel medyanın gücüyle destekliyoruz. Böylece markanız hem güvenilir medya platformlarında yer alıyor hem de Google aramalarında zirveye yükseliyor.</span>
+          <span data-lang="en">We support your digital awareness with the power of conventional media. Your brand gets featured on trusted media platforms and climbs to the top of Google searches.</span>
+        </p>
+        <form class="story-form" onsubmit="return false">
+          <div class="sf-field">
+            <input type="text" placeholder="İsim Soyisim *" required>
+          </div>
+          <div class="sf-field">
+            <input type="email" placeholder="E-posta *" required>
+          </div>
+          <div class="sf-field">
+            <input type="tel" placeholder="Telefon">
+          </div>
+          <div class="sf-field">
+            <input type="url" placeholder="Website">
+          </div>
+          <button type="submit" class="sf-btn">
+            <span data-lang="tr" class="active">İletişime Geç</span>
+            <span data-lang="en">Send Message</span>
+          </button>
+        </form>
       </div>
-      <div class="story-card">
-        <div class="story-card-num">02 / <span data-lang="tr" class="active">Sonuç</span><span data-lang="en">Result</span></div>
-        <div class="story-card-val">−62%</div>
-        <div class="story-card-label"><span data-lang="tr" class="active">Konsültasyon başı maliyet</span><span data-lang="en">Cost per consultation</span></div>
-        <div class="story-card-bar"><div class="story-card-bar-fill" style="width:62%"></div></div>
-        <div class="story-card-desc"><span data-lang="tr" class="active">Dikey video + CAPI yeniden yapılandırması ile Meta Ads'de sağlanan düşüş.</span><span data-lang="en">Achieved via vertical video creative and CAPI server-side rebuild on Meta Ads.</span></div>
-      </div>
-      <div class="story-card">
-        <div class="story-card-num">03 / <span data-lang="tr" class="active">Sonuç</span><span data-lang="en">Result</span></div>
-        <div class="story-card-val">+312%</div>
-        <div class="story-card-label"><span data-lang="tr" class="active">Nitelikli lead artışı</span><span data-lang="en">Qualified lead growth</span></div>
-        <div class="story-card-bar"><div class="story-card-bar-fill" style="width:85%"></div></div>
-        <div class="story-card-desc"><span data-lang="tr" class="active">Livera Dental için tam marka yenileme, web sitesi, SEO ve GEO sonrası.</span><span data-lang="en">After full rebrand, custom website, SEO and GEO for Livera Dental.</span></div>
+
+      <!-- Sağ: Kayan Galeri (2 kolon, ters yönlü) -->
+      <div class="story-gallery-col">
+        <div class="gallery-scroll-wrap">
+          <!-- Kolon 1: Aşağı inen -->
+          <div class="gallery-col">
+            <div class="gallery-track gallery-down">
+              <div class="gallery-img"><img src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=400&q=80" alt="Clinic"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=400&q=80" alt="Dental"></div>
+              <div class="gallery-img"><img src="https://images.unsplash.com/photo-1611604548018-d56bbd85d681?w=400&q=80" alt="Medical"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&q=80" alt="Health"></div>
+              <div class="gallery-img"><img src="https://images.unsplash.com/photo-1543333995-a78aea2eee50?w=400&q=80" alt="Turkey"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=400&q=80" alt="Tourism"></div>
+              <!-- duplicate -->
+              <div class="gallery-img"><img src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=400&q=80" alt="Clinic"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=400&q=80" alt="Dental"></div>
+              <div class="gallery-img"><img src="https://images.unsplash.com/photo-1611604548018-d56bbd85d681?w=400&q=80" alt="Medical"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&q=80" alt="Health"></div>
+              <div class="gallery-img"><img src="https://images.unsplash.com/photo-1543333995-a78aea2eee50?w=400&q=80" alt="Turkey"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=400&q=80" alt="Tourism"></div>
+            </div>
+          </div>
+          <!-- Kolon 2: Yukarı çıkan -->
+          <div class="gallery-col">
+            <div class="gallery-track gallery-up">
+              <div class="gallery-img gallery-img--tall"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&q=80" alt="Hospital"></div>
+              <div class="gallery-img"><img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=400&q=80" alt="Press"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&q=80" alt="Media"></div>
+              <div class="gallery-img"><img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&q=80" alt="Digital"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80" alt="Team"></div>
+              <div class="gallery-img"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80" alt="Work"></div>
+              <!-- duplicate -->
+              <div class="gallery-img gallery-img--tall"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&q=80" alt="Hospital"></div>
+              <div class="gallery-img"><img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=400&q=80" alt="Press"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&q=80" alt="Media"></div>
+              <div class="gallery-img"><img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&q=80" alt="Digital"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80" alt="Team"></div>
+              <div class="gallery-img"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80" alt="Work"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -529,17 +713,208 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
 
 <!-- PROJECTS -->
 <section id="projects">
-  <div class="projects-inner">
-    <div class="section-header">
-      <h2 class="section-title"><span data-lang-block="tr" class="active">Portföy değil,<br><em>projeler.</em></span><span data-lang-block="en">Not a portfolio.<br><em>Our projects.</em></span></h2>
-      <a href="#" class="section-all-link"><span data-lang="tr" class="active">Tüm projeler →</span><span data-lang="en">All projects →</span></a>
+  <div class="proj-outer">
+    <!-- Header row -->
+    <div class="proj-header">
+      <div class="proj-header-left">
+        <h2 class="proj-title"><span data-lang-block="tr" class="active">Portföy değil,<br><em>projeler.</em></span><span data-lang-block="en">Not a portfolio.<br><em>Our projects.</em></span></h2>
+        <a href="#" class="proj-all-link">
+          <span data-lang="tr" class="active">Tümünü gör</span><span data-lang="en">See all</span> →
+        </a>
+      </div>
+      <div class="proj-nav-btns">
+        <button class="proj-nav-btn" id="projPrev" aria-label="Önceki">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="proj-nav-btn" id="projNext" aria-label="Sonraki">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
     </div>
-    <div class="projects-list">
-      <a href="#" class="project-row"><div class="project-num">01</div><div class="project-title">DentPrime</div><div class="project-tag"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></div><div class="project-year">2024</div><div class="project-arrow">→</div></a>
-      <a href="#" class="project-row"><div class="project-num">02</div><div class="project-title">Livera Dental Clinic</div><div class="project-tag"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></div><div class="project-year">2024</div><div class="project-arrow">→</div></a>
-      <a href="#" class="project-row"><div class="project-num">03</div><div class="project-title">Avrupa Sağlık Diş</div><div class="project-tag"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></div><div class="project-year">2024</div><div class="project-arrow">→</div></a>
-      <a href="#" class="project-row"><div class="project-num">04</div><div class="project-title">Doctor Fero</div><div class="project-tag"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></div><div class="project-year">2023</div><div class="project-arrow">→</div></a>
-      <a href="#" class="project-row"><div class="project-num">05</div><div class="project-title">Mednfly</div><div class="project-tag"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></div><div class="project-year">2024</div><div class="project-arrow">→</div></a>
+
+    <!-- Slider -->
+    <div class="proj-slider-wrap">
+      <div class="proj-slider" id="projSlider">
+
+        <!-- Kart 1: DentPrime -->
+        <a href="#" class="proj-card">
+          <div class="proj-card-img">
+            <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=700&q=80" alt="DentPrime">
+            <div class="proj-card-badges">
+              <span class="proj-badge">01</span>
+              <span class="proj-badge">2024</span>
+            </div>
+            <div class="proj-card-logo">HealthUp × DentPrime</div>
+          </div>
+          <div class="proj-card-body">
+            <div class="proj-card-info">
+              <h3 class="proj-card-name">DentPrime</h3>
+              <span class="proj-card-cat"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></span>
+            </div>
+            <span class="proj-card-cta"><span data-lang="tr" class="active">İNCELE</span><span data-lang="en">VIEW</span> →</span>
+          </div>
+        </a>
+
+        <!-- Kart 2: Livera Dental -->
+        <a href="#" class="proj-card">
+          <div class="proj-card-img">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&q=80" alt="Livera Dental">
+            <div class="proj-card-badges">
+              <span class="proj-badge">02</span>
+              <span class="proj-badge">2024</span>
+            </div>
+            <div class="proj-card-logo">HealthUp × Livera</div>
+          </div>
+          <div class="proj-card-body">
+            <div class="proj-card-info">
+              <h3 class="proj-card-name">Livera Dental Clinic</h3>
+              <span class="proj-card-cat"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></span>
+            </div>
+            <span class="proj-card-cta"><span data-lang="tr" class="active">İNCELE</span><span data-lang="en">VIEW</span> →</span>
+          </div>
+        </a>
+
+        <!-- Kart 3: Avrupa Sağlık Diş -->
+        <a href="#" class="proj-card">
+          <div class="proj-card-img">
+            <img src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=700&q=80" alt="Avrupa Sağlık Diş">
+            <div class="proj-card-badges">
+              <span class="proj-badge">03</span>
+              <span class="proj-badge">2024</span>
+            </div>
+            <div class="proj-card-logo">HealthUp × Avrupa Sağlık</div>
+          </div>
+          <div class="proj-card-body">
+            <div class="proj-card-info">
+              <h3 class="proj-card-name">Avrupa Sağlık Diş</h3>
+              <span class="proj-card-cat"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></span>
+            </div>
+            <span class="proj-card-cta"><span data-lang="tr" class="active">İNCELE</span><span data-lang="en">VIEW</span> →</span>
+          </div>
+        </a>
+
+        <!-- Kart 4: Doctor Fero -->
+        <a href="#" class="proj-card">
+          <div class="proj-card-img">
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=700&q=80" alt="Doctor Fero">
+            <div class="proj-card-badges">
+              <span class="proj-badge">04</span>
+              <span class="proj-badge">2023</span>
+            </div>
+            <div class="proj-card-logo">HealthUp × Doctor Fero</div>
+          </div>
+          <div class="proj-card-body">
+            <div class="proj-card-info">
+              <h3 class="proj-card-name">Doctor Fero</h3>
+              <span class="proj-card-cat"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></span>
+            </div>
+            <span class="proj-card-cta"><span data-lang="tr" class="active">İNCELE</span><span data-lang="en">VIEW</span> →</span>
+          </div>
+        </a>
+
+        <!-- Kart 5: Mednfly -->
+        <a href="#" class="proj-card">
+          <div class="proj-card-img">
+            <img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=700&q=80" alt="Mednfly">
+            <div class="proj-card-badges">
+              <span class="proj-badge">05</span>
+              <span class="proj-badge">2024</span>
+            </div>
+            <div class="proj-card-logo">HealthUp × Mednfly</div>
+          </div>
+          <div class="proj-card-body">
+            <div class="proj-card-info">
+              <h3 class="proj-card-name">Mednfly</h3>
+              <span class="proj-card-cat"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></span>
+            </div>
+            <span class="proj-card-cta"><span data-lang="tr" class="active">İNCELE</span><span data-lang="en">VIEW</span> →</span>
+          </div>
+        </a>
+
+      </div><!-- /proj-slider -->
+    </div><!-- /proj-slider-wrap -->
+
+    <!-- Footer row -->
+    <div class="proj-footer-bar">
+      <div class="proj-drag-hint">
+        <svg width="32" height="12" viewBox="0 0 32 12" fill="none"><path d="M0 6h30M24 1l6 5-6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span><span data-lang="tr" class="active">SÜRÜKLEYIN / KAYDIIRIN</span><span data-lang="en">DRAG / SCROLL</span></span>
+      </div>
+      <div class="proj-count" id="projCount">01 / 05</div>
+    </div>
+
+  </div><!-- /proj-outer -->
+</section>
+
+<!-- EKİP -->
+<section id="team">
+  <div class="team-inner">
+    <div class="section-header">
+      <div class="bt-tag">Ekibimiz</div>
+      <h2 class="section-title">İşin arkasındaki<br><em>insanlar.</em></h2>
+    </div>
+    <p class="team-sub">Strateji, performans, kreatif ve teknoloji. Planı yapan kişi, onu hayata geçiren kişiyle aynı.</p>
+    <!-- Kurucular: 2 eşit büyüklükte yan yana -->
+    <div class="team-founders">
+      <div class="team-card">
+        <div class="team-card-img-wrap">
+          <!-- FOTOĞRAF LİNKİ: Çağla Çakırgöz -->
+          <img src="CAGLA_FOTO_URL_BURAYA" alt="Çağla Çakırgöz" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
+          <div class="team-card-num">01</div>
+        </div>
+        <div class="team-card-info">
+          <span class="team-card-role">Kurucu</span>
+          <h3 class="team-card-name">Çağla Çakırgöz</h3>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-img-wrap">
+          <!-- FOTOĞRAF LİNKİ: Tolga Çakırgöz -->
+          <img src="TOLGA_FOTO_URL_BURAYA" alt="Tolga Çakırgöz" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
+          <div class="team-card-num">02</div>
+        </div>
+        <div class="team-card-info">
+          <span class="team-card-role">Kurucu</span>
+          <h3 class="team-card-name">Tolga Çakırgöz</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ekip: 3 kişi -->
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-card-img-wrap">
+          <!-- FOTOĞRAF LİNKİ: Doğukan Demir -->
+          <img src="DOGUKAN_FOTO_URL_BURAYA" alt="Doğukan Demir" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
+          <div class="team-card-num">03</div>
+        </div>
+        <div class="team-card-info">
+          <span class="team-card-role">Dijital Pazarlama</span>
+          <h3 class="team-card-name">Doğukan Demir</h3>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-img-wrap">
+          <!-- FOTOĞRAF LİNKİ: Ayşe Betül Karaca -->
+          <img src="AYSE_BETUL_FOTO_URL_BURAYA" alt="Ayşe Betül Karaca" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
+          <div class="team-card-num">04</div>
+        </div>
+        <div class="team-card-info">
+          <span class="team-card-role">Kreatif Tasarımcı</span>
+          <h3 class="team-card-name">Ayşe Betül Karaca</h3>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-img-wrap">
+          <!-- FOTOĞRAF LİNKİ: Gurur Dayanık -->
+          <img src="GURUR_FOTO_URL_BURAYA" alt="Gurur Dayanık" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
+          <div class="team-card-num">05</div>
+        </div>
+        <div class="team-card-info">
+          <span class="team-card-role">Kreatif Tasarımcı</span>
+          <h3 class="team-card-name">Gurur Dayanık</h3>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -553,18 +928,21 @@ footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
     </div>
     <div class="blog-grid">
       <a href="#" class="blog-card">
+        <div class="blog-thumb"><img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&q=80" alt="SEO"></div>
         <div class="blog-tag-wrap"><span class="blog-tag">SEO</span><span class="blog-read-time">14 dk</span></div>
         <h3 class="blog-title"><span data-lang="tr" class="active">Yeni Bir Domain ile 5 Ayda İngiltere'de #1'e Nasıl Çıktık</span><span data-lang="en">How We Ranked a Brand-New Domain #1 in the UK in 5 Months</span></h3>
         <p class="blog-excerpt"><span data-lang="tr" class="active">Sıfır domain otoritesi, backlink yok, aşırı rekabetçi bir niş. Zirveyi fethetmek için kullandığımız içerik, teknik ve link stratejisi.</span><span data-lang="en">Zero domain authority, no backlinks, a hyper-competitive niche. The exact content, technical and link-building strategy we used.</span></p>
         <div class="blog-footer"><span class="blog-date">9 Nis 2026</span><span class="blog-arrow">→</span></div>
       </a>
       <a href="#" class="blog-card">
+        <div class="blog-thumb"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Google Ads"></div>
         <div class="blog-tag-wrap"><span class="blog-tag">Google Ads</span><span class="blog-read-time">16 dk</span></div>
         <h3 class="blog-title"><span data-lang="tr" class="active">Sağlık Sektöründe $4M Google Ads Harcamasından Öğrendiklerimiz</span><span data-lang="en">We Spent $4M on Google Ads for Healthcare. Here's What We Learned.</span></h3>
         <p class="blog-excerpt"><span data-lang="tr" class="active">Beş yıl, düzinelerce klinik, milyonlarca dolarlık reklam harcaması. Gerçekten işe yarayan teklif stratejileri.</span><span data-lang="en">Five years, dozens of clinics, millions in ad spend. The bidding strategies and conversion traps that actually move the needle.</span></p>
         <div class="blog-footer"><span class="blog-date">8 Nis 2026</span><span class="blog-arrow">→</span></div>
       </a>
       <a href="#" class="blog-card">
+        <div class="blog-thumb"><img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&q=80" alt="Meta Ads"></div>
         <div class="blog-tag-wrap"><span class="blog-tag">Meta Ads</span><span class="blog-read-time">11 dk</span></div>
         <h3 class="blog-title"><span data-lang="tr" class="active">Dikey Video Müşterimizin CPL'ini %62 Düşürdü: İşte Framework</span><span data-lang="en">Vertical Video Cut Our Client's CPL by 62%. Here's the Framework.</span></h3>
         <p class="blog-excerpt"><span data-lang="tr" class="active">Bir diş kliniğinin tüm Meta hunisini dikey video, sunucu taraflı takip ve CAPI üzerine nasıl yeniden kurduğumuzu anlattık.</span><span data-lang="en">How we rebuilt a dental clinic's entire Meta funnel around vertical video creative, server-side tracking and CAPI.</span></p>
@@ -663,17 +1041,79 @@ document.getElementById('themeToggle').addEventListener('click',()=>{
 
 // LANG
 function setLang(lang){
+  // inline elements
   document.querySelectorAll('[data-lang]').forEach(el=>{
-    el.classList.toggle('active',el.getAttribute('data-lang')===lang);
+    el.classList.remove('active');
+    if(el.getAttribute('data-lang')===lang) el.classList.add('active');
   });
+  // block elements
   document.querySelectorAll('[data-lang-block]').forEach(el=>{
-    el.classList.toggle('active',el.getAttribute('data-lang-block')===lang);
+    el.classList.remove('active');
+    if(el.getAttribute('data-lang-block')===lang) el.classList.add('active');
   });
-  document.getElementById('btn-tr').classList.toggle('active',lang==='tr');
-  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+  // button states
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  const btn=document.getElementById('btn-'+lang);
+  if(btn) btn.classList.add('active');
   document.documentElement.setAttribute('lang',lang);
+  // store preference
+  try{localStorage.setItem('lang',lang);}catch(e){}
 }
-setLang('tr');
+// PROJECTS SLIDER
+(function(){
+  const slider = document.getElementById('projSlider');
+  const wrap   = slider ? slider.parentElement : null;
+  const prevBtn= document.getElementById('projPrev');
+  const nextBtn= document.getElementById('projNext');
+  const countEl= document.getElementById('projCount');
+  if(!slider||!wrap) return;
+
+  const cards = slider.querySelectorAll('.proj-card');
+  const total = cards.length;
+  let current = 0;
+
+  function getVisible(){
+    return window.innerWidth <= 900 ? 1 : 3;
+  }
+
+  function getCardWidth(){
+    const gap = 20;
+    const visible = getVisible();
+    // slider-wrap width minus padding
+    const wrapW = wrap.clientWidth - (window.innerWidth <= 900 ? 0 : 0);
+    return (wrapW - gap * (visible - 1)) / visible + gap;
+  }
+
+  function goTo(idx){
+    const max = total - getVisible();
+    current = Math.max(0, Math.min(idx, max));
+    slider.style.transform = `translateX(-${current * getCardWidth()}px)`;
+    countEl.textContent = String(current + 1).padStart(2,'0') + ' / ' + String(total).padStart(2,'0');
+  }
+
+  prevBtn && prevBtn.addEventListener('click', ()=> goTo(current - 1));
+  nextBtn && nextBtn.addEventListener('click', ()=> goTo(current + 1));
+
+  // Drag / touch
+  let startX = 0, dragging = false, moved = 0;
+  wrap.addEventListener('mousedown', e=>{ dragging=true; startX=e.clientX; moved=0; });
+  window.addEventListener('mousemove', e=>{ if(dragging) moved = e.clientX - startX; });
+  window.addEventListener('mouseup', e=>{
+    if(!dragging) return; dragging=false;
+    if(Math.abs(moved) > 60) goTo(moved < 0 ? current+1 : current-1);
+  });
+  wrap.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; moved=0; }, {passive:true});
+  wrap.addEventListener('touchmove',  e=>{ moved=e.touches[0].clientX - startX; }, {passive:true});
+  wrap.addEventListener('touchend',   ()=>{ if(Math.abs(moved) > 50) goTo(moved<0?current+1:current-1); });
+
+  window.addEventListener('resize', ()=> goTo(current));
+  goTo(0);
+})();
+(function(){
+  let saved='tr';
+  try{saved=localStorage.getItem('lang')||'tr';}catch(e){}
+  setLang(saved);
+})();
 </script>
 </body>
 </html>
