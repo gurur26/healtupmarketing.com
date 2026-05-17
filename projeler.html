@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  var t;
+  try{t=localStorage.getItem('theme');}catch(e){}
+  document.documentElement.setAttribute('data-theme', t || 'dark');
+})();
+</script>
+<title>HealthUp Marketing — Projeler</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+[data-theme="dark"]{
+  --bg:#fafaf8;--bg-off:#f3f2ef;--bg-card:#ffffff;
+  --text:#0a0a0a;--text-muted:#8a8a82;
+  --border:rgba(10,10,10,0.1);--border-strong:rgba(10,10,10,0.18);
+  --nav-bg:rgba(250,250,248,0.92);
+  --card-hover:#f3f2ef;--icon-bg:#f0efec;
+  --toggle-bg:rgba(10,10,10,0.07);
+  --hero-bg:#0a0a0a;--hero-text:#fafaf8;--hero-muted:rgba(250,250,248,0.55);
+}
+[data-theme="dark"]{
+  --bg:#0f0f0d;--bg-off:#181815;--bg-card:#1c1c19;
+  --text:#fafaf8;--text-muted:#6b6b63;
+  --border:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.14);
+  --nav-bg:rgba(15,15,13,0.92);
+  --card-hover:#222220;--icon-bg:#2a2a26;
+  --toggle-bg:rgba(255,255,255,0.09);
+  --hero-bg:#050504;--hero-text:#fafaf8;--hero-muted:rgba(250,250,248,0.45);
+}
+:root{
+  --accent:#fe0d6d;--grad-start:#fd7a49;--grad-end:#fe0d6d;
+  --radius:4px;--radius-card:12px;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.6;overflow-x:hidden;transition:background .3s,color .3s}
+a{text-decoration:none;color:inherit}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:64px;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:background .3s,border-color .3s}
+.nav-logo{display:flex;align-items:center;text-decoration:none}
+.nav-logo img{height:38px;width:auto;object-fit:contain}
+.nav-logo-light{display:block}
+.nav-logo-dark{display:none}
+[data-theme="dark"] .nav-logo-light{display:none}
+[data-theme="dark"] .nav-logo-dark{display:block}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--text-muted);text-decoration:none;letter-spacing:.01em;transition:color .2s}
+.nav-links a:hover,.nav-links a.active-page{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.theme-toggle{width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text);transition:background .2s;flex-shrink:0}
+.theme-toggle svg{width:16px;height:16px}
+.icon-sun{display:none}.icon-moon{display:block}
+[data-theme="dark"] .icon-sun{display:block}[data-theme="dark"] .icon-moon{display:none}
+.lang-toggle{display:flex;align-items:center;background:var(--toggle-bg);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.lang-btn{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:7px 12px;cursor:pointer;background:transparent;border:none;color:var(--text-muted);transition:background .2s,color .2s;line-height:1}
+.lang-btn.active{background:var(--text);color:var(--bg)}
+.nav-cta{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--text);color:var(--bg);padding:10px 22px;border-radius:var(--radius);text-decoration:none;transition:background .2s,color .3s;white-space:nowrap}
+[data-theme="dark"] .nav-cta{background:var(--accent);color:#fff}
+
+/* ── HERO ── */
+.proj-hero{min-height:52vh;padding-top:64px;background:var(--hero-bg);color:var(--hero-text);display:flex;align-items:flex-end;position:relative;overflow:hidden}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.hero-blob{position:absolute;top:-80px;right:-60px;width:600px;height:600px;background:radial-gradient(circle,rgba(254,13,109,.10) 0%,transparent 65%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:4rem 3rem 4rem;width:100%}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:2rem}
+.hero-eyebrow-line{width:40px;height:1px;background:var(--accent)}
+.hero-eyebrow span{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
+.hero-h1{font-family:'DM Serif Display',serif;font-size:clamp(3rem,7vw,6rem);line-height:1;letter-spacing:-.03em;margin-bottom:1.8rem;max-width:800px}
+.hero-h1 em{font-style:italic;color:var(--accent)}
+.hero-sub{font-size:1rem;font-weight:300;color:var(--hero-muted);max-width:560px;line-height:1.8}
+
+/* ── FILTERS ── */
+.filters-bar{background:var(--bg-off);border-bottom:1px solid var(--border);padding:0;position:sticky;top:64px;z-index:90;transition:background .3s}
+.filters-inner{max-width:1200px;margin:0 auto;padding:0 3rem;display:flex;gap:8px;align-items:center;height:56px;overflow-x:auto}
+.filter-btn{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:7px 18px;border-radius:999px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;transition:background .2s,color .2s,border-color .2s;white-space:nowrap;flex-shrink:0}
+.filter-btn.active,.filter-btn:hover{background:var(--text);color:var(--bg);border-color:var(--text)}
+[data-theme="dark"] .filter-btn.active,[data-theme="dark"] .filter-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* ── GRID ── */
+.proj-section{padding:5rem 0;background:var(--bg);transition:background .3s}
+.proj-inner{max-width:1200px;margin:0 auto;padding:0 3rem}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+
+/* ── CARD ── */
+.proj-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-card);overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .2s,box-shadow .2s;text-decoration:none;color:inherit}
+.proj-card:hover{border-color:var(--border-strong);transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.08)}
+[data-theme="dark"] .proj-card:hover{box-shadow:0 12px 36px rgba(0,0,0,.3)}
+
+.card-media{height:220px;position:relative;overflow:hidden;background:var(--bg-off);flex-shrink:0}
+.card-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.proj-card:hover .card-media img{transform:scale(1.04)}
+.card-badge{position:absolute;top:16px;left:16px;font-family:'Syne',sans-serif;font-size:.62rem;font-weight:800;letter-spacing:.08em;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);color:#fff;padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.18);z-index:2}
+.card-tag-overlay{position:absolute;top:16px;right:16px;font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.06em;background:var(--accent);color:#fff;padding:4px 10px;border-radius:999px;z-index:2}
+.card-logo-bar{position:absolute;bottom:0;left:0;right:0;padding:12px 16px;background:linear-gradient(to top,rgba(0,0,0,.7),transparent);display:flex;align-items:center;gap:8px;z-index:2}
+.card-logo-text{font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;color:rgba(255,255,255,.9);letter-spacing:.04em}
+.card-logo-sep{font-size:.7rem;color:rgba(255,255,255,.4)}
+
+.card-body{padding:1.5rem;display:flex;flex-direction:column;flex:1}
+.card-cat{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem}
+.card-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;letter-spacing:-.01em;color:var(--text);margin-bottom:.8rem;line-height:1.35}
+.card-desc{font-size:.83rem;color:var(--text-muted);line-height:1.65;flex:1}
+.card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--border)}
+.card-stats{display:flex;gap:1.2rem}
+.card-stat{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:800;color:var(--text)}
+.card-stat span{display:block;font-size:.6rem;font-weight:500;color:var(--text-muted);letter-spacing:.04em;margin-top:1px}
+.card-arrow{font-size:.75rem;color:var(--text-muted);font-weight:600;transition:color .2s}
+.proj-card:hover .card-arrow{color:var(--accent)}
+
+/* hidden cards for filter */
+.proj-card.hidden{display:none}
+
+/* ── EMPTY STATE ── */
+.empty-state{grid-column:1/-1;text-align:center;padding:4rem 0;color:var(--text-muted);font-size:.9rem;display:none}
+.empty-state.visible{display:block}
+
+/* ── CTA ── */
+.proj-cta{background:linear-gradient(135deg,#fd7a49 0%,#fe0d6d 100%);padding:6rem 3rem;text-align:center;position:relative;overflow:hidden}
+.proj-cta-blob{position:absolute;top:-150px;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(255,255,255,.07) 0%,transparent 70%);pointer-events:none}
+.proj-cta-inner{position:relative;z-index:1}
+.proj-cta-eye{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:1.5rem}
+.proj-cta-h2{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3.2rem);line-height:1.05;letter-spacing:-.02em;color:#fff;margin-bottom:1rem;max-width:680px;margin-left:auto;margin-right:auto}
+.proj-cta-sub{font-size:.95rem;color:rgba(255,255,255,.75);max-width:520px;margin:0 auto 2rem;line-height:1.7}
+.proj-cta-btn{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:#fff;color:#fd7a49;padding:13px 34px;border-radius:var(--radius);display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .15s}
+.proj-cta-btn:hover{background:rgba(255,255,255,.9);transform:translateY(-1px)}
+.proj-cta-btn svg{width:14px;height:14px}
+
+/* ── FOOTER ── */
+.proj-footer{background:#000;border-top:1px solid rgba(255,255,255,.06)}
+.proj-footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:280px 1fr 1fr;gap:4rem;padding:4rem 3rem 3rem}
+.pf-brand{display:flex;flex-direction:column;gap:1.2rem}
+.pf-logo img{height:40px;width:auto;object-fit:contain}
+.pf-slogan{font-size:.85rem;color:rgba(255,255,255,.35);line-height:1.5;max-width:220px}
+.pf-social{display:flex;gap:10px;margin-top:.4rem}
+.pf-social-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);text-decoration:none;transition:border-color .2s,color .2s}
+.pf-social-btn:hover{border-color:var(--accent);color:var(--accent)}
+.pf-social-btn svg{width:15px;height:15px}
+.pf-col-title{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.8rem}
+.pf-col-sub{font-size:.8rem;color:rgba(255,255,255,.3);margin-bottom:1.2rem}
+.pf-contact-list{list-style:none;display:flex;flex-direction:column;gap:.9rem}
+.pf-contact-list li{display:flex;align-items:flex-start;gap:10px;font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.5}
+.pf-contact-list a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.pf-contact-list a:hover{color:var(--accent)}
+.pf-contact-icon{flex-shrink:0;width:16px;color:var(--accent);margin-top:2px}
+.pf-contact-icon svg{width:15px;height:15px}
+.pf-nav{display:grid;grid-template-columns:1fr 1fr;gap:.5rem 2rem}
+.pf-nav a{font-size:.8rem;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s;padding:.2rem 0}
+.pf-nav a:hover{color:#fff}
+.pf-bottom{border-top:1px solid rgba(255,255,255,.06);padding:1.2rem 3rem}
+.pf-bottom span{font-size:.75rem;color:rgba(255,255,255,.2)}
+
+/* i18n */
+[data-lang]{display:none}
+[data-lang].active{display:inline}
+[data-lang-block]{display:none!important}
+[data-lang-block].active{display:block!important}
+
+@media(max-width:900px){
+  nav{padding:0 1.5rem}.nav-links{display:none}.nav-right{gap:6px}
+  .hero-inner{padding:3rem 1.5rem}
+  .filters-inner{padding:0 1.5rem}
+  .proj-inner{padding:0 1.5rem}
+  .proj-section{padding:3rem 0}
+  .proj-grid{grid-template-columns:repeat(2,1fr)}
+  .proj-cta{padding:4rem 1.5rem}
+  .proj-footer-inner{grid-template-columns:1fr;gap:2.5rem;padding:3rem 1.5rem 2rem}
+  .pf-bottom{padding:1rem 1.5rem}
+}
+@media(max-width:600px){
+  .proj-grid{grid-template-columns:1fr}
+}
+
+/* ── HAMBURGER ── */
+.hamburger{display:none;width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;align-items:center;justify-content:center;color:var(--text);flex-shrink:0;transition:background .2s}
+.hamburger svg{width:18px;height:18px}
+.hamburger .ham-open{display:block}.hamburger .ham-close{display:none}
+.hamburger.open .ham-open{display:none}.hamburger.open .ham-close{display:block}
+.mobile-drawer{position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:99;display:flex;flex-direction:column;padding:2rem 1.5rem;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);border-top:1px solid var(--border);overflow-y:auto}
+.mobile-drawer.open{transform:translateX(0)}
+.mobile-nav-links{list-style:none;display:flex;flex-direction:column;gap:0;border-bottom:1px solid var(--border);padding-bottom:1.5rem;margin-bottom:1.5rem}
+.mobile-nav-links li a{display:flex;align-items:center;justify-content:space-between;font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;letter-spacing:-.02em;color:var(--text);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border);transition:color .2s}
+.mobile-nav-links li:last-child a{border-bottom:none}
+.mobile-nav-links li a:hover{color:var(--accent)}
+.mobile-nav-links li a::after{content:'→';font-size:1rem;color:var(--text-muted)}
+.mobile-cta-m{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--accent);color:#fff;padding:15px 24px;border-radius:4px;text-decoration:none;text-align:center;display:block;transition:background .2s}
+.mobile-cta-m:hover{background:#e0005a}
+@media(max-width:900px){.nav-links{display:none!important}.nav-cta{display:none!important}.hamburger{display:flex!important}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="https://healthupmarketing.com/wp-content/uploads/2025/01/logo.png" alt="HealthUp Marketing" class="nav-logo-light">
+    <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/hup-logos.webp" alt="HealthUp Marketing" class="nav-logo-dark">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#brand-transform"><span data-lang="tr" class="active">Hizmetler</span><span data-lang="en">Services</span></a></li>
+    <li><a href="hakkimizda.html"><span data-lang="tr" class="active">Hakkımızda</span><span data-lang="en">About</span></a></li>
+    <li><a href="projeler.html" class="active-page"><span data-lang="tr" class="active">Projeler</span><span data-lang="en">Projects</span></a></li>
+    <li><a href="blog.html">Blog</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg class="icon-moon" viewBox="0 0 20 20" fill="currentColor"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg>
+    </button>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-tr" onclick="setLang('tr')">TR</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="index.html#cta" class="nav-cta"><span data-lang="tr" class="active">Analiz İste →</span><span data-lang="en">Get Analysis →</span></a>
+    <button class="hamburger" id="hamburger" aria-label="Menü">
+      <svg class="ham-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="ham-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <ul class="mobile-nav-links">
+    <li><a href="index.html#brand-transform" class="mobile-link"><span data-lang="tr" class="active">Hizmetler</span><span data-lang="en">Services</span></a></li>
+    <li><a href="hakkimizda.html" class="mobile-link"><span data-lang="tr" class="active">Hakkımızda</span><span data-lang="en">About</span></a></li>
+    <li><a href="projeler.html" class="mobile-link"><span data-lang="tr" class="active">Projeler</span><span data-lang="en">Projects</span></a></li>
+    <li><a href="blog.html" class="mobile-link">Blog</a></li>
+  </ul>
+  <a href="https://healthupmarketing.com/iletisim/" class="mobile-cta-m mobile-link">
+    <span data-lang="tr" class="active">Analiz İste →</span>
+    <span data-lang="en">Get Analysis →</span>
+  </a>
+</div>
+
+<!-- HERO -->
+<section class="proj-hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-blob"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span><span data-lang="tr" class="active">Projeler · HealthUp Marketing</span><span data-lang="en">Projects · HealthUp Marketing</span></span>
+    </div>
+    <h1 class="hero-h1">
+      <span data-lang-block="tr" class="active">Gerçek sonuçlar.<br><em>Gerçek rakamlar.</em></span>
+      <span data-lang-block="en">Real results.<br><em>Real numbers.</em></span>
+    </h1>
+    <p class="hero-sub">
+      <span data-lang="tr" class="active">Müşteri ortaklıklarımızdan vaka çalışmaları ve başarı hikayeleri. Sağlık turizminde ölçülebilir büyüme.</span>
+      <span data-lang="en">Case studies and success stories from our client partnerships. Measurable growth in health tourism.</span>
+    </p>
+  </div>
+</section>
+
+<!-- FILTERS -->
+<div class="filters-bar">
+  <div class="filters-inner">
+    <button class="filter-btn active" data-filter="all">
+      <span data-lang="tr" class="active">Tümü</span><span data-lang="en">All</span>
+    </button>
+    <button class="filter-btn" data-filter="dental">
+      <span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span>
+    </button>
+    <button class="filter-btn" data-filter="plastic">
+      <span data-lang="tr" class="active">Plastik Cerrahi</span><span data-lang="en">Plastic Surgery</span>
+    </button>
+    <button class="filter-btn" data-filter="hair">
+      <span data-lang="tr" class="active">Saç Ekimi</span><span data-lang="en">Hair Transplant</span>
+    </button>
+    <button class="filter-btn" data-filter="hospital">
+      <span data-lang="tr" class="active">Hastane</span><span data-lang="en">Hospital</span>
+    </button>
+  </div>
+</div>
+
+<!-- GRID -->
+<section class="proj-section">
+  <div class="proj-inner">
+    <div class="proj-grid" id="projGrid">
+
+      <!-- KART 01 — Dental Tourism Digital Marketing -->
+      <a href="#" class="proj-card" data-category="dental">
+        <div class="card-media">
+          <span class="card-badge">01</span>
+          <span class="card-tag-overlay"><span data-lang="tr" class="active">Diş</span><span data-lang="en">Dental</span></span>
+          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=900&auto=format&fit=crop" alt="Dental campaign">
+          <div class="card-logo-bar">
+            <span class="card-logo-text">HealthUp</span>
+            <span class="card-logo-sep">×</span>
+            <span class="card-logo-text">Dental Clinic</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></div>
+          <h2 class="card-title"><span data-lang="tr" class="active">Diş Turizmi Dijital Pazarlama</span><span data-lang="en">Dental Tourism Digital Marketing</span></h2>
+          <p class="card-desc"><span data-lang="tr" class="active">Avrupa ve İngiltere'yi hedefleyen diş klinikleri için full-service dijital pazarlama. Meta Ads, Google Ads, çok dilli kreatifler, dönüşüm takibi ve hasta CRM entegrasyonu.</span><span data-lang="en">Full-service digital marketing for dental clinics targeting Europe and the UK. Meta Ads, Google Ads, multilingual creatives, conversion tracking and patient CRM integration.</span></p>
+          <div class="card-footer">
+            <div class="card-stats">
+              <div class="card-stat">+312% <span>ROAS</span></div>
+              <div class="card-stat">−38% <span>CPL</span></div>
+            </div>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- KART 02 — Brand & Web -->
+      <a href="#" class="proj-card" data-category="dental">
+        <div class="card-media">
+          <span class="card-badge">02</span>
+          <span class="card-tag-overlay"><span data-lang="tr" class="active">Marka</span><span data-lang="en">Brand</span></span>
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=900&auto=format&fit=crop" alt="Clinic branding">
+          <div class="card-logo-bar">
+            <span class="card-logo-text">HealthUp</span>
+            <span class="card-logo-sep">×</span>
+            <span class="card-logo-text">Livera Dental</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></div>
+          <h2 class="card-title"><span data-lang="tr" class="active">Diş Kliniği — Marka & Web Geliştirme</span><span data-lang="en">Dental Clinic — Brand & Web Development</span></h2>
+          <p class="card-desc"><span data-lang="tr" class="active">Uluslararası bir diş kliniği için marka kimliği ve web sitesi geliştirme. Görsel kimlik, landing page mimarisi, Google Ads kurulumu ve SEO odaklı içerik stratejisi.</span><span data-lang="en">Brand identity and website development for an international dental clinic. Visual identity, landing page structure, Google Ads setup and SEO-oriented content strategy.</span></p>
+          <div class="card-footer">
+            <div class="card-stats">
+              <div class="card-stat">4.2× <span>ROAS</span></div>
+              <div class="card-stat">+180% <span>Lead</span></div>
+            </div>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- KART 03 — Healthcare SEO -->
+      <a href="#" class="proj-card" data-category="dental">
+        <div class="card-media">
+          <span class="card-badge">03</span>
+          <span class="card-tag-overlay">SEO</span>
+          <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=900&auto=format&fit=crop" alt="Healthcare SEO">
+          <div class="card-logo-bar">
+            <span class="card-logo-text">HealthUp</span>
+            <span class="card-logo-sep">×</span>
+            <span class="card-logo-text">Dental Group</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></div>
+          <h2 class="card-title"><span data-lang="tr" class="active">Sağlık Turizmi SEO & Pazarlama</span><span data-lang="en">Healthcare SEO & Marketing</span></h2>
+          <p class="card-desc"><span data-lang="tr" class="active">Bir diş grubu için SEO ve dijital pazarlama stratejisi. Teknik SEO denetimi, içerik stratejisi, yerel SEO ve uluslararası hasta kazanımı için Google Ads yönetimi.</span><span data-lang="en">SEO and digital marketing strategy for a dental group. Technical SEO audit, content strategy, local SEO and Google Ads management for international patient acquisition.</span></p>
+          <div class="card-footer">
+            <div class="card-stats">
+              <div class="card-stat">#1 <span>UK Ranking</span></div>
+              <div class="card-stat">5 ay <span>Süre</span></div>
+            </div>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- KART 04 — Medical Tourism Branding -->
+      <a href="#" class="proj-card" data-category="hospital">
+        <div class="card-media">
+          <span class="card-badge">04</span>
+          <span class="card-tag-overlay"><span data-lang="tr" class="active">Hastane</span><span data-lang="en">Hospital</span></span>
+          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=900&auto=format&fit=crop" alt="Medical branding">
+          <div class="card-logo-bar">
+            <span class="card-logo-text">HealthUp</span>
+            <span class="card-logo-sep">×</span>
+            <span class="card-logo-text">Hospital Group</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat"><span data-lang="tr" class="active">Hastane & Klinik</span><span data-lang="en">Hospital & Clinic</span></div>
+          <h2 class="card-title"><span data-lang="tr" class="active">Medikal Turizm Markalaşması</span><span data-lang="en">Medical Tourism Branding</span></h2>
+          <p class="card-desc"><span data-lang="tr" class="active">Hastane ve klinikler için medikal turizm markalaşması ve dijital varlık. Marka konumlandırması, çok dilli web sitesi, hasta kazanım kampanyaları ve dönüşüm optimizasyonu.</span><span data-lang="en">Medical tourism branding and digital presence for hospitals and clinics. Brand positioning, multilingual website, patient acquisition campaigns and conversion optimization.</span></p>
+          <div class="card-footer">
+            <div class="card-stats">
+              <div class="card-stat">+240% <span>Organik</span></div>
+              <div class="card-stat">−47% <span>CPB</span></div>
+            </div>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- KART 05 — Plastic Surgery -->
+      <a href="#" class="proj-card" data-category="plastic">
+        <div class="card-media">
+          <span class="card-badge">05</span>
+          <span class="card-tag-overlay"><span data-lang="tr" class="active">Cerrahi</span><span data-lang="en">Surgery</span></span>
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=900&auto=format&fit=crop" alt="Plastic surgery">
+          <div class="card-logo-bar">
+            <span class="card-logo-text">HealthUp</span>
+            <span class="card-logo-sep">×</span>
+            <span class="card-logo-text">Plastic Surgery Clinic</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat"><span data-lang="tr" class="active">Plastik Cerrahi</span><span data-lang="en">Plastic Surgery</span></div>
+          <h2 class="card-title"><span data-lang="tr" class="active">Plastik Cerrahi Lead Generation</span><span data-lang="en">Plastic Surgery Lead Generation</span></h2>
+          <p class="card-desc"><span data-lang="tr" class="active">Plastik cerrahi markaları için premium Meta Ads ve kreatif strateji. Tedavi odaklı kampanyalar, fiyatlandırma mesajları, landing sayfaları ve lead kalitesi optimizasyonu.</span><span data-lang="en">Premium Meta Ads and creative strategy for plastic surgery brands. Treatment-focused campaigns, pricing messages, landing pages and lead quality optimization.</span></p>
+          <div class="card-footer">
+            <div class="card-stats">
+              <div class="card-stat">−62% <span>CPL</span></div>
+              <div class="card-stat">+95% <span>Kalite</span></div>
+            </div>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- KART 06 — Med Platform -->
+      <a href="#" class="proj-card" data-category="hospital">
+        <div class="card-media">
+          <span class="card-badge">06</span>
+          <span class="card-tag-overlay">CRM</span>
+          <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?q=80&w=900&auto=format&fit=crop" alt="Med platform">
+          <div class="card-logo-bar">
+            <span class="card-logo-text">HealthUp</span>
+            <span class="card-logo-sep">×</span>
+            <span class="card-logo-text">Med Platform</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat"><span data-lang="tr" class="active">Platform & CRM</span><span data-lang="en">Platform & CRM</span></div>
+          <h2 class="card-title"><span data-lang="tr" class="active">Medikal Seyahat Platformu</span><span data-lang="en">Medical Travel Platform</span></h2>
+          <p class="card-desc"><span data-lang="tr" class="active">Medikal seyahat platformu geliştirme ve pazarlama. Özel web sitesi mimarisi, klinik rehberi, hasta eşleştirme akışı, CRM kurulumu ve performans pazarlaması.</span><span data-lang="en">Medical travel platform development and marketing. Custom website architecture, clinic directory, patient matching flow, CRM setup and performance marketing.</span></p>
+          <div class="card-footer">
+            <div class="card-stats">
+              <div class="card-stat">20+ <span>Klinik</span></div>
+              <div class="card-stat">42+ <span>Ülke</span></div>
+            </div>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- KART 07 — Hair Transplant -->
+      <a href="#" class="proj-card" data-category="hair">
+        <div class="card-media">
+          <span class="card-badge">07</span>
+          <span class="card-tag-overlay"><span data-lang="tr" class="active">Saç</span><span data-lang="en">Hair</span></span>
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=900&auto=format&fit=crop" alt="Hair transplant">
+          <div class="card-logo-bar">
+            <span class="card-logo-text">HealthUp</span>
+            <span class="card-logo-sep">×</span>
+            <span class="card-logo-text">Hair Clinic</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat"><span data-lang="tr" class="active">Saç Ekimi</span><span data-lang="en">Hair Transplant</span></div>
+          <h2 class="card-title"><span data-lang="tr" class="active">Saç Ekimi Uluslararası Kampanya</span><span data-lang="en">Hair Transplant International Campaign</span></h2>
+          <p class="card-desc"><span data-lang="tr" class="active">Avrupa pazarını hedefleyen saç ekimi kliniği için çok dilli dijital kampanya. İngilizce, Almanca ve Arapça hedeflemeli Meta Ads ve Google Ads yönetimi.</span><span data-lang="en">Multilingual digital campaign for a hair transplant clinic targeting the European market. Meta Ads and Google Ads management in English, German and Arabic.</span></p>
+          <div class="card-footer">
+            <div class="card-stats">
+              <div class="card-stat">3 dil <span>Hedefleme</span></div>
+              <div class="card-stat">+210% <span>Lead</span></div>
+            </div>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- KART 08 — Eye Treatment -->
+      <a href="#" class="proj-card" data-category="hospital">
+        <div class="card-media">
+          <span class="card-badge">08</span>
+          <span class="card-tag-overlay"><span data-lang="tr" class="active">Göz</span><span data-lang="en">Eye</span></span>
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=900&auto=format&fit=crop" alt="Eye treatment">
+          <div class="card-logo-bar">
+            <span class="card-logo-text">HealthUp</span>
+            <span class="card-logo-sep">×</span>
+            <span class="card-logo-text">Eye Clinic</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat"><span data-lang="tr" class="active">Göz Tedavileri</span><span data-lang="en">Eye Treatments</span></div>
+          <h2 class="card-title"><span data-lang="tr" class="active">Göz Kliniği Dijital Büyüme</span><span data-lang="en">Eye Clinic Digital Growth</span></h2>
+          <p class="card-desc"><span data-lang="tr" class="active">Lazer göz tedavileri için Google Ads ve SEO odaklı büyüme stratejisi. Tedavi bazlı landing sayfaları, arama ağı kampanyaları ve CRM entegrasyonu.</span><span data-lang="en">Growth strategy focused on Google Ads and SEO for laser eye treatments. Treatment-based landing pages, search network campaigns and CRM integration.</span></p>
+          <div class="card-footer">
+            <div class="card-stats">
+              <div class="card-stat">+155% <span>Organik</span></div>
+              <div class="card-stat">3.8× <span>ROAS</span></div>
+            </div>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- KART 09 — Plastic Surgery Branding -->
+      <a href="#" class="proj-card" data-category="plastic">
+        <div class="card-media">
+          <span class="card-badge">09</span>
+          <span class="card-tag-overlay"><span data-lang="tr" class="active">Marka</span><span data-lang="en">Brand</span></span>
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=900&auto=format&fit=crop" alt="Plastic surgery brand">
+          <div class="card-logo-bar">
+            <span class="card-logo-text">HealthUp</span>
+            <span class="card-logo-sep">×</span>
+            <span class="card-logo-text">Aesthetic Clinic</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat"><span data-lang="tr" class="active">Plastik Cerrahi</span><span data-lang="en">Plastic Surgery</span></div>
+          <h2 class="card-title"><span data-lang="tr" class="active">Estetik Klinik Marka Büyümesi</span><span data-lang="en">Aesthetic Clinic Brand Growth</span></h2>
+          <p class="card-desc"><span data-lang="tr" class="active">Premium estetik klinik için bütünleşik marka ve performans stratejisi. Influencer iş birlikleri, Instagram odaklı kreatif üretim ve dönüşüm hunisi optimizasyonu.</span><span data-lang="en">Integrated brand and performance strategy for a premium aesthetic clinic. Influencer collaborations, Instagram-focused creative production and conversion funnel optimization.</span></p>
+          <div class="card-footer">
+            <div class="card-stats">
+              <div class="card-stat">+420% <span>Takipçi</span></div>
+              <div class="card-stat">−51% <span>CAC</span></div>
+            </div>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <div class="empty-state" id="emptyState">
+        <span data-lang="tr" class="active">Bu kategoride henüz proje yok.</span>
+        <span data-lang="en">No projects in this category yet.</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="proj-cta">
+  <div class="proj-cta-blob"></div>
+  <div class="proj-cta-inner">
+    <div class="proj-cta-eye"><span data-lang="tr" class="active">Sıradaki proje sizin olabilir</span><span data-lang="en">The next project could be yours</span></div>
+    <h2 class="proj-cta-h2"><span data-lang-block="tr" class="active">Sağlık turizminde daha güçlü bir sistem kurmaya hazır mısınız?</span><span data-lang-block="en">Ready to build a stronger system in health tourism?</span></h2>
+    <p class="proj-cta-sub"><span data-lang="tr" class="active">Mevcut reklam yapınızı, satış sürecinizi ve dijital hasta kazanım sisteminizi birlikte analiz edelim.</span><span data-lang="en">Let's analyze your current ad structure, sales process and digital patient acquisition system together.</span></p>
+    <a href="https://healthupmarketing.com/iletisim/" class="proj-cta-btn">
+      <span data-lang="tr" class="active">Analiz İste</span><span data-lang="en">Request Analysis</span>
+      <svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="proj-footer">
+  <div class="proj-footer-inner">
+    <div class="pf-brand">
+      <a href="index.html" class="pf-logo">
+        <img src="https://healthupmarketing.com/wp-content/uploads/2025/01/logo.png" alt="HealthUp Marketing">
+      </a>
+      <p class="pf-slogan">Sağlıkta Güçlü Pazarlama, Akıllı Büyüme</p>
+      <div class="pf-social">
+        <a href="#" class="pf-social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="#" class="pf-social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="pf-social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="#" class="pf-social-btn" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="pf-col-title">İletişim Bilgileri</div>
+      <div class="pf-col-sub">Bizimle iletişime geçin!</div>
+      <ul class="pf-contact-list">
+        <li><span class="pf-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span>Çınarlı Mah, 1572 Sk. No:33, 35170 Konak/İzmir</span></li>
+        <li><span class="pf-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span><a href="tel:+905367967126">(536) 796-7126</a></li>
+        <li><span class="pf-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><a href="mailto:info@healthupmarketing.com">info@healthupmarketing.com</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="pf-col-title">Hızlı Erişim</div>
+      <div class="pf-nav">
+        <a href="hakkimizda.html"><span data-lang="tr" class="active">Hakkımızda</span><span data-lang="en">About</span></a>
+        <a href="index.html#brand-transform"><span data-lang="tr" class="active">Hizmetlerimiz</span><span data-lang="en">Services</span></a>
+        <a href="projeler.html"><span data-lang="tr" class="active">Projeler</span><span data-lang="en">Projects</span></a>
+        <a href="blog.html">Blog</a>
+        <a href="#"><span data-lang="tr" class="active">SSS</span><span data-lang="en">FAQ</span></a>
+        <a href="#"><span data-lang="tr" class="active">İletişim</span><span data-lang="en">Contact</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="pf-bottom">
+    <span>© 2026 HealthUp Marketing. Tüm hakları saklıdır.</span>
+  </div>
+</footer>
+
+<script>
+// THEME
+document.getElementById('themeToggle').addEventListener('click',()=>{
+  const r=document.documentElement;
+  const next=r.getAttribute('data-theme')==='light'?'dark':'light';
+  r.setAttribute('data-theme',next);
+  try{localStorage.setItem('theme',next);}catch(e){}
+});
+
+// LANG
+function setLang(lang){
+  document.querySelectorAll('[data-lang]').forEach(el=>{
+    el.classList.remove('active');
+    if(el.getAttribute('data-lang')===lang) el.classList.add('active');
+  });
+  document.querySelectorAll('[data-lang-block]').forEach(el=>{
+    el.classList.remove('active');
+    if(el.getAttribute('data-lang-block')===lang) el.classList.add('active');
+  });
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  const btn=document.getElementById('btn-'+lang);
+  if(btn) btn.classList.add('active');
+  document.documentElement.setAttribute('lang',lang);
+  try{localStorage.setItem('lang',lang);}catch(e){}
+}
+
+// FILTER
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter=btn.getAttribute('data-filter');
+    const cards=document.querySelectorAll('.proj-card');
+    let visible=0;
+    cards.forEach(card=>{
+      const match=filter==='all'||card.getAttribute('data-category')===filter;
+      card.classList.toggle('hidden',!match);
+      if(match) visible++;
+    });
+    document.getElementById('emptyState').classList.toggle('visible',visible===0);
+  });
+});
+
+// INIT
+(function(){
+  let saved='tr';
+  try{saved=localStorage.getItem('lang')||'tr';}catch(e){}
+  setLang(saved);
+})();
+
+// HAMBURGER
+const _ham=document.getElementById('hamburger');
+const _drawer=document.getElementById('mobileDrawer');
+if(_ham&&_drawer){
+  _ham.addEventListener('click',()=>{
+    _ham.classList.toggle('open');
+    _drawer.classList.toggle('open');
+    document.body.style.overflow=_drawer.classList.contains('open')?'hidden':'';
+  });
+  document.querySelectorAll('.mobile-link').forEach(a=>{
+    a.addEventListener('click',()=>{
+      _ham.classList.remove('open');
+      _drawer.classList.remove('open');
+      document.body.style.overflow='';
+    });
+  });
+}
+
+</script>
+</body>
+</html>
