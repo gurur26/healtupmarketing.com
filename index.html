@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  var t;
+  try{t=localStorage.getItem('theme');}catch(e){}
+  document.documentElement.setAttribute('data-theme', t || 'dark');
+})();
+</script>
+<title>HealthUp Marketing</title>
+<link rel="icon" type="image/png" href="https://healthupmarketing.com/wp-content/uploads/2025/03/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+[data-theme="light"]{
+  --bg:#fafaf8;--bg-off:#f3f2ef;--bg-card:#ffffff;
+  --text:#0a0a0a;--text-muted:#8a8a82;
+  --border:rgba(10,10,10,0.1);--border-strong:rgba(10,10,10,0.18);
+  --nav-bg:rgba(250,250,248,0.92);
+  --hero-bg:#0a0a0a;--hero-text:#fafaf8;
+  --hero-muted:rgba(250,250,248,0.55);--hero-border:rgba(255,255,255,0.08);
+  --card-hover:#f3f2ef;--pill-bg:#f3f2ef;--icon-bg:#f0efec;
+  --toggle-bg:rgba(10,10,10,0.07);
+}
+[data-theme="dark"]{
+  --bg:#0f0f0d;--bg-off:#181815;--bg-card:#1c1c19;
+  --text:#fafaf8;--text-muted:#6b6b63;
+  --border:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.14);
+  --nav-bg:rgba(15,15,13,0.92);
+  --hero-bg:#050504;--hero-text:#fafaf8;
+  --hero-muted:rgba(250,250,248,0.45);--hero-border:rgba(255,255,255,0.06);
+  --card-hover:#222220;--pill-bg:#1c1c19;--icon-bg:#2a2a26;
+  --toggle-bg:rgba(255,255,255,0.09);
+}
+:root{
+  --accent:#fe0d6d;--teal:#fe0d6d;--teal-mid:#e0005a;--teal-light:#ffe0ee;
+  --radius:4px;--radius-card:12px;
+  --grad-start:#fe7948;--grad-end:#fb106b;
+  --grad: linear-gradient(135deg, #fe7948 0%, #fb106b 100%);
+  --glow: 0 0 20px rgba(251,16,107,.45), 0 0 40px rgba(254,121,72,.25);
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.6;overflow-x:hidden;transition:background .3s,color .3s}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:64px;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:background .3s,border-color .3s}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-.03em;color:var(--text);text-decoration:none;transition:color .3s}
+.nav-logo-light{display:block}
+.nav-logo-dark{display:none}
+[data-theme="dark"] .nav-logo-light{display:none}
+[data-theme="dark"] .nav-logo-dark{display:block}
+.nav-badge{display:inline-block;font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--grad);color:#fff;padding:2px 6px;border-radius:2px;vertical-align:super;margin-left:4px}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--text-muted);text-decoration:none;letter-spacing:.01em;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:10px}
+
+/* Theme toggle */
+.theme-toggle{width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text);transition:background .2s;flex-shrink:0}
+.theme-toggle svg{width:16px;height:16px}
+.icon-sun{display:none}.icon-moon{display:block}
+[data-theme="dark"] .icon-sun{display:block}[data-theme="dark"] .icon-moon{display:none}
+
+/* Lang toggle */
+.lang-toggle{display:flex;align-items:center;background:var(--toggle-bg);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.lang-btn{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:7px 12px;cursor:pointer;background:transparent;border:none;color:var(--text-muted);transition:background .2s,color .2s;line-height:1}
+.lang-btn.active{background:var(--text);color:var(--bg)}
+
+.nav-cta{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);color:#fff;padding:10px 22px;border-radius:var(--radius);text-decoration:none;transition:box-shadow .25s,transform .15s,filter .25s;white-space:nowrap;box-shadow:var(--glow)}
+.nav-cta:hover{box-shadow:0 0 28px rgba(251,16,107,.6),0 0 56px rgba(254,121,72,.35);transform:translateY(-1px);filter:brightness(1.08)}
+[data-theme="dark"] .nav-cta{background:var(--grad);color:#fff}
+
+/* HERO TWO-COLUMN */
+.hero-inner{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:1.5rem 3rem 2rem;max-width:1200px;margin:0 auto;width:100%}
+.hero-two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;width:100%}
+.hero-left{display:flex;flex-direction:column}
+.hero-right{display:flex;align-items:center;justify-content:center}
+
+/* 3D Logo */
+.hero-3d-logo{position:relative;width:100%;max-width:480px}
+.hero-3d-img{width:100%;height:auto;display:block;filter:drop-shadow(0 24px 60px rgba(254,13,109,.18)) drop-shadow(0 8px 24px rgba(0,0,0,.4));animation:heroFloat 6s ease-in-out infinite}
+
+@keyframes heroFloat{
+  0%   {transform:translate(0,0) rotate(0deg)}
+  20%  {transform:translate(6px,-10px) rotate(.4deg)}
+  40%  {transform:translate(-5px,-16px) rotate(-.3deg)}
+  60%  {transform:translate(-8px,-6px) rotate(.2deg)}
+  80%  {transform:translate(5px,-12px) rotate(-.2deg)}
+  100% {transform:translate(0,0) rotate(0deg)}
+}
+
+@media(max-width:900px){
+  .hero-two-col{grid-template-columns:1fr}
+  .hero-right{display:none}
+}
+
+/* HERO base */
+#hero{min-height:100vh;padding-top:64px;display:grid;grid-template-rows:1fr auto;background:var(--hero-bg);color:var(--hero-text);position:relative;overflow:hidden;transition:background .3s}
+.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.hero-accent-blob{position:absolute;top:-120px;right:-80px;width:600px;height:600px;background:radial-gradient(circle,rgba(254,13,109,.12) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:1.2rem}
+.hero-eyebrow-line{width:40px;height:1px;background:var(--grad)}
+.hero-eyebrow span{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-headline{font-family:'DM Serif Display',serif;font-size:clamp(2.2rem,4.5vw,4.2rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:1.2rem;max-width:700px}
+.hero-headline em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-fill-color:transparent}
+.hero-sub{font-size:1.1rem;font-weight:300;color:var(--hero-muted);max-width:520px;margin-bottom:1.8rem;line-height:1.7}
+.hero-actions{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.btn-primary{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:var(--grad);color:#fff;padding:14px 32px;border-radius:var(--radius);text-decoration:none;transition:box-shadow .25s,transform .15s,filter .25s;display:inline-flex;align-items:center;gap:8px;box-shadow:var(--glow)}
+.btn-primary:hover{box-shadow:0 0 28px rgba(251,16,107,.65),0 0 56px rgba(254,121,72,.4);transform:translateY(-2px);filter:brightness(1.08)}
+.btn-primary svg{width:14px;height:14px}
+.btn-ghost{font-size:.9rem;font-weight:400;color:rgba(250,250,248,.5);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:color .2s}
+.btn-ghost:hover{color:var(--hero-text)}
+.hero-testimonials{position:relative;z-index:1;display:flex;gap:0;border-top:1px solid var(--hero-border);max-width:1200px;margin:0 auto;width:calc(100% - 6rem)}
+.hero-testi-card{flex:1;padding:2rem 2rem 2.5rem;border-right:1px solid var(--hero-border);transition:background .3s}
+.hero-testi-card:last-child{border-right:none}
+.hero-testi-card:hover{background:rgba(255,255,255,.03)}
+.hero-testi-stat{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.4rem;letter-spacing:-.02em}
+.hero-testi-quote{font-size:.85rem;color:rgba(250,250,248,.45);line-height:1.5;font-style:italic;margin-bottom:1rem}
+.hero-testi-author{display:flex;align-items:center;gap:10px}
+.testi-avatar{width:32px;height:32px;border-radius:50%;background:rgba(254,121,72,.12);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;background-clip:unset;-webkit-text-fill-color:unset;background:rgba(254,121,72,.12);color:transparent;background:linear-gradient(135deg,rgba(254,121,72,.18),rgba(251,16,107,.18));flex-shrink:0}
+.testi-avatar span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:.7rem;font-weight:700}
+.testi-name{font-size:.8rem;color:var(--hero-text);font-weight:500}
+.testi-role{font-size:.75rem;color:rgba(250,250,248,.4)}
+
+/* CLIENTS MARQUEE */
+#clients{background:var(--bg-off);padding:5rem 0;overflow:hidden;transition:background .3s}
+.clients-header{padding:0 3rem;margin-bottom:3rem}
+.section-label{display:flex;align-items:center;gap:12px;justify-content:center}
+.section-label-line{width:30px;height:1px;background:var(--text-muted)}
+.section-label span{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted)}
+.marquee-wrapper{position:relative;width:100%;overflow:hidden}
+.marquee-wrapper::before,.marquee-wrapper::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.marquee-wrapper::before{left:0;background:linear-gradient(to right,var(--bg-off),transparent)}
+.marquee-wrapper::after{right:0;background:linear-gradient(to left,var(--bg-off),transparent)}
+.marquee-track{display:flex;gap:0;width:max-content;animation:marquee 30s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.marquee-item{display:flex;align-items:center;justify-content:center;padding:0 2.5rem;height:80px;border-right:1px solid var(--border);flex-shrink:0;transition:background .2s;gap:12px}
+.marquee-item:hover{background:var(--bg-card)}
+.marquee-item-logo{height:44px;width:auto;max-width:130px;object-fit:contain;display:block;filter:grayscale(1);opacity:.6;transition:filter .2s,opacity .2s}
+.marquee-item:hover .marquee-item-logo{filter:grayscale(0);opacity:1}
+.marquee-name{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);white-space:nowrap;transition:color .2s}
+.marquee-item:hover .marquee-name{color:var(--text)}
+.clients-stats{display:flex;gap:4rem;justify-content:center;margin-top:3.5rem;padding:0 3rem}
+.clients-stat{text-align:center}
+.clients-stat-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;letter-spacing:-.03em;color:var(--text)}
+.clients-stat-label{font-size:.82rem;color:var(--text-muted);margin-top:2px}
+
+/* BRAND TRANSFORM */
+#brand-transform{background:var(--bg);padding:8rem 3rem;transition:background .3s}
+.bt-inner{max-width:1200px;margin:0 auto}
+.bt-header{text-align:center;margin-bottom:4rem}
+.bt-tag{display:inline-block;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;border:1px solid rgba(254,121,72,.35);padding:6px 14px;border-radius:2px;margin-bottom:1.5rem;background-color:rgba(254,121,72,.06)}
+.bt-headline{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.02em;color:var(--text)}
+.bt-cards{display:grid;grid-template-columns:repeat(4,1fr) 200px;gap:0;border:1px solid var(--border-strong);border-radius:var(--radius-card);overflow:hidden;box-shadow:0 2px 24px rgba(0,0,0,.06)}
+.bt-card{background:var(--bg-card);padding:2rem 1.75rem;border-right:1px solid var(--border);display:flex;flex-direction:column;transition:background .2s;min-width:0;overflow:hidden}
+.bt-card:hover{background:var(--card-hover)}
+.bt-card-photo{width:100%;height:160px;border-radius:8px;overflow:hidden;margin-bottom:1.4rem;background:var(--surface);position:relative}
+.bt-card-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.bt-card-photo img[data-lang].active{display:block}
+.bt-card-photo img[data-lang]{display:none}
+.bt-card:hover .bt-card-photo img{transform:scale(1.04)}
+.bt-card-photo.no-photo{display:flex;align-items:center;justify-content:center;border:2px dashed var(--border)}
+.bt-card-photo.no-photo::after{content:'📷  Fotoğraf ekleyin';font-size:.78rem;color:var(--text-muted);letter-spacing:.04em}
+.bt-card-label{display:inline-flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.65rem;font-weight:800;letter-spacing:.08em;background:var(--grad);color:#fff;width:32px;height:22px;border-radius:4px;margin-bottom:1.2rem}
+.bt-card-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:.8rem;line-height:1.3;letter-spacing:-.01em}
+.bt-card-desc{font-size:.82rem;color:var(--text-muted);line-height:1.6;flex:1;margin-bottom:1.5rem}
+.bt-card-btn{display:block;text-align:center;font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;background:var(--grad);color:#fff;padding:10px 0;border-radius:6px;text-decoration:none;transition:filter .2s,box-shadow .2s,transform .15s;margin-top:auto;box-shadow:var(--glow)}
+.bt-card-btn:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 0 24px rgba(251,16,107,.5)}
+.bt-card-cta{background:var(--grad);border-right:none;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1.5rem;gap:1.5rem;box-shadow:inset 0 0 60px rgba(0,0,0,.15)}
+.bt-card-cta:hover{filter:brightness(1.08)}
+.bt-cta-icon{width:48px;height:48px;background:rgba(255,255,255,.2);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.bt-cta-icon svg{width:24px;height:24px;color:#fff}
+.bt-cta-text{font-family:'DM Serif Display',serif;font-size:1.6rem;font-style:italic;color:#fff;text-align:center;line-height:1.2}
+.bt-footer-text{text-align:center;margin-top:2rem;font-size:.9rem;color:var(--text-muted);font-style:italic}
+
+/* STORY */
+#story{background:var(--bg-off);padding:8rem 3rem;transition:background .3s}
+.story-inner{max-width:1200px;margin:0 auto}
+.story-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem;padding-bottom:4rem;border-bottom:1px solid var(--border)}
+.story-headline{font-family:'DM Serif Display',serif;font-size:clamp(2.5rem,4vw,3.8rem);line-height:1.05;letter-spacing:-.02em;color:var(--text)}
+.story-headline em{font-style:italic}
+.story-desc{font-size:1rem;font-weight:300;color:var(--text-muted);line-height:1.8;margin-bottom:1.5rem}
+.story-link{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text);text-decoration:none;display:inline-flex;align-items:center;gap:8px;border-bottom:2px solid var(--text);padding-bottom:2px;transition:color .2s,border-color .2s}
+.story-link:hover{color:var(--text-muted);border-color:var(--text-muted)}
+.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.story-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-card);padding:2rem;transition:background .2s,border-color .2s}
+.story-card:hover{border-color:var(--border-strong);background:var(--card-hover)}
+.story-card-num{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem}
+.story-card-val{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;letter-spacing:-.04em;color:var(--text);line-height:1;margin-bottom:.4rem}
+.story-card-label{font-size:.85rem;color:var(--text-muted);margin-bottom:1rem}
+.story-card-bar{height:3px;background:var(--border);border-radius:2px;margin-bottom:1rem;overflow:hidden}
+.story-card-bar-fill{height:100%;background:var(--grad);border-radius:2px}
+.story-card-desc{font-size:.8rem;color:var(--text-muted);line-height:1.5}
+
+/* PROJECTS */
+#projects{background:var(--bg);padding:7rem 3rem;transition:background .3s}
+.projects-inner{max-width:1200px;margin:0 auto}
+.section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3.5rem}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.5vw,3rem);letter-spacing:-.02em;line-height:1.1;color:var(--text)}
+.section-title em{font-style:italic}
+.section-all-link{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:color .2s;flex-shrink:0}
+.section-all-link:hover{color:var(--text)}
+.projects-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.project-row{display:grid;grid-template-columns:60px 1fr auto auto 32px;align-items:center;gap:2rem;padding:1.8rem 2rem;background:var(--bg-card);border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);transition:background .2s}
+.project-row:last-child{border-bottom:none}
+.project-row:hover{background:var(--card-hover)}
+.project-num{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:600;color:var(--text-muted);letter-spacing:.08em}
+.project-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:-.01em}
+.project-tag{font-size:.75rem;font-weight:500;color:var(--text-muted);background:var(--pill-bg);padding:4px 10px;border-radius:2px;border:1px solid var(--border)}
+.project-year{font-size:.8rem;color:var(--text-muted)}
+.project-arrow{font-size:1.1rem;color:var(--text-muted);text-align:right}
+.project-row:hover .project-arrow{color:var(--text)}
+
+/* BLOG */
+#blog{background:var(--bg-off);padding:7rem 3rem;transition:background .3s}
+
+/* GERÇEK DENEYİM */
+#testimonials{background:var(--hero-bg);padding:7rem 3rem;transition:background .3s}
+.testi-outer{max-width:1200px;margin:0 auto}
+.testi-section-header{text-align:center;margin-bottom:4rem}
+.testi-section-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.02em;color:var(--hero-text);margin-top:1rem}
+.testi-section-title em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--hero-border);border-radius:12px;overflow:hidden}
+.testi-item{padding:2.5rem 2rem 3rem;border-right:1px solid var(--hero-border);transition:background .2s;display:flex;flex-direction:column;gap:1.2rem}
+.testi-item:last-child{border-right:none}
+.testi-item:hover{background:rgba(255,255,255,.03)}
+.testi-item-stat{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.03em;line-height:1}
+.testi-item-quote{font-size:.9rem;color:rgba(250,250,248,.5);line-height:1.6;font-style:italic;flex:1}
+.testi-item-author{display:flex;align-items:center;gap:12px;margin-top:.5rem}
+@media(max-width:900px){
+  #testimonials{padding:4rem 1.5rem}
+  .testi-grid{grid-template-columns:1fr}
+  .testi-item{border-right:none;border-bottom:1px solid var(--hero-border)}
+  .testi-item:last-child{border-bottom:none}
+}
+.blog-inner{max-width:1200px;margin:0 auto}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.blog-card{padding:2rem;border-right:1px solid var(--border);text-decoration:none;color:var(--text);background:var(--bg-card);display:flex;flex-direction:column;transition:background .2s}
+.blog-card:last-child{border-right:none}
+.blog-card:hover{background:var(--card-hover)}
+.blog-tag-wrap{margin-bottom:1.5rem}
+.blog-tag{display:inline-block;font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);border:1px solid var(--border);padding:4px 8px;border-radius:2px}
+.blog-read-time{font-size:.72rem;color:var(--text-muted);margin-left:6px}
+.blog-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;line-height:1.4;letter-spacing:-.01em;margin-bottom:.75rem;flex:1}
+.blog-excerpt{font-size:.82rem;color:var(--text-muted);line-height:1.6;margin-bottom:1.5rem;flex:1}
+.blog-footer{display:flex;align-items:center;justify-content:space-between;padding-top:1.2rem;border-top:1px solid var(--border);margin-top:auto}
+.blog-date{font-size:.75rem;color:var(--text-muted)}
+.blog-arrow{font-size:.85rem;color:var(--text-muted);font-weight:600}
+
+/* CTA */
+#cta{background:linear-gradient(135deg,#fd7a49 0%,#fe0d6d 100%);color:#fff;padding:8rem 3rem;text-align:center;position:relative;overflow:hidden}
+.cta-blob{position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(255,255,255,.07) 0%,transparent 70%);pointer-events:none}
+.cta-inner{position:relative;z-index:1}
+.cta-eyebrow{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:1.5rem}
+.cta-headline{font-family:'DM Serif Display',serif;font-size:clamp(2.5rem,5vw,4rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:2.5rem;color:#fff}
+.cta-headline em{font-style:italic;color:#ffffff}
+.btn-primary-white{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:#fff;color:#fd7a49;padding:16px 40px;border-radius:var(--radius);text-decoration:none;transition:background .2s,transform .15s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary-white:hover{background:rgba(255,255,255,.9);transform:translateY(-1px)}
+.btn-primary-white svg{width:14px;height:14px}
+
+footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+footer span{font-size:.8rem;color:rgba(250,250,248,.3)}
+.footer-links{display:flex;gap:2rem;list-style:none}
+.footer-links a{font-size:.8rem;color:rgba(250,250,248,.3);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:rgba(250,250,248,.6)}
+
+/* TEAM SECTION */
+#team{padding:7rem 3rem;background:var(--surface)}
+.team-inner{max-width:1200px;margin:0 auto}
+.team-sub{color:var(--text-muted);font-size:.95rem;max-width:520px;margin-bottom:3.5rem;line-height:1.7}
+/* Kurucular: 2 eşit kart yan yana */
+.team-founders{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem}
+/* Ekip: 3 kart */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.team-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-card);overflow:hidden;transition:transform .2s,box-shadow .2s}
+.team-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08)}
+.team-card-img-wrap{position:relative;aspect-ratio:3/4;background:var(--surface);overflow:hidden}
+.team-card-img-wrap.no-photo{display:flex;align-items:center;justify-content:center}
+.team-card-img-wrap.no-photo::after{content:'📷';font-size:2rem;opacity:.25}
+.team-card-img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .3s}
+.team-card:hover .team-card-img{transform:scale(1.04)}
+.team-card-num{position:absolute;top:12px;left:14px;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:800;color:#fff;background:var(--grad);padding:3px 8px;border-radius:4px;letter-spacing:.06em}
+.team-card-info{padding:1.1rem 1.2rem 1.3rem}
+.team-card-role{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:.3rem}
+.team-card-name{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text);margin:0}
+@media(max-width:900px){
+  .team-founders{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:600px){
+  .team-founders{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  #team{padding:4rem 1.5rem}
+}
+
+/* HUP FOOTER */
+.hup-footer{background:#000000;border-top:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.7)}
+.hup-footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:280px 1fr 1fr;gap:4rem;padding:4rem 3rem 3rem}
+.hup-footer-brand{display:flex;flex-direction:column;gap:1.2rem}
+.hup-footer-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.hup-footer-logo-text{display:flex;flex-direction:column;line-height:1.1}
+.hup-footer-logo-main{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;color:#fff;letter-spacing:-.02em}
+.hup-footer-logo-sub{font-family:'Syne',sans-serif;font-weight:400;font-size:.8rem;letter-spacing:.08em;color:rgba(255,255,255,.5)}
+.hup-footer-slogan{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.5;max-width:220px}
+.hup-footer-social{display:flex;gap:10px;margin-top:.4rem}
+.hup-social-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);text-decoration:none;transition:border-color .2s,color .2s}
+.hup-social-btn:hover{border-color:var(--accent);color:var(--accent)}
+.hup-social-btn svg{width:16px;height:16px}
+.hup-footer-col-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:#fff;letter-spacing:-.01em;margin-bottom:.6rem}
+.hup-footer-col-sub{font-size:.82rem;color:rgba(255,255,255,.4);margin-bottom:1.2rem}
+.hup-contact-list{list-style:none;display:flex;flex-direction:column;gap:.9rem}
+.hup-contact-list li{display:flex;align-items:flex-start;gap:10px;font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.5}
+.hup-contact-list a{color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s}
+.hup-contact-list a:hover{color:var(--accent)}
+.hup-contact-icon{flex-shrink:0;width:20px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-top:2px}
+.hup-contact-icon svg{width:16px;height:16px}
+.hup-footer-nav{display:grid;grid-template-columns:1fr 1fr;gap:.6rem 2rem}
+.hup-footer-nav a{font-size:.83rem;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s;padding:.2rem 0}
+.hup-footer-nav a:hover{color:#fff}
+.hup-footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding:1.2rem 3rem}
+.hup-footer-bottom span{font-size:.75rem;color:rgba(255,255,255,.25)}
+@media(max-width:900px){
+  .hup-footer-inner{grid-template-columns:1fr;gap:2.5rem;padding:3rem 1.5rem 2rem}
+  .hup-footer-bottom{padding:1rem 1.5rem}
+}
+
+.hero-brand-badges{display:flex;align-items:center;gap:14px;margin-left:1rem;padding-left:1rem;border-left:1px solid rgba(255,255,255,.15)}
+.hero-brand-logos{display:flex;align-items:center}
+.brand-logo-circle{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-left:-10px;overflow:hidden;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.brand-logo-circle:first-child{margin-left:0}
+.brand-logo-count{background:var(--grad);border:2px solid rgba(255,255,255,.3)!important;font-family:'Syne',sans-serif;font-size:.6rem;font-weight:800;color:#fff}
+.hero-brand-text{font-size:.75rem;color:rgba(250,250,248,.6);max-width:160px;line-height:1.4}
+.hero-brand-text em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600}
+
+/* STORY CONTACT + GALLERY */
+.story-contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.story-form-col{}
+.story-form-title{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.1;letter-spacing:-.02em;color:var(--text);margin-bottom:1.2rem}
+.story-form-desc{font-size:.9rem;color:var(--text-muted);line-height:1.7;margin-bottom:.4rem}
+.story-form{display:flex;flex-direction:column;gap:14px;margin-top:2rem}
+.sf-field input{width:100%;font-family:'DM Sans',sans-serif;font-size:.88rem;padding:13px 16px;border:1px solid var(--border-strong);border-radius:8px;background:var(--bg-card);color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s}
+.sf-field input:focus{border-color:#fb106b;box-shadow:0 0 0 3px rgba(251,16,107,.12)}
+.sf-field input::placeholder{color:var(--text-muted)}
+.sf-btn{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);color:#fff;border:none;padding:14px 32px;border-radius:40px;cursor:pointer;transition:filter .2s,transform .15s,box-shadow .2s;align-self:flex-end;margin-top:6px;box-shadow:var(--glow)}
+.sf-btn:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 0 28px rgba(251,16,107,.55)}
+
+/* Scrolling Gallery */
+.story-gallery-col{height:560px;overflow:hidden;border-radius:16px;position:relative}
+.gallery-scroll-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;height:100%}
+.gallery-col{overflow:hidden;position:relative}
+.gallery-track{display:flex;flex-direction:column;gap:10px}
+.gallery-down{animation:scrollDown 22s linear infinite}
+.gallery-up{animation:scrollUp 26s linear infinite}
+.gallery-track:hover{animation-play-state:paused}
+@keyframes scrollDown{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+@keyframes scrollUp{0%{transform:translateY(-50%)}100%{transform:translateY(0)}}
+.gallery-img{border-radius:10px;overflow:hidden;flex-shrink:0;background:var(--border)}
+.gallery-img img{width:100%;height:100%;object-fit:cover;display:block}
+.gallery-img{aspect-ratio:1/1}
+.gallery-img--tall{aspect-ratio:1/1}
+
+/* Blog thumb */
+.blog-thumb{width:100%;height:160px;border-radius:8px;overflow:hidden;margin-bottom:1.2rem;flex-shrink:0;background:var(--bg-off)}
+.blog-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.blog-card:hover .blog-thumb img{transform:scale(1.04)}
+
+@media(max-width:900px){
+  .story-contact-wrap{grid-template-columns:1fr;gap:3rem}
+  .story-gallery-col{height:340px}
+  #story{padding:4rem 1.5rem}
+}
+
+/* existing story-grid kept unused but not visible */
+
+@media(max-width:1100px){
+  .bt-cards{grid-template-columns:repeat(2,1fr)!important}
+  .bt-card-cta{border-right:none;border-top:1px solid rgba(255,255,255,.15);grid-column:1/-1;grid-row:auto!important;flex-direction:row}
+}
+/* ── HAMBURGER MENU ── */
+.hamburger{display:none;width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;align-items:center;justify-content:center;color:var(--text);flex-shrink:0;transition:background .2s}
+.hamburger svg{width:18px;height:18px;transition:opacity .2s}
+.hamburger .ham-open{display:block}
+.hamburger .ham-close{display:none}
+.hamburger.open .ham-open{display:none}
+.hamburger.open .ham-close{display:block}
+
+/* Mobile drawer */
+.mobile-drawer{position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:99;display:flex;flex-direction:column;padding:2rem 1.5rem;gap:0;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);border-top:1px solid var(--border)}
+.mobile-drawer.open{transform:translateX(0)}
+.mobile-nav-links{list-style:none;display:flex;flex-direction:column;gap:0;border-bottom:1px solid var(--border);padding-bottom:1.5rem;margin-bottom:1.5rem}
+.mobile-nav-links li a{display:flex;align-items:center;justify-content:space-between;font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;letter-spacing:-.02em;color:var(--text);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border);transition:color .2s}
+.mobile-nav-links li:last-child a{border-bottom:none}
+.mobile-nav-links li a:hover{color:var(--accent)}
+.mobile-nav-links li a::after{content:'→';font-size:1rem;color:var(--text-muted);transition:transform .2s}
+.mobile-nav-links li a:hover::after{transform:translateX(4px);color:var(--accent)}
+.mobile-cta{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);color:#fff;padding:15px 24px;border-radius:var(--radius);text-decoration:none;text-align:center;transition:box-shadow .25s,filter .25s;box-shadow:var(--glow)}
+.mobile-cta:hover{filter:brightness(1.08);box-shadow:0 0 28px rgba(251,16,107,.6),0 0 56px rgba(254,121,72,.35)}
+
+@media(max-width:900px){
+  nav{padding:0 1.5rem}
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .hamburger{display:flex}
+  .nav-right{gap:8px}
+  .hero-inner{padding:1.5rem 1.5rem 1.5rem}
+  .hero-testimonials{margin:0;width:100%;flex-direction:column}
+  .hero-testi-card{border-right:none;border-bottom:1px solid var(--hero-border)}
+  #clients,#brand-transform,#story,#projects,#blog,#cta{padding:4rem 1.5rem}
+  .bt-cards{grid-template-columns:1fr!important;overflow:visible!important;border-radius:var(--radius-card)!important}
+  .bt-card{border-right:none;border-bottom:1px solid var(--border);width:100%!important;overflow:visible!important;min-width:0}
+  .bt-card:last-of-type{border-bottom:none}
+  .bt-card-photo{height:200px!important;width:100%!important;display:block!important}
+  .bt-card-photo.no-photo{display:flex!important}
+  .bt-card-title,.bt-card-desc,.bt-card-btn{display:block!important;opacity:1!important;max-width:100%!important;overflow:visible!important}
+  .bt-card-cta{border-top:1px solid rgba(255,255,255,.15);grid-column:auto}
+  .story-header{grid-template-columns:1fr}
+  .story-grid,.blog-grid{grid-template-columns:1fr}
+  .blog-card{border-right:none;border-bottom:1px solid var(--border)}
+  .project-row{grid-template-columns:40px 1fr auto 32px}.project-year{display:none}
+  footer{flex-direction:column;align-items:flex-start}
+  .clients-stats{gap:2rem;flex-wrap:wrap}
+}
+
+/* ── PROJECTS SLIDER ── */
+#projects{padding:0;background:var(--hero-bg);overflow:hidden}
+.proj-outer{max-width:100%;padding:6rem 0 4rem}
+
+.proj-header{display:flex;align-items:flex-end;justify-content:space-between;padding:0 3rem;margin-bottom:3.5rem}
+.proj-header-left{display:flex;flex-direction:column;gap:1.4rem}
+.proj-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.5vw,3rem);letter-spacing:-.02em;line-height:1.1;color:var(--hero-text)}
+.proj-title em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.proj-all-link{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(250,250,248,.6);text-decoration:none;border:1px solid rgba(255,255,255,.2);padding:9px 20px;border-radius:30px;display:inline-flex;align-items:center;gap:6px;transition:color .2s,border-color .2s;width:fit-content}
+.proj-all-link:hover{color:#fff;border-color:rgba(255,255,255,.5)}
+
+.proj-nav-btns{display:flex;gap:10px}
+.proj-nav-btn{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(250,250,248,.7);transition:background .2s,border-color .2s,color .2s}
+.proj-nav-btn svg{width:18px;height:18px}
+.proj-nav-btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4);color:#fff}
+
+.proj-slider-wrap{overflow:hidden;padding:0 3rem;cursor:grab;user-select:none}
+.proj-slider-wrap:active{cursor:grabbing}
+.proj-slider{display:flex;gap:20px;transition:transform .5s cubic-bezier(.25,.46,.45,.94);will-change:transform}
+
+.proj-card{flex:0 0 calc((100% - 40px) / 3);min-width:0;border-radius:16px;overflow:hidden;background:#111;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .3s;border:1px solid rgba(255,255,255,.06)}
+.proj-card:hover{transform:translateY(-4px)}
+
+.proj-card-img{position:relative;aspect-ratio:3/2.2;overflow:hidden;background:#1a1a1a}
+.proj-card-img img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.75);transition:filter .4s,transform .4s}
+.proj-card:hover .proj-card-img img{filter:brightness(.6);transform:scale(1.04)}
+
+.proj-card-badges{position:absolute;top:14px;left:14px;display:flex;gap:8px}
+.proj-badge{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.06em;background:rgba(10,10,10,.65);backdrop-filter:blur(6px);color:rgba(255,255,255,.9);padding:4px 10px;border-radius:20px;border:1px solid rgba(255,255,255,.15)}
+
+.proj-card-logo{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.85);white-space:nowrap;background:rgba(0,0,0,.4);backdrop-filter:blur(8px);padding:5px 14px;border-radius:20px;border:1px solid rgba(255,255,255,.12)}
+
+.proj-card-body{display:flex;align-items:center;justify-content:space-between;padding:1.4rem 1.6rem;background:#0d0d0b;border-top:1px solid rgba(255,255,255,.06)}
+.proj-card-info{}
+.proj-card-name{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:#fff;letter-spacing:-.01em;margin-bottom:2px}
+.proj-card-cat{font-size:.75rem;color:rgba(255,255,255,.4);letter-spacing:.03em}
+.proj-card-cta{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.5);flex-shrink:0;transition:color .2s}
+.proj-card:hover .proj-card-cta{color:#fff}
+
+.proj-footer-bar{display:flex;align-items:center;justify-content:space-between;padding:2rem 3rem 0;border-top:1px solid rgba(255,255,255,.07);margin-top:3rem}
+.proj-drag-hint{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.3);font-family:'Syne',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.proj-count{font-family:'Syne',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.1em;color:rgba(255,255,255,.3)}
+
+@media(max-width:900px){
+  .proj-outer{padding:4rem 0 3rem}
+  .proj-header{padding:0 1.5rem}
+  .proj-slider-wrap{padding:0 1.5rem}
+  .proj-footer-bar{padding:1.5rem 1.5rem 0}
+  .proj-card{flex:0 0 calc(100vw - 4rem)}
+}
+
+/* ── GRADIENT TEXT UTILITY ── */
+.grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ── i18n — MUST be last, !important prevents any override ── */
+[data-lang]               { display: none !important; }
+[data-lang].active        { display: inline !important; }
+[data-lang-block]         { display: none !important; }
+[data-lang-block].active  { display: block !important; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo" style="display:flex;align-items:center;text-decoration:none">
+    <img src="https://healthupmarketing.com/wp-content/uploads/2025/01/logo.png" alt="HealthUp Marketing" class="nav-logo-light" style="height:38px;width:auto;object-fit:contain">
+    <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/hup-logos.webp" alt="HealthUp Marketing" class="nav-logo-dark" style="height:38px;width:auto;object-fit:contain">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#brand-transform"><span data-lang="tr" class="active">Hizmetler</span><span data-lang="en">Services</span></a></li>
+    <li><a href="hakkimizda.html"><span data-lang="tr" class="active">Hakkımızda</span><span data-lang="en">About</span></a></li>
+    <li><a href="projeler.html"><span data-lang="tr" class="active">Projeler</span><span data-lang="en">Projects</span></a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="sss.html"><span data-lang="tr" class="active">SSS</span><span data-lang="en">FAQ</span></a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg class="icon-moon" viewBox="0 0 20 20" fill="currentColor"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg>
+    </button>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-tr" onclick="setLang('tr')">TR</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="#contact-form" class="nav-cta">
+      <span data-lang="tr" class="active">Teklif Al →</span>
+      <span data-lang="en">Get Proposal →</span>
+    </a>
+    <!-- Hamburger — only visible on mobile -->
+    <button class="hamburger" id="hamburger" aria-label="Menü">
+      <svg class="ham-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="ham-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <ul class="mobile-nav-links">
+    <li><a href="#brand-transform" class="mobile-link"><span data-lang="tr" class="active">Hizmetler</span><span data-lang="en">Services</span></a></li>
+    <li><a href="hakkimizda.html" class="mobile-link"><span data-lang="tr" class="active">Hakkımızda</span><span data-lang="en">About</span></a></li>
+    <li><a href="projeler.html" class="mobile-link"><span data-lang="tr" class="active">Projeler</span><span data-lang="en">Projects</span></a></li>
+    <li><a href="blog.html" class="mobile-link">Blog</a></li>
+    <li><a href="sss.html" class="mobile-link"><span data-lang="tr" class="active">SSS</span><span data-lang="en">FAQ</span></a></li>
+  </ul>
+  <a href="#contact-form" class="mobile-cta mobile-link">
+    <span data-lang="tr" class="active">Analiz İste →</span>
+    <span data-lang="en">Get Analysis →</span>
+  </a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-accent-blob"></div>
+  <div class="hero-inner">
+    <!-- Hero two-column layout -->
+    <div class="hero-two-col">
+      <!-- LEFT: text content -->
+      <div class="hero-left">
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-line"></div>
+          <div class="hero-brand-badges" style="margin-left:0;padding-left:0;border-left:none">
+            <div class="hero-brand-logos">
+              <div class="brand-logo-circle" title="Acıbadem" style="background:#fff;border:2px solid rgba(255,255,255,.2)">
+                <svg viewBox="0 0 40 40" fill="none" style="width:22px;height:22px"><circle cx="20" cy="20" r="18" fill="#003b6f"/><text x="20" y="25" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="sans-serif">A</text></svg>
+              </div>
+              <div class="brand-logo-circle" title="Liv Hospital" style="background:#fff;border:2px solid rgba(255,255,255,.2)">
+                <svg viewBox="0 0 40 40" fill="none" style="width:22px;height:22px"><circle cx="20" cy="20" r="18" fill="#e8002d"/><text x="20" y="25" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold" font-family="sans-serif">LIV</text></svg>
+              </div>
+              <div class="brand-logo-circle" title="Medicana" style="background:#fff;border:2px solid rgba(255,255,255,.2)">
+                <svg viewBox="0 0 40 40" fill="none" style="width:22px;height:22px"><circle cx="20" cy="20" r="18" fill="#009b77"/><text x="20" y="25" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="sans-serif">MED</text></svg>
+              </div>
+              <div class="brand-logo-circle" title="Memoria" style="background:#fff;border:2px solid rgba(255,255,255,.2)">
+                <svg viewBox="0 0 40 40" fill="none" style="width:22px;height:22px"><circle cx="20" cy="20" r="18" fill="#c0392b"/><text x="20" y="25" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="sans-serif">MEM</text></svg>
+              </div>
+              <div class="brand-logo-circle brand-logo-count" title="50+ marka">
+                <span>50+</span>
+              </div>
+            </div>
+            <span class="hero-brand-text"><span data-lang="tr" class="active">50'den fazla <em>saygın marka</em> ile güçlü iş birliği</span><span data-lang="en">Strong partnerships with over <em>50 reputable brands</em></span></span>
+          </div>
+        </div>
+        <h1 class="hero-headline">
+          <span data-lang-block="tr" class="active">Sağlıkta<br><em>Güçlü Pazarlama</em><br>Akıllı Büyüme.</span>
+          <span data-lang-block="en">Strong Marketing<br><em>in Health.</em><br>Smart Growth.</span>
+        </h1>
+        <p class="hero-sub">
+          <span data-lang="tr" class="active">Çağla Çakırgöz ve Tolga Çakırgöz liderliğinde, 10 yıllık sağlık turizmi deneyimine sahip ekibimiz; stratejik pazarlama ve satış uzmanlığıyla markanıza profesyonel çözümler sunarak büyümenizi destekler.</span>
+          <span data-lang="en">Led by Çağla Çakırgöz and Tolga Çakırgöz, our team with 10 years of health tourism experience supports your growth with strategic marketing and sales expertise.</span>
+        </p>
+        <div class="hero-actions">
+          <a href="#contact-form" class="btn-primary">
+            <span data-lang="tr" class="active">Projeye Başla</span>
+            <span data-lang="en">Start a Project</span>
+            <svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="projeler.html" class="btn-ghost">
+            <span data-lang="tr" class="active">Projelerimizi gör →</span>
+            <span data-lang="en">See our work →</span>
+          </a>
+        </div>
+      </div>
+      <!-- RIGHT: 3D logo — desktop only -->
+      <div class="hero-right">
+        <div class="hero-3d-logo">
+          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/healthup3d.webp" alt="HealthUp 3D Logo" class="hero-3d-img">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section id="clients">
+  <div class="clients-header">
+    <div class="section-label">
+      <div class="section-label-line"></div>
+      <span><span data-lang="tr" class="active">Müşteriler</span><span data-lang="en">Clients</span></span>
+      <div class="section-label-line"></div>
+    </div>
+  </div>
+  <div class="marquee-wrapper">
+    <div class="marquee-track">
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/1.webp" class="marquee-item-logo" alt="Marka 1"></div>
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/2.webp" class="marquee-item-logo" alt="Marka 2"></div>
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/3.webp" class="marquee-item-logo" alt="Marka 3"></div>
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/4.webp" class="marquee-item-logo" alt="Marka 4"></div>
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/5.webp" class="marquee-item-logo" alt="Marka 5"></div>
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/6.webp" class="marquee-item-logo" alt="Marka 6"></div>
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/7.webp" class="marquee-item-logo" alt="Marka 7"></div>
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/8.webp" class="marquee-item-logo" alt="Marka 8"></div>
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/9.webp" class="marquee-item-logo" alt="Marka 9"></div>
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/10.webp" class="marquee-item-logo" alt="Marka 10"></div>
+      <!-- duplicate for seamless loop -->
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/1.webp" class="marquee-item-logo" alt="Marka 1"></div>
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/2.webp" class="marquee-item-logo" alt="Marka 2"></div>
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/3.webp" class="marquee-item-logo" alt="Marka 3"></div>
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/4.webp" class="marquee-item-logo" alt="Marka 4"></div>
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/5.webp" class="marquee-item-logo" alt="Marka 5"></div>
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/6.webp" class="marquee-item-logo" alt="Marka 6"></div>
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/7.webp" class="marquee-item-logo" alt="Marka 7"></div>
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/8.webp" class="marquee-item-logo" alt="Marka 8"></div>
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/9.webp" class="marquee-item-logo" alt="Marka 9"></div>
+      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/10.webp" class="marquee-item-logo" alt="Marka 10"></div>
+    </div>
+  </div>
+  <div class="clients-stats">
+    <div class="clients-stat"><div class="clients-stat-num">20+</div><div class="clients-stat-label"><span data-lang="tr" class="active">Aktif marka</span><span data-lang="en">Active brands</span></div></div>
+    <div class="clients-stat"><div class="clients-stat-num">$4M+</div><div class="clients-stat-label"><span data-lang="tr" class="active">Yönetilen reklam bütçesi</span><span data-lang="en">Ad spend managed</span></div></div>
+    <div class="clients-stat"><div class="clients-stat-num">10+ <span data-lang="tr" class="active">yıl</span><span data-lang="en">yrs</span></div><div class="clients-stat-label"><span data-lang="tr" class="active">Sektör deneyimi</span><span data-lang="en">Industry experience</span></div></div>
+    <div class="clients-stat"><div class="clients-stat-num">42+</div><div class="clients-stat-label"><span data-lang="tr" class="active">Ülkede reklam yönetimi</span><span data-lang="en">Countries managed</span></div></div>
+  </div>
+</section>
+
+<!-- BRAND TRANSFORM / HİZMETLER -->
+<section id="brand-transform">
+  <div class="bt-inner">
+    <div class="bt-header">
+      <div class="bt-tag"><span data-lang="tr" class="active">Hizmetlerimiz</span><span data-lang="en">Our Services</span></div>
+      <h2 class="bt-headline"><span data-lang-block="tr" class="active">Markanızın Dönüşümünü Başlatın</span><span data-lang-block="en">Start Your Brand Transformation</span></h2>
+    </div>
+    <div class="bt-cards" style="grid-template-columns:repeat(3,1fr)">
+      <!-- Google Reklamları -->
+      <div class="bt-card">
+        <div class="bt-card-photo">
+          <!-- FOTOĞRAF LİNKİ: Google Reklamları -->
+          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/google.webp" alt="Google Reklamları" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
+        </div>
+        <div class="bt-card-title"><span data-lang="tr" class="active">Google Reklamları</span><span data-lang="en">Google Ads</span></div>
+        <p class="bt-card-desc"><span data-lang="tr" class="active">Google Ads, sağlık sektöründe dijital pazarlama stratejilerinin merkezinde yer alarak hedef kitlenize en doğru anda ulaşmanızı sağlar.</span><span data-lang="en">Google Ads sits at the center of digital marketing strategies in health, reaching your target audience at exactly the right moment.</span></p>
+        <a href="hizmet-google-reklamlari.html" class="bt-card-btn"><span data-lang="tr" class="active">Devamını Gör</span><span data-lang="en">Learn More</span></a>
+      </div>
+      <!-- Web Sitesi -->
+      <div class="bt-card">
+        <div class="bt-card-photo">
+          <!-- FOTOĞRAF LİNKİ: Web Sitesi -->
+          <img data-lang="tr" class="active" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/webtasar%C4%B1m%C4%B1.webp" alt="Web Sitesi" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
+          <img data-lang="en" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/webdesing.webp" alt="Website" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
+        </div>
+        <div class="bt-card-title"><span data-lang="tr" class="active">Web Sitesi</span><span data-lang="en">Website</span></div>
+        <p class="bt-card-desc"><span data-lang="tr" class="active">Web sitesi yazılımı, bir web sitesinin işlevselliğini belirleyen kodlama ve tasarım süreçlerinin bütünüdür. Güçlü altyapılar kuruyoruz.</span><span data-lang="en">Website software defines the functionality of a web site through coding and design processes. We build powerful infrastructures.</span></p>
+        <a href="hizmet-web-sitesi.html" class="bt-card-btn"><span data-lang="tr" class="active">Devamını Gör</span><span data-lang="en">Learn More</span></a>
+      </div>
+      <!-- Sosyal Medya Yönetimi -->
+      <div class="bt-card">
+        <div class="bt-card-photo">
+          <!-- FOTOĞRAF LİNKİ: Sosyal Medya Yönetimi -->
+          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/sosyalmedya.webp" alt="Sosyal Medya Yönetimi" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
+        </div>
+        <div class="bt-card-title"><span data-lang="tr" class="active">Sosyal Medya Yönetimi</span><span data-lang="en">Social Media Management</span></div>
+        <p class="bt-card-desc"><span data-lang="tr" class="active">Sağlık turizminde sosyal medyanın gücü; sağlık turizmi sektörü uluslararası rekabette öne çıkmanızı sağlar.</span><span data-lang="en">The power of social media in health tourism helps you stand out in international competition in the health tourism sector.</span></p>
+        <a href="hizmet-sosyal-medya.html" class="bt-card-btn"><span data-lang="tr" class="active">Devamını Gör</span><span data-lang="en">Learn More</span></a>
+      </div>
+      <!-- Meta Reklamları -->
+      <div class="bt-card">
+        <div class="bt-card-photo">
+          <!-- FOTOĞRAF LİNKİ: Meta Reklamları -->
+          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/meta.webp" alt="Meta Reklamları" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
+        </div>
+        <div class="bt-card-title"><span data-lang="tr" class="active">Meta Reklamları</span><span data-lang="en">Meta Ads</span></div>
+        <p class="bt-card-desc"><span data-lang="tr" class="active">Facebook, Instagram ve WhatsApp reklamları, hedeflenmiş demografik ve davranışsal verilerle sağlık turizminizde büyüme sağlar.</span><span data-lang="en">Facebook, Instagram and WhatsApp ads drive growth in your health tourism through targeted demographic and behavioral data.</span></p>
+        <a href="hizmet-meta-reklamlari.html" class="bt-card-btn"><span data-lang="tr" class="active">Devamını Gör</span><span data-lang="en">Learn More</span></a>
+      </div>
+      <!-- Satış Eğitimi ve Danışmanlığı -->
+      <div class="bt-card">
+        <div class="bt-card-photo">
+          <!-- FOTOĞRAF LİNKİ: Satış Eğitimi -->
+          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/satisegitimi.webp" alt="Satış Eğitimi ve Danışmanlığı" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
+        </div>
+        <div class="bt-card-title"><span data-lang="tr" class="active">Satış Eğitimi ve Danışmanlığı</span><span data-lang="en">Sales Training & Consulting</span></div>
+        <p class="bt-card-desc"><span data-lang="tr" class="active">Sağlık turizmi sektörü, global ölçekte büyümeye devam ederken rekabet de her geçen gün artmaktadır. Ekibinizi hazırlıyoruz.</span><span data-lang="en">As the health tourism sector continues to grow globally, competition increases every day. We prepare your team.</span></p>
+        <a href="hizmet-satis-egitimi.html" class="bt-card-btn"><span data-lang="tr" class="active">Devamını Gör</span><span data-lang="en">Learn More</span></a>
+      </div>
+      <!-- HealthUp CRM -->
+      <div class="bt-card" style="border-right:none">
+        <div class="bt-card-photo">
+          <!-- FOTOĞRAF LİNKİ: HealthUp CRM -->
+          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/healthupcrm.webp" alt="HealthUp CRM" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
+        </div>
+        <div class="bt-card-title"><span data-lang="tr" class="active">HealthUp CRM</span><span data-lang="en">HealthUp CRM</span></div>
+        <p class="bt-card-desc"><span data-lang="tr" class="active">HealthUp CRM, HealthUp Marketing tarafından sağlık turizmi sektörüne yönelik özel olarak geliştirilmiş bir müşteri yönetim sistemidir.</span><span data-lang="en">HealthUp CRM is a customer management system specifically developed by HealthUp Marketing for the health tourism sector.</span></p>
+        <a href="hizmet-crm.html" class="bt-card-btn"><span data-lang="tr" class="active">Devamını Gör</span><span data-lang="en">Learn More</span></a>
+      </div>
+    </div>
+    <p class="bt-footer-text"><span data-lang="tr" class="active">Markanızın hikayesini daha geniş kitlelere ulaştıralım.</span><span data-lang="en">Let's bring your brand's story to a wider audience.</span></p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section id="story">
+  <div class="story-inner">
+    <div class="story-header">
+      <h2 class="story-headline">
+        <span data-lang-block="tr" class="active">Hikayenizi<br>Dünyayla<br><em>Buluşturuyoruz.</em></span>
+        <span data-lang-block="en">Connecting<br>Your Story<br><em>With the World.</em></span>
+      </h2>
+      <div>
+        <p class="story-desc"><span data-lang="tr" class="active">Her markanın anlatmaya değer bir hikayesi var. Biz o hikayeyi doğru mecrada, doğru zamanda ve doğru kişiyle buluşturan sistemi inşa ederiz.</span><span data-lang="en">Every brand has a story worth telling. We build the system that connects that story with the right people, on the right channel, at the right time.</span></p>
+        <p class="story-desc"><span data-lang="tr" class="active">Ölçüm, tutarlılık ve optimizasyon temel ilkelerimizdir. Her kampanya takip edilir, her temas noktası analiz edilir.</span><span data-lang="en">Measurement, consistency and optimization are our core principles. Every campaign is tracked, every touchpoint analyzed.</span></p>
+        <a href="#contact-form" class="story-link"><span data-lang="tr" class="active">Birlikte çalışalım →</span><span data-lang="en">Let's work together →</span></a>
+      </div>
+    </div>
+    <!-- İletişim Formu + Kayan Galeri -->
+    <div class="story-contact-wrap">
+      <!-- Sol: Form -->
+      <div class="story-form-col" id="contact-form">
+        <h3 class="story-form-title"><span data-lang="tr" class="active">İletişime Geçin</span><span data-lang="en">Get in Touch</span></h3>
+        <p class="story-form-desc">
+          <span data-lang="tr" class="active">Benzersiz hizmetlerimiz kafanızı karıştırıyor olabilir. Çünkü biz, <strong>halkla ilişkileri</strong> yeniden tanımlıyor, konvansiyonel PR ile <strong>dijital PR'ı</strong> kusursuz bir şekilde entegre ederek markanızın Google'daki görünürlüğünü üst sıralara taşıyoruz.</span>
+          <span data-lang="en">Our unique services may seem complex. Because we redefine <strong>public relations</strong>, seamlessly integrating conventional PR with <strong>digital PR</strong> to take your brand to the top of Google rankings.</span>
+        </p>
+        <p class="story-form-desc" style="margin-top:.6rem">
+          <span data-lang="tr" class="active">Dijital dünyadaki bilinirliğinizi konvansiyonel medyanın gücüyle destekliyoruz. Böylece markanız hem güvenilir medya platformlarında yer alıyor hem de Google aramalarında zirveye yükseliyor.</span>
+          <span data-lang="en">We support your digital awareness with the power of conventional media. Your brand gets featured on trusted media platforms and climbs to the top of Google searches.</span>
+        </p>
+        <form class="story-form" onsubmit="return false">
+          <div class="sf-field">
+            <input type="text" placeholder="İsim Soyisim *" required data-placeholder-tr="İsim Soyisim *" data-placeholder-en="Full Name *">
+          </div>
+          <div class="sf-field">
+            <input type="email" placeholder="E-posta *" required data-placeholder-tr="E-posta *" data-placeholder-en="Email *">
+          </div>
+          <div class="sf-field">
+            <input type="tel" placeholder="Telefon" data-placeholder-tr="Telefon" data-placeholder-en="Phone">
+          </div>
+          <div class="sf-field">
+            <input type="url" placeholder="Website">
+          </div>
+          <button type="submit" class="sf-btn">
+            <span data-lang="tr" class="active">İletişime Geç</span>
+            <span data-lang="en">Send Message</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Sağ: Kayan Galeri (2 kolon, ters yönlü) -->
+      <div class="story-gallery-col">
+        <div class="gallery-scroll-wrap">
+          <!-- Kolon 1: Aşağı inen — 1,3,5,7,9,11,13 -->
+          <div class="gallery-col">
+            <div class="gallery-track gallery-down">
+              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/1.webp" alt="Kreatif 1"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/3.webp" alt="Kreatif 3"></div>
+              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/5.webp" alt="Kreatif 5"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/7.webp" alt="Kreatif 7"></div>
+              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/9.webp" alt="Kreatif 9"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/11.webp" alt="Kreatif 11"></div>
+              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/13.webp" alt="Kreatif 13"></div>
+              <!-- duplicate for seamless loop -->
+              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/1.webp" alt="Kreatif 1"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/3.webp" alt="Kreatif 3"></div>
+              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/5.webp" alt="Kreatif 5"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/7.webp" alt="Kreatif 7"></div>
+              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/9.webp" alt="Kreatif 9"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/11.webp" alt="Kreatif 11"></div>
+              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/13.webp" alt="Kreatif 13"></div>
+            </div>
+          </div>
+          <!-- Kolon 2: Yukarı çıkan — 2,4,6,8,10,12 -->
+          <div class="gallery-col">
+            <div class="gallery-track gallery-up">
+              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/2.webp" alt="Kreatif 2"></div>
+              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/4.webp" alt="Kreatif 4"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/6.webp" alt="Kreatif 6"></div>
+              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/8.webp" alt="Kreatif 8"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/10.webp" alt="Kreatif 10"></div>
+              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/12.webp" alt="Kreatif 12"></div>
+              <!-- duplicate for seamless loop -->
+              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/2.webp" alt="Kreatif 2"></div>
+              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/4.webp" alt="Kreatif 4"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/6.webp" alt="Kreatif 6"></div>
+              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/8.webp" alt="Kreatif 8"></div>
+              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/10.webp" alt="Kreatif 10"></div>
+              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/12.webp" alt="Kreatif 12"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="proj-outer">
+    <!-- Header row -->
+    <div class="proj-header">
+      <div class="proj-header-left">
+        <h2 class="proj-title"><span data-lang-block="tr" class="active">Portföy değil,<br><em>projeler.</em></span><span data-lang-block="en">Not a portfolio.<br><em>Our projects.</em></span></h2>
+        <a href="#" class="proj-all-link">
+          <span data-lang="tr" class="active">Tümünü gör</span><span data-lang="en">See all</span> →
+        </a>
+      </div>
+      <div class="proj-nav-btns">
+        <button class="proj-nav-btn" id="projPrev" aria-label="Önceki">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="proj-nav-btn" id="projNext" aria-label="Sonraki">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Slider -->
+    <div class="proj-slider-wrap">
+      <div class="proj-slider" id="projSlider">
+
+        <!-- Kart 1: DentPrime -->
+        <a href="#" class="proj-card">
+          <div class="proj-card-img">
+            <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=700&q=80" alt="DentPrime">
+            <div class="proj-card-badges">
+              <span class="proj-badge">01</span>
+              <span class="proj-badge">2024</span>
+            </div>
+            <div class="proj-card-logo">HealthUp × DentPrime</div>
+          </div>
+          <div class="proj-card-body">
+            <div class="proj-card-info">
+              <h3 class="proj-card-name">DentPrime</h3>
+              <span class="proj-card-cat"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></span>
+            </div>
+            <span class="proj-card-cta"><span data-lang="tr" class="active">İNCELE</span><span data-lang="en">VIEW</span> →</span>
+          </div>
+        </a>
+
+        <!-- Kart 2: Livera Dental -->
+        <a href="#" class="proj-card">
+          <div class="proj-card-img">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&q=80" alt="Livera Dental">
+            <div class="proj-card-badges">
+              <span class="proj-badge">02</span>
+              <span class="proj-badge">2024</span>
+            </div>
+            <div class="proj-card-logo">HealthUp × Livera</div>
+          </div>
+          <div class="proj-card-body">
+            <div class="proj-card-info">
+              <h3 class="proj-card-name">Livera Dental Clinic</h3>
+              <span class="proj-card-cat"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></span>
+            </div>
+            <span class="proj-card-cta"><span data-lang="tr" class="active">İNCELE</span><span data-lang="en">VIEW</span> →</span>
+          </div>
+        </a>
+
+        <!-- Kart 3: Avrupa Sağlık Diş -->
+        <a href="#" class="proj-card">
+          <div class="proj-card-img">
+            <img src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=700&q=80" alt="Avrupa Sağlık Diş">
+            <div class="proj-card-badges">
+              <span class="proj-badge">03</span>
+              <span class="proj-badge">2024</span>
+            </div>
+            <div class="proj-card-logo">HealthUp × Avrupa Sağlık</div>
+          </div>
+          <div class="proj-card-body">
+            <div class="proj-card-info">
+              <h3 class="proj-card-name">Avrupa Sağlık Diş</h3>
+              <span class="proj-card-cat"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></span>
+            </div>
+            <span class="proj-card-cta"><span data-lang="tr" class="active">İNCELE</span><span data-lang="en">VIEW</span> →</span>
+          </div>
+        </a>
+
+        <!-- Kart 4: Doctor Fero -->
+        <a href="#" class="proj-card">
+          <div class="proj-card-img">
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=700&q=80" alt="Doctor Fero">
+            <div class="proj-card-badges">
+              <span class="proj-badge">04</span>
+              <span class="proj-badge">2023</span>
+            </div>
+            <div class="proj-card-logo">HealthUp × Doctor Fero</div>
+          </div>
+          <div class="proj-card-body">
+            <div class="proj-card-info">
+              <h3 class="proj-card-name">Doctor Fero</h3>
+              <span class="proj-card-cat"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></span>
+            </div>
+            <span class="proj-card-cta"><span data-lang="tr" class="active">İNCELE</span><span data-lang="en">VIEW</span> →</span>
+          </div>
+        </a>
+
+        <!-- Kart 5: Mednfly -->
+        <a href="#" class="proj-card">
+          <div class="proj-card-img">
+            <img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=700&q=80" alt="Mednfly">
+            <div class="proj-card-badges">
+              <span class="proj-badge">05</span>
+              <span class="proj-badge">2024</span>
+            </div>
+            <div class="proj-card-logo">HealthUp × Mednfly</div>
+          </div>
+          <div class="proj-card-body">
+            <div class="proj-card-info">
+              <h3 class="proj-card-name">Mednfly</h3>
+              <span class="proj-card-cat"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></span>
+            </div>
+            <span class="proj-card-cta"><span data-lang="tr" class="active">İNCELE</span><span data-lang="en">VIEW</span> →</span>
+          </div>
+        </a>
+
+      </div><!-- /proj-slider -->
+    </div><!-- /proj-slider-wrap -->
+
+    <!-- Footer row -->
+    <div class="proj-footer-bar">
+      <div class="proj-drag-hint">
+        <svg width="32" height="12" viewBox="0 0 32 12" fill="none"><path d="M0 6h30M24 1l6 5-6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span><span data-lang="tr" class="active">SÜRÜKLEYIN / KAYDIIRIN</span><span data-lang="en">DRAG / SCROLL</span></span>
+      </div>
+      <div class="proj-count" id="projCount">01 / 05</div>
+    </div>
+
+  </div><!-- /proj-outer -->
+</section>
+
+<!-- EKİP -->
+<section id="team">
+  <div class="team-inner">
+    <div class="section-header">
+      <div class="bt-tag"><span data-lang="tr" class="active">Ekibimiz</span><span data-lang="en">Our Team</span></div>
+      <h2 class="section-title"><span data-lang-block="tr" class="active">İşin arkasındaki<br><em>insanlar.</em></span><span data-lang-block="en">The people<br><em>behind the work.</em></span></h2>
+    </div>
+    <p class="team-sub"><span data-lang="tr" class="active">Strateji, performans, kreatif ve teknoloji. Planı yapan kişi, onu hayata geçiren kişiyle aynı.</span><span data-lang="en">Strategy, performance, creative and technology. The person who makes the plan is the same person who executes it.</span></p>
+    <!-- Kurucular: 2 eşit büyüklükte yan yana -->
+    <div class="team-founders">
+      <div class="team-card">
+        <div class="team-card-img-wrap">
+          <!-- FOTOĞRAF LİNKİ: Çağla Çakırgöz -->
+          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/cagla-cakirgoz.webp" alt="Çağla Çakırgöz" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
+          <div class="team-card-num">01</div>
+        </div>
+        <div class="team-card-info">
+          <span class="team-card-role"><span data-lang="tr" class="active">Kurucu</span><span data-lang="en">Founder</span></span>
+          <h3 class="team-card-name">Çağla Çakırgöz</h3>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-img-wrap">
+          <!-- FOTOĞRAF LİNKİ: Tolga Çakırgöz -->
+          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/tolga-cakirgoz.webp" alt="Tolga Çakırgöz" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
+          <div class="team-card-num">02</div>
+        </div>
+        <div class="team-card-info">
+          <span class="team-card-role"><span data-lang="tr" class="active">Kurucu</span><span data-lang="en">Founder</span></span>
+          <h3 class="team-card-name">Tolga Çakırgöz</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ekip: 3 kişi -->
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-card-img-wrap">
+          <!-- FOTOĞRAF LİNKİ: Doğukan Demir -->
+          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/dogukan.webp" alt="Doğukan Demir" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
+          <div class="team-card-num">03</div>
+        </div>
+        <div class="team-card-info">
+          <span class="team-card-role"><span data-lang="tr" class="active">Dijital Pazarlama</span><span data-lang="en">Digital Marketing</span></span>
+          <h3 class="team-card-name">Doğukan Demir</h3>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-img-wrap">
+          <!-- FOTOĞRAF LİNKİ: Ayşe Betül Karaca -->
+          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/betul-karaca.webp" alt="Ayşe Betül Karaca" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
+          <div class="team-card-num">04</div>
+        </div>
+        <div class="team-card-info">
+          <span class="team-card-role"><span data-lang="tr" class="active">Kreatif Tasarımcı</span><span data-lang="en">Creative Designer</span></span>
+          <h3 class="team-card-name">Ayşe Betül Karaca</h3>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-img-wrap">
+          <!-- FOTOĞRAF LİNKİ: Gurur Dayanık -->
+          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/gurur-dayanik.webp" alt="Gurur Dayanık" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
+          <div class="team-card-num">05</div>
+        </div>
+        <div class="team-card-info">
+          <span class="team-card-role"><span data-lang="tr" class="active">Kreatif Tasarımcı</span><span data-lang="en">Creative Designer</span></span>
+          <h3 class="team-card-name">Gurur Dayanık</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GERÇEK DENEYİM -->
+<section id="testimonials">
+  <div class="testi-outer">
+    <div class="testi-section-header">
+      <div class="bt-tag"><span data-lang="tr" class="active">Müşteri Yorumları</span><span data-lang="en">Client Reviews</span></div>
+      <h2 class="testi-section-title"><span data-lang-block="tr" class="active">Gerçek <em>Deneyim</em></span><span data-lang-block="en">Real <em>Experience</em></span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-item">
+        <div class="testi-item-stat">+312%</div>
+        <p class="testi-item-quote"><span data-lang="tr" class="active">"Sadece iş yapan bir ekip değil. Gerçek sonuçlar üreten bir ortak."</span><span data-lang="en">"Not just a team that gets things done. A true partner that drives real results."</span></p>
+        <div class="testi-item-author">
+          <div class="testi-avatar">EU</div>
+          <div>
+            <div class="testi-name">Dr. Ervin Umer</div>
+            <div class="testi-role">Founder · Livera Dental</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-item">
+        <div class="testi-item-stat">4.2× ROAS</div>
+        <p class="testi-item-quote"><span data-lang="tr" class="active">"Google Ads ile başlayan süreç, yıl boyunca dolu bir boru hattına dönüştü."</span><span data-lang="en">"What started with Google Ads turned into a system that keeps our pipeline full year round."</span></p>
+        <div class="testi-item-author">
+          <div class="testi-avatar">AÖ</div>
+          <div>
+            <div class="testi-name">Abdullah Özkarslı</div>
+            <div class="testi-role">CEO · DentPrime</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-item">
+        <div class="testi-item-stat">−47% CPB</div>
+        <p class="testi-item-quote"><span data-lang="tr" class="active">"Karar veren, uygulayan ve optimize eden bir ekip. Her şey hızlı ve ölçülebilir."</span><span data-lang="en">"A team that decides, executes and optimizes. Every process moves fast, clear and measurable."</span></p>
+        <div class="testi-item-author">
+          <div class="testi-avatar">DF</div>
+          <div>
+            <div class="testi-name">Dr. Fero</div>
+            <div class="testi-role">Founder · Doctor Fero Clinic</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="blog-inner">
+    <div class="section-header">
+      <h2 class="section-title"><span data-lang-block="tr" class="active">Blogdan<br><em>son yazılar.</em></span><span data-lang-block="en">Latest from<br><em>the blog.</em></span></h2>
+      <a href="blog.html" class="section-all-link"><span data-lang="tr" class="active">Tüm yazılar →</span><span data-lang="en">All posts →</span></a>
+    </div>
+    <div class="blog-grid">
+      <a href="#" class="blog-card">
+        <div class="blog-thumb"><img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&q=80" alt="SEO"></div>
+        <div class="blog-tag-wrap"><span class="blog-tag">SEO</span><span class="blog-read-time">14 dk</span></div>
+        <h3 class="blog-title"><span data-lang="tr" class="active">Yeni Bir Domain ile 5 Ayda İngiltere'de #1'e Nasıl Çıktık</span><span data-lang="en">How We Ranked a Brand-New Domain #1 in the UK in 5 Months</span></h3>
+        <p class="blog-excerpt"><span data-lang="tr" class="active">Sıfır domain otoritesi, backlink yok, aşırı rekabetçi bir niş. Zirveyi fethetmek için kullandığımız içerik, teknik ve link stratejisi.</span><span data-lang="en">Zero domain authority, no backlinks, a hyper-competitive niche. The exact content, technical and link-building strategy we used.</span></p>
+        <div class="blog-footer"><span class="blog-date">9 Nis 2026</span><span class="blog-arrow">→</span></div>
+      </a>
+      <a href="#" class="blog-card">
+        <div class="blog-thumb"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Google Ads"></div>
+        <div class="blog-tag-wrap"><span class="blog-tag">Google Ads</span><span class="blog-read-time">16 dk</span></div>
+        <h3 class="blog-title"><span data-lang="tr" class="active">Sağlık Sektöründe $4M Google Ads Harcamasından Öğrendiklerimiz</span><span data-lang="en">We Spent $4M on Google Ads for Healthcare. Here's What We Learned.</span></h3>
+        <p class="blog-excerpt"><span data-lang="tr" class="active">Beş yıl, düzinelerce klinik, milyonlarca dolarlık reklam harcaması. Gerçekten işe yarayan teklif stratejileri.</span><span data-lang="en">Five years, dozens of clinics, millions in ad spend. The bidding strategies and conversion traps that actually move the needle.</span></p>
+        <div class="blog-footer"><span class="blog-date">8 Nis 2026</span><span class="blog-arrow">→</span></div>
+      </a>
+      <a href="#" class="blog-card">
+        <div class="blog-thumb"><img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&q=80" alt="Meta Ads"></div>
+        <div class="blog-tag-wrap"><span class="blog-tag">Meta Ads</span><span class="blog-read-time">11 dk</span></div>
+        <h3 class="blog-title"><span data-lang="tr" class="active">Dikey Video Müşterimizin CPL'ini %62 Düşürdü: İşte Framework</span><span data-lang="en">Vertical Video Cut Our Client's CPL by 62%. Here's the Framework.</span></h3>
+        <p class="blog-excerpt"><span data-lang="tr" class="active">Bir diş kliniğinin tüm Meta hunisini dikey video, sunucu taraflı takip ve CAPI üzerine nasıl yeniden kurduğumuzu anlattık.</span><span data-lang="en">How we rebuilt a dental clinic's entire Meta funnel around vertical video creative, server-side tracking and CAPI.</span></p>
+        <div class="blog-footer"><span class="blog-date">7 Nis 2026</span><span class="blog-arrow">→</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-blob"></div>
+  <div class="cta-inner">
+    <div class="cta-eyebrow"><span data-lang="tr" class="active">Hazır mısınız?</span><span data-lang="en">Ready to scale?</span></div>
+    <h2 class="cta-headline"><span data-lang-block="tr" class="active">Kasıtlı bir büyüme<br><em>başlatmaya hazır mısınız?</em></span><span data-lang-block="en">Ready to grow<br><em>with intention?</em></span></h2>
+    <a href="#contact-form" class="btn-primary-white">
+      <span data-lang="tr" class="active">Projeye Başla</span><span data-lang="en">Start a Project</span>
+      <svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer class="hup-footer">
+  <div class="hup-footer-inner">
+    <!-- Sol: Logo + slogan + sosyal -->
+    <div class="hup-footer-brand">
+      <a href="#" class="hup-footer-logo">
+        <img src="https://healthupmarketing.com/wp-content/uploads/2025/01/logo.png" alt="HealthUp Marketing" style="height:44px;width:auto;object-fit:contain">
+      </a>
+      <p class="hup-footer-slogan"><span data-lang="tr" class="active">Sağlıkta Güçlü Pazarlama, Akıllı Büyüme</span><span data-lang="en">Strong Marketing in Health, Smart Growth</span></p>
+      <div class="hup-footer-social">
+        <a href="#" class="hup-social-btn" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="#" class="hup-social-btn" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#" class="hup-social-btn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="#" class="hup-social-btn" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Orta: İletişim -->
+    <div class="hup-footer-col">
+      <h4 class="hup-footer-col-title"><span data-lang="tr" class="active">İletişim Bilgileri</span><span data-lang="en">Contact Info</span></h4>
+      <p class="hup-footer-col-sub"><span data-lang="tr" class="active">Bizimle iletişime geçin!</span><span data-lang="en">Get in touch with us!</span></p>
+      <ul class="hup-contact-list">
+        <li>
+          <span class="hup-contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </span>
+          <span>Çınarlı Mah, 1572 Sk. No:33, 35170 Konak/İzmir</span>
+        </li>
+        <li>
+          <span class="hup-contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </span>
+          <a href="tel:+905367967126">(536) 796-7126</a>
+        </li>
+        <li>
+          <span class="hup-contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </span>
+          <a href="mailto:info@healthupmarketing.com">info@healthupmarketing.com</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Sağ: Hızlı Erişim -->
+    <div class="hup-footer-col">
+      <h4 class="hup-footer-col-title"><span data-lang="tr" class="active">Hızlı Erişim</span><span data-lang="en">Quick Links</span></h4>
+      <div class="hup-footer-nav">
+        <a href="hakkimizda.html"><span data-lang="tr" class="active">Hakkımızda</span><span data-lang="en">About Us</span></a>
+        <a href="#brand-transform"><span data-lang="tr" class="active">Hizmetlerimiz</span><span data-lang="en">Services</span></a>
+        <a href="projeler.html"><span data-lang="tr" class="active">Projeler</span><span data-lang="en">Projects</span></a>
+        <a href="blog.html">Blog</a>
+        <a href="sss.html"><span data-lang="tr" class="active">SSS</span><span data-lang="en">FAQ</span></a>
+        <a href="#contact-form"><span data-lang="tr" class="active">İletişim</span><span data-lang="en">Contact</span></a>
+        <a href="gizlilik.html"><span data-lang="tr" class="active">Gizlilik</span><span data-lang="en">Privacy</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="hup-footer-bottom">
+    <span><span data-lang="tr" class="active">© 2026 HealthUp Marketing. Tüm hakları saklıdır.</span><span data-lang="en">© 2026 HealthUp Marketing. All rights reserved.</span></span>
+  </div>
+</footer>
+
+<script>
+// THEME
+document.getElementById('themeToggle').addEventListener('click',()=>{
+  const r=document.documentElement;
+  const next=r.getAttribute('data-theme')==='light'?'dark':'light';
+  r.setAttribute('data-theme',next);
+  try{localStorage.setItem('theme',next);}catch(e){}
+});
+
+// HAMBURGER
+const ham=document.getElementById('hamburger');
+const drawer=document.getElementById('mobileDrawer');
+ham.addEventListener('click',()=>{
+  ham.classList.toggle('open');
+  drawer.classList.toggle('open');
+  document.body.style.overflow=drawer.classList.contains('open')?'hidden':'';
+});
+// close on link click
+document.querySelectorAll('.mobile-link').forEach(a=>{
+  a.addEventListener('click',()=>{
+    ham.classList.remove('open');
+    drawer.classList.remove('open');
+    document.body.style.overflow='';
+  });
+});
+
+// LANG
+function setLang(lang){
+  // inline elements
+  document.querySelectorAll('[data-lang]').forEach(el=>{
+    el.classList.remove('active');
+    if(el.getAttribute('data-lang')===lang) el.classList.add('active');
+  });
+  // block elements
+  document.querySelectorAll('[data-lang-block]').forEach(el=>{
+    el.classList.remove('active');
+    if(el.getAttribute('data-lang-block')===lang) el.classList.add('active');
+  });
+  // placeholders
+  document.querySelectorAll('[data-placeholder-'+lang+']').forEach(el=>{
+    el.placeholder=el.getAttribute('data-placeholder-'+lang);
+  });
+  // button states
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  const btn=document.getElementById('btn-'+lang);
+  if(btn) btn.classList.add('active');
+  document.documentElement.setAttribute('lang',lang);
+  // store preference
+  try{localStorage.setItem('lang',lang);}catch(e){}
+}
+// PROJECTS SLIDER
+(function(){
+  const slider = document.getElementById('projSlider');
+  const wrap   = slider ? slider.parentElement : null;
+  const prevBtn= document.getElementById('projPrev');
+  const nextBtn= document.getElementById('projNext');
+  const countEl= document.getElementById('projCount');
+  if(!slider||!wrap) return;
+
+  const cards = slider.querySelectorAll('.proj-card');
+  const total = cards.length;
+  let current = 0;
+
+  function getVisible(){
+    return window.innerWidth <= 900 ? 1 : 3;
+  }
+
+  function getCardWidth(){
+    const gap = 20;
+    const visible = getVisible();
+    // slider-wrap width minus padding
+    const wrapW = wrap.clientWidth - (window.innerWidth <= 900 ? 0 : 0);
+    return (wrapW - gap * (visible - 1)) / visible + gap;
+  }
+
+  function goTo(idx){
+    const max = total - getVisible();
+    current = Math.max(0, Math.min(idx, max));
+    slider.style.transform = `translateX(-${current * getCardWidth()}px)`;
+    countEl.textContent = String(current + 1).padStart(2,'0') + ' / ' + String(total).padStart(2,'0');
+  }
+
+  prevBtn && prevBtn.addEventListener('click', ()=> goTo(current - 1));
+  nextBtn && nextBtn.addEventListener('click', ()=> goTo(current + 1));
+
+  // Drag / touch
+  let startX = 0, dragging = false, moved = 0;
+  wrap.addEventListener('mousedown', e=>{ dragging=true; startX=e.clientX; moved=0; });
+  window.addEventListener('mousemove', e=>{ if(dragging) moved = e.clientX - startX; });
+  window.addEventListener('mouseup', e=>{
+    if(!dragging) return; dragging=false;
+    if(Math.abs(moved) > 60) goTo(moved < 0 ? current+1 : current-1);
+  });
+  wrap.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; moved=0; }, {passive:true});
+  wrap.addEventListener('touchmove',  e=>{ moved=e.touches[0].clientX - startX; }, {passive:true});
+  wrap.addEventListener('touchend',   ()=>{ if(Math.abs(moved) > 50) goTo(moved<0?current+1:current-1); });
+
+  window.addEventListener('resize', ()=> goTo(current));
+  goTo(0);
+})();
+(function(){
+  let saved='tr';
+  try{saved=localStorage.getItem('lang')||'tr';}catch(e){}
+  setLang(saved);
+})();
+</script>
+</body>
+</html>
