@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  var t;
+  try{t=localStorage.getItem('theme');}catch(e){}
+  document.documentElement.setAttribute('data-theme', t || 'dark');
+})();
+</script>
+<title>İletişim — HealthUp Marketing</title>
+<meta name="description" content="HealthUp Marketing ile iletişime geçin. Markanızı büyütmek için yanınızdayız.">
+<link rel="icon" type="image/png" href="https://healthupmarketing.com/wp-content/uploads/2025/03/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+[data-theme="light"]{
+  --bg:#fafaf8;--bg-off:#f3f2ef;--bg-card:#ffffff;
+  --text:#0a0a0a;--text-muted:#8a8a82;
+  --border:rgba(10,10,10,0.1);--border-strong:rgba(10,10,10,0.18);
+  --nav-bg:rgba(250,250,248,0.92);
+  --hero-bg:#0a0a0a;--hero-text:#fafaf8;
+  --hero-muted:rgba(250,250,248,0.55);--hero-border:rgba(255,255,255,0.08);
+  --card-hover:#f3f2ef;--pill-bg:#f3f2ef;--icon-bg:#f0efec;
+  --toggle-bg:rgba(10,10,10,0.07);
+  --surface:#eeede9;
+}
+[data-theme="dark"]{
+  --bg:#0f0f0d;--bg-off:#181815;--bg-card:#1c1c19;
+  --text:#fafaf8;--text-muted:#6b6b63;
+  --border:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.14);
+  --nav-bg:rgba(15,15,13,0.92);
+  --hero-bg:#050504;--hero-text:#fafaf8;
+  --hero-muted:rgba(250,250,248,0.45);--hero-border:rgba(255,255,255,0.06);
+  --card-hover:#222220;--pill-bg:#1c1c19;--icon-bg:#2a2a26;
+  --toggle-bg:rgba(255,255,255,0.09);
+  --surface:#232320;
+}
+:root{
+  --accent:#fe0d6d;
+  --radius:4px;--radius-card:12px;
+  --grad:linear-gradient(135deg,#fe7948 0%,#fb106b 100%);
+  --glow:0 0 20px rgba(251,16,107,.45),0 0 40px rgba(254,121,72,.25);
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.6;overflow-x:hidden;transition:background .3s,color .3s}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:64px;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:background .3s,border-color .3s}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-.03em;color:var(--text);text-decoration:none;transition:color .3s}
+.nav-logo-light{display:block}
+.nav-logo-dark{display:none}
+[data-theme="dark"] .nav-logo-light{display:none}
+[data-theme="dark"] .nav-logo-dark{display:block}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--text-muted);text-decoration:none;letter-spacing:.01em;transition:color .2s}
+.nav-links a:hover,.nav-links a.active-page{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.theme-toggle{width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text);transition:background .2s;flex-shrink:0}
+.theme-toggle svg{width:16px;height:16px}
+.icon-sun{display:none}.icon-moon{display:block}
+[data-theme="dark"] .icon-sun{display:block}[data-theme="dark"] .icon-moon{display:none}
+.lang-toggle{display:flex;align-items:center;background:var(--toggle-bg);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.lang-btn{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:7px 12px;cursor:pointer;background:transparent;border:none;color:var(--text-muted);transition:background .2s,color .2s;line-height:1}
+.lang-btn.active{background:var(--text);color:var(--bg)}
+.nav-cta{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);color:#fff;padding:10px 22px;border-radius:var(--radius);text-decoration:none;transition:box-shadow .25s,transform .15s,filter .25s;white-space:nowrap;box-shadow:var(--glow)}
+.nav-cta:hover{box-shadow:0 0 28px rgba(251,16,107,.6),0 0 56px rgba(254,121,72,.35);transform:translateY(-1px);filter:brightness(1.08)}
+
+/* ── HAMBURGER ── */
+.hamburger{display:none;width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;align-items:center;justify-content:center;color:var(--text);flex-shrink:0;transition:background .2s}
+.hamburger svg{width:18px;height:18px}
+.hamburger .ham-open{display:block}.hamburger .ham-close{display:none}
+.hamburger.open .ham-open{display:none}.hamburger.open .ham-close{display:block}
+.mobile-drawer{position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:99;display:flex;flex-direction:column;padding:2rem 1.5rem;gap:0;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);border-top:1px solid var(--border);overflow-y:auto}
+.mobile-drawer.open{transform:translateX(0)}
+.mobile-nav-links{list-style:none;display:flex;flex-direction:column;gap:0;border-bottom:1px solid var(--border);padding-bottom:1.5rem;margin-bottom:1.5rem}
+.mobile-nav-links li a{display:flex;align-items:center;justify-content:space-between;font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;letter-spacing:-.02em;color:var(--text);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border);transition:color .2s}
+.mobile-nav-links li:last-child a{border-bottom:none}
+.mobile-nav-links li a:hover{color:var(--accent)}
+.mobile-nav-links li a::after{content:'→';font-size:1rem;color:var(--text-muted)}
+.mobile-cta{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);color:#fff;padding:15px 24px;border-radius:var(--radius);text-decoration:none;text-align:center;display:block;transition:box-shadow .25s,filter .25s;box-shadow:var(--glow)}
+.mobile-cta:hover{filter:brightness(1.08)}
+
+/* ── PAGE HERO ── */
+.page-hero{background:var(--hero-bg);padding:7rem 3rem 5rem;position:relative;overflow:hidden;text-align:center}
+.page-hero::before{content:'';position:absolute;top:-60px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(254,121,72,.12) 0%,transparent 65%);pointer-events:none}
+.page-hero::after{content:'';position:absolute;bottom:-40px;left:-60px;width:400px;height:400px;background:radial-gradient(circle,rgba(251,16,107,.08) 0%,transparent 65%);pointer-events:none}
+.page-hero-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
+.page-breadcrumb{display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,250,248,.35);margin-bottom:2rem}
+.page-breadcrumb a{color:rgba(250,250,248,.35);text-decoration:none;transition:color .2s}
+.page-breadcrumb a:hover{color:rgba(250,250,248,.7)}
+.page-breadcrumb span{color:rgba(250,250,248,.6)}
+.page-hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;border:1px solid rgba(254,121,72,.3);padding:6px 14px;border-radius:2px;margin-bottom:1.5rem}
+.page-hero-title{font-family:'DM Serif Display',serif;font-size:clamp(2.6rem,5vw,4rem);line-height:1.08;letter-spacing:-.03em;color:var(--hero-text);margin-bottom:1.2rem;white-space:nowrap}
+.page-hero-title em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.page-hero-desc{font-size:1.05rem;color:var(--hero-muted);max-width:560px;line-height:1.75;font-weight:300;margin:0 auto}
+
+/* ── MAIN CONTACT SECTION ── */
+#contact-main{background:var(--bg);padding:6rem 3rem}
+.contact-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+
+/* Left — Form */
+.contact-form-col{}
+.section-label{display:flex;align-items:center;gap:12px;margin-bottom:2rem}
+.section-label-line{height:1px;width:32px;background:var(--grad)}
+.section-label span{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
+.contact-form-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3vw,2.8rem);line-height:1.1;letter-spacing:-.02em;color:var(--text);margin-bottom:.8rem}
+.contact-form-title em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.contact-form-desc{font-size:.9rem;color:var(--text-muted);line-height:1.75;margin-bottom:2rem}
+
+.cform{display:flex;flex-direction:column;gap:14px}
+.cform-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cform-field{display:flex;flex-direction:column;gap:6px}
+.cform-field label{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)}
+.cform-field input,
+.cform-field select,
+.cform-field textarea{width:100%;font-family:'DM Sans',sans-serif;font-size:.88rem;padding:13px 16px;border:1px solid var(--border-strong);border-radius:8px;background:var(--bg-card);color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s;resize:none}
+.cform-field input:focus,
+.cform-field select:focus,
+.cform-field textarea:focus{border-color:#fb106b;box-shadow:0 0 0 3px rgba(251,16,107,.12)}
+.cform-field input::placeholder,
+.cform-field textarea::placeholder{color:var(--text-muted)}
+.cform-field select{appearance:none;cursor:pointer}
+.cform-field select option{background:var(--bg-card);color:var(--text)}
+.cform-btn{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:var(--grad);color:#fff;border:none;padding:15px 36px;border-radius:40px;cursor:pointer;transition:filter .2s,transform .15s,box-shadow .2s;align-self:flex-start;margin-top:6px;box-shadow:var(--glow);display:inline-flex;align-items:center;gap:10px}
+.cform-btn:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 0 28px rgba(251,16,107,.55)}
+.cform-btn svg{width:16px;height:16px}
+
+/* Right — Info cards */
+.contact-info-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.contact-wa-card{grid-column:1/-1}
+.contact-info-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-card);padding:1.5rem;display:flex;flex-direction:column;gap:1rem;transition:border-color .2s,background .2s}
+.contact-info-card:hover{border-color:var(--border-strong);background:var(--card-hover)}
+.contact-info-icon{width:44px;height:44px;border-radius:10px;background:rgba(254,121,72,.1);border:1px solid rgba(254,121,72,.2);display:flex;align-items:center;justify-content:center}
+.contact-info-icon svg{width:20px;height:20px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.contact-info-label{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.3rem}
+.contact-info-value{font-size:.95rem;color:var(--text);font-weight:500}
+.contact-info-value a{color:var(--text);text-decoration:none;transition:color .2s}
+.contact-info-value a:hover{color:var(--accent)}
+
+/* Social row */
+.contact-social-row{display:flex;gap:10px;margin-top:.4rem}
+.contact-social-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;color:var(--text-muted);text-decoration:none;transition:border-color .2s,color .2s,background .2s}
+.contact-social-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(251,16,107,.06)}
+.contact-social-btn svg{width:17px;height:17px}
+
+/* WhatsApp shortcut card */
+.contact-wa-card{background:var(--grad);border-radius:var(--radius-card);padding:2rem;display:flex;align-items:center;gap:1.5rem;text-decoration:none;transition:filter .2s,transform .15s,box-shadow .25s;box-shadow:var(--glow)}
+.contact-wa-card:hover{filter:brightness(1.07);transform:translateY(-2px);box-shadow:0 0 32px rgba(251,16,107,.5)}
+.contact-wa-icon{width:48px;height:48px;background:rgba(255,255,255,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-wa-icon svg{width:26px;height:26px;color:#fff}
+.contact-wa-text{}
+.contact-wa-label{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:.3rem}
+.contact-wa-value{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;color:#fff}
+
+/* ── MAP SECTION ── */
+#contact-map{background:var(--bg-off);padding:5rem 3rem}
+.map-inner{max-width:1200px;margin:0 auto}
+.map-header{margin-bottom:2.5rem;display:flex;align-items:flex-end;justify-content:space-between;gap:2rem}
+.map-title{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);letter-spacing:-.02em;color:var(--text)}
+.map-title em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.map-address{font-size:.88rem;color:var(--text-muted);line-height:1.6;max-width:280px;text-align:right}
+.map-frame-wrap{border-radius:16px;overflow:hidden;border:1px solid var(--border);height:420px;position:relative}
+.map-frame-wrap iframe{width:100%;height:100%;border:none;display:block;filter:grayscale(.2)}
+[data-theme="dark"] .map-frame-wrap iframe{filter:invert(.9) hue-rotate(180deg) grayscale(.15) brightness(.85)}
+
+/* ── CTA STRIP ── */
+#contact-cta{background:var(--hero-bg);padding:5rem 3rem;position:relative;overflow:hidden;text-align:center}
+#contact-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 120% at 50% 50%,rgba(251,16,107,.09) 0%,transparent 70%);pointer-events:none}
+.cta-eyebrow{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1.2rem}
+.cta-headline{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;letter-spacing:-.03em;color:var(--hero-text);margin-bottom:2rem}
+.cta-headline em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta-btns{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.btn-grad{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:var(--grad);color:#fff;padding:14px 30px;border-radius:40px;text-decoration:none;transition:filter .2s,transform .15s,box-shadow .25s;box-shadow:var(--glow);display:inline-flex;align-items:center;gap:8px}
+.btn-grad:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 0 28px rgba(251,16,107,.6)}
+.btn-outline{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:transparent;color:var(--hero-text);padding:14px 30px;border-radius:40px;text-decoration:none;border:1px solid rgba(255,255,255,.2);transition:border-color .2s,color .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-outline:hover{border-color:rgba(255,255,255,.5);color:#fff}
+
+/* ── FOOTER ── */
+.hup-footer{background:#000;border-top:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.7)}
+.hup-footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:280px 1fr 1fr;gap:4rem;padding:4rem 3rem 3rem}
+.hup-footer-brand{display:flex;flex-direction:column;gap:1.2rem}
+.hup-footer-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.hup-footer-slogan{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.5;max-width:220px}
+.hup-footer-social{display:flex;gap:10px;margin-top:.4rem}
+.hup-social-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);text-decoration:none;transition:border-color .2s,color .2s}
+.hup-social-btn:hover{border-color:var(--accent);color:var(--accent)}
+.hup-social-btn svg{width:16px;height:16px}
+.hup-footer-col-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:#fff;letter-spacing:-.01em;margin-bottom:.6rem}
+.hup-footer-col-sub{font-size:.82rem;color:rgba(255,255,255,.4);margin-bottom:1.2rem}
+.hup-contact-list{list-style:none;display:flex;flex-direction:column;gap:.9rem}
+.hup-contact-list li{display:flex;align-items:flex-start;gap:10px;font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.5}
+.hup-contact-list a{color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s}
+.hup-contact-list a:hover{color:var(--accent)}
+.hup-contact-icon{flex-shrink:0;width:20px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-top:2px}
+.hup-contact-icon svg{width:16px;height:16px}
+.hup-footer-nav{display:grid;grid-template-columns:1fr 1fr;gap:.6rem 2rem}
+.hup-footer-nav a{font-size:.83rem;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s;padding:.2rem 0}
+.hup-footer-nav a:hover{color:#fff}
+.hup-footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding:1.2rem 3rem}
+.hup-footer-bottom span{font-size:.75rem;color:rgba(255,255,255,.25)}
+
+/* ── MOBILE ── */
+@media(max-width:900px){
+  nav{padding:0 1.5rem}
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex!important}
+  .nav-right{gap:8px}
+  .page-hero{padding:5rem 1.5rem 3.5rem}
+  #contact-main{padding:4rem 1.5rem}
+  .contact-inner{grid-template-columns:1fr;gap:3.5rem}
+  .contact-info-col{grid-template-columns:1fr}
+  .cform-row{grid-template-columns:1fr}
+  #contact-map{padding:4rem 1.5rem}
+  .map-header{flex-direction:column;align-items:flex-start;gap:1rem}
+  .map-address{text-align:left}
+  .map-frame-wrap{height:280px}
+  #contact-cta{padding:4rem 1.5rem}
+  .hup-footer-inner{grid-template-columns:1fr;gap:2.5rem;padding:3rem 1.5rem 2rem}
+  .hup-footer-bottom{padding:1rem 1.5rem}
+}
+
+/* ── i18n ── */
+[data-lang]{display:none!important}
+[data-lang].active{display:inline!important}
+[data-lang-block]{display:none!important}
+[data-lang-block].active{display:block!important}
+
+/* ── FORM SUCCESS ── */
+.cform-success{display:none;background:rgba(254,121,72,.08);border:1px solid rgba(254,121,72,.3);border-radius:12px;padding:1.5rem;text-align:center;margin-top:1rem}
+.cform-success.show{display:block}
+.cform-success-icon{font-size:2rem;margin-bottom:.5rem}
+.cform-success-text{font-family:'Syne',sans-serif;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo" style="display:flex;align-items:center;text-decoration:none">
+    <img src="https://healthupmarketing.com/wp-content/uploads/2025/01/logo.png" alt="HealthUp Marketing" class="nav-logo-light" style="height:38px;width:auto;object-fit:contain">
+    <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/hup-logos.webp" alt="HealthUp Marketing" class="nav-logo-dark" style="height:38px;width:auto;object-fit:contain">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#brand-transform"><span data-lang="tr" class="active">Hizmetler</span><span data-lang="en">Services</span></a></li>
+    <li><a href="hakkimizda.html"><span data-lang="tr" class="active">Hakkımızda</span><span data-lang="en">About</span></a></li>
+    <li><a href="projeler.html"><span data-lang="tr" class="active">Projeler</span><span data-lang="en">Projects</span></a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="sss.html"><span data-lang="tr" class="active">SSS</span><span data-lang="en">FAQ</span></a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg class="icon-moon" viewBox="0 0 20 20" fill="currentColor"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg>
+    </button>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-tr" onclick="setLang('tr')">TR</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="#contact-form" class="nav-cta">
+      <span data-lang="tr" class="active">Teklif Al →</span>
+      <span data-lang="en">Get Proposal →</span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menü">
+      <svg class="ham-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="ham-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <ul class="mobile-nav-links">
+    <li><a href="index.html#brand-transform" class="mobile-link"><span data-lang="tr" class="active">Hizmetler</span><span data-lang="en">Services</span></a></li>
+    <li><a href="hakkimizda.html" class="mobile-link"><span data-lang="tr" class="active">Hakkımızda</span><span data-lang="en">About</span></a></li>
+    <li><a href="projeler.html" class="mobile-link"><span data-lang="tr" class="active">Projeler</span><span data-lang="en">Projects</span></a></li>
+    <li><a href="blog.html" class="mobile-link">Blog</a></li>
+    <li><a href="sss.html" class="mobile-link"><span data-lang="tr" class="active">SSS</span><span data-lang="en">FAQ</span></a></li>
+  </ul>
+  <a href="#contact-form" class="mobile-cta mobile-link">
+    <span data-lang="tr" class="active">Teklif Al →</span>
+    <span data-lang="en">Get Proposal →</span>
+  </a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-breadcrumb">
+      <a href="index.html">Ana Sayfa</a>
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4.5 2.5L7.5 6l-3 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><span data-lang="tr" class="active">İletişim</span><span data-lang="en">Contact</span></span>
+    </div>
+    <div class="page-hero-eyebrow"><span data-lang="tr" class="active">İletişim</span><span data-lang="en">Get In Touch</span></div>
+    <h1 class="page-hero-title">
+      <span data-lang-block="tr" class="active">Markanız için <em>birlikte büyüyelim.</em></span>
+      <span data-lang-block="en">Let's <em>grow your brand</em> together.</span>
+    </h1>
+    <p class="page-hero-desc">
+      <span data-lang="tr" class="active">HealthUp Marketing olarak, sağlık sektöründe markanızı büyütmek için yanınızdayız. Projenizi konuşalım.</span>
+      <span data-lang="en">At HealthUp Marketing, we're here to grow your brand in the health sector. Let's talk about your project.</span>
+    </p>
+  </div>
+</section>
+
+<!-- MAIN CONTACT -->
+<section id="contact-main">
+  <div class="contact-inner">
+
+    <!-- FORM -->
+    <div class="contact-form-col" id="contact-form">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span><span data-lang="tr" class="active">Mesaj Gönder</span><span data-lang="en">Send a Message</span></span>
+      </div>
+      <h2 class="contact-form-title">
+        <span data-lang-block="tr" class="active">Bize <em>yazın,</em><br>hızlıca dönelim.</span>
+        <span data-lang-block="en">Write to <em>us,</em><br>we'll reply fast.</span>
+      </h2>
+      <p class="contact-form-desc">
+        <span data-lang="tr" class="active">Formu doldurun, ekibimiz en kısa sürede sizinle iletişime geçsin.</span>
+        <span data-lang="en">Fill out the form and our team will get back to you shortly.</span>
+      </p>
+      <div class="cform" id="contactForm">
+        <div class="cform-row">
+          <div class="cform-field">
+            <label><span data-lang="tr" class="active">Ad Soyad</span><span data-lang="en">Full Name</span></label>
+            <input type="text" id="field-name"
+              data-placeholder-tr="Adınızı girin"
+              data-placeholder-en="Enter your name"
+              placeholder="Adınızı girin">
+          </div>
+          <div class="cform-field">
+            <label><span data-lang="tr" class="active">Firma Adı</span><span data-lang="en">Company Name</span></label>
+            <input type="text" id="field-company"
+              data-placeholder-tr="Firmanızın adı"
+              data-placeholder-en="Your company name"
+              placeholder="Firmanızın adı">
+          </div>
+        </div>
+        <div class="cform-row">
+          <div class="cform-field">
+            <label>E-posta</label>
+            <input type="email" id="field-email"
+              data-placeholder-tr="email@adresiniz.com"
+              data-placeholder-en="your@email.com"
+              placeholder="email@adresiniz.com">
+          </div>
+          <div class="cform-field">
+            <label><span data-lang="tr" class="active">Telefon</span><span data-lang="en">Phone</span></label>
+            <input type="tel" id="field-phone"
+              data-placeholder-tr="(5xx) xxx xx xx"
+              data-placeholder-en="(5xx) xxx xx xx"
+              placeholder="(5xx) xxx xx xx">
+          </div>
+        </div>
+        <div class="cform-field">
+          <label><span data-lang="tr" class="active">Mesajınız</span><span data-lang="en">Your Message</span></label>
+          <textarea id="field-msg" rows="5"
+            data-placeholder-tr="Projenizi kısaca anlatın..."
+            data-placeholder-en="Briefly describe your project..."
+            placeholder="Projenizi kısaca anlatın..."></textarea>
+        </div>
+        <button class="cform-btn" onclick="handleSubmit()">
+          <span data-lang="tr" class="active">Gönder</span>
+          <span data-lang="en">Send</span>
+          <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M10 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="cform-success" id="formSuccess">
+          <div class="cform-success-icon">✓</div>
+          <div class="cform-success-text">
+            <span data-lang="tr" class="active">Mesajınız alındı! En kısa sürede size döneceğiz.</span>
+            <span data-lang="en">Your message was received! We'll get back to you shortly.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INFO -->
+    <div class="contact-info-col">
+
+      <!-- Adres -->
+      <div class="contact-info-card">
+        <div class="contact-info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#g1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fe7948"/><stop offset="100%" stop-color="#fb106b"/></linearGradient></defs>
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-info-label"><span data-lang="tr" class="active">Adres</span><span data-lang="en">Address</span></div>
+          <div class="contact-info-value">Çınarlı Mah, 1572 Sk. No:33,<br>35170 Konak / İzmir</div>
+        </div>
+      </div>
+
+      <!-- Telefon -->
+      <div class="contact-info-card">
+        <div class="contact-info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#g2)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <defs><linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fe7948"/><stop offset="100%" stop-color="#fb106b"/></linearGradient></defs>
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.1a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1.42h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 9.1a16 16 0 006.72 6.72l1.06-1.06a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-info-label"><span data-lang="tr" class="active">Telefon</span><span data-lang="en">Phone</span></div>
+          <div class="contact-info-value"><a href="tel:+905367967126">(536) 796-7126</a></div>
+        </div>
+      </div>
+
+      <!-- E-posta -->
+      <div class="contact-info-card">
+        <div class="contact-info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#g3)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <defs><linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fe7948"/><stop offset="100%" stop-color="#fb106b"/></linearGradient></defs>
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-info-label">E-posta</div>
+          <div class="contact-info-value"><a href="mailto:info@healthupmarketing.com">info@healthupmarketing.com</a></div>
+        </div>
+      </div>
+
+      <!-- Sosyal Medya -->
+      <div class="contact-info-card">
+        <div class="contact-info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#g4)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <defs><linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fe7948"/><stop offset="100%" stop-color="#fb106b"/></linearGradient></defs>
+            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
+        </div>
+        <div style="width:100%">
+          <div class="contact-info-label"><span data-lang="tr" class="active">Sosyal Medya</span><span data-lang="en">Social Media</span></div>
+          <div class="contact-social-row" style="margin-top:.8rem">
+            <a href="https://www.facebook.com/profile.php?id=61568483185034" target="_blank" class="contact-social-btn" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/healthupmarketing/" target="_blank" class="contact-social-btn" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/healthupmarketing/" target="_blank" class="contact-social-btn" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- WhatsApp hızlı erişim -->
+      <a href="https://wa.me/905367967126" target="_blank" class="contact-wa-card">
+        <div class="contact-wa-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <div class="contact-wa-text">
+          <div class="contact-wa-label"><span data-lang="tr" class="active">WhatsApp ile ulaşın</span><span data-lang="en">Reach us on WhatsApp</span></div>
+          <div class="contact-wa-value">+90 (536) 796-7126</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section id="contact-map">
+  <div class="map-inner">
+    <div class="map-header">
+      <h2 class="map-title">
+        <span data-lang-block="tr" class="active">Ofisimize <em>uğrayın.</em></span>
+        <span data-lang-block="en">Visit our <em>office.</em></span>
+      </h2>
+      <p class="map-address">Çınarlı Mah, 1572 Sk. No:33,<br>35170 Konak / İzmir</p>
+    </div>
+    <div class="map-frame-wrap">
+      <iframe
+        src="https://maps.google.com/maps?q=Withco+Coworking+Izmir&t=m&z=15&output=embed&iwloc=near"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="HealthUp Marketing Ofis Konumu">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section id="contact-cta">
+  <div class="cta-eyebrow"><span data-lang="tr" class="active">Hazır mısınız?</span><span data-lang="en">Ready to scale?</span></div>
+  <h2 class="cta-headline">
+    <span data-lang-block="tr" class="active">Kasıtlı bir büyüme<br><em>başlatmaya hazır mısınız?</em></span>
+    <span data-lang-block="en">Ready to grow<br><em>with intention?</em></span>
+  </h2>
+  <div class="cta-btns">
+    <a href="https://wa.me/905367967126" target="_blank" class="btn-grad">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span data-lang="tr" class="active">WhatsApp'tan Yaz</span><span data-lang="en">Message on WhatsApp</span>
+    </a>
+    <a href="mailto:info@healthupmarketing.com" class="btn-outline">
+      <span data-lang="tr" class="active">E-posta Gönder</span><span data-lang="en">Send an Email</span>
+      <svg viewBox="0 0 14 14" fill="none" style="width:14px;height:14px"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="hup-footer">
+  <div class="hup-footer-inner">
+    <div class="hup-footer-brand">
+      <a href="index.html" class="hup-footer-logo">
+        <img src="https://healthupmarketing.com/wp-content/uploads/2025/01/logo.png" alt="HealthUp Marketing" style="height:44px;width:auto;object-fit:contain">
+      </a>
+      <p class="hup-footer-slogan"><span data-lang="tr" class="active">Sağlıkta Güçlü Pazarlama, Akıllı Büyüme</span><span data-lang="en">Strong Marketing in Health, Smart Growth</span></p>
+      <div class="hup-footer-social">
+        <a href="https://www.facebook.com/profile.php?id=61568483185034" target="_blank" class="hup-social-btn" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/healthupmarketing/" target="_blank" class="hup-social-btn" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/healthupmarketing/" target="_blank" class="hup-social-btn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://wa.me/905367967126" target="_blank" class="hup-social-btn" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hup-footer-col">
+      <h4 class="hup-footer-col-title"><span data-lang="tr" class="active">İletişim Bilgileri</span><span data-lang="en">Contact Info</span></h4>
+      <p class="hup-footer-col-sub"><span data-lang="tr" class="active">Bizimle iletişime geçin!</span><span data-lang="en">Get in touch with us!</span></p>
+      <ul class="hup-contact-list">
+        <li>
+          <span class="hup-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+          <span>Çınarlı Mah, 1572 Sk. No:33, 35170 Konak/İzmir</span>
+        </li>
+        <li>
+          <span class="hup-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
+          <a href="tel:+905367967126">(536) 796-7126</a>
+        </li>
+        <li>
+          <span class="hup-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+          <a href="mailto:info@healthupmarketing.com">info@healthupmarketing.com</a>
+        </li>
+      </ul>
+    </div>
+    <div class="hup-footer-col">
+      <h4 class="hup-footer-col-title"><span data-lang="tr" class="active">Hızlı Erişim</span><span data-lang="en">Quick Links</span></h4>
+      <div class="hup-footer-nav">
+        <a href="hakkimizda.html"><span data-lang="tr" class="active">Hakkımızda</span><span data-lang="en">About Us</span></a>
+        <a href="index.html#brand-transform"><span data-lang="tr" class="active">Hizmetlerimiz</span><span data-lang="en">Services</span></a>
+        <a href="projeler.html"><span data-lang="tr" class="active">Projeler</span><span data-lang="en">Projects</span></a>
+        <a href="blog.html">Blog</a>
+        <a href="sss.html"><span data-lang="tr" class="active">SSS</span><span data-lang="en">FAQ</span></a>
+        <a href="iletisim.html"><span data-lang="tr" class="active">İletişim</span><span data-lang="en">Contact</span></a>
+        <a href="gizlilik.html"><span data-lang="tr" class="active">Gizlilik</span><span data-lang="en">Privacy</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="hup-footer-bottom">
+    <span><span data-lang="tr" class="active">© 2026 HealthUp Marketing. Tüm hakları saklıdır.</span><span data-lang="en">© 2026 HealthUp Marketing. All rights reserved.</span></span>
+  </div>
+</footer>
+
+<script>
+// THEME
+document.getElementById('themeToggle').addEventListener('click',function(){
+  var r=document.documentElement;
+  var next=r.getAttribute('data-theme')==='light'?'dark':'light';
+  r.setAttribute('data-theme',next);
+  try{localStorage.setItem('theme',next);}catch(e){}
+});
+
+// HAMBURGER
+var ham=document.getElementById('hamburger');
+var drawer=document.getElementById('mobileDrawer');
+ham.addEventListener('click',function(){
+  ham.classList.toggle('open');
+  drawer.classList.toggle('open');
+  document.body.style.overflow=drawer.classList.contains('open')?'hidden':'';
+});
+document.querySelectorAll('.mobile-link').forEach(function(a){
+  a.addEventListener('click',function(){
+    ham.classList.remove('open');
+    drawer.classList.remove('open');
+    document.body.style.overflow='';
+  });
+});
+
+// LANG
+var optTexts={
+  tr:{
+    'opt-select':'Seçiniz',
+    'opt-meta':'Meta Reklamları',
+    'opt-google':'Google Reklamları',
+    'opt-sosyal':'Sosyal Medya Yönetimi',
+    'opt-web':'Web Sitesi',
+    'opt-satis':'Satış Eğitimi & Danışmanlığı',
+    'opt-diger':'Diğer'
+  },
+  en:{
+    'opt-select':'Select a service',
+    'opt-meta':'Meta Ads',
+    'opt-google':'Google Ads',
+    'opt-sosyal':'Social Media Management',
+    'opt-web':'Website',
+    'opt-satis':'Sales Training & Consulting',
+    'opt-diger':'Other'
+  }
+};
+
+function setLang(lang){
+  // data-lang spans
+  document.querySelectorAll('[data-lang]').forEach(function(el){
+    el.classList.remove('active');
+    if(el.getAttribute('data-lang')===lang) el.classList.add('active');
+  });
+  // data-lang-block divs/spans
+  document.querySelectorAll('[data-lang-block]').forEach(function(el){
+    el.classList.remove('active');
+    if(el.getAttribute('data-lang-block')===lang) el.classList.add('active');
+  });
+  // placeholders
+  document.querySelectorAll('[data-placeholder-'+lang+']').forEach(function(el){
+    el.placeholder=el.getAttribute('data-placeholder-'+lang);
+  });
+  // lang buttons
+  document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.remove('active');});
+  var btn=document.getElementById('btn-'+lang);
+  if(btn) btn.classList.add('active');
+  // select options
+  var map=optTexts[lang]||optTexts.tr;
+  Object.keys(map).forEach(function(id){
+    var el=document.getElementById(id);
+    if(el) el.textContent=map[id];
+  });
+  document.documentElement.setAttribute('lang',lang);
+  try{localStorage.setItem('lang',lang);}catch(e){}
+}
+
+// init lang
+(function(){
+  var saved='tr';
+  try{saved=localStorage.getItem('lang')||'tr';}catch(e){}
+  setLang(saved);
+})();
+
+// FORM
+function handleSubmit(){
+  var name=document.getElementById('field-name').value.trim();
+  var email=document.getElementById('field-email').value.trim();
+  var lang=document.documentElement.getAttribute('lang')||'tr';
+  if(!name||!email){
+    alert(lang==='en'?'Please enter at least your name and email.':'Lütfen en azından adınızı ve e-postanızı girin.');
+    return;
+  }
+  document.getElementById('formSuccess').classList.add('show');
+  document.getElementById('contactForm').querySelectorAll('input,select,textarea').forEach(function(el){el.value='';});
+  setTimeout(function(){document.getElementById('formSuccess').classList.remove('show');},5000);
+}
+</script>
+</body>
+</html>
