@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  var t;
+  try{t=localStorage.getItem('theme');}catch(e){}
+  document.documentElement.setAttribute('data-theme', t || 'dark');
+})();
+</script>
+<title>HealthUp Marketing — Gizlilik Politikası</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+[data-theme="light"]{
+  --bg:#fafaf8;--bg-off:#f3f2ef;--bg-card:#ffffff;
+  --text:#0a0a0a;--text-muted:#8a8a82;
+  --border:rgba(10,10,10,0.1);--border-strong:rgba(10,10,10,0.18);
+  --nav-bg:rgba(250,250,248,0.92);
+  --card-hover:#f3f2ef;--icon-bg:#f0efec;
+  --toggle-bg:rgba(10,10,10,0.07);
+  --hero-bg:#0a0a0a;--hero-text:#fafaf8;
+  --hero-muted:rgba(250,250,248,0.55);
+  --dark-card:#111111;--dark-border:rgba(255,255,255,0.1);
+}
+[data-theme="dark"]{
+  --bg:#0f0f0d;--bg-off:#181815;--bg-card:#1c1c19;
+  --text:#fafaf8;--text-muted:#6b6b63;
+  --border:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.14);
+  --nav-bg:rgba(15,15,13,0.92);
+  --card-hover:#222220;--icon-bg:#2a2a26;
+  --toggle-bg:rgba(255,255,255,0.09);
+  --hero-bg:#050504;--hero-text:#fafaf8;
+  --hero-muted:rgba(250,250,248,0.45);
+  --dark-card:#111111;--dark-border:rgba(255,255,255,0.1);
+}
+:root{
+  --accent:#fe0d6d;--grad-start:#fd7a49;--grad-end:#fe0d6d;
+  --radius:4px;--radius-card:12px;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.6;overflow-x:hidden;transition:background .3s,color .3s}
+a{text-decoration:none;color:inherit}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:64px;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:background .3s,border-color .3s}
+.nav-logo{display:flex;align-items:center;text-decoration:none}
+.nav-logo img{height:38px;width:auto;object-fit:contain}
+.nav-logo-light{display:block}
+.nav-logo-dark{display:none}
+[data-theme="dark"] .nav-logo-light{display:none}
+[data-theme="dark"] .nav-logo-dark{display:block}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--text-muted);text-decoration:none;letter-spacing:.01em;transition:color .2s}
+.nav-links a:hover,.nav-links a.active-page{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:10px}
+
+.theme-toggle{width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text);transition:background .2s;flex-shrink:0}
+.theme-toggle svg{width:16px;height:16px}
+.icon-sun{display:none}.icon-moon{display:block}
+[data-theme="dark"] .icon-sun{display:block}[data-theme="dark"] .icon-moon{display:none}
+
+.lang-toggle{display:flex;align-items:center;background:var(--toggle-bg);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.lang-btn{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:7px 12px;cursor:pointer;background:transparent;border:none;color:var(--text-muted);transition:background .2s,color .2s;line-height:1}
+.lang-btn.active{background:var(--text);color:var(--bg)}
+
+.nav-cta{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--text);color:var(--bg);padding:10px 22px;border-radius:var(--radius);text-decoration:none;transition:background .2s,color .3s;white-space:nowrap}
+[data-theme="dark"] .nav-cta{background:var(--accent);color:#fff}
+
+/* ── HAMBURGER ── */
+.hamburger{display:none;width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;align-items:center;justify-content:center;color:var(--text);flex-shrink:0;transition:background .2s}
+.hamburger svg{width:18px;height:18px;transition:opacity .2s}
+.hamburger .ham-open{display:block}
+.hamburger .ham-close{display:none}
+.hamburger.open .ham-open{display:none}
+.hamburger.open .ham-close{display:block}
+
+.mobile-drawer{position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--bg);z-index:99;padding:2rem 1.5rem;transform:translateY(-100%);opacity:0;transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .3s;pointer-events:none}
+.mobile-drawer.open{transform:translateY(0);opacity:1;pointer-events:all}
+.mobile-nav-links{list-style:none;display:flex;flex-direction:column;gap:0;border-bottom:1px solid var(--border);padding-bottom:1.5rem;margin-bottom:1.5rem}
+.mobile-nav-links li a{display:flex;align-items:center;justify-content:space-between;font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;letter-spacing:-.02em;color:var(--text);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border);transition:color .2s}
+.mobile-nav-links li:last-child a{border-bottom:none}
+.mobile-nav-links li a:hover{color:var(--accent)}
+.mobile-nav-links li a::after{content:'→';font-size:1rem;color:var(--text-muted);transition:transform .2s}
+.mobile-nav-links li a:hover::after{transform:translateX(4px);color:var(--accent)}
+.mobile-cta{display:inline-flex;font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--accent);color:#fff;padding:14px 28px;border-radius:var(--radius);text-decoration:none}
+
+/* ── HERO (dark band) ── */
+.giz-hero{
+  padding-top:64px;
+  background:var(--hero-bg);
+  color:var(--hero-text);
+  position:relative;overflow:hidden;
+}
+.hero-blob{position:absolute;top:-100px;right:-60px;width:600px;height:600px;background:radial-gradient(circle,rgba(254,13,109,.1) 0%,transparent 65%);pointer-events:none}
+.hero-blob-2{position:absolute;bottom:-80px;left:-60px;width:400px;height:400px;background:radial-gradient(circle,rgba(253,122,73,.07) 0%,transparent 65%);pointer-events:none}
+.giz-hero-inner{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:5rem 3rem 4rem}
+.giz-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:2rem}
+.giz-eyebrow-line{width:40px;height:1px;background:var(--accent)}
+.giz-eyebrow span{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
+.giz-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,5vw,4rem);line-height:1.05;letter-spacing:-.03em;margin-bottom:1.2rem}
+.giz-hero h1 em{font-style:italic;color:var(--accent)}
+.giz-hero-sub{font-size:1rem;font-weight:300;color:var(--hero-muted);line-height:1.8;max-width:600px}
+.giz-hero-meta{display:flex;align-items:center;gap:1.5rem;margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.08)}
+.giz-meta-item{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.giz-meta-item span{color:rgba(255,255,255,.55);display:block;margin-top:2px;text-transform:none;letter-spacing:0;font-weight:400;font-family:'DM Sans',sans-serif;font-size:.8rem}
+
+/* ── CONTENT ── */
+.giz-content{max-width:860px;margin:0 auto;padding:5rem 3rem 6rem}
+
+/* Sticky TOC on wide screens */
+.giz-layout{display:grid;grid-template-columns:220px 1fr;gap:5rem;align-items:start}
+.giz-toc{position:sticky;top:84px}
+.giz-toc-title{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem}
+.giz-toc-list{list-style:none;display:flex;flex-direction:column;gap:0}
+.giz-toc-list li a{display:block;font-size:.8rem;color:var(--text-muted);text-decoration:none;padding:.45rem 0;border-left:2px solid var(--border);padding-left:12px;transition:color .2s,border-color .2s;line-height:1.4}
+.giz-toc-list li a:hover{color:var(--text);border-left-color:var(--accent)}
+.giz-toc-list li a.active{color:var(--accent);border-left-color:var(--accent)}
+
+/* Article body */
+.giz-article{min-width:0}
+.giz-section{margin-bottom:4rem;padding-bottom:4rem;border-bottom:1px solid var(--border)}
+.giz-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.giz-section-num{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+.giz-section h2{font-family:'DM Serif Display',serif;font-size:1.6rem;line-height:1.15;letter-spacing:-.02em;margin-bottom:1.2rem}
+.giz-section h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-top:2rem;margin-bottom:.75rem;color:var(--text)}
+.giz-section p{font-size:.95rem;color:var(--text-muted);line-height:1.85;margin-bottom:1rem}
+.giz-section p:last-child{margin-bottom:0}
+.giz-section strong{color:var(--text);font-weight:600}
+.giz-section ul,.giz-section ol{margin:.75rem 0 1rem;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.giz-section ul li{font-size:.95rem;color:var(--text-muted);line-height:1.7;padding-left:20px;position:relative}
+.giz-section ul li::before{content:'';width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#fd7a49,#fe0d6d);position:absolute;left:0;top:9px}
+.giz-section ol{counter-reset:giz-counter}
+.giz-section ol li{font-size:.95rem;color:var(--text-muted);line-height:1.7;padding-left:2.2rem;position:relative;counter-increment:giz-counter}
+.giz-section ol li::before{content:counter(giz-counter);position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#fd7a49,#fe0d6d);color:#fff;font-family:'Syne',sans-serif;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+.giz-section a{color:var(--accent);text-decoration:underline;text-decoration-color:rgba(254,13,109,.3);transition:text-decoration-color .2s}
+.giz-section a:hover{text-decoration-color:var(--accent)}
+
+/* Çerez tablosu */
+.giz-table-wrap{overflow-x:auto;margin:1.5rem 0;border-radius:var(--radius-card);border:1px solid var(--border)}
+.giz-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.giz-table th{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);background:var(--bg-off);padding:.9rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+.giz-table td{padding:.9rem 1rem;color:var(--text-muted);border-bottom:1px solid var(--border);line-height:1.6;vertical-align:top}
+.giz-table tr:last-child td{border-bottom:none}
+.giz-table td:first-child{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--text);white-space:nowrap}
+.giz-table tr:hover td{background:var(--card-hover)}
+
+/* Callout box */
+.giz-callout{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius-card);padding:1.5rem 1.8rem;margin:2rem 0}
+.giz-callout p{font-size:.9rem;color:var(--text-muted);margin:0;line-height:1.7}
+.giz-callout strong{color:var(--text)}
+
+/* Contact card */
+.giz-contact-card{background:var(--hero-bg);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-card);padding:2rem;display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem}
+.giz-contact-row{display:flex;align-items:center;gap:12px;font-size:.9rem;color:rgba(255,255,255,.5)}
+.giz-contact-row svg{width:16px;height:16px;color:var(--accent);flex-shrink:0}
+.giz-contact-row a{color:rgba(255,255,255,.65);transition:color .2s}
+.giz-contact-row a:hover{color:var(--accent)}
+
+/* Lang visibility */
+[data-lang]{display:none}
+[data-lang].active{display:inline}
+[data-lang-block]{display:none}
+[data-lang-block].active{display:block}
+
+/* ── FOOTER ── */
+.hm-footer{background:#000000;border-top:1px solid rgba(255,255,255,.06)}
+.hm-footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:280px 1fr 1fr;gap:4rem;padding:4rem 3rem 3rem}
+.hm-footer-brand{display:flex;flex-direction:column;gap:1.2rem}
+.hm-footer-logo img{height:40px;width:auto;object-fit:contain}
+.hm-footer-slogan{font-size:.85rem;color:rgba(255,255,255,.35);line-height:1.5;max-width:220px}
+.hm-footer-social{display:flex;gap:10px;margin-top:.4rem}
+.hm-social-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);text-decoration:none;transition:border-color .2s,color .2s}
+.hm-social-btn:hover{border-color:var(--accent);color:var(--accent)}
+.hm-social-btn svg{width:15px;height:15px}
+.hm-footer-col-title{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.8rem}
+.hm-footer-col-sub{font-size:.8rem;color:rgba(255,255,255,.3);margin-bottom:1.2rem}
+.hm-contact-list{list-style:none;display:flex;flex-direction:column;gap:.9rem}
+.hm-contact-list li{display:flex;align-items:flex-start;gap:10px;font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.5}
+.hm-contact-list a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.hm-contact-list a:hover{color:var(--accent)}
+.hm-contact-icon{flex-shrink:0;width:16px;color:var(--accent);margin-top:2px}
+.hm-contact-icon svg{width:15px;height:15px}
+.hm-footer-nav{display:grid;grid-template-columns:1fr 1fr;gap:.5rem 2rem}
+.hm-footer-nav a{font-size:.8rem;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s;padding:.2rem 0}
+.hm-footer-nav a:hover{color:#fff}
+.hm-footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding:1.2rem 3rem}
+.hm-footer-bottom span{font-size:.75rem;color:rgba(255,255,255,.2)}
+.hm-footer [data-lang]{display:none}
+.hm-footer [data-lang].active{display:inline}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .giz-layout{grid-template-columns:1fr}
+  .giz-toc{display:none}
+  .giz-content{padding:3rem 1.5rem 5rem}
+}
+@media(max-width:900px){
+  nav{padding:0 1.2rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .giz-hero-inner{padding:3.5rem 1.5rem 3rem}
+  .hm-footer-inner{grid-template-columns:1fr;gap:2.5rem;padding:3rem 1.5rem 2rem}
+  .hm-footer-bottom{padding:1rem 1.5rem}
+}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:64px;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:background .3s,border-color .3s}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-.03em;color:var(--text);text-decoration:none;transition:color .3s}
+.nav-logo-light{display:block}
+.nav-logo-dark{display:none}
+[data-theme="dark"] .nav-logo-light{display:none}
+[data-theme="dark"] .nav-logo-dark{display:block}
+.nav-badge{display:inline-block;font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--grad);color:#fff;padding:2px 6px;border-radius:2px;vertical-align:super;margin-left:4px}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--text-muted);text-decoration:none;letter-spacing:.01em;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+/* SERVICES DROPDOWN */
+.nav-dropdown{position:relative}
+.nav-dropdown-trigger{display:flex;align-items:center;gap:5px;cursor:pointer}
+.nav-dropdown-trigger svg{width:12px;height:12px;transition:transform .25s;flex-shrink:0}
+.nav-dropdown:hover .nav-dropdown-trigger svg,.nav-dropdown.open .nav-dropdown-trigger svg{transform:rotate(180deg)}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 4px);left:50%;transform:translateX(-50%) translateY(-6px);background:#ffffff;border:1px solid var(--border-strong);border-radius:12px;padding:8px;min-width:220px;box-shadow:0 8px 32px rgba(0,0,0,.14),0 2px 8px rgba(0,0,0,.08);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease;z-index:200}
+[data-theme="dark"] .nav-dropdown-menu{background:#1c1c19}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);border:6px solid transparent;border-bottom-color:var(--border-strong);border-top:none}
+.nav-dropdown-menu::after{content:'';position:absolute;top:-5px;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top:none}
+[data-theme="light"] .nav-dropdown-menu::after{border-bottom-color:#ffffff}
+[data-theme="dark"]  .nav-dropdown-menu::after{border-bottom-color:#1c1c19}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown.open .nav-dropdown-menu{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
+.nav-dropdown-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;text-decoration:none;color:var(--text-muted);font-size:.82rem;font-weight:500;transition:background .18s,color .18s;white-space:nowrap}
+.nav-dropdown-item:hover{background:var(--card-hover);color:var(--text)}
+.nav-dropdown-item-icon{width:28px;height:28px;border-radius:6px;background:var(--icon-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.nav-dropdown-item-icon svg{width:14px;height:14px;color:var(--accent)}
+.nav-dropdown-divider{height:1px;background:var(--border);margin:6px 4px}
+.nav-dropdown-all{display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 12px;border-radius:8px;text-decoration:none;font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);color:#fff;transition:filter .2s,transform .15s}
+.nav-dropdown-all:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.nav-right{display:flex;align-items:center;gap:10px}
+/* Theme toggle */
+.theme-toggle{width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text);transition:background .2s;flex-shrink:0}
+.theme-toggle svg{width:16px;height:16px}
+.icon-sun{display:none}.icon-moon{display:block}
+[data-theme="dark"] .icon-sun{display:block}[data-theme="dark"] .icon-moon{display:none}
+/* Lang toggle */
+.lang-toggle{display:flex;align-items:center;background:var(--toggle-bg);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.lang-btn{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:7px 12px;cursor:pointer;background:transparent;border:none;color:var(--text-muted);transition:background .2s,color .2s;line-height:1}
+.lang-btn.active{background:var(--text);color:var(--bg)}
+.nav-cta{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);color:#fff;padding:10px 22px;border-radius:var(--radius);text-decoration:none;transition:box-shadow .25s,transform .15s,filter .25s;white-space:nowrap;box-shadow:var(--glow)}
+.nav-cta:hover{box-shadow:0 0 28px rgba(251,16,107,.6),0 0 56px rgba(254,121,72,.35);transform:translateY(-1px);filter:brightness(1.08)}
+[data-theme="dark"] .nav-cta{background:var(--grad);color:#fff}
+/* HAMBURGER */
+.hamburger{display:none;width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;align-items:center;justify-content:center;color:var(--text);flex-shrink:0;transition:background .2s}
+.hamburger svg{width:18px;height:18px;transition:opacity .2s}
+.hamburger .ham-open{display:block}.hamburger .ham-close{display:none}
+.hamburger.open .ham-open{display:none}.hamburger.open .ham-close{display:block}
+/* Mobile drawer */
+.mobile-drawer{position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:99;display:flex;flex-direction:column;padding:2rem 1.5rem;gap:0;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);border-top:1px solid var(--border);overflow-y:auto}
+.mobile-drawer.open{transform:translateX(0)}
+.mobile-nav-links{list-style:none;display:flex;flex-direction:column;gap:0;border-bottom:1px solid var(--border);padding-bottom:1.5rem;margin-bottom:1.5rem}
+.mobile-nav-links li a{display:flex;align-items:center;justify-content:space-between;font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;letter-spacing:-.02em;color:var(--text);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border);transition:color .2s}
+.mobile-nav-links li:last-child a{border-bottom:none}
+.mobile-services-item{display:flex;flex-direction:column}
+.mobile-services-toggle{display:flex;align-items:center;justify-content:space-between}
+.mobile-services-toggle.expanded svg{transform:rotate(180deg)}
+.mobile-services-list{list-style:none;overflow:hidden;max-height:0;transition:max-height .3s ease;padding-left:1rem}
+.mobile-services-list.open{max-height:400px}
+.mobile-services-list li a{font-size:1rem;font-weight:500;color:var(--text-muted);padding:.7rem 0;border-bottom:1px solid var(--border);letter-spacing:0}
+.mobile-services-list li:last-child a{border-bottom:none}
+.mobile-nav-links li a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo" style="display:flex;align-items:center;text-decoration:none">
+    <img src="https://healthupmarketing.com/wp-content/uploads/2025/01/logo.png" alt="HealthUp Marketing" class="nav-logo-light" style="height:38px;width:auto;object-fit:contain">
+    <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/hup-logos.webp" alt="HealthUp Marketing" class="nav-logo-dark" style="height:38px;width:auto;object-fit:contain">
+  </a>
+  <ul class="nav-links">
+    <li class="nav-dropdown" id="servicesDropdown">
+      <a href="index.html#brand-transform" class="nav-dropdown-trigger" id="servicesLink">
+        <span data-lang="tr" class="active">Hizmetlerimiz</span><span data-lang="en">Services</span>
+        <svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="nav-dropdown-menu">
+        <a href="hizmet-google-reklamlari.html" class="nav-dropdown-item">
+          <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="currentColor" opacity=".15"/><path d="M12.48 10.92v2.19h3.56c-.15.96-1.09 2.81-3.56 2.81-2.14 0-3.89-1.77-3.89-3.95s1.75-3.95 3.89-3.95c1.22 0 2.03.52 2.5 .97l1.7-1.64C15.45 6.47 14.06 5.9 12.48 5.9c-3.6 0-6.52 2.92-6.52 6.5s2.92 6.5 6.52 6.5c3.76 0 6.25-2.64 6.25-6.36 0-.43-.05-.75-.11-1.08h-6.14z" fill="currentColor"/></svg></span>
+          <span data-lang="tr" class="active">Google Reklamları</span><span data-lang="en">Google Ads</span>
+        </a>
+        <a href="hizmet-web-sitesi.html" class="nav-dropdown-item">
+          <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M3 8h18M8 3v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span data-lang="tr" class="active">Web Sitesi</span><span data-lang="en">Website</span>
+        </a>
+        <a href="hizmet-sosyal-medya.html" class="nav-dropdown-item">
+          <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51L8.59 10.49" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span data-lang="tr" class="active">Sosyal Medya Yönetimi</span><span data-lang="en">Social Media</span>
+        </a>
+        <a href="hizmet-meta-reklamlari.html" class="nav-dropdown-item">
+          <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l7 4.5-7 4.5z" fill="currentColor" opacity=".2"/><path d="M4 12c0 2.4 1.4 4.5 3.5 5.6C9 18.5 10.5 19 12 19s3-.5 4.5-1.4C18.6 16.5 20 14.4 20 12c0-1.7-.6-3.3-1.7-4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8.5 8.5c.8-1.2 2.1-2 3.5-2 1.8 0 3.3 1 4.1 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span data-lang="tr" class="active">Meta Reklamları</span><span data-lang="en">Meta Ads</span>
+        </a>
+        <a href="hizmet-satis-egitimi.html" class="nav-dropdown-item">
+          <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span data-lang="tr" class="active">Satış Eğitimi &amp; Danışmanlık</span><span data-lang="en">Sales Training</span>
+        </a>
+        <a href="hizmet-crm.html" class="nav-dropdown-item">
+          <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span>HealthUp CRM</span>
+        </a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="index.html#brand-transform" class="nav-dropdown-all" id="servicesAllLink">
+          <span data-lang="tr" class="active">Tüm Hizmetler →</span><span data-lang="en">All Services →</span>
+        </a>
+      </div>
+    </li>
+    <li><a href="hakkimizda.html"><span data-lang="tr" class="active">Hakkımızda</span><span data-lang="en">About</span></a></li>
+    <li><a href="projeler.html"><span data-lang="tr" class="active">Projeler</span><span data-lang="en">Projects</span></a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="sss.html"><span data-lang="tr" class="active">SSS</span><span data-lang="en">FAQ</span></a></li>
+    <li><a href="iletisim.html"><span data-lang="tr" class="active">İletişim</span><span data-lang="en">Contact</span></a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg class="icon-moon" viewBox="0 0 20 20" fill="currentColor"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg>
+    </button>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-tr" onclick="setLang('tr')">TR</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="iletisim.html" class="nav-cta">
+      <span data-lang="tr" class="active">Teklif Al →</span>
+      <span data-lang="en">Get Proposal →</span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menü">
+      <svg class="ham-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="ham-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <ul class="mobile-nav-links">
+    <li class="mobile-services-item">
+      <a href="index.html#brand-transform" class="mobile-link mobile-services-toggle">
+        <span data-lang="tr" class="active">Hizmetlerimiz</span><span data-lang="en">Services</span>
+        <svg viewBox="0 0 12 12" fill="none" style="width:14px;height:14px;transition:transform .25s"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <ul class="mobile-services-list">
+        <li><a href="hizmet-google-reklamlari.html" class="mobile-link mobile-service-link"><span data-lang="tr" class="active">Google Reklamları</span><span data-lang="en">Google Ads</span></a></li>
+        <li><a href="hizmet-web-sitesi.html" class="mobile-link mobile-service-link"><span data-lang="tr" class="active">Web Sitesi</span><span data-lang="en">Website</span></a></li>
+        <li><a href="hizmet-sosyal-medya.html" class="mobile-link mobile-service-link"><span data-lang="tr" class="active">Sosyal Medya Yönetimi</span><span data-lang="en">Social Media</span></a></li>
+        <li><a href="hizmet-meta-reklamlari.html" class="mobile-link mobile-service-link"><span data-lang="tr" class="active">Meta Reklamları</span><span data-lang="en">Meta Ads</span></a></li>
+        <li><a href="hizmet-satis-egitimi.html" class="mobile-link mobile-service-link"><span data-lang="tr" class="active">Satış Eğitimi &amp; Danışmanlık</span><span data-lang="en">Sales Training</span></a></li>
+        <li><a href="hizmet-crm.html" class="mobile-link mobile-service-link">HealthUp CRM</a></li>
+      </ul>
+    </li>
+    <li><a href="hakkimizda.html" class="mobile-link"><span data-lang="tr" class="active">Hakkımızda</span><span data-lang="en">About</span></a></li>
+    <li><a href="projeler.html" class="mobile-link"><span data-lang="tr" class="active">Projeler</span><span data-lang="en">Projects</span></a></li>
+    <li><a href="blog.html" class="mobile-link">Blog</a></li>
+    <li><a href="sss.html" class="mobile-link"><span data-lang="tr" class="active">SSS</span><span data-lang="en">FAQ</span></a></li>
+    <li><a href="iletisim.html" class="mobile-link"><span data-lang="tr" class="active">İletişim</span><span data-lang="en">Contact</span></a></li>
+  </ul>
+  <a href="iletisim.html" class="mobile-cta mobile-link">
+    <span data-lang="tr" class="active">Teklif Al →</span>
+    <span data-lang="en">Get Proposal →</span>
+  </a>
+</div>
+
+<!-- HERO -->
+<header class="giz-hero">
+  <div class="hero-blob"></div>
+  <div class="hero-blob-2"></div>
+  <div class="giz-hero-inner">
+    <div class="giz-eyebrow">
+      <div class="giz-eyebrow-line"></div>
+      <span><span data-lang="tr" class="active">Yasal Bilgi</span><span data-lang="en">Legal</span></span>
+    </div>
+    <h1>
+      <span data-lang="tr" class="active">Gizlilik<br><em>Politikası.</em></span>
+      <span data-lang="en">Privacy<br><em>Policy.</em></span>
+    </h1>
+    <p class="giz-hero-sub">
+      <span data-lang="tr" class="active">Güvenliğiniz bizim için önemli. Kişisel verileriniz hassasiyetle korunmaktadır.</span>
+      <span data-lang="en">Your security matters to us. Your personal data is protected with the utmost care.</span>
+    </p>
+
+  </div>
+</header>
+
+<!-- CONTENT -->
+<div class="giz-content">
+  <div class="giz-layout">
+
+    <!-- TOC (sticky sidebar) -->
+    <aside class="giz-toc">
+      <div class="giz-toc-title">
+        <span data-lang="tr" class="active">İçindekiler</span>
+        <span data-lang="en">Contents</span>
+      </div>
+      <ul class="giz-toc-list">
+        <li><a href="#s1" data-lang="tr" class="active">Gizlilik Politikası</a><a href="#s1" data-lang="en">Privacy Policy</a></li>
+        <li><a href="#s2" data-lang="tr" class="active">Çerez Aydınlatma</a><a href="#s2" data-lang="en">Cookie Policy</a></li>
+        <li><a href="#s3" data-lang="tr" class="active">KVKK Metni</a><a href="#s3" data-lang="en">KVKK Text</a></li>
+        <li><a href="#s4" data-lang="tr" class="active">İletişim</a><a href="#s4" data-lang="en">Contact</a></li>
+      </ul>
+    </aside>
+
+    <!-- Article -->
+    <article class="giz-article">
+
+      <!-- 1. GİZLİLİK POLİTİKASI -->
+      <div class="giz-section" id="s1">
+        <div class="giz-section-num">01</div>
+        <h2><span data-lang="tr" class="active">Gizlilik Politikası</span><span data-lang="en">Privacy Policy</span></h2>
+
+        <p><span data-lang="tr" class="active">Biz, <strong>HealthUp Marketing</strong>, veri sorumlusu olarak, bu gizlilik ve kişisel verilerin korunması politikası ile hangi kişisel verilerinizin hangi amaçla işleneceği, işlenen verilerin kimlerle ve neden paylaşılabileceği, veri işleme yöntemimiz ve hukuki sebeplerimiz ile işlenen verilerinize ilişkin haklarınızın neler olduğu hususunda sizleri aydınlatmayı amaçlıyoruz.</span><span data-lang="en">We, <strong>HealthUp Marketing</strong>, as data controller, aim to inform you through this privacy and personal data protection policy about which personal data will be processed and for what purpose, with whom and why processed data may be shared, our data processing methods and legal grounds, and your rights regarding the processed data.</span></p>
+
+        <h3><span data-lang="tr" class="active">Toplanan Kişisel Verileriniz, Toplanma Yöntemi ve Hukuki Sebebi</span><span data-lang="en">Personal Data Collected, Collection Method and Legal Basis</span></h3>
+        <p><span data-lang="tr" class="active">Kimlik, iletişim, özlük, sosyal medya, finans bilgileriniz ile görsel ve işitsel kayıtlarınız; çerezler vb. teknolojiler vasıtasıyla, otomatik veya otomatik olmayan yöntemlerle ve analitik sağlayıcılar, reklam ağları gibi üçüncü taraflardan elde edilerek işlenecektir. Bu işleme, aramızdaki hizmet ve sözleşme ilişkisi çerçevesinde ve meşru menfaat işleme şartına dayanılarak gerçekleştirilmektedir.</span><span data-lang="en">Your identity, contact, personal, social media, financial data and visual/audio records are obtained through cookies and similar technologies, automatic or non-automatic methods, and third parties such as analytics providers and ad networks. This processing is carried out within the framework of our service and contractual relationship, based on the legitimate interest processing condition.</span></p>
+
+        <h3><span data-lang="tr" class="active">Kişisel Verilerinizin İşlenme Amacı</span><span data-lang="en">Purpose of Processing Your Personal Data</span></h3>
+        <p><span data-lang="tr" class="active">Paylaştığınız kişisel verileriniz; sizlerle sözleşmeler kurabilmek, hizmetlerimizi yerine getirebilmek, haklarınızın kullanılmasını sağlamak, ürün ve hizmetlerimizi geliştirmek ve kanundan doğan zorunlulukları yerine getirmek amaçlarıyla işlenecektir.</span><span data-lang="en">Your personal data is processed to enter into agreements with you, fulfill our services, enable the use of your rights, develop our products and services, and fulfill legal obligations.</span></p>
+
+        <h3><span data-lang="tr" class="active">Kişisel Verilerinizin Aktarılabileceği Kişiler</span><span data-lang="en">Parties to Whom Personal Data May Be Transferred</span></h3>
+        <p><span data-lang="tr" class="active">Kişisel verileriniz; faaliyetlerimizi yürütmek üzere sözleşmesel ilişki içinde bulunduğumuz yurt içi ve yurt dışındaki 3. şahıslar ile kurum ve kuruluşlara ve talep halinde adli ve idari makamlara aktarılabilecektir.</span><span data-lang="en">Your personal data may be transferred to domestic and international third parties and organizations with whom we have contractual relationships, and to judicial and administrative authorities upon request.</span></p>
+
+        <h3><span data-lang="tr" class="active">Haklarınız (KVKK Madde 11)</span><span data-lang="en">Your Rights (KVKK Article 11)</span></h3>
+        <p><span data-lang="tr" class="active">Veri sorumlusuna başvurarak aşağıdaki haklarınızı kullanabilirsiniz:</span><span data-lang="en">You may exercise the following rights by applying to the data controller:</span></p>
+        <ol>
+          <li><span data-lang="tr" class="active">Kişisel veri işlenip işlenmediğini öğrenme</span><span data-lang="en">Learning whether personal data is being processed</span></li>
+          <li><span data-lang="tr" class="active">Kişisel verileri işlenmişse buna ilişkin bilgi talep etme</span><span data-lang="en">Requesting information if personal data has been processed</span></li>
+          <li><span data-lang="tr" class="active">İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme</span><span data-lang="en">Learning the purpose of processing and whether it is used in accordance with that purpose</span></li>
+          <li><span data-lang="tr" class="active">Yurt içinde veya dışında aktarıldığı üçüncü kişileri bilme</span><span data-lang="en">Knowing the third parties to whom data is transferred domestically or abroad</span></li>
+          <li><span data-lang="tr" class="active">Eksik veya yanlış işlenmiş olması halinde düzeltilmesini isteme</span><span data-lang="en">Requesting correction if data is incomplete or incorrectly processed</span></li>
+          <li><span data-lang="tr" class="active">Silinmesini veya yok edilmesini isteme</span><span data-lang="en">Requesting deletion or destruction of personal data</span></li>
+          <li><span data-lang="tr" class="active">Yapılan işlemlerin üçüncü kişilere bildirilmesini isteme</span><span data-lang="en">Requesting notification of these operations to third parties</span></li>
+          <li><span data-lang="tr" class="active">Otomatik sistemler vasıtasıyla aleyhine sonuç çıkmasına itiraz etme</span><span data-lang="en">Objecting to unfavorable results arising from automated processing</span></li>
+          <li><span data-lang="tr" class="active">Kanuna aykırı işleme sebebiyle uğranılan zararın giderilmesini talep etme</span><span data-lang="en">Claiming compensation for damages caused by unlawful processing</span></li>
+        </ol>
+
+        <div class="giz-callout">
+          <p><span data-lang="tr" class="active">Yukarıda sayılan haklarınızı kullanmak üzere <strong><a href="mailto:info@healthupmarketing.com">info@healthupmarketing.com</a></strong> üzerinden bizimle iletişime geçebilirsiniz.</span><span data-lang="en">To exercise the rights listed above, you may contact us at <strong><a href="mailto:info@healthupmarketing.com">info@healthupmarketing.com</a></strong>.</span></p>
+        </div>
+
+        <h3><span data-lang="tr" class="active">İletişim</span><span data-lang="en">Contact</span></h3>
+        <p><span data-lang="tr" class="active">Sizlere talepleriniz doğrultusunda hizmet sunabilmek amacıyla, sadece gerekli olan kişisel verilerinizin, işbu gizlilik ve kişisel verilerin işlenmesi politikası uyarınca işlenmesini, kabul edip etmemek hususunda tamamen özgürsünüz. Siteyi kullanmaya devam ettiğiniz takdirde kabul etmiş olduğunuz tarafımızca varsayılacak olup, daha ayrıntılı bilgi için bizimle <a href="mailto:info@healthupmarketing.com">info@healthupmarketing.com</a> e-posta adresi üzerinden iletişime geçmekten lütfen çekinmeyiniz.</span><span data-lang="en">You are entirely free to accept or refuse the processing of only the personal data necessary to serve you in accordance with this privacy and personal data processing policy. If you continue to use the site, it will be assumed by us that you have accepted this policy. For more detailed information, please do not hesitate to contact us at <a href="mailto:info@healthupmarketing.com">info@healthupmarketing.com</a>.</span></p>
+      </div>
+
+      <!-- 2. ÇEREZ POLİTİKASI -->
+      <div class="giz-section" id="s2">
+        <div class="giz-section-num">02</div>
+        <h2><span data-lang="tr" class="active">Çerez Aydınlatma Metni</span><span data-lang="en">Cookie Policy</span></h2>
+
+        <p><span data-lang="tr" class="active"><strong>healthupmarketing.com</strong> alan adlı internet sitesi, <em>Çınarlı Mah, 1572. Sk. No:33, 35170 Konak/İzmir</em> adresinde bulunan <strong>Çağla Çakırgöz ŞİRKETİ</strong> tarafından işletilmektedir.</span><span data-lang="en">The website <strong>healthupmarketing.com</strong> is operated by <strong>Çağla Çakırgöz ŞİRKETİ</strong>, located at <em>Çınarlı Mah, 1572. Sk. No:33, 35170 Konak/İzmir</em>.</span></p>
+        <p><span data-lang="tr" class="active"><strong>Çağla Çakırgöz ŞİRKETİ</strong>, veri sorumlusu sıfatıyla, kişisel verilerin işleme amaçlarının ve vasıtalarının belirlenmesinden, veri kayıt sisteminin kurulmasından ve yönetilmesinden sorumludur.</span><span data-lang="en"><strong>Çağla Çakırgöz ŞİRKETİ</strong>, as data controller, is responsible for determining the purposes and means of personal data processing, and for establishing and managing the data recording system.</span></p>
+        <p><span data-lang="tr" class="active">6698 sayılı Kişisel Verilerin Korunması Kanunu'na ("Kanun") uygun olarak, Web Sitesi'ni kullanımınızla bağlantılı olarak elde edilen kişisel verilerinizin toplanması, saklanması, aktarılması da dahil olmak üzere ancak bunlarla sınırlı olmaksızın Kanun'un "Tanımlar" başlıklı 3. maddesi kapsamında işlenmesi ve söz konusu işlemenin usul ve esaslarıyla ilgili olarak sizi bilgilendirmek istiyoruz.</span><span data-lang="en">In accordance with the Law No. 6698 on Protection of Personal Data ("Law"), we wish to inform you about the processing of your personal data obtained in connection with your use of the Website, including but not limited to their collection, storage, and transfer, within the scope of Article 3 of the Law titled "Definitions".</span></p>
+
+        <h3><span data-lang="tr" class="active">1. Kişisel Verilerin Hangi Amaçla İşleneceği</span><span data-lang="en">1. Purpose of Personal Data Processing</span></h3>
+        <p><span data-lang="tr" class="active">Kişisel veri, Kanun'un "Tanımlar" başlıklı 3. maddesine göre; "kimliği belirli veya belirlenebilir gerçek kişiye ilişkin her türlü bilgiyi" ifade eder. Bu veriler içerisinde adınız, adresiniz, e-posta adresiniz veya telefon numaranız gibi bilgiler olabilir. Ayrıca çerez kullanılmak suretiyle toplanan ve kimliğinizin belirlenmesine doğrudan olanak vermeyen bilgiler/veriler, eğer bunlar kullanıcıya/ziyaretçiye tahsis edilmiş bir kimlik temelindeyse ve dolayısıyla bireyselleştirilerek toplanmış, saklanmış ve değerlendirilmişse, kişisel veri olarak nitelendirilebilir.</span><span data-lang="en">According to Article 3 of the Law titled "Definitions", personal data means "any information relating to an identified or identifiable natural person." This may include your name, address, email address, or phone number. Additionally, information/data collected through cookies that do not directly allow identification of you may qualify as personal data if they are based on an ID assigned to the user/visitor and thus collected, stored, and evaluated on an individualized basis.</span></p>
+        <p><span data-lang="tr" class="active">Web Sitesi kullanıcılarının kişisel verilerini çerezler vasıtasıyla; sitenin kullanımını kolaylaştırmak, kullanıcıların ilgi ve ihtiyaçları doğrultusunda özelleştirmek ve isimsiz istatistiki veriler elde ederek içeriği geliştirmek amaçlarıyla işlemekteyiz.</span><span data-lang="en">We process website users' personal data through cookies to facilitate site use, customize it according to users' interests and needs, and obtain anonymous statistical data to improve content.</span></p>
+
+        <h3><span data-lang="tr" class="active">2. Kişisel Verilerin Kimlere ve Hangi Amaçla Aktarılabileceği</span><span data-lang="en">2. To Whom Personal Data May Be Transferred and For What Purpose</span></h3>
+        <p><span data-lang="tr" class="active">Toplanan kişisel verileriniz, Kanun'un 8. ve 9. maddeleri uyarınca, <strong>Çağla Çakırgöz ŞİRKETİ</strong> olarak hukuki yükümlülüğümüzü yerine getirebilmek amaçlarıyla kanunen yetkili kılınan mercilerin talebi üzerine bu mercilerle gerektiği ölçüde paylaşılabilecektir.</span><span data-lang="en">Your collected personal data may be shared, to the extent necessary, with legally authorized authorities upon their request, for the purpose of fulfilling our legal obligations as <strong>Çağla Çakırgöz ŞİRKETİ</strong>, pursuant to Articles 8 and 9 of the Law.</span></p>
+
+        <h3><span data-lang="tr" class="active">3. Kişisel Veri Toplamanın Yöntemi ve Hukuki Sebebi</span><span data-lang="en">3. Method and Legal Basis of Personal Data Collection</span></h3>
+        <p><span data-lang="tr" class="active">Mevcut ve potansiyel internet kullanıcıları ve ziyaretçiler ile ilgili kişisel veriler, Web Sitesi'ne çerez konumlandırılması suretiyle <strong>Çağla Çakırgöz ŞİRKETİ</strong> tarafından, şirketin faaliyetlerini yürütebilmesi ve faaliyet konusu ürünlerin sunulması ve veri sahiplerinin temel hak ve özgürlüklerine zarar vermemek kaydıyla <strong>Çağla Çakırgöz ŞİRKETİ</strong>'nin meşru menfaati hukuki sebebine dayalı olarak toplanmaktadır.</span><span data-lang="en">Personal data of current and potential internet users and visitors are collected by placing cookies on the Website by <strong>Çağla Çakırgöz ŞİRKETİ</strong>, based on the legal ground of the company's legitimate interest, in order to carry out its activities and provide its products/services, provided that the fundamental rights and freedoms of data subjects are not harmed.</span></p>
+
+        <h3><span data-lang="tr" class="active">4. Ağ Sunucusu Veri Günlüğü</span><span data-lang="en">4. Web Server Data Log</span></h3>
+        <p><span data-lang="tr" class="active">Web Sitesi'ne giriş yaptığınızda, ağ tarayıcınız aşağıdaki verileri internet sunucumuza otomatik olarak aktarmaya ayarlanır ve veri kayıtlarına aşağıdaki bilgiler/veriler kaydedilir:</span><span data-lang="en">When you access the Website, your browser is set to automatically transmit the following data to our internet server, which records the following information/data:</span></p>
+        <ul>
+          <li><span data-lang="tr" class="active">Giriş tarihi ve zamanı</span><span data-lang="en">Login date and time</span></li>
+          <li><span data-lang="tr" class="active">Başvuru internet sitesinin URL'si</span><span data-lang="en">Referral website URL</span></li>
+          <li><span data-lang="tr" class="active">Alınan dosyalar</span><span data-lang="en">Files retrieved</span></li>
+          <li><span data-lang="tr" class="active">İletilen veri miktarı</span><span data-lang="en">Volume of data transmitted</span></li>
+          <li><span data-lang="tr" class="active">Tarayıcı (Browser) tipi ve versiyonu</span><span data-lang="en">Browser type and version</span></li>
+          <li><span data-lang="tr" class="active">İşletim sistemi</span><span data-lang="en">Operating system</span></li>
+          <li><span data-lang="tr" class="active">IP adresi</span><span data-lang="en">IP address</span></li>
+          <li><span data-lang="tr" class="active">İnternete erişim sağlayıcınızın alan adı</span><span data-lang="en">Your internet provider's domain name</span></li>
+        </ul>
+
+        <h3><span data-lang="tr" class="active">5. Çerezler</span><span data-lang="en">5. Cookies</span></h3>
+        <p><span data-lang="tr" class="active">Çerezler, internet sayfası sunucusu tarafından sabit sürücünüze yerleştirilen küçük metin dosyalarıdır. Bu yolla IP adresi, kullanılan tarayıcı, bilgisayarınızdaki işletim sistemi ve internet bağlantınız gibi belirli verileri otomatik olarak elde ederiz.</span><span data-lang="en">Cookies are small text files placed on your hard drive by a web page server. Through this method, certain data such as IP address, browser used, operating system, and your internet connection are automatically obtained.</span></p>
+        <p><span data-lang="tr" class="active">Bu Web Sitesi, Google Inc. ("Google") tarafından sağlanan bir web analizi hizmeti olan <strong>Google Analytics</strong>'i kullanmaktadır. Google Analytics, web sitesinin kullanıcıların siteyi nasıl kullandıklarını analiz etmesine yardımcı olmak için çerezleri kullanır. Web Sitesini kullanımınızla ilgili olarak çerez tarafından oluşturulan bilgiler (IP adresiniz dahil), Google'a iletilecek ve Google tarafından ABD'de bulunan sunucularda tutulacaktır. Google, bu bilgileri Web Sitesi'ni kullanma şeklinizi değerlendirmek, Web Sitesi aktivitesine ilişkin raporlar derlemek ve Web Sitesi aktivitesi ile internet kullanımı ile ilgili diğer hizmetleri sunmak amacıyla kullanacaktır.</span><span data-lang="en">This Website uses <strong>Google Analytics</strong>, a web analytics service provided by Google Inc. ("Google"). Google Analytics uses cookies to help the website analyze how users use the site. Information generated by the cookie about your use of the Website (including your IP address) will be transmitted to and stored by Google on servers in the United States. Google will use this information to evaluate your use of the Website, compile reports on website activity, and provide other services related to website activity and internet usage.</span></p>
+        <p><span data-lang="tr" class="active">Sitemizin kullandığı zorunlu, fonksiyonel ve analitik çerezler; internet sitesi arayüzünün ve özelliklerinin arzu edildiği gibi kullanılması için zorunludur; gelecekteki ziyaretlerde faaliyetleri hızlandırır; ziyaretçilerin siteyi nasıl kullandığını anlamamızı sağlayarak içerik geliştirmemize yardımcı olur ve hiçbir koşulda kimliğinizi tanımlayabileceğimiz kişisel veri niteliğinde veri toplamaz.</span><span data-lang="en">Necessary, functional, and analytical cookies used by our site are essential for the interface and features to be used as intended; they speed up activities on future visits; they help us understand how visitors use the site and improve content; and under no circumstances do they collect data that would allow us to identify you personally.</span></p>
+
+        <h3><span data-lang="tr" class="active">6. Çerez Türleri</span><span data-lang="en">6. Cookie Types</span></h3>
+        <p><span data-lang="tr" class="active">Bu site aşağıdaki çerez türlerini kullanmaktadır:</span><span data-lang="en">This site uses the following cookie types:</span></p>
+        <div class="giz-table-wrap">
+          <table class="giz-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th><span data-lang="tr" class="active">Çerez Türü</span><span data-lang="en">Cookie Type</span></th>
+                <th><span data-lang="tr" class="active">Kullanım Amacı</span><span data-lang="en">Purpose</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><span data-lang="tr" class="active">Gerekli Çerezler</span><span data-lang="en">Necessary Cookies</span></td>
+                <td><span data-lang="tr" class="active">Bu tür çerezler, Web Sitesi'nin düzgün bir şekilde çalışabilmesi ve Web Sitesi'nin sunduğu tüm özellikleri kullanabilmenizi sağlar. Aynı oturum içerisinde bir sayfaya geri dönüldüğünde önceki eylemi hatırlama buna örnek verilebilir. Bu çerezler kimliğinizi tanımlamaz. Bu çerezleri kabul etmezseniz, Web Sitesi'nin tüm özelliklerinden faydalanamayabilirsiniz.</span><span data-lang="en">These cookies enable the Website to function correctly and allow you to use all its features. Remembering a previous action when returning to a page within the same session is an example. These cookies do not identify you. If you do not accept these cookies, you may not be able to benefit from all features of the Website.</span></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><span data-lang="tr" class="active">Performans Çerezleri</span><span data-lang="en">Performance Cookies</span></td>
+                <td><span data-lang="tr" class="active">Bu tür çerezler, Web Sitesi'ni iyileştirebilmemiz için, Web Sitesi'nin nasıl kullanıldığı hakkında bilgi toplar. Örneğin, en çok hangi sayfaları ziyaret ettiğiniz, Web Sitesi'nde geçirilen zaman ve karşılaştığınız hata mesajları hakkında veri/bilgi toplar. Bu çerezler tarafından toplanan veriler/bilgiler anonim-isimsiz olarak kaydedilir. Sizin kimliğinizi belirleyebilecek herhangi bir bilgi depolanmaz.</span><span data-lang="en">These cookies collect information about how the Website is used in order to improve it. For example, they collect data/information about which pages you visit most, time spent on the Website, and error messages encountered. Data/information collected by these cookies is recorded anonymously. No information that can identify you is stored.</span></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><span data-lang="tr" class="active">İşlevsel Çerezler</span><span data-lang="en">Functional Cookies</span></td>
+                <td><span data-lang="tr" class="active">Bu tür çerezler, size daha kişisel bir deneyim sunmamızı sağlar. Örneğin kullanıcı adınız ve dil tercihleri gibi verileri hatırlamamızı sağlar; sonraki ziyaretlerinizde bu bilgileri yeniden girmek zorunda kalmazsınız. Bu çerezlerin depoladığı bilgi isimsizdir. Bu tür çerezleri kabul etmezseniz, Web Sitesi'nin performans ve işlevselliği etkilenebilir ve Web Sitesi'ndeki bazı içeriklere erişim sağlanamayabilir.</span><span data-lang="en">These cookies enable us to offer you a more personalized experience. They allow us to remember data such as your username and language preferences so you do not have to re-enter them on future visits. The information stored by these cookies is anonymous. If you do not accept these cookies, the performance and functionality of the Website may be affected and some content may be inaccessible.</span></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><span data-lang="tr" class="active">Hedefleme / Reklam Çerezleri</span><span data-lang="en">Targeting / Advertising Cookies</span></td>
+                <td><span data-lang="tr" class="active">Bu tür çerezler size ve ilgi alanlarınıza yakın olan içerikleri/ürünleri sunmak amacıyla kullanılır. Örneğin, Web Sitesinde size sunulan reklamları ve içeriği kişiselleştirmek, Web Sitesi'nde aynı reklamı görme sıklığını sınırlamak ve reklam kampanyalarımızın etkinliğini ölçmek amacıyla hedefleme veya reklam çerezlerini kullanabiliriz.</span><span data-lang="en">These cookies are used to present content and products relevant to your interests. For example, we may use targeting or advertising cookies to personalize the ads and content shown to you on the Website, limit how often you see the same ad, and measure the effectiveness of our advertising campaigns.</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3><span data-lang="tr" class="active">7. Çerez Ayarlarını Yönetme</span><span data-lang="en">7. Managing Cookie Settings</span></h3>
+        <p><span data-lang="tr" class="active">Web Sitesi'ni mümkün olan en verimli şekilde kullanabilmeniz için çerezleri kabul etmenizi tavsiye ederiz. Çerezler olmadan da Web Sitesi'ni görüntüleyebilirsiniz. İnternet tarayıcıları istediğiniz zaman çerezleri kabul edecek şekilde kuruludur. Tarayıcı ayarlarınız vasıtasıyla çerezlerin kullanımını her zaman durdurabilirsiniz. Çerezlerinizi yönetme ayarlarının nasıl değiştirileceğini öğrenmek için lütfen tarayıcınızın yardım fonksiyonunu kullanınız. Çerezlerin kullanımını durdurduğunuzda veya çerez ayarlarını değiştirdiğinizde, internet sitemizin bazı fonksiyonlarının düzgün çalışmayabileceğini unutmayınız.</span><span data-lang="en">We recommend that you accept cookies to use the Website in the most efficient way possible. You can view the Website without cookies. Internet browsers are set to accept cookies at any time. You can always stop the use of cookies through your browser settings. To learn how to change cookie management settings, please use your browser's help function. Please note that when you stop the use of cookies or change cookie settings, some functions of our website may not work properly.</span></p>
+
+        <h3><span data-lang="tr" class="active">8. Veri Sahibinin Hakları</span><span data-lang="en">8. Rights of the Data Subject</span></h3>
+        <p><span data-lang="tr" class="active">Kanun'un "İlgili Kişinin Hakları" başlıklı 11. maddesi uyarınca; veri sahibi olarak, yazılı veya Kişisel Verileri Koruma Kurulu'nun belirlediği diğer yöntemlerle <strong>Çağla Çakırgöz ŞİRKETİ</strong>'ne başvurarak aşağıdaki haklara sahip olduğunuzu bildiririz: kişisel verilerinizin işlenip işlenmediğini öğrenme, kişisel verileriniz işlenmişse buna ilişkin bilgi talep etme, kişisel verilerinizin işlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme, yurt içinde veya yurt dışında kişisel verilerin aktarıldığı üçüncü kişileri bilme, kişisel verilerinizin eksik veya yanlış işlenmiş olması halinde bunların düzeltilmesini ve bu kapsamda yapılan işlemin aktarıldığı üçüncü kişilere bildirilmesini isteme, kişisel verilerinizin kanun ve ilgili mevzuata uygun işlenmiş olmasına rağmen işlenmesini gerektiren sebeplerin ortadan kalkması halinde silinmesini veya yok edilmesini ve bu işlemlerin üçüncü kişilere bildirilmesini isteme, işlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle kişinin kendisi aleyhine bir sonucun ortaya çıkmasına itiraz etme, kişisel verilerinizin kanuna aykırı olarak işlenmesi sebebiyle zarara uğramanız halinde zararın giderilmesini talep etme.</span><span data-lang="en">Pursuant to Article 11 of the Law titled "Rights of the Data Subject", as a data subject you have the following rights by applying to <strong>Çağla Çakırgöz ŞİRKETİ</strong> in writing or by other methods determined by the Personal Data Protection Board: learning whether your personal data is being processed; requesting information if processed; learning the purpose of processing and whether it is used in accordance with that purpose; knowing the third parties to whom data is transferred domestically or abroad; requesting correction of incomplete or incorrectly processed data and notification of such operations to third parties; requesting deletion or destruction when the reasons requiring processing no longer exist and notification of these operations to third parties; objecting to unfavorable results arising from automated processing; claiming compensation for damages caused by unlawful processing.</span></p>
+        <p><span data-lang="tr" class="active">Başvurunuzda yer alan talepleriniz, talebin niteliğine göre en kısa sürede ve en geç otuz gün içinde <strong>Çağla Çakırgöz ŞİRKETİ</strong> tarafından ücretsiz olarak sonuçlandırılacaktır. Ancak, işlemin şirket için ayrıca bir maliyeti gerektirmesi hâlinde, Kişisel Verileri Koruma Kurulu tarafından belirlenen tarifedeki ücret alınabilir.</span><span data-lang="en">Your requests will be concluded free of charge by <strong>Çağla Çakırgöz ŞİRKETİ</strong> within the shortest time possible and at most within thirty days, depending on the nature of the request. However, if the transaction requires an additional cost for the company, a fee according to the tariff determined by the Personal Data Protection Board may be charged.</span></p>
+
+        <h3><span data-lang="tr" class="active">9. Hakların Kullanımı, Başvuru ve İletişim</span><span data-lang="en">9. Exercise of Rights, Application and Contact</span></h3>
+        <p><span data-lang="tr" class="active">Kanun kapsamında yukarıda belirtilen haklarınıza ilişkin taleplerinizi, bu amaçla hazırlanmış Veri Sorumlusuna Başvuru Formu'nu tam ve eksiksiz doldurmak ve ıslak imza ile imzalamak suretiyle <em>"Çınarlı Mah, 1572. Sk. No:33, 35170 Konak/İzmir"</em> adresine bizzat elden teslim edebilir, noter vasıtasıyla ve Kanun'da belirtilen diğer yöntemler ile gönderebilirsiniz. Elektronik yolla başvurulması halinde, Veri Sorumlusuna Başvuru Formu'nu "güvenli elektronik imza" sertifikasına sahip bir elektronik ya da mobil imza ile imzalayarak, şirketimize daha önce bildirdiğiniz ve sistemlerimizde kayıtlı bulunan elektronik posta adresinizi kullanmak suretiyle <a href="mailto:info@healthupmarketing.com">info@healthupmarketing.com</a> adresine iletebilirsiniz. Başvurunun kişisel veri sahipleri adına üçüncü kişiler tarafından yapılması halinde, başvuruda bulunacak kişinin veri sahibi tarafından noterde düzenlenmiş özel yetkili vekaletname vermesi gerekmektedir.</span><span data-lang="en">For your requests regarding the rights specified above under the Law, you may personally deliver the Data Controller Application Form, fully completed and signed with a wet signature, to <em>"Çınarlı Mah, 1572. Sk. No:33, 35170 Konak/İzmir"</em>, or send it via notary or other methods specified in the Law. For electronic applications, you may sign the form with a "secure electronic signature" and send it from your email address registered in our systems to <a href="mailto:info@healthupmarketing.com">info@healthupmarketing.com</a>. If the application is made by a third party on behalf of the data subject, the applicant must present a notarized special power of attorney issued by the data subject.</span></p>
+
+        <h3><span data-lang="tr" class="active">10. Diğer İnternet Sitelerine Bağlantı</span><span data-lang="en">10. Links to Other Websites</span></h3>
+        <p><span data-lang="tr" class="active">Web Sitesi, diğer internet sitelerine ait bağlantılar içermektedir. Bu sitelerin yöneticilerinin veri koruma hükümlerine uygun hareket edip etmedikleri hususunda hiçbir etkimiz bulunmamaktadır. <strong>Çağla Çakırgöz ŞİRKETİ</strong>, bağlantı verdiği sitelerin içeriklerinden ve o sitelerin bağlantı verdiği diğer sitelerin içeriklerinden sorumlu değildir; bağlantı sağladığı sitelerin içeriklerine müdahale yetkisi bulunmamaktadır.</span><span data-lang="en">The Website contains links to other websites. We have no influence over whether the administrators of these sites act in accordance with data protection regulations. <strong>Çağla Çakırgöz ŞİRKETİ</strong> is not responsible for the content of linked sites or the content of other sites to which those sites link; it has no authority to intervene in the content of linked sites.</span></p>
+
+        <h3><span data-lang="tr" class="active">11. Değişiklikler</span><span data-lang="en">11. Changes</span></h3>
+        <p><span data-lang="tr" class="active">Web Sitesi, teknolojik ve hukuki gelişmelere bağlı olarak değişim ve gelişim göstermekte olduğundan, işbu Çerez Politikası da bu doğrultuda zaman zaman güncellenecek olup, Çerez Politikası'nın güncel hali <a href="https://www.healthupmarketing.com/">https://www.healthupmarketing.com/</a> adresinde yayımlanarak sizlerin erişimine her daim hazır bulundurulacaktır.</span><span data-lang="en">As the Website changes and develops in line with technological and legal developments, this Cookie Policy will also be updated from time to time, and the current version of the Cookie Policy will always be published and available at <a href="https://www.healthupmarketing.com/">https://www.healthupmarketing.com/</a>.</span></p>
+
+        <h3><span data-lang="tr" class="active">12. Açık Rıza</span><span data-lang="en">12. Explicit Consent</span></h3>
+        <p><span data-lang="tr" class="active">Web sitemizi kullanmaya devam ederek, cihazınıza tanımlama bilgilerini yerleştirebileceğimizi kabul etmektesiniz. Eğer Web sitemizi kullanmanızla ilgili olarak tanımlama bilgilerini kabul etmek istemiyorsanız; tarayıcı bilgilerini tanımlama bilgilerinin tümünü ya da bir kısmını engelleyecek şekilde değiştirmeniz veya Web Sitemizi kullanmayı durdurmanız gerekmektedir.</span><span data-lang="en">By continuing to use our website, you agree that we may place cookies on your device. If you do not wish to accept cookies in connection with your use of our website, you must either change your browser settings to block all or some cookies, or stop using our Website.</span></p>
+      </div>
+
+      <!-- 3. KVKK -->
+      <div class="giz-section" id="s3">
+        <div class="giz-section-num">03</div>
+        <h2><span data-lang="tr" class="active">KVKK Aydınlatma Metni</span><span data-lang="en">KVKK Disclosure Text</span></h2>
+
+        <p><span data-lang="tr" class="active">6698 sayılı Kişisel Verilerin Korunması Kanunu'nun 10. maddesi uyarınca kişisel veri işleme, aktarma, toplama yöntemleri ve haklarınız hakkında sizleri bilgilendiriyoruz.</span><span data-lang="en">Pursuant to Article 10 of the Law No. 6698 on Protection of Personal Data (KVKK), we inform you about personal data processing, transfer, collection methods and your rights.</span></p>
+
+        <h3><span data-lang="tr" class="active">Veri Sorumlusu</span><span data-lang="en">Data Controller</span></h3>
+        <p><span data-lang="tr" class="active"><strong>Çağla Çakırgöz ŞİRKETİ</strong>, veri sorumlusu sıfatıyla kişisel verilerinizi hukuka ve dürüstlük kurallarına uygun biçimde işleyebilecek, kaydedebilecek, saklayabilecek ve mevzuatın izin verdiği hallerde 3. kişilere açıklayabilecektir.</span><span data-lang="en"><strong>Çağla Çakırgöz ŞİRKETİ</strong>, as data controller, may process, record, store and disclose your personal data to third parties in accordance with the law and where permitted by legislation.</span></p>
+
+        <h3><span data-lang="tr" class="active">Kişisel Verilerin İşlenme Amaçları</span><span data-lang="en">Purposes of Personal Data Processing</span></h3>
+        <ul>
+          <li><span data-lang="tr" class="active">Ticari faaliyet gerekliliklerinin yerine getirilmesi ve hizmet ifası</span><span data-lang="en">Fulfilling commercial activity requirements and service delivery</span></li>
+          <li><span data-lang="tr" class="active">İş süreçlerinin yürütülmesi ve raporlanması</span><span data-lang="en">Managing and reporting business processes</span></li>
+          <li><span data-lang="tr" class="active">Ticari ve operasyonel stratejilerin belirlenmesi</span><span data-lang="en">Determining commercial and operational strategies</span></li>
+          <li><span data-lang="tr" class="active">Talep ve şikayetlerin değerlendirilmesi</span><span data-lang="en">Evaluating requests and complaints</span></li>
+          <li><span data-lang="tr" class="active">Hukuki süreçlerin yönetimi ve mevzuata uyum</span><span data-lang="en">Managing legal processes and regulatory compliance</span></li>
+          <li><span data-lang="tr" class="active">Şirket prosedürleri veya ilgili mevzuata uygun faaliyetlerin yürütülmesinin temini</span><span data-lang="en">Ensuring activities are carried out in accordance with company procedures or applicable legislation</span></li>
+          <li><span data-lang="tr" class="active">İş ortaklarımız ile yürütülen işlerin icrası ve referans ilişkilerinin yönetimi</span><span data-lang="en">Execution of work with our business partners and management of reference relationships</span></li>
+          <li><span data-lang="tr" class="active">Yasal mevzuattan kaynaklanan bilgi ve belge saklama yükümlülüklerinin yerine getirilmesi</span><span data-lang="en">Fulfilling information and document retention obligations arising from applicable legislation</span></li>
+          <li><span data-lang="tr" class="active">Finans, iletişim, pazar araştırması ve satın alma operasyonları</span><span data-lang="en">Finance, communications, market research and procurement operations</span></li>
+          <li><span data-lang="tr" class="active">Kamu kurum ve otoritelerince öngörülen bilgi paylaşımı, raporlama ve bilgilendirme yükümlülüklerinin yerine getirilmesi</span><span data-lang="en">Fulfilling information sharing, reporting and notification obligations required by public authorities</span></li>
+        </ul>
+
+        <h3><span data-lang="tr" class="active">Kişisel Veri Toplamanın Hukuki Sebepleri</span><span data-lang="en">Legal Bases for Collecting Personal Data</span></h3>
+        <p><span data-lang="tr" class="active">Kişisel verileriniz, şirketimiz tarafından değişik yollarla elde edilebilir (şirket yönetim merkezi veya iş ortakları ile iletişime geçebileceğiniz ofisler ve diğer fiziki ortamlar, çağrı merkezi, web siteleri ve benzeri elektronik işlem platformları, sosyal medya veya diğer kamuya açık mecralar aracılığıyla). Topladığımız kişisel verilerinizi aşağıdaki hukuki sebeplerden bir veya birkaçına dayanarak işlemekteyiz:</span><span data-lang="en">Your personal data may be obtained by our company through various means (offices and other physical environments where you can contact the company's head office or business partners, call centers, websites and similar electronic transaction platforms, social media, or other publicly accessible channels). We process the personal data we collect based on one or more of the following legal grounds:</span></p>
+        <ul>
+          <li><span data-lang="tr" class="active">Açık rızanızın bulunması</span><span data-lang="en">Your explicit consent</span></li>
+          <li><span data-lang="tr" class="active">Türkiye Cumhuriyeti'nde yürürlükte olan kanun ve yönetmelik hükümlerinin işlemeyi gerekli kılması (Borçlar Kanunu, Ticaret Kanunu, İş Kanunu, Vergi Usul Kanunu, Tüketici Kanunu vb.)</span><span data-lang="en">Requirement by applicable laws and regulations in the Republic of Türkiye (Code of Obligations, Commercial Code, Labour Law, Tax Procedure Law, Consumer Protection Law, etc.)</span></li>
+          <li><span data-lang="tr" class="active">Fiili imkânsızlık nedeniyle rızanızı açıklayamayacak durumdayken şahsınızın veya bir başkasının yaşamı ya da vücut bütünlüğünün korunması için zorunlu olması</span><span data-lang="en">Necessity to protect the life or physical integrity of yourself or another person when you are unable to give consent due to actual impossibility</span></li>
+          <li><span data-lang="tr" class="active">Tarafınız veya firmanızla akdetmiş olduğumuz sözleşmenin ifası için gerekli olması</span><span data-lang="en">Necessity for the performance of our agreement with you or your company</span></li>
+          <li><span data-lang="tr" class="active">Yasal yükümlülüklerimizin yerine getirilmesi amacıyla kişisel verilerinizin işlenmesinin gerekli olması</span><span data-lang="en">Necessity of processing your personal data to fulfill our legal obligations</span></li>
+          <li><span data-lang="tr" class="active">Kişisel verinizin tarafınızca alenileştirilmiş olması</span><span data-lang="en">Your personal data having been made public by you</span></li>
+          <li><span data-lang="tr" class="active">Şirket olarak yasal veya sözleşmesel haklarımızın kullanılması veya korunması için gerekli olması</span><span data-lang="en">Necessity for the exercise or protection of our legal or contractual rights as a company</span></li>
+          <li><span data-lang="tr" class="active">Temel hak ve özgürlüklerinize zarar vermemek kaydıyla kişisel verilerinizin işlenmesinin meşru menfaatimiz için gerekli olması</span><span data-lang="en">Necessity for our legitimate interests, provided that your fundamental rights and freedoms are not harmed</span></li>
+        </ul>
+
+        <h3><span data-lang="tr" class="active">Verilerin Aktarıldığı Taraflar</span><span data-lang="en">Parties to Whom Data Is Transferred</span></h3>
+        <p><span data-lang="tr" class="active">Kişisel verileriniz; şirketimiz faaliyetlerini ve iş süreçlerini devam ettirmek için yurt içi ve/veya yurt dışında bulunan ve iş birliği yaptığımız proje ortaklarımıza, danışmanlarımıza, çözüm ortaklarına ve tedarikçilerimize, sigorta şirketlerimize, noter, banka ve finans kuruluşlarına, hukuk, mali müşavirlik ve vergi gibi alanlarda destek aldığımız danışmanlık firmalarımıza, kanunen yetkili kamu kurumlarına ve özel kişilere, şirketimiz adına kişisel veri işleyen yurt içi ve/veya yurt dışında depolama, arşivleme, bilişim teknolojileri desteği (sunucu, hosting, yazılım, bulut bilişim vb.) alanlarında destek aldığımız hizmet sağlayıcılarımıza, KVKK'nın 8. ve 9. maddeleri kapsamında aktarılabilecektir.</span><span data-lang="en">Your personal data may be transferred to our project partners, consultants, solution partners, and suppliers with whom we cooperate domestically and/or abroad; to our insurance companies, notaries, banks, and financial institutions; to consulting firms providing support in legal, financial advisory, and tax areas; to legally authorized public institutions and private individuals; and to service providers supporting us in storage, archiving, and IT services (servers, hosting, software, cloud computing, etc.) operating domestically and/or abroad on behalf of our company, within the scope of Articles 8 and 9 of KVKK.</span></p>
+
+        <p><span data-lang="tr" class="active">Topladığımız ve işlediğimiz kişisel verilerinizin 6698 sayılı Kanun'un 4. maddesi gereğince doğru ve gerektiğinde güncel olması gerekmektedir. Bu nedenle, kişisel verilerinizde herhangi bir değişiklik meydana gelmesi halinde, güncel ve doğru bilgilerinizi aşağıda belirtilen yöntemlerle bize bildirebilirsiniz.</span><span data-lang="en">Your personal data that we collect and process must be accurate and, where necessary, kept up to date pursuant to Article 4 of the Law No. 6698. Therefore, if any changes occur in your personal data, you may notify us of the updated and accurate information through the methods specified below.</span></p>
+
+        <h3><span data-lang="tr" class="active">Başvuru Yöntemleri</span><span data-lang="en">Application Methods</span></h3>
+        <p><span data-lang="tr" class="active"><strong>Yazılı başvuru:</strong> KVKK Başvuru Formu'nu ıslak imzalı bir nüshasını, kimliğinizi tespit edici bir belge ile şahsen veya ilgili haklara ilişkin başvuru yapmaya yetkili olduğunuzu gösterir noter tasdikli bir vekâletname ile vekaleten Çınarlı Mah, 1572. Sk. No:33, 35170 Konak/İzmir adresine elden teslim edebilir ya da noter aracılığıyla gönderebilirsiniz.</span><span data-lang="en"><strong>Written application:</strong> You may personally deliver a wet-signed copy of the KVKK Application Form along with an identity document, or via authorized representative with a notarized power of attorney, to Çınarlı Mah, 1572. Sk. No:33, 35170 Konak/İzmir, or send it via notary.</span></p>
+        <p><span data-lang="tr" class="active"><strong>Elektronik başvuru:</strong> KVKK Başvuru Formu'nu, 5070 sayılı Elektronik İmza Kanunu'nda tanımlı "güvenli elektronik imza" sertifikasına sahip bir elektronik ya da mobil imza ile imzalayarak, şirketimize daha önce bildirdiğiniz ve sistemlerimizde kayıtlı bulunan elektronik posta adresinizi kullanmak suretiyle <a href="mailto:info@healthupmarketing.com">info@healthupmarketing.com</a> e-posta adresine iletebilirsiniz. Tarafımızca, başvurunun size ait olup olmadığının tespiti ve haklarınızın korunması amacıyla ek doğrulamalar (kayıtlı e-posta adresinize mesaj gönderilmesi veya aranmanız gibi) istenebilir. Başvurunun kişisel veri sahipleri adına üçüncü kişiler tarafından yapılması halinde, başvuruda bulunacak kişinin veri sahibi tarafından noterde düzenlenmiş özel yetkili vekâletname vermesi gerekmektedir.</span><span data-lang="en"><strong>Electronic application:</strong> You may sign the KVKK Application Form with a "secure electronic signature" as defined in the Electronic Signature Law No. 5070 and send it from your email address registered in our systems to <a href="mailto:info@healthupmarketing.com">info@healthupmarketing.com</a>. Additional verifications (such as sending a message to your registered email address or contacting you by phone) may be requested to confirm your identity and protect your rights. If the application is submitted by a third party on behalf of the data subject, the applicant must present a notarized special power of attorney granted by the data subject.</span></p>
+
+        <div class="giz-callout">
+          <p><span data-lang="tr" class="active">Başvurularınız, talebin niteliğine göre en geç <strong>otuz gün</strong> içinde ücretsiz olarak sonuçlandırılacaktır.</span><span data-lang="en">Your applications will be concluded free of charge within a maximum of <strong>thirty days</strong>, depending on the nature of the request.</span></p>
+        </div>
+      </div>
+
+      <!-- 4. İLETİŞİM -->
+      <div class="giz-section" id="s4">
+        <div class="giz-section-num">04</div>
+        <h2><span data-lang="tr" class="active">İletişim</span><span data-lang="en">Contact</span></h2>
+        <p><span data-lang="tr" class="active">Gizlilik politikamıza ilişkin sorularınız veya veri haklarınız için bizimle iletişime geçin.</span><span data-lang="en">For questions about our privacy policy or your data rights, please contact us.</span></p>
+        <div class="giz-contact-card">
+          <div class="giz-contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>Çınarlı Mah, 1572. Sk. No:33, 35170 Konak/İzmir</span>
+          </div>
+          <div class="giz-contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@healthupmarketing.com">info@healthupmarketing.com</a>
+          </div>
+          <div class="giz-contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            <a href="tel:+905367967126">(536) 796-7126</a>
+          </div>
+        </div>
+      </div>
+
+    </article>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="hup-footer">
+  <div class="hup-footer-inner">
+    <div class="hup-footer-brand">
+      <a href="index.html" class="hup-footer-logo">
+        <img src="https://healthupmarketing.com/wp-content/uploads/2025/01/logo.png" alt="HealthUp Marketing" style="height:44px;width:auto;object-fit:contain">
+      </a>
+      <p class="hup-footer-slogan"><span data-lang="tr" class="active">Sağlıkta Güçlü Pazarlama, Akıllı Büyüme</span><span data-lang="en">Strong Marketing in Health, Smart Growth</span></p>
+      <div class="hup-footer-social">
+        <a href="#" class="hup-social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="#" class="hup-social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="hup-social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="#" class="hup-social-btn" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      </div>
+    </div>
+    <div class="hup-footer-col">
+      <h4 class="hup-footer-col-title"><span data-lang="tr" class="active">İletişim Bilgileri</span><span data-lang="en">Contact Info</span></h4>
+      <p class="hup-footer-col-sub"><span data-lang="tr" class="active">Bizimle iletişime geçin!</span><span data-lang="en">Get in touch with us!</span></p>
+      <ul class="hup-contact-list">
+        <li><span class="hup-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span>Çınarlı Mah, 1572 Sk. No:33, 35170 Konak/İzmir</span></li>
+        <li><span class="hup-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span><a href="tel:+905367967126">(536) 796-7126</a></li>
+        <li><span class="hup-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><a href="mailto:info@healthupmarketing.com">info@healthupmarketing.com</a></li>
+      </ul>
+    </div>
+    <div class="hup-footer-col">
+      <h4 class="hup-footer-col-title"><span data-lang="tr" class="active">Hızlı Erişim</span><span data-lang="en">Quick Links</span></h4>
+      <div class="hup-footer-nav">
+        <a href="hakkimizda.html"><span data-lang="tr" class="active">Hakkımızda</span><span data-lang="en">About Us</span></a>
+        <a href="index.html#brand-transform"><span data-lang="tr" class="active">Hizmetlerimiz</span><span data-lang="en">Services</span></a>
+        <a href="projeler.html"><span data-lang="tr" class="active">Projeler</span><span data-lang="en">Projects</span></a>
+        <a href="blog.html">Blog</a>
+        <a href="sss.html"><span data-lang="tr" class="active">SSS</span><span data-lang="en">FAQ</span></a>
+        <a href="iletisim.html"><span data-lang="tr" class="active">İletişim</span><span data-lang="en">Contact</span></a>
+        <a href="gizlilik.html"><span data-lang="tr" class="active">Gizlilik</span><span data-lang="en">Privacy</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="hup-footer-bottom">
+    <span><span data-lang="tr" class="active">© 2026 HealthUp Marketing. Tüm hakları saklıdır.</span><span data-lang="en">© 2026 HealthUp Marketing. All rights reserved.</span></span>
+  </div>
+</footer>
+
+<script>
+// THEME
+document.getElementById('themeToggle').addEventListener('click',()=>{
+  const r=document.documentElement;
+  const next=r.getAttribute('data-theme')==='light'?'dark':'light';
+  r.setAttribute('data-theme',next);
+  try{localStorage.setItem('theme',next);}catch(e){}
+});
+
+// LANG
+function setLang(lang){
+  document.querySelectorAll('[data-lang]').forEach(el=>{
+    el.classList.remove('active');
+    if(el.getAttribute('data-lang')===lang) el.classList.add('active');
+  });
+  document.querySelectorAll('[data-lang-block]').forEach(el=>{
+    el.classList.remove('active');
+    if(el.getAttribute('data-lang-block')===lang) el.classList.add('active');
+  });
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  const btn=document.getElementById('btn-'+lang);
+  if(btn) btn.classList.add('active');
+  document.documentElement.setAttribute('lang',lang);
+  try{localStorage.setItem('lang',lang);}catch(e){}
+}
+(function(){
+  let saved='tr';
+  try{saved=localStorage.getItem('lang')||'tr';}catch(e){}
+  setLang(saved);
+})();
+
+// HAMBURGER
+const ham=document.getElementById('hamburger');
+const drawer=document.getElementById('mobileDrawer');
+if(ham&&drawer){
+  ham.addEventListener('click',()=>{
+    ham.classList.toggle('open');
+    drawer.classList.toggle('open');
+    document.body.style.overflow=drawer.classList.contains('open')?'hidden':'';
+  });
+  document.querySelectorAll('.mobile-link').forEach(a=>{
+    a.addEventListener('click',()=>{
+      ham.classList.remove('open');
+      drawer.classList.remove('open');
+      document.body.style.overflow='';
+    });
+  });
+}
+// SERVICES DROPDOWN
+(function(){
+  var dd=document.getElementById('servicesDropdown');
+  var ml=document.getElementById('servicesLink');
+  var al=document.getElementById('servicesAllLink');
+  if(!dd) return;
+  function scrollSvc(e){
+    var t=document.getElementById('brand-transform');
+    if(t){e.preventDefault();dd.classList.remove('open');t.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+  if(ml) ml.addEventListener('click',scrollSvc);
+  if(al) al.addEventListener('click',scrollSvc);
+  document.addEventListener('click',function(e){if(!dd.contains(e.target))dd.classList.remove('open');});
+})();
+// MOBILE SERVICES ACCORDION
+(function(){
+  var tg=document.querySelector('.mobile-services-toggle');
+  var li=document.querySelector('.mobile-services-list');
+  if(!tg||!li) return;
+  tg.addEventListener('click',function(e){
+    if(!li.classList.contains('open')){e.preventDefault();li.classList.add('open');tg.classList.add('expanded');}
+    else{li.classList.remove('open');tg.classList.remove('expanded');}
+  });
+})();
+
+</script>
+</body>
+</html>

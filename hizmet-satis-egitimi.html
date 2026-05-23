@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  var t;try{t=localStorage.getItem('theme');}catch(e){}
+  document.documentElement.setAttribute('data-theme',t||'dark');
+})();
+</script>
+<title>Satış Eğitimi & Danışmanlığı — HealthUp Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+[data-theme="light"]{
+  --bg:#fafaf8;--bg-off:#f3f2ef;
+  --text:#0a0a0a;--text-muted:#8a8a82;
+  --border:rgba(10,10,10,0.1);
+  --nav-bg:rgba(250,250,248,0.92);
+  --toggle-bg:rgba(10,10,10,0.07);
+  --card-bg:#ffffff;--card-border:rgba(10,10,10,0.1);
+}
+[data-theme="dark"]{
+  --bg:#0f0f0d;--bg-off:#181815;
+  --text:#fafaf8;--text-muted:#6b6b63;
+  --border:rgba(255,255,255,0.08);
+  --nav-bg:rgba(15,15,13,0.92);
+  --toggle-bg:rgba(255,255,255,0.09);
+  --card-bg:#1c1c19;--card-border:rgba(255,255,255,0.08);
+}
+:root{--accent:#fe0d6d;}
+
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .3s,color .3s}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:64px;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:background .3s,border-color .3s}
+.nav-logo-light{display:block}
+.nav-logo-dark{display:none}
+[data-theme="dark"] .nav-logo-light{display:none}
+[data-theme="dark"] .nav-logo-dark{display:block}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--text-muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.theme-toggle{width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text);transition:background .2s;flex-shrink:0}
+.theme-toggle svg{width:16px;height:16px}
+.icon-sun{display:none}.icon-moon{display:block}
+[data-theme="dark"] .icon-sun{display:block}[data-theme="dark"] .icon-moon{display:none}
+.lang-toggle{display:flex;align-items:center;background:var(--toggle-bg);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.lang-btn{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:7px 12px;cursor:pointer;background:transparent;border:none;color:var(--text-muted);transition:background .2s,color .2s;line-height:1}
+.lang-btn.active{background:var(--text);color:var(--bg)}
+.nav-cta{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--text);color:var(--bg);padding:10px 22px;border-radius:4px;text-decoration:none;transition:background .2s,color .3s;white-space:nowrap}
+[data-theme="dark"] .nav-cta{background:var(--accent);color:#fff}
+
+/* ── HAMBURGER ── */
+.hamburger{display:none;width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;align-items:center;justify-content:center;color:var(--text);flex-shrink:0}
+.hamburger svg{width:18px;height:18px}
+.hamburger .ham-open{display:block}.hamburger .ham-close{display:none}
+.hamburger.open .ham-open{display:none}.hamburger.open .ham-close{display:block}
+.mobile-drawer{position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:99;display:flex;flex-direction:column;padding:2rem 1.5rem;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);border-top:1px solid var(--border);overflow-y:auto}
+.mobile-drawer.open{transform:translateX(0)}
+.mobile-nav-links{list-style:none;display:flex;flex-direction:column;border-bottom:1px solid var(--border);padding-bottom:1.5rem;margin-bottom:1.5rem}
+.mobile-nav-links li a{display:flex;align-items:center;justify-content:space-between;font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;letter-spacing:-.02em;color:var(--text);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border);transition:color .2s}
+.mobile-nav-links li:last-child a{border-bottom:none}
+.mobile-nav-links li a:hover{color:var(--accent)}
+.mobile-nav-links li a::after{content:'→';font-size:1rem;color:var(--text-muted)}
+.mobile-cta{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--accent);color:#fff;padding:15px 24px;border-radius:4px;text-decoration:none;text-align:center;display:block}
+
+/* ════════════════════════════════
+   HERO — TAM EKRAN FOTOĞRAF ARKAPLANI
+   Yazılar SAĞDA ve sağa yasli
+════════════════════════════════ */
+.service-hero{
+  position:relative;
+  min-height:80vh;
+  padding-top:64px;
+  display:flex;
+  align-items:center;
+}
+
+/* Fotoğraf katmanı */
+.hero-bg-photo{
+  position:absolute;
+  inset:0;
+  background-image:url('https://raw.githubusercontent.com/gurur26/tolgacakirgoz.com/refs/heads/main/tolga-header.webp');
+  background-size:cover;
+  background-position:center top;
+  background-repeat:no-repeat;
+}
+
+/* Karartma — soldan şeffaf, sağdan koyu (yazıların arkası) */
+.hero-bg-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to right,
+    rgba(5,5,4,.15) 0%,
+    rgba(5,5,4,.35) 30%,
+    rgba(5,5,4,.72) 55%,
+    rgba(5,5,4,.90) 75%,
+    rgba(5,5,4,.96) 100%
+  );
+}
+
+/* Üst ve alt yumuşatma */
+.hero-bg-overlay::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to bottom, rgba(5,5,4,.5) 0%, transparent 12%),
+    linear-gradient(to top,    rgba(5,5,4,.6) 0%, transparent 18%);
+}
+
+/* Grid decoration */
+.hero-grid-lines{
+  position:absolute;
+  inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+}
+
+/* Inner — max genişlik, içerik sağda */
+.service-hero-inner{
+  position:relative;
+  z-index:2;
+  max-width:1200px;
+  margin:0 auto;
+  padding:5rem 3rem 4rem; /* alt padding stats şeridinin yüksekliği kadar */
+  width:100%;
+  display:flex;
+  justify-content:flex-end;
+}
+
+/* Metin kutusu — sayfanın sağ yarısı */
+.hero-text-box{
+  max-width:540px;
+  text-align:right; /* sağa yasla */
+  color:#fafaf8;
+}
+
+.service-breadcrumb{
+  display:flex;align-items:center;justify-content:flex-end;
+  gap:8px;font-family:'Syne',sans-serif;font-size:.75rem;font-weight:600;
+  color:rgba(250,250,248,.38);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.5rem
+}
+.service-breadcrumb a{color:rgba(250,250,248,.38);text-decoration:none;transition:color .2s}
+.service-breadcrumb a:hover{color:var(--accent)}
+.service-breadcrumb span{color:var(--accent)}
+
+.service-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(254,13,109,.12);border:1px solid rgba(254,13,109,.28);
+  color:var(--accent);font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:1.5rem
+}
+
+.service-hero-title{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(2.4rem,5vw,4.2rem);
+  line-height:1.05;letter-spacing:-.025em;margin-bottom:1.5rem
+}
+.service-hero-title em{font-style:italic;color:var(--accent)}
+
+.hero-divider{
+  width:60px;height:3px;background:var(--accent);border-radius:2px;
+  margin:0 0 1.5rem auto; /* sağa yasla */
+}
+
+.service-hero-lead{
+  font-size:1rem;font-weight:300;color:rgba(250,250,248,.6);
+  line-height:1.75;margin-bottom:2rem
+}
+
+/* Tolga isim kartı */
+.hero-person-card{
+  display:inline-flex;align-items:center;gap:1rem;
+  background:rgba(255,255,255,.07);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.12);border-radius:12px;
+  padding:.9rem 1.2rem;margin-bottom:2rem;text-align:left
+}
+.hero-person-avatar{
+  width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0;
+  border:2px solid var(--accent);
+}
+.hero-person-avatar img{width:100%;height:100%;object-fit:cover}
+.hero-person-info{}
+.hero-person-name{font-family:'Syne',sans-serif;font-weight:800;font-size:.95rem;color:#fff;line-height:1.2}
+.hero-person-role{font-size:.75rem;color:rgba(255,255,255,.5);margin-top:.15rem}
+.hero-person-badge{
+  font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+  background:rgba(254,13,109,.18);border:1px solid rgba(254,13,109,.3);
+  color:var(--accent);padding:2px 8px;border-radius:8px;margin-top:.3rem;display:inline-block
+}
+
+.service-hero-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:14px 28px;background:var(--accent);color:#fff;border-radius:6px;
+  text-decoration:none;transition:opacity .2s
+}
+.service-hero-cta:hover{opacity:.85}
+
+/* Stats — hero'nun altında doğal akışta */
+.hero-stats-strip{
+  background:rgba(5,5,4,.95);
+  border-top:1px solid rgba(255,255,255,.07);
+  position:relative;
+  z-index:3;
+}
+.hero-stats-inner{
+  max-width:1200px;margin:0 auto;padding:1.5rem 3rem;
+  display:flex;gap:0;
+}
+.hero-stat{
+  flex:1;display:flex;flex-direction:column;
+  border-right:1px solid rgba(255,255,255,.08);padding:0 2rem
+}
+.hero-stat:first-child{padding-left:0}
+.hero-stat:last-child{border-right:none}
+.hero-stat-num{
+  font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;
+  color:var(--accent);letter-spacing:-.03em;line-height:1
+}
+.hero-stat-label{font-size:.75rem;color:rgba(255,255,255,.38);margin-top:.3rem}
+
+/* ════════════════════════════════
+   CONTENT
+════════════════════════════════ */
+.service-content{background:var(--bg);padding:6rem 3rem;transition:background .3s}
+.service-content-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 340px;gap:5rem;align-items:start}
+
+.service-body h2{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.15;letter-spacing:-.02em;margin-bottom:1rem;margin-top:2.5rem}
+.service-body h2:first-child{margin-top:0}
+.service-body h2 em{font-style:italic;color:var(--accent)}
+.service-body p{font-size:1rem;color:var(--text-muted);line-height:1.75;margin-bottom:1.2rem}
+.service-body ul{margin:1rem 0 1.5rem 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.service-body ul li{font-size:.95rem;color:var(--text-muted);line-height:1.6;padding-left:1.4rem;position:relative}
+.service-body ul li::before{content:'→';position:absolute;left:0;color:var(--accent);font-weight:700}
+.service-body .highlight-box{background:var(--bg-off,#181815);border:1px solid var(--card-border);border-left:3px solid var(--accent);border-radius:8px;padding:1.5rem 1.8rem;margin:2rem 0}
+.service-body .highlight-box p{margin-bottom:0;color:var(--text)}
+
+/* Konferans fotoğrafı bölümü */
+.conference-photo-section{margin:3rem 0;border-radius:14px;overflow:hidden;position:relative}
+.conference-photo-section img{width:100%;height:420px;object-fit:cover;object-position:center 30%;display:block}
+.conference-photo-caption{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(to top, rgba(5,5,4,.85) 0%, transparent 100%);
+  padding:2rem 1.8rem 1.4rem;
+  display:flex;align-items:flex-end;justify-content:space-between;
+}
+.conference-photo-caption-text{font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:.04em}
+.conference-photo-caption-tag{
+  font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  background:rgba(254,13,109,.18);border:1px solid rgba(254,13,109,.3);
+  color:var(--accent);padding:4px 12px;border-radius:8px
+}
+
+/* Özellik kartları */
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+.feature-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:1.3rem 1.4rem;transition:border-color .2s}
+.feature-card:hover{border-color:rgba(254,13,109,.25)}
+.feature-card-icon{width:32px;height:32px;border-radius:7px;background:rgba(254,13,109,.1);border:1px solid rgba(254,13,109,.18);display:flex;align-items:center;justify-content:center;margin-bottom:.8rem}
+.feature-card-icon svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.feature-card-title{font-family:'Syne',sans-serif;font-size:.84rem;font-weight:700;color:var(--text);margin-bottom:.35rem}
+.feature-card-desc{font-size:.8rem;color:var(--text-muted);line-height:1.55}
+
+/* Üç sütun sonuç kartları */
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0}
+.result-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:1.4rem;text-align:center}
+.result-card-emoji{font-size:1.6rem;margin-bottom:.6rem}
+.result-card-title{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:800;color:var(--text);margin-bottom:.4rem}
+.result-card-desc{font-size:.78rem;color:var(--text-muted);line-height:1.5}
+
+/* ── SIDEBAR ── */
+.service-sidebar{position:sticky;top:90px}
+.sidebar-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:2rem;margin-bottom:1.5rem}
+.sidebar-card-title{font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.2rem}
+
+/* Tolga profil kartı (sidebar) */
+.tolga-profile{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.8rem}
+.tolga-profile-photo{width:90px;height:90px;border-radius:50%;overflow:hidden;border:3px solid var(--accent)}
+.tolga-profile-photo img{width:100%;height:100%;object-fit:cover}
+.tolga-profile-name{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:var(--text)}
+.tolga-profile-title{font-size:.8rem;color:var(--text-muted)}
+.tolga-profile-tags{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:.3rem}
+.tolga-tag{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.05em;background:rgba(254,13,109,.1);border:1px solid rgba(254,13,109,.2);color:var(--accent);padding:3px 9px;border-radius:8px}
+.tolga-profile-exp{margin-top:.5rem;font-family:'Syne',sans-serif;font-size:.75rem;color:var(--text-muted);line-height:1.5}
+
+.sidebar-process{display:flex;flex-direction:column;gap:1rem}
+.sidebar-step{display:flex;gap:1rem;align-items:flex-start}
+.sidebar-step-num{width:28px;height:28px;min-width:28px;border-radius:50%;background:rgba(254,13,109,.12);border:1px solid rgba(254,13,109,.25);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:800;color:var(--accent);margin-top:1px}
+.sidebar-step-text{font-size:.88rem;color:var(--text-muted);line-height:1.5}
+.sidebar-step-text strong{display:block;color:var(--text);font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;margin-bottom:.2rem}
+
+.sidebar-cta-btn{display:block;text-align:center;font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:14px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;transition:opacity .2s;margin-top:.5rem}
+.sidebar-cta-btn:hover{opacity:.85}
+.sidebar-cta-secondary{display:block;text-align:center;font-family:'Syne',sans-serif;font-size:.78rem;font-weight:600;color:var(--text-muted);text-decoration:none;margin-top:.8rem;transition:color .2s}
+.sidebar-cta-secondary:hover{color:var(--accent)}
+
+/* ── DİĞER HİZMETLER ── */
+.other-services{background:var(--bg-off,#181815);padding:6rem 3rem;transition:background .3s}
+.other-services-inner{max-width:1200px;margin:0 auto}
+.other-services-header{margin-bottom:3rem}
+.other-services-tag{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem}
+.other-services-title{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.5rem);line-height:1.1;letter-spacing:-.02em}
+.other-services-title em{font-style:italic;color:var(--accent)}
+.other-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--card-border);border-radius:12px;overflow:hidden}
+.other-card{padding:2rem 1.5rem;border-right:1px solid var(--card-border);text-decoration:none;color:var(--text);transition:background .2s;display:flex;flex-direction:column;gap:.8rem}
+.other-card:last-child{border-right:none}
+.other-card:hover{background:var(--card-bg)}
+.other-card.active-service{background:rgba(254,13,109,.06)}
+.other-card.active-service .other-card-name{color:var(--accent)}
+.other-card-icon{width:36px;height:36px;border-radius:8px;background:rgba(254,13,109,.1);border:1px solid rgba(254,13,109,.2);display:flex;align-items:center;justify-content:center}
+.other-card-icon svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.other-card-name{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;line-height:1.3}
+.other-card-desc{font-size:.8rem;color:var(--text-muted);line-height:1.5;flex:1}
+.other-card-link{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;color:var(--accent);letter-spacing:.05em;margin-top:.3rem}
+
+/* ── FOOTER ── */
+.hup-footer{background:#000000;border-top:1px solid rgba(255,255,255,.06)}
+.hup-footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:280px 1fr 1fr;gap:4rem;padding:4rem 3rem 3rem}
+.hup-footer-brand{display:flex;flex-direction:column;gap:1.2rem}
+.hup-footer-slogan{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.5;max-width:220px}
+.hup-footer-social{display:flex;gap:10px;margin-top:.4rem}
+.hup-social-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);text-decoration:none;transition:border-color .2s,color .2s}
+.hup-social-btn:hover{border-color:var(--accent);color:var(--accent)}
+.hup-social-btn svg{width:16px;height:16px}
+.hup-footer-col-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:.6rem}
+.hup-footer-col-sub{font-size:.82rem;color:rgba(255,255,255,.4);margin-bottom:1.2rem}
+.hup-contact-list{list-style:none;display:flex;flex-direction:column;gap:.9rem}
+.hup-contact-list li{display:flex;align-items:flex-start;gap:10px;font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.5}
+.hup-contact-list a{color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s}
+.hup-contact-list a:hover{color:var(--accent)}
+.hup-contact-icon{flex-shrink:0;width:20px;color:var(--accent);margin-top:2px}
+.hup-contact-icon svg{width:16px;height:16px}
+.hup-footer-nav{display:grid;grid-template-columns:1fr 1fr;gap:.6rem 2rem}
+.hup-footer-nav a{font-size:.83rem;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s;padding:.2rem 0}
+.hup-footer-nav a:hover{color:#fff}
+.hup-footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding:1.2rem 3rem}
+.hup-footer-bottom span{font-size:.75rem;color:rgba(255,255,255,.25)}
+
+/* ── DATA-LANG ── */
+[data-lang]{display:none!important}[data-lang].active{display:inline!important}
+[data-lang-block]{display:none!important}[data-lang-block].active{display:block!important}
+
+/* ── MOBILE ── */
+@media(max-width:900px){
+  nav{padding:0 1.5rem}
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex!important}
+
+  .service-hero{min-height:auto}
+  .service-hero-inner{padding:5rem 1.5rem 7rem;justify-content:flex-start}
+  .hero-text-box{max-width:100%;text-align:left}
+  .service-breadcrumb{justify-content:flex-start}
+  .hero-divider{margin:0 0 1.5rem 0}
+  .hero-person-card{flex-direction:column;text-align:center;width:100%}
+  .hero-stats-inner{padding:1.2rem 1.5rem;flex-wrap:wrap;gap:1rem}
+  .hero-stat{border-right:none;padding:0;flex:0 0 calc(50% - .5rem)}
+
+  .service-content{padding:4rem 1.5rem}
+  .service-content-inner{grid-template-columns:1fr}
+  .service-sidebar{position:static}
+  .feature-grid{grid-template-columns:1fr}
+  .result-grid{grid-template-columns:1fr}
+  .conference-photo-section img{height:260px}
+
+  .other-services{padding:4rem 1.5rem}
+  .other-cards{grid-template-columns:1fr 1fr;border-radius:8px}
+  .other-card{border-right:none;border-bottom:1px solid var(--card-border)}
+  .other-card:nth-child(odd){border-right:1px solid var(--card-border)}
+  .other-card:last-child{border-bottom:none}
+
+  .hup-footer-inner{grid-template-columns:1fr;gap:2rem;padding:3rem 1.5rem 2rem}
+  .hup-footer-bottom{padding:1.2rem 1.5rem}
+}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:64px;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:background .3s,border-color .3s}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-.03em;color:var(--text);text-decoration:none;transition:color .3s}
+.nav-logo-light{display:block}
+.nav-logo-dark{display:none}
+[data-theme="dark"] .nav-logo-light{display:none}
+[data-theme="dark"] .nav-logo-dark{display:block}
+.nav-badge{display:inline-block;font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--grad);color:#fff;padding:2px 6px;border-radius:2px;vertical-align:super;margin-left:4px}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--text-muted);text-decoration:none;letter-spacing:.01em;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+/* SERVICES DROPDOWN */
+.nav-dropdown{position:relative}
+.nav-dropdown-trigger{display:flex;align-items:center;gap:5px;cursor:pointer}
+.nav-dropdown-trigger svg{width:12px;height:12px;transition:transform .25s;flex-shrink:0}
+.nav-dropdown:hover .nav-dropdown-trigger svg,.nav-dropdown.open .nav-dropdown-trigger svg{transform:rotate(180deg)}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 4px);left:50%;transform:translateX(-50%) translateY(-6px);background:#ffffff;border:1px solid var(--border-strong);border-radius:12px;padding:8px;min-width:220px;box-shadow:0 8px 32px rgba(0,0,0,.14),0 2px 8px rgba(0,0,0,.08);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease;z-index:200}
+[data-theme="dark"] .nav-dropdown-menu{background:#1c1c19}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);border:6px solid transparent;border-bottom-color:var(--border-strong);border-top:none}
+.nav-dropdown-menu::after{content:'';position:absolute;top:-5px;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top:none}
+[data-theme="light"] .nav-dropdown-menu::after{border-bottom-color:#ffffff}
+[data-theme="dark"]  .nav-dropdown-menu::after{border-bottom-color:#1c1c19}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown.open .nav-dropdown-menu{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
+.nav-dropdown-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;text-decoration:none;color:var(--text-muted);font-size:.82rem;font-weight:500;transition:background .18s,color .18s;white-space:nowrap}
+.nav-dropdown-item:hover{background:var(--card-hover);color:var(--text)}
+.nav-dropdown-item-icon{width:28px;height:28px;border-radius:6px;background:var(--icon-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.nav-dropdown-item-icon svg{width:14px;height:14px;color:var(--accent)}
+.nav-dropdown-divider{height:1px;background:var(--border);margin:6px 4px}
+.nav-dropdown-all{display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 12px;border-radius:8px;text-decoration:none;font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);color:#fff;transition:filter .2s,transform .15s}
+.nav-dropdown-all:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.nav-right{display:flex;align-items:center;gap:10px}
+/* Theme toggle */
+.theme-toggle{width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text);transition:background .2s;flex-shrink:0}
+.theme-toggle svg{width:16px;height:16px}
+.icon-sun{display:none}.icon-moon{display:block}
+[data-theme="dark"] .icon-sun{display:block}[data-theme="dark"] .icon-moon{display:none}
+/* Lang toggle */
+.lang-toggle{display:flex;align-items:center;background:var(--toggle-bg);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.lang-btn{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:7px 12px;cursor:pointer;background:transparent;border:none;color:var(--text-muted);transition:background .2s,color .2s;line-height:1}
+.lang-btn.active{background:var(--text);color:var(--bg)}
+.nav-cta{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);color:#fff;padding:10px 22px;border-radius:var(--radius);text-decoration:none;transition:box-shadow .25s,transform .15s,filter .25s;white-space:nowrap;box-shadow:var(--glow)}
+.nav-cta:hover{box-shadow:0 0 28px rgba(251,16,107,.6),0 0 56px rgba(254,121,72,.35);transform:translateY(-1px);filter:brightness(1.08)}
+[data-theme="dark"] .nav-cta{background:var(--grad);color:#fff}
+/* HAMBURGER */
+.hamburger{display:none;width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;align-items:center;justify-content:center;color:var(--text);flex-shrink:0;transition:background .2s}
+.hamburger svg{width:18px;height:18px;transition:opacity .2s}
+.hamburger .ham-open{display:block}.hamburger .ham-close{display:none}
+.hamburger.open .ham-open{display:none}.hamburger.open .ham-close{display:block}
+/* Mobile drawer */
+.mobile-drawer{position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:99;display:flex;flex-direction:column;padding:2rem 1.5rem;gap:0;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);border-top:1px solid var(--border);overflow-y:auto}
+.mobile-drawer.open{transform:translateX(0)}
+.mobile-nav-links{list-style:none;display:flex;flex-direction:column;gap:0;border-bottom:1px solid var(--border);padding-bottom:1.5rem;margin-bottom:1.5rem}
+.mobile-nav-links li a{display:flex;align-items:center;justify-content:space-between;font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;letter-spacing:-.02em;color:var(--text);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border);transition:color .2s}
+.mobile-nav-links li:last-child a{border-bottom:none}
+.mobile-services-item{display:flex;flex-direction:column}
+.mobile-services-toggle{display:flex;align-items:center;justify-content:space-between}
+.mobile-services-toggle.expanded svg{transform:rotate(180deg)}
+.mobile-services-list{list-style:none;overflow:hidden;max-height:0;transition:max-height .3s ease;padding-left:1rem}
+.mobile-services-list.open{max-height:400px}
+.mobile-services-list li a{font-size:1rem;font-weight:500;color:var(--text-muted);padding:.7rem 0;border-bottom:1px solid var(--border);letter-spacing:0}
+.mobile-services-list li:last-child a{border-bottom:none}
+.mobile-nav-links li a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo" style="display:flex;align-items:center;text-decoration:none">
+    <img src="https://healthupmarketing.com/wp-content/uploads/2025/01/logo.png" alt="HealthUp Marketing" class="nav-logo-light" style="height:38px;width:auto;object-fit:contain">
+    <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/hup-logos.webp" alt="HealthUp Marketing" class="nav-logo-dark" style="height:38px;width:auto;object-fit:contain">
+  </a>
+  <ul class="nav-links">
+    <li class="nav-dropdown" id="servicesDropdown">
+      <a href="index.html#brand-transform" class="nav-dropdown-trigger" id="servicesLink">
+        <span data-lang="tr" class="active">Hizmetlerimiz</span><span data-lang="en">Services</span>
+        <svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="nav-dropdown-menu">
+        <a href="hizmet-google-reklamlari.html" class="nav-dropdown-item">
+          <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="currentColor" opacity=".15"/><path d="M12.48 10.92v2.19h3.56c-.15.96-1.09 2.81-3.56 2.81-2.14 0-3.89-1.77-3.89-3.95s1.75-3.95 3.89-3.95c1.22 0 2.03.52 2.5 .97l1.7-1.64C15.45 6.47 14.06 5.9 12.48 5.9c-3.6 0-6.52 2.92-6.52 6.5s2.92 6.5 6.52 6.5c3.76 0 6.25-2.64 6.25-6.36 0-.43-.05-.75-.11-1.08h-6.14z" fill="currentColor"/></svg></span>
+          <span data-lang="tr" class="active">Google Reklamları</span><span data-lang="en">Google Ads</span>
+        </a>
+        <a href="hizmet-web-sitesi.html" class="nav-dropdown-item">
+          <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M3 8h18M8 3v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span data-lang="tr" class="active">Web Sitesi</span><span data-lang="en">Website</span>
+        </a>
+        <a href="hizmet-sosyal-medya.html" class="nav-dropdown-item">
+          <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51L8.59 10.49" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span data-lang="tr" class="active">Sosyal Medya Yönetimi</span><span data-lang="en">Social Media</span>
+        </a>
+        <a href="hizmet-meta-reklamlari.html" class="nav-dropdown-item">
+          <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l7 4.5-7 4.5z" fill="currentColor" opacity=".2"/><path d="M4 12c0 2.4 1.4 4.5 3.5 5.6C9 18.5 10.5 19 12 19s3-.5 4.5-1.4C18.6 16.5 20 14.4 20 12c0-1.7-.6-3.3-1.7-4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8.5 8.5c.8-1.2 2.1-2 3.5-2 1.8 0 3.3 1 4.1 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span data-lang="tr" class="active">Meta Reklamları</span><span data-lang="en">Meta Ads</span>
+        </a>
+        <a href="hizmet-satis-egitimi.html" class="nav-dropdown-item">
+          <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span data-lang="tr" class="active">Satış Eğitimi &amp; Danışmanlık</span><span data-lang="en">Sales Training</span>
+        </a>
+        <a href="hizmet-crm.html" class="nav-dropdown-item">
+          <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span>HealthUp CRM</span>
+        </a>
+        <div class="nav-dropdown-divider"></div>
+        <a href="index.html#brand-transform" class="nav-dropdown-all" id="servicesAllLink">
+          <span data-lang="tr" class="active">Tüm Hizmetler →</span><span data-lang="en">All Services →</span>
+        </a>
+      </div>
+    </li>
+    <li><a href="hakkimizda.html"><span data-lang="tr" class="active">Hakkımızda</span><span data-lang="en">About</span></a></li>
+    <li><a href="projeler.html"><span data-lang="tr" class="active">Projeler</span><span data-lang="en">Projects</span></a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="sss.html"><span data-lang="tr" class="active">SSS</span><span data-lang="en">FAQ</span></a></li>
+    <li><a href="iletisim.html"><span data-lang="tr" class="active">İletişim</span><span data-lang="en">Contact</span></a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg class="icon-moon" viewBox="0 0 20 20" fill="currentColor"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg>
+    </button>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-tr" onclick="setLang('tr')">TR</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="iletisim.html" class="nav-cta">
+      <span data-lang="tr" class="active">Teklif Al →</span>
+      <span data-lang="en">Get Proposal →</span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menü">
+      <svg class="ham-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="ham-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <ul class="mobile-nav-links">
+    <li class="mobile-services-item">
+      <a href="index.html#brand-transform" class="mobile-link mobile-services-toggle">
+        <span data-lang="tr" class="active">Hizmetlerimiz</span><span data-lang="en">Services</span>
+        <svg viewBox="0 0 12 12" fill="none" style="width:14px;height:14px;transition:transform .25s"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <ul class="mobile-services-list">
+        <li><a href="hizmet-google-reklamlari.html" class="mobile-link mobile-service-link"><span data-lang="tr" class="active">Google Reklamları</span><span data-lang="en">Google Ads</span></a></li>
+        <li><a href="hizmet-web-sitesi.html" class="mobile-link mobile-service-link"><span data-lang="tr" class="active">Web Sitesi</span><span data-lang="en">Website</span></a></li>
+        <li><a href="hizmet-sosyal-medya.html" class="mobile-link mobile-service-link"><span data-lang="tr" class="active">Sosyal Medya Yönetimi</span><span data-lang="en">Social Media</span></a></li>
+        <li><a href="hizmet-meta-reklamlari.html" class="mobile-link mobile-service-link"><span data-lang="tr" class="active">Meta Reklamları</span><span data-lang="en">Meta Ads</span></a></li>
+        <li><a href="hizmet-satis-egitimi.html" class="mobile-link mobile-service-link"><span data-lang="tr" class="active">Satış Eğitimi &amp; Danışmanlık</span><span data-lang="en">Sales Training</span></a></li>
+        <li><a href="hizmet-crm.html" class="mobile-link mobile-service-link">HealthUp CRM</a></li>
+      </ul>
+    </li>
+    <li><a href="hakkimizda.html" class="mobile-link"><span data-lang="tr" class="active">Hakkımızda</span><span data-lang="en">About</span></a></li>
+    <li><a href="projeler.html" class="mobile-link"><span data-lang="tr" class="active">Projeler</span><span data-lang="en">Projects</span></a></li>
+    <li><a href="blog.html" class="mobile-link">Blog</a></li>
+    <li><a href="sss.html" class="mobile-link"><span data-lang="tr" class="active">SSS</span><span data-lang="en">FAQ</span></a></li>
+    <li><a href="iletisim.html" class="mobile-link"><span data-lang="tr" class="active">İletişim</span><span data-lang="en">Contact</span></a></li>
+  </ul>
+  <a href="iletisim.html" class="mobile-cta mobile-link">
+    <span data-lang="tr" class="active">Teklif Al →</span>
+    <span data-lang="en">Get Proposal →</span>
+  </a>
+</div>
+
+<!-- ════ HERO ════ -->
+<section class="service-hero">
+
+  <!-- Fotoğraf arka plan -->
+  <div class="hero-bg-photo"></div>
+  <div class="hero-bg-overlay"></div>
+  <div class="hero-grid-lines"></div>
+
+  <!-- Metin — sağda -->
+  <div class="service-hero-inner">
+    <div class="hero-text-box">
+
+      <div class="service-breadcrumb">
+        <a href="index.html"><span data-lang="tr" class="active">Ana Sayfa</span><span data-lang="en">Home</span></a>
+        <span>›</span>
+        <a href="index.html#brand-transform"><span data-lang="tr" class="active">Hizmetler</span><span data-lang="en">Services</span></a>
+        <span>›</span>
+        <span><span data-lang="tr" class="active">Satış Eğitimi</span><span data-lang="en">Sales Training</span></span>
+      </div>
+
+      <div class="service-tag">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        <span data-lang="tr" class="active">Satış Eğitimi & Danışmanlık</span><span data-lang="en">Sales Training & Consulting</span>
+      </div>
+
+      <h1 class="service-hero-title">
+        <span data-lang-block="tr" class="active">Ekibinizi<br>Zirveye<br><em>Taşıyoruz</em></span>
+        <span data-lang-block="en">We Take Your<br>Team to the<br><em>Top</em></span>
+      </h1>
+
+      <div class="hero-divider"></div>
+
+      <p class="service-hero-lead">
+        <span data-lang="tr" class="active">Sağlık turizminde rekabet artıyor. Hasta dönüşümünü artırmak, ekibinizi doğru yöntemlerle donatmaktan geçiyor. 10 yıllık sektör deneyimiyle satış süreçlerinizi dönüştürüyoruz.</span>
+        <span data-lang="en">Competition in health tourism is intensifying. Increasing patient conversion comes from equipping your team with the right methods. We transform your sales processes with 10 years of sector experience.</span>
+      </p>
+
+      <!-- Tolga kart -->
+      <div class="hero-person-card">
+        <div class="hero-person-avatar">
+          <img src="https://raw.githubusercontent.com/gurur26/tolgacakirgoz.com/refs/heads/main/tolga-header.webp" alt="Tolga Çakırgöz">
+        </div>
+        <div class="hero-person-info">
+          <div class="hero-person-name">Tolga Çakırgöz</div>
+          <div class="hero-person-role"><span data-lang="tr" class="active">Satış Direktörü · HealthUp Marketing</span><span data-lang="en">Sales Director · HealthUp Marketing</span></div>
+          <div class="hero-person-badge"><span data-lang="tr" class="active">10+ Yıl Deneyim</span><span data-lang="en">10+ Years Experience</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- Stats şeridi -->
+<div class="hero-stats-strip">
+  <div class="hero-stats-inner">
+    <div class="hero-stat">
+      <div class="hero-stat-num">10+</div>
+      <div class="hero-stat-label"><span data-lang="tr" class="active">Yıl sağlık turizmi deneyimi</span><span data-lang="en">Years in health tourism</span></div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">+60%</div>
+      <div class="hero-stat-label"><span data-lang="tr" class="active">Ortalama dönüşüm artışı</span><span data-lang="en">Average conversion increase</span></div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">200+</div>
+      <div class="hero-stat-label"><span data-lang="tr" class="active">Eğitilen satış uzmanı</span><span data-lang="en">Sales professionals trained</span></div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">15+</div>
+      <div class="hero-stat-label"><span data-lang="tr" class="active">Ülkede aktif müşteri</span><span data-lang="en">Active clients across countries</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ CONTENT ════ -->
+<section class="service-content">
+  <div class="service-content-inner">
+
+    <!-- ANA METİN -->
+    <div class="service-body">
+
+      <h2><span data-lang="tr" class="active">Neden Satış Eğitimi <em>Şart?</em></span><span data-lang="en">Why Is Sales Training <em>Essential?</em></span></h2>
+      <p>
+        <span data-lang="tr" class="active">Sağlık turizmi sektörü global ölçekte büyürken rekabet her geçen gün sertleşiyor. Reklam bütçesi yüksek, web sitesi güçlü ama dönüşüm oranı düşük olan kliniklerin ortak sorunu aynı: satış ekibinin hastayı karşılama, ikna ve takip süreçleri optimize edilmemiş.</span>
+        <span data-lang="en">As the health tourism sector grows globally, competition intensifies every day. Clinics with high ad budgets and strong websites but low conversion rates share the same problem: their sales team's patient reception, persuasion and follow-up processes are not optimised.</span>
+      </p>
+      <p>
+        <span data-lang="tr" class="active">HealthUp Marketing olarak satış ekibinizi eğitiyor, performansı ölçülebilir hedeflere bağlıyor ve sürdürülebilir büyüme için zemin hazırlıyoruz. Tolga Çakırgöz liderliğinde sunulan programlar, firmanızın özel ihtiyaçlarına göre şekillendirilir.</span>
+        <span data-lang="en">At HealthUp Marketing, we train your sales team, link performance to measurable goals and prepare the ground for sustainable growth. The programmes delivered under Tolga Çakırgöz's leadership are shaped according to your company's specific needs.</span>
+      </p>
+
+      <div class="highlight-box">
+        <p><span data-lang="tr" class="active"><strong>Reklam bütçeniz ne kadar yüksek olursa olsun, satış ekibiniz hazır değilse leadsler kaybolur.</strong> Hasta adayı ilk 5 dakikada karar verir — ya güvenir ya da bir rakibe gider. Bu kararı şekillendiren ekibinizdir.</span><span data-lang="en"><strong>No matter how high your ad budget, if your sales team isn't ready, leads are lost.</strong> A patient prospect decides within the first 5 minutes — either they trust you or go to a competitor. It's your team that shapes that decision.</span></p>
+      </div>
+
+      <h2><span data-lang="tr" class="active">Eğitim & Danışmanlık <em>Programları</em></span><span data-lang="en">Training & Consulting <em>Programmes</em></span></h2>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="feature-card-title"><span data-lang="tr" class="active">Satış Stratejileri Geliştirme</span><span data-lang="en">Sales Strategy Development</span></div>
+          <div class="feature-card-desc"><span data-lang="tr" class="active">Firmanıza özel satış stratejileri oluşturarak hasta kazanım sürecinizi güçlendiriyoruz.</span><span data-lang="en">We create bespoke sales strategies for your company, strengthening your patient acquisition process.</span></div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="feature-card-title"><span data-lang="tr" class="active">Satış Ekibi Eğitimi</span><span data-lang="en">Sales Team Training</span></div>
+          <div class="feature-card-desc"><span data-lang="tr" class="active">Ekibinizi sağlık turizmi alanında uzmanlaştırarak hasta iletişimi ve satış süreçlerini profesyonelleştiriyoruz.</span><span data-lang="en">We specialise your team in health tourism, professionalising patient communication and sales processes.</span></div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="feature-card-title"><span data-lang="tr" class="active">Hasta Takibi & Dönüşüm</span><span data-lang="en">Patient Follow-Up & Conversion</span></div>
+          <div class="feature-card-desc"><span data-lang="tr" class="active">Hasta taleplerini doğru yönetmek ve geri dönüş oranlarını artırmak için süreçlerinizi düzenliyoruz.</span><span data-lang="en">We organise your processes to manage patient enquiries correctly and increase response rates.</span></div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="feature-card-title"><span data-lang="tr" class="active">Performans Analizi & Raporlama</span><span data-lang="en">Performance Analysis & Reporting</span></div>
+          <div class="feature-card-desc"><span data-lang="tr" class="active">Ekibinizin satış performansını analiz ederek sürekli gelişim için gerekli adımları belirliyoruz.</span><span data-lang="en">We analyse your team's sales performance and identify the steps needed for continuous improvement.</span></div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </div>
+          <div class="feature-card-title"><span data-lang="tr" class="active">Çok Dilli İletişim Eğitimi</span><span data-lang="en">Multilingual Communication Training</span></div>
+          <div class="feature-card-desc"><span data-lang="tr" class="active">Yabancı hasta adaylarıyla etkili iletişim için dil ve kültür bazlı yaklaşım teknikleri.</span><span data-lang="en">Language and culture-based approach techniques for effective communication with international prospects.</span></div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div class="feature-card-title"><span data-lang="tr" class="active">Online & Yerinde Eğitim</span><span data-lang="en">Online & On-Site Training</span></div>
+          <div class="feature-card-desc"><span data-lang="tr" class="active">Konumunuzdan bağımsız olarak online veya klinik/hastane bünyesinde yerinde eğitim seçenekleri.</span><span data-lang="en">Online or on-site training options at your clinic or hospital, regardless of your location.</span></div>
+        </div>
+      </div>
+
+      <!-- KONFERANS FOTOĞRAFI -->
+      <div class="conference-photo-section">
+        <img
+          src="https://gurur26.github.io/tolgacakirgoz.com/tolga-konferans.jpg"
+          alt="Tolga Çakırgöz Konferans"
+          loading="lazy"
+        >
+        <div class="conference-photo-caption">
+          <span class="conference-photo-caption-text">
+            <span data-lang="tr" class="active">Tolga Çakırgöz — Sağlık Turizmi Satış Konferansı</span>
+            <span data-lang="en">Tolga Çakırgöz — Health Tourism Sales Conference</span>
+          </span>
+          <span class="conference-photo-caption-tag">
+            <span data-lang="tr" class="active">Canlı Eğitim</span>
+            <span data-lang="en">Live Training</span>
+          </span>
+        </div>
+      </div>
+
+      <h2><span data-lang="tr" class="active">Programın Size <em>Sağlayacakları</em></span><span data-lang="en">What the Programme <em>Delivers</em></span></h2>
+
+      <div class="result-grid">
+        <div class="result-card">
+          <div class="result-card-emoji">💪</div>
+          <div class="result-card-title"><span data-lang="tr" class="active">Güçlü Satış Ekibi</span><span data-lang="en">Stronger Sales Team</span></div>
+          <div class="result-card-desc"><span data-lang="tr" class="active">Profesyonel satış teknikleri ve hasta odaklı yaklaşımlarla ekibinizin başarı oranını yükseltiyoruz.</span><span data-lang="en">We raise your team's success rate with professional sales techniques and patient-centred approaches.</span></div>
+        </div>
+        <div class="result-card">
+          <div class="result-card-emoji">📈</div>
+          <div class="result-card-title"><span data-lang="tr" class="active">Daha Fazla Hasta</span><span data-lang="en">More Patients</span></div>
+          <div class="result-card-desc"><span data-lang="tr" class="active">Etkili satış stratejileri ve doğru hasta takibi ile dönüşüm oranlarınızı artırıyoruz.</span><span data-lang="en">We increase your conversion rates with effective sales strategies and accurate patient follow-up.</span></div>
+        </div>
+        <div class="result-card">
+          <div class="result-card-emoji">🏆</div>
+          <div class="result-card-title"><span data-lang="tr" class="active">Profesyonel Süreçler</span><span data-lang="en">Professional Processes</span></div>
+          <div class="result-card-desc"><span data-lang="tr" class="active">Hasta iletişimi, geri dönüş takibi ve iş geliştirme süreçlerinizi profesyonel yapıya kavuşturuyoruz.</span><span data-lang="en">We bring your patient communication, follow-up tracking and business development to a professional structure.</span></div>
+        </div>
+      </div>
+
+      <h2><span data-lang="tr" class="active">Kimler İçin <em>Uygundur?</em></span><span data-lang="en">Who Is It <em>For?</em></span></h2>
+      <p>
+        <span data-lang="tr" class="active">Eğitim ve danışmanlık programlarımız, sağlık turizmi alanında faaliyet gösteren her ölçekteki kuruma uygundur. İster yeni kurulmuş bir klinik olun, ister yıllar önce kurulmuş ama büyüme hedefi olan bir hastane zinciri — programlar ihtiyacınıza göre özelleştirilir.</span>
+        <span data-lang="en">Our training and consulting programmes are suitable for institutions of all sizes operating in health tourism. Whether you are a newly established clinic or a long-running hospital chain with growth targets — programmes are customised to your needs.</span>
+      </p>
+      <ul>
+        <li><span data-lang="tr" class="active">Diş, estetik, saç ekimi ve göz merkezleri</span><span data-lang="en">Dental, aesthetic, hair transplant and eye centres</span></li>
+        <li><span data-lang="tr" class="active">Sağlık turizmi acenteleri ve kolaylaştırıcılar</span><span data-lang="en">Health tourism agencies and facilitators</span></li>
+        <li><span data-lang="tr" class="active">Hastane bünyesindeki uluslararası hasta departmanları</span><span data-lang="en">International patient departments within hospitals</span></li>
+        <li><span data-lang="tr" class="active">Satış müdürleri ve ekip liderleri</span><span data-lang="en">Sales managers and team leaders</span></li>
+        <li><span data-lang="tr" class="active">Hasta koordinatörleri ve danışmanlar</span><span data-lang="en">Patient coordinators and consultants</span></li>
+      </ul>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="service-sidebar">
+
+      <!-- Tolga profil -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-title"><span data-lang="tr" class="active">Eğitmen Profili</span><span data-lang="en">Trainer Profile</span></div>
+        <div class="tolga-profile">
+          <div class="tolga-profile-photo">
+            <img src="https://raw.githubusercontent.com/gurur26/tolgacakirgoz.com/refs/heads/main/tolga-header.webp" alt="Tolga Çakırgöz">
+          </div>
+          <div class="tolga-profile-name">Tolga Çakırgöz</div>
+          <div class="tolga-profile-title"><span data-lang="tr" class="active">Satış Direktörü · HealthUp Marketing</span><span data-lang="en">Sales Director · HealthUp Marketing</span></div>
+          <div class="tolga-profile-tags">
+            <span class="tolga-tag">10+ <span data-lang="tr" class="active">Yıl</span><span data-lang="en">Years</span></span>
+            <span class="tolga-tag"><span data-lang="tr" class="active">Sağlık Turizmi</span><span data-lang="en">Health Tourism</span></span>
+            <span class="tolga-tag"><span data-lang="tr" class="active">Satış Müdürü</span><span data-lang="en">Sales Director</span></span>
+          </div>
+          <p class="tolga-profile-exp"><span data-lang="tr" class="active">Türkiye'nin önde gelen sağlık turizmi kuruluşlarında Satış Müdürü olarak görev yapmış, 200+ satış uzmanı yetiştirmiş deneyimli bir lider.</span><span data-lang="en">An experienced leader who has served as Sales Manager at Turkey's leading health tourism organisations and has trained 200+ sales professionals.</span></p>
+        </div>
+      </div>
+
+      <!-- Süreç -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-title"><span data-lang="tr" class="active">Program Süreci</span><span data-lang="en">Programme Process</span></div>
+        <div class="sidebar-process">
+          <div class="sidebar-step">
+            <div class="sidebar-step-num">1</div>
+            <div class="sidebar-step-text">
+              <strong><span data-lang="tr" class="active">İhtiyaç Analizi</span><span data-lang="en">Needs Analysis</span></strong>
+              <span data-lang="tr" class="active">Ekibinizin mevcut satış süreçlerini ve boşluklarını tespit ediyoruz.</span><span data-lang="en">We identify your team's existing sales processes and gaps.</span>
+            </div>
+          </div>
+          <div class="sidebar-step">
+            <div class="sidebar-step-num">2</div>
+            <div class="sidebar-step-text">
+              <strong><span data-lang="tr" class="active">Program Tasarımı</span><span data-lang="en">Programme Design</span></strong>
+              <span data-lang="tr" class="active">Firmanıza özel eğitim müfredatı ve danışmanlık planı hazırlanır.</span><span data-lang="en">A bespoke training curriculum and consulting plan is prepared for your company.</span>
+            </div>
+          </div>
+          <div class="sidebar-step">
+            <div class="sidebar-step-num">3</div>
+            <div class="sidebar-step-text">
+              <strong><span data-lang="tr" class="active">Eğitim Uygulaması</span><span data-lang="en">Training Delivery</span></strong>
+              <span data-lang="tr" class="active">Online veya yerinde eğitim seansları; rol yapma, vaka çalışmaları.</span><span data-lang="en">Online or on-site training sessions; role-play, case studies.</span>
+            </div>
+          </div>
+          <div class="sidebar-step">
+            <div class="sidebar-step-num">4</div>
+            <div class="sidebar-step-text">
+              <strong><span data-lang="tr" class="active">Performans Takibi</span><span data-lang="en">Performance Tracking</span></strong>
+              <span data-lang="tr" class="active">Eğitim sonrası KPI takibi ve aylık değerlendirme görüşmeleri.</span><span data-lang="en">Post-training KPI tracking and monthly review sessions.</span>
+            </div>
+          </div>
+          <div class="sidebar-step">
+            <div class="sidebar-step-num">5</div>
+            <div class="sidebar-step-text">
+              <strong><span data-lang="tr" class="active">Sürekli Gelişim</span><span data-lang="en">Continuous Improvement</span></strong>
+              <span data-lang="tr" class="active">Piyasa değişimlerine göre güncellenen içerik ve sürekli destek.</span><span data-lang="en">Content updated to market changes and ongoing support.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-title"><span data-lang="tr" class="active">Hemen Başlayalım</span><span data-lang="en">Let's Get Started</span></div>
+        <p style="font-size:.85rem;color:var(--text-muted);line-height:1.6;margin-bottom:1.2rem">
+          <span data-lang="tr" class="active">30 dakikalık ücretsiz ihtiyaç analizi görüşmesi için iletişime geçin. Ekibinize özel program hızla hazırlanır.</span>
+          <span data-lang="en">Get in touch for a free 30-minute needs analysis call. A bespoke programme for your team is prepared quickly.</span>
+        </p>
+        <a href="index.html#contact-form" class="sidebar-cta-btn">
+          <span data-lang="tr" class="active">Ücretsiz Görüşme Talep Et →</span>
+          <span data-lang="en">Request Free Consultation →</span>
+        </a>
+        <a href="projeler.html" class="sidebar-cta-secondary">
+          <span data-lang="tr" class="active">Başarı Hikayelerini Gör</span>
+          <span data-lang="en">View Success Stories</span>
+        </a>
+      </div>
+
+    </aside>
+  </div>
+</section>
+
+<!-- DİĞER HİZMETLER -->
+<section class="other-services">
+  <div class="other-services-inner">
+    <div class="other-services-header">
+      <div class="other-services-tag"><span data-lang="tr" class="active">Tüm Hizmetlerimiz</span><span data-lang="en">All Services</span></div>
+      <h2 class="other-services-title">
+        <span data-lang-block="tr" class="active">Diğer <em>Hizmetlerimiz</em></span>
+        <span data-lang-block="en">Our Other <em>Services</em></span>
+      </h2>
+    </div>
+    <div class="other-cards">
+      <a href="hizmet-satis-egitimi.html" class="other-card active-service">
+        <div class="other-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="other-card-name"><span data-lang="tr" class="active">Satış Eğitimi</span><span data-lang="en">Sales Training</span></div>
+        <div class="other-card-desc"><span data-lang="tr" class="active">Ekibinizi global rekabet için hazırlayan danışmanlık.</span><span data-lang="en">Consulting that prepares your team for global competition.</span></div>
+        <div class="other-card-link"><span data-lang="tr" class="active">Aktif Sayfa</span><span data-lang="en">Current Page</span></div>
+      </a>
+      <a href="hizmet-google-reklamlari.html" class="other-card">
+        <div class="other-card-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+        <div class="other-card-name"><span data-lang="tr" class="active">Google Reklamları</span><span data-lang="en">Google Ads</span></div>
+        <div class="other-card-desc"><span data-lang="tr" class="active">Arama ağında doğru hastayı doğru anda yakalayın.</span><span data-lang="en">Capture the right patient at the right moment on search.</span></div>
+        <div class="other-card-link"><span data-lang="tr" class="active">Devamını Gör →</span><span data-lang="en">Learn More →</span></div>
+      </a>
+      <a href="hizmet-meta-reklamlari.html" class="other-card">
+        <div class="other-card-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
+        <div class="other-card-name"><span data-lang="tr" class="active">Meta Reklamları</span><span data-lang="en">Meta Ads</span></div>
+        <div class="other-card-desc"><span data-lang="tr" class="active">Facebook, Instagram ve WhatsApp ile büyüme.</span><span data-lang="en">Growth with Facebook, Instagram and WhatsApp.</span></div>
+        <div class="other-card-link"><span data-lang="tr" class="active">Devamını Gör →</span><span data-lang="en">Learn More →</span></div>
+      </a>
+      <a href="hizmet-web-sitesi.html" class="other-card">
+        <div class="other-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="other-card-name"><span data-lang="tr" class="active">Web Sitesi</span><span data-lang="en">Website</span></div>
+        <div class="other-card-desc"><span data-lang="tr" class="active">Dönüşüme odaklı, hızlı ve güçlü altyapılar.</span><span data-lang="en">Conversion-focused, fast and powerful infrastructures.</span></div>
+        <div class="other-card-link"><span data-lang="tr" class="active">Devamını Gör →</span><span data-lang="en">Learn More →</span></div>
+      </a>
+      <a href="hizmet-crm.html" class="other-card">
+        <div class="other-card-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <div class="other-card-name">HealthUp CRM</div>
+        <div class="other-card-desc"><span data-lang="tr" class="active">Sağlık turizmine özel müşteri yönetim sistemi.</span><span data-lang="en">Customer management system built for health tourism.</span></div>
+        <div class="other-card-link"><span data-lang="tr" class="active">Devamını Gör →</span><span data-lang="en">Learn More →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="hup-footer">
+  <div class="hup-footer-inner">
+    <div class="hup-footer-brand">
+      <a href="index.html" class="hup-footer-logo">
+        <img src="https://healthupmarketing.com/wp-content/uploads/2025/01/logo.png" alt="HealthUp Marketing" style="height:44px;width:auto;object-fit:contain">
+      </a>
+      <p class="hup-footer-slogan"><span data-lang="tr" class="active">Sağlıkta Güçlü Pazarlama, Akıllı Büyüme</span><span data-lang="en">Strong Marketing in Health, Smart Growth</span></p>
+      <div class="hup-footer-social">
+        <a href="#" class="hup-social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="#" class="hup-social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#" class="hup-social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="#" class="hup-social-btn" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      </div>
+    </div>
+    <div class="hup-footer-col">
+      <h4 class="hup-footer-col-title"><span data-lang="tr" class="active">İletişim Bilgileri</span><span data-lang="en">Contact Info</span></h4>
+      <p class="hup-footer-col-sub"><span data-lang="tr" class="active">Bizimle iletişime geçin!</span><span data-lang="en">Get in touch with us!</span></p>
+      <ul class="hup-contact-list">
+        <li><span class="hup-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span>Çınarlı Mah, 1572 Sk. No:33, 35170 Konak/İzmir</span></li>
+        <li><span class="hup-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span><a href="tel:+905367967126">(536) 796-7126</a></li>
+        <li><span class="hup-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><a href="mailto:info@healthupmarketing.com">info@healthupmarketing.com</a></li>
+      </ul>
+    </div>
+    <div class="hup-footer-col">
+      <h4 class="hup-footer-col-title"><span data-lang="tr" class="active">Hızlı Erişim</span><span data-lang="en">Quick Links</span></h4>
+      <div class="hup-footer-nav">
+        <a href="hakkimizda.html"><span data-lang="tr" class="active">Hakkımızda</span><span data-lang="en">About Us</span></a>
+        <a href="index.html#brand-transform"><span data-lang="tr" class="active">Hizmetlerimiz</span><span data-lang="en">Services</span></a>
+        <a href="projeler.html"><span data-lang="tr" class="active">Projeler</span><span data-lang="en">Projects</span></a>
+        <a href="blog.html">Blog</a>
+        <a href="sss.html"><span data-lang="tr" class="active">SSS</span><span data-lang="en">FAQ</span></a>
+        <a href="iletisim.html"><span data-lang="tr" class="active">İletişim</span><span data-lang="en">Contact</span></a>
+        <a href="gizlilik.html"><span data-lang="tr" class="active">Gizlilik</span><span data-lang="en">Privacy</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="hup-footer-bottom">
+    <span><span data-lang="tr" class="active">© 2026 HealthUp Marketing. Tüm hakları saklıdır.</span><span data-lang="en">© 2026 HealthUp Marketing. All rights reserved.</span></span>
+  </div>
+</footer>
+
+<script>
+// THEME
+document.getElementById('themeToggle').addEventListener('click',()=>{
+  const r=document.documentElement;
+  const next=r.getAttribute('data-theme')==='light'?'dark':'light';
+  r.setAttribute('data-theme',next);
+  try{localStorage.setItem('theme',next);}catch(e){}
+});
+
+// LANG
+function setLang(lang){
+  document.querySelectorAll('[data-lang]').forEach(el=>{
+    el.classList.toggle('active',el.getAttribute('data-lang')===lang);
+  });
+  document.querySelectorAll('[data-lang-block]').forEach(el=>{
+    el.classList.toggle('active',el.getAttribute('data-lang-block')===lang);
+  });
+  document.getElementById('btnTR').classList.toggle('active',lang==='tr');
+  document.getElementById('btnEN').classList.toggle('active',lang==='en');
+  try{localStorage.setItem('lang',lang);}catch(e){}
+}
+(function(){
+  var s;try{s=localStorage.getItem('lang')||'tr';}catch(e){s='tr';}
+  setLang(s);
+})();
+
+// HAMBURGER
+const ham=document.getElementById('hamburger');
+const drawer=document.getElementById('mobileDrawer');
+if(ham&&drawer){
+  ham.addEventListener('click',()=>{
+    ham.classList.toggle('open');
+    drawer.classList.toggle('open');
+    document.body.style.overflow=drawer.classList.contains('open')?'hidden':'';
+  });
+  document.querySelectorAll('.mobile-link').forEach(a=>{
+    a.addEventListener('click',()=>{
+      ham.classList.remove('open');
+      drawer.classList.remove('open');
+      document.body.style.overflow='';
+    });
+  });
+}
+// SERVICES DROPDOWN
+(function(){
+  var dd=document.getElementById('servicesDropdown');
+  var ml=document.getElementById('servicesLink');
+  var al=document.getElementById('servicesAllLink');
+  if(!dd) return;
+  function scrollSvc(e){
+    var t=document.getElementById('brand-transform');
+    if(t){e.preventDefault();dd.classList.remove('open');t.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+  if(ml) ml.addEventListener('click',scrollSvc);
+  if(al) al.addEventListener('click',scrollSvc);
+  document.addEventListener('click',function(e){if(!dd.contains(e.target))dd.classList.remove('open');});
+})();
+// MOBILE SERVICES ACCORDION
+(function(){
+  var tg=document.querySelector('.mobile-services-toggle');
+  var li=document.querySelector('.mobile-services-list');
+  if(!tg||!li) return;
+  tg.addEventListener('click',function(e){
+    if(!li.classList.contains('open')){e.preventDefault();li.classList.add('open');tg.classList.add('expanded');}
+    else{li.classList.remove('open');tg.classList.remove('expanded');}
+  });
+})();
+
+</script>
+</body>
+</html>

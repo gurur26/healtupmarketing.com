@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Gurur Dayanık – HealthUp Marketing</title>
+<meta property="og:title" content="Gurur Dayanık – HealthUp Marketing">
+<meta property="og:image" content="https://healthupmarketing.com/wp-content/uploads/2025/01/Varlik-6@4x-8.png">
+<meta name="robots" content="noindex, nofollow">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --grad: linear-gradient(135deg, #FF6B35 0%, #FF4E8E 100%);
+    --grad-soft: linear-gradient(135deg, rgba(255,107,53,0.13) 0%, rgba(255,78,142,0.13) 100%);
+    --bg: #0D0D12;
+    --surface: #17171F;
+    --surface2: #1F1F2A;
+    --text: #F2F2F7;
+    --text-muted: #7F7F9A;
+    --border: rgba(255,255,255,0.07);
+    --radius: 16px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 60px;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse 55% 35% at 85% 5%, rgba(255,78,142,0.13) 0%, transparent 65%),
+      radial-gradient(ellipse 45% 45% at 5% 90%, rgba(255,107,53,0.10) 0%, transparent 65%);
+    pointer-events: none; z-index: 0;
+  }
+
+  .card { width: 100%; max-width: 430px; position: relative; z-index: 1; }
+
+  .top-bar { height: 3px; background: var(--grad); }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    padding: 40px 24px 28px;
+    text-align: center;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(255,107,53,0.13) 0%, transparent 75%);
+    pointer-events: none;
+  }
+
+  .logo-wrap { display: flex; justify-content: center; margin-bottom: 18px; position: relative; z-index: 1; }
+
+  .logo-ring {
+    width: 112px; height: 112px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(255,107,53,0.45), 0 8px 32px rgba(255,78,142,0.22);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    animation: logoIn 0.7s cubic-bezier(0.22,1,0.36,1) both;
+  }
+  @keyframes logoIn { from { opacity:0; transform:scale(0.72); } to { opacity:1; transform:scale(1); } }
+
+  .logo-ring img { width: 86px; height: 86px; object-fit: contain; }
+
+  .org-name {
+    position: relative; z-index: 1;
+    font-family: 'Syne', sans-serif;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.18em;
+    background: var(--grad);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    animation: fadeUp 0.6s 0.1s both;
+  }
+
+  .person-name {
+    position: relative; z-index: 1;
+    margin-top: 7px;
+    font-family: 'Syne', sans-serif;
+    font-size: 30px; font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.02em; line-height: 1.1;
+    animation: fadeUp 0.6s 0.17s both;
+  }
+
+  .title-share-row {
+    position: relative; z-index: 1;
+    margin-top: 10px;
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    animation: fadeUp 0.6s 0.24s both;
+  }
+
+  .person-title {
+    font-size: 12px; font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  .share-btn {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 5px 14px; border-radius: 999px;
+    background: var(--grad); border: none;
+    color: #fff; font-size: 12px; font-weight: 600;
+    font-family: 'Outfit', sans-serif; cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: opacity 0.18s, transform 0.18s;
+  }
+  .share-btn:hover { opacity: 0.82; transform: scale(1.05); }
+  .share-btn svg { width: 12px; height: 12px; }
+
+  @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+  /* ACTION LIST */
+  .actions {
+    padding: 0 18px; margin-top: 22px;
+    display: flex; flex-direction: column; gap: 9px;
+    animation: fadeUp 0.6s 0.3s both;
+  }
+
+  .action-btn {
+    display: flex; align-items: center; justify-content: flex-start; gap: 12px;
+    padding: 15px 16px;
+    border-radius: var(--radius);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    text-decoration: none; color: var(--text);
+    font-size: 14px; font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+    transition: background 0.18s, transform 0.18s, border-color 0.18s;
+    cursor: pointer; position: relative; overflow: hidden;
+    width: 100%; text-align: left;
+  }
+  .action-btn::before {
+    content: ''; position: absolute; inset: 0;
+    background: var(--grad-soft); opacity: 0; transition: opacity 0.2s;
+  }
+  .action-btn:hover::before { opacity: 1; }
+  .action-btn:hover { border-color: rgba(255,107,53,0.3); transform: translateX(3px); }
+  .action-btn:active { transform: scale(0.98); }
+
+  .action-btn.save { background: var(--grad); border: none; }
+  .action-btn.save::before { display: none; }
+  .action-btn.save:hover { opacity: 0.87; transform: translateX(3px); }
+
+  .action-btn.invoice { background: var(--surface2); border-color: rgba(255,255,255,0.1); }
+  .action-btn.invoice.copied {
+    background: linear-gradient(135deg, #1a7a5e 0%, #0f5e4b 100%);
+    border-color: transparent;
+  }
+
+  .icon-circle {
+    width: 38px; height: 38px; border-radius: 11px;
+    background: var(--grad-soft);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; position: relative; z-index: 1;
+  }
+  .action-btn.save .icon-circle   { background: rgba(255,255,255,0.18); }
+  .action-btn.invoice .icon-circle { background: rgba(255,255,255,0.08); }
+  .action-btn.invoice.copied .icon-circle { background: rgba(255,255,255,0.15); }
+  .icon-circle svg { width: 18px; height: 18px; }
+
+  .btn-text { position: relative; z-index: 1; }
+  .action-btn.save .btn-text { color: #fff; }
+
+  .chevron { display: none; }
+
+  /* 2-column grid for non-save buttons */
+  .actions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    padding: 0 18px;
+    margin-top: 9px;
+    animation: fadeUp 0.6s 0.35s both;
+  }
+  .actions-grid .action-btn {
+    font-size: 13px;
+    padding: 14px 12px;
+    gap: 9px;
+  }
+  .actions-grid .icon-circle {
+    width: 32px; height: 32px; border-radius: 9px;
+    flex-shrink: 0;
+  }
+  .actions-grid .icon-circle svg { width: 16px; height: 16px; }
+
+  /* BEN KİMİM ACCORDION */
+  .benkimim-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.42s cubic-bezier(0.22,1,0.36,1), margin-top 0.42s cubic-bezier(0.22,1,0.36,1);
+    padding: 0 18px;
+    margin-top: 0;
+  }
+  .benkimim-panel.open { grid-template-rows: 1fr; margin-top: 9px; }
+  .benkimim-inner { overflow: hidden; }
+  .benkimim-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    padding-bottom: 2px;
+  }
+
+  /* SOCIALS */
+  .section { padding: 0 18px; margin-top: 20px; animation: fadeUp 0.6s 0.42s both; }
+
+  .section-label {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 11px; padding-left: 2px;
+  }
+
+  .socials { display: flex; gap: 9px; }
+
+  .social-link {
+    flex: 1; display: flex; flex-direction: column; align-items: center; gap: 7px;
+    padding: 13px 6px 11px;
+    border-radius: var(--radius);
+    background: var(--surface); border: 1px solid var(--border);
+    text-decoration: none; color: var(--text-muted);
+    font-size: 10px; font-weight: 500;
+    transition: all 0.18s;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    font-family: 'Outfit', sans-serif;
+  }
+  .social-link:hover { border-color: rgba(255,107,53,0.4); color: var(--text); transform: translateY(-3px); background: var(--surface2); }
+
+  .sicon { width: 36px; height: 36px; border-radius: 50%; background: var(--grad-soft); display: flex; align-items: center; justify-content: center; }
+  .sicon svg { width: 18px; height: 18px; }
+
+  /* QR */
+  .qr-section {
+    margin: 26px 18px 0;
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+    animation: fadeUp 0.6s 0.5s both;
+  }
+  .qr-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); font-family: 'Outfit', sans-serif; }
+
+  #qrcode { padding: 14px; background: #fff; border-radius: 16px; box-shadow: 0 0 0 1.5px rgba(255,107,53,0.35), 0 10px 36px rgba(0,0,0,0.4); }
+  #qrcode canvas, #qrcode img { display: block; border-radius: 4px; }
+
+  .footer { margin-top: 28px; text-align: center; font-size: 10px; color: rgba(255,255,255,0.13); letter-spacing: 0.07em; font-family: 'Outfit', sans-serif; }
+
+  /* TOAST */
+  .toast {
+    position: fixed; bottom: 28px; left: 50%;
+    transform: translateX(-50%) translateY(16px);
+    background: var(--surface2); border: 1px solid rgba(255,107,53,0.4);
+    color: var(--text); padding: 10px 22px; border-radius: 999px;
+    font-size: 13px; font-weight: 500; opacity: 0; transition: all 0.28s;
+    z-index: 999; white-space: nowrap; font-family: 'Outfit', sans-serif;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="top-bar"></div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="logo-wrap">
+      <div class="logo-ring">
+        <img src="https://healthupmarketing.com/wp-content/uploads/2025/01/Varlik-6@4x-8.png" alt="HealthUp Marketing">
+      </div>
+    </div>
+    <div class="org-name">HealthUp Marketing</div>
+    <div class="person-name">Gurur Dayanık</div>
+    <div class="title-share-row">
+      <span class="person-title" id="i18n-person-title">Kurucu</span>
+      <button class="share-btn" onclick="shareCard()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+          <polyline points="16 6 12 2 8 6"/>
+          <line x1="12" y1="2" x2="12" y2="15"/>
+        </svg>
+        <span id="i18n-share">Paylaş</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- BUTTONS -->
+  <div class="actions">
+
+    <!-- 1. Rehbere Kaydet -->
+    <button class="action-btn save" onclick="saveContact()">
+      <div class="icon-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+          <polyline points="17 21 17 13 7 13 7 21"/>
+          <polyline points="7 3 7 8 15 8"/>
+        </svg>
+      </div>
+      <span class="btn-text" id="i18n-save-val">Rehbere Kaydet</span>
+      <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+
+  </div>
+
+  <!-- GRID BUTTONS -->
+  <div class="actions-grid">
+
+    <!-- 2. WhatsApp -->
+    <a href="https://wa.me/905070560133" class="action-btn">
+      <div class="icon-circle">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M20.52 3.48A11.77 11.77 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.17 1.6 5.99L0 24l6.18-1.62A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.22-3.48-8.52zm-8.52 18a9.88 9.88 0 0 1-5.04-1.38l-.36-.21-3.73.98.99-3.63-.24-.38A9.85 9.85 0 0 1 2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm5.48-7.47c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.94 1.17-.18.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.18-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.68-1.63-.93-2.23-.24-.59-.49-.5-.68-.51-.18-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.19-.57-.34z" fill="#25D366"/>
+        </svg>
+      </div>
+      <span class="btn-text" id="i18n-whatsapp-lbl">WhatsApp</span>
+      <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+
+    <!-- 3. Mobile -->
+    <a href="tel:+905070560133" class="action-btn">
+      <div class="icon-circle">
+        <svg viewBox="0 0 24 24" fill="none">
+          <defs><linearGradient id="g-mob" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FF6B35"/><stop offset="1" stop-color="#FF4E8E"/></linearGradient></defs>
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.08 4.18 2 2 0 0 1 5.09 2h3a2 2 0 0 1 2 1.72c.13 1.01.37 2 .71 2.96a2 2 0 0 1-.45 2.11L9.16 9.99a16 16 0 0 0 6.85 6.85l1.2-1.2a2 2 0 0 1 2.11-.45c.96.34 1.95.58 2.96.71A2 2 0 0 1 22 16.92z" stroke="url(#g-mob)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="btn-text" id="i18n-mobile-lbl">Mobile</span>
+      <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+
+    <!-- 4. E-posta -->
+    <a href="mailto:info@healthupmarketing.com" class="action-btn">
+      <div class="icon-circle">
+        <svg viewBox="0 0 24 24" fill="none">
+          <defs><linearGradient id="g-mail" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FF6B35"/><stop offset="1" stop-color="#FF4E8E"/></linearGradient></defs>
+          <rect x="2" y="4" width="20" height="16" rx="2" stroke="url(#g-mail)" stroke-width="2" fill="none"/>
+          <path d="M22 4L12 14 2 4" stroke="url(#g-mail)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="btn-text" id="i18n-email-lbl">E-posta</span>
+      <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+
+    <!-- 5. Website -->
+    <a href="https://www.healthupmarketing.com" target="_blank" class="action-btn">
+      <div class="icon-circle">
+        <svg viewBox="0 0 24 24" fill="none">
+          <defs><linearGradient id="g-web" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FF6B35"/><stop offset="1" stop-color="#FF4E8E"/></linearGradient></defs>
+          <circle cx="12" cy="12" r="10" stroke="url(#g-web)" stroke-width="2" fill="none"/>
+          <line x1="2" y1="12" x2="22" y2="12" stroke="url(#g-web)" stroke-width="2"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="url(#g-web)" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+      <span class="btn-text" id="i18n-website-lbl">Website</span>
+      <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+
+    <!-- 6. Konum -->
+    <a href="https://maps.google.com/?q=Cınarlı+Mah,+1572+Sk.+No:33,+35170+Konak+Izmir" target="_blank" class="action-btn">
+      <div class="icon-circle">
+        <svg viewBox="0 0 24 24" fill="none">
+          <defs><linearGradient id="g-loc" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FF6B35"/><stop offset="1" stop-color="#FF4E8E"/></linearGradient></defs>
+          <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z" stroke="url(#g-loc)" stroke-width="2" fill="none"/>
+          <circle cx="12" cy="10" r="3" stroke="url(#g-loc)" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+      <span class="btn-text" id="i18n-location-lbl">Konum</span>
+      <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+
+    <!-- 7. Ben Kimim? -->
+    <button class="action-btn" onclick="toggleBenKimim()">
+      <div class="icon-circle">
+        <svg viewBox="0 0 24 24" fill="none">
+          <defs><linearGradient id="g-bk" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FF6B35"/><stop offset="1" stop-color="#FF4E8E"/></linearGradient></defs>
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="url(#g-bk)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="7" r="4" stroke="url(#g-bk)" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+      <span class="btn-text">Ben Kimim?</span>
+      <svg class="accordion-arrow" id="bk-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="margin-left:auto; flex-shrink:0; position:relative; z-index:1; transition:transform 0.3s;"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+
+  </div>
+
+  <!-- Ben Kimim accordion panel -->
+  <div class="benkimim-panel" id="benkimim-panel">
+    <div class="benkimim-inner">
+      <div class="benkimim-links">
+
+        <a href="https://www.linkedin.com/in/gurur-dayanik/" target="_blank" class="action-btn" style="font-size:13px; padding:14px 12px; gap:9px;">
+          <div class="icon-circle" style="width:32px; height:32px; border-radius:9px; flex-shrink:0;">
+            <svg viewBox="0 0 24 24" fill="none" style="width:16px;height:16px;">
+              <defs><linearGradient id="g-li2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FF6B35"/><stop offset="1" stop-color="#FF4E8E"/></linearGradient></defs>
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" stroke="url(#g-li2)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="2" y="9" width="4" height="12" stroke="url(#g-li2)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="4" cy="4" r="2" stroke="url(#g-li2)" stroke-width="1.8" fill="none"/>
+            </svg>
+          </div>
+          <span style="position:relative;z-index:1;">LinkedIn</span>
+        </a>
+
+        <a href="https://www.behance.net/gururdayanik" target="_blank" class="action-btn" style="font-size:13px; padding:14px 12px; gap:9px;">
+          <div class="icon-circle" style="width:32px; height:32px; border-radius:9px; flex-shrink:0;">
+            <svg viewBox="0 0 24 24" fill="none" style="width:16px;height:16px;">
+              <defs><linearGradient id="g-be" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FF6B35"/><stop offset="1" stop-color="#FF4E8E"/></linearGradient></defs>
+              <path d="M3 7h7.5C12.4 7 14 8.1 14 10s-1.6 3-3.5 3H3V7z" stroke="url(#g-be)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+              <path d="M3 13h8.5C13.4 13 15 14.1 15 16s-1.6 3-3.5 3H3v-6z" stroke="url(#g-be)" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+              <path d="M17 9h5M19 7v8" stroke="url(#g-be)" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span style="position:relative;z-index:1;">Behance</span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SOCIAL -->
+  <div class="section">
+    <div class="section-label" id="i18n-social-lbl">Sosyal Medya</div>
+    <div class="socials">
+
+      <a href="https://www.instagram.com/healthupmarketing?igsh=dXl6dmUzdWpwMXlw" target="_blank" class="social-link">
+        <div class="sicon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#FF6B35"/><stop offset="0.5" stop-color="#FF4E8E"/><stop offset="1" stop-color="#C52EBB"/></linearGradient></defs>
+            <rect x="2" y="2" width="20" height="20" rx="5" stroke="url(#ig)" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4.5" stroke="url(#ig)" stroke-width="1.8"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="url(#ig)"/>
+          </svg>
+        </div>
+        <span>Instagram</span>
+      </a>
+
+      <a href="https://www.facebook.com/healthupmarketing" target="_blank" class="social-link">
+        <div class="sicon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <defs><linearGradient id="fb" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FF6B35"/><stop offset="1" stop-color="#FF4E8E"/></linearGradient></defs>
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="url(#fb)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span>Facebook</span>
+      </a>
+
+      <a href="https://www.linkedin.com/company/healthupmarketing/" target="_blank" class="social-link">
+        <div class="sicon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <defs><linearGradient id="li" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FF6B35"/><stop offset="1" stop-color="#FF4E8E"/></linearGradient></defs>
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" stroke="url(#li)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="2" y="9" width="4" height="12" stroke="url(#li)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="4" cy="4" r="2" stroke="url(#li)" stroke-width="1.8" fill="none"/>
+          </svg>
+        </div>
+        <span>LinkedIn</span>
+      </a>
+
+      <a href="https://m.youtube.com/@HealthUpMarketing" target="_blank" class="social-link">
+        <div class="sicon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <defs><linearGradient id="yt" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FF6B35"/><stop offset="1" stop-color="#FF4E8E"/></linearGradient></defs>
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" stroke="url(#yt)" stroke-width="1.8" fill="none"/>
+            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" stroke="url(#yt)" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span>YouTube</span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- QR CODE -->
+  <div class="qr-section">
+    <span class="qr-label" id="i18n-qr-lbl">QR ile kartı tara</span>
+    <div id="qrcode"></div>
+  </div>
+
+  <div class="footer">HealthUp Marketing &copy; 2025</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const T = {
+  tr: { share:'Paylaş', title:'Kreatif Tasarımcı', saveVal:'Rehbere Kaydet', whatsappLbl:'WhatsApp', mobileLbl:'Mobile', emailLbl:'E-posta', websiteLbl:'Website', locationLbl:'Konum', socialLbl:'Sosyal Medya', qrLbl:'QR ile kartı tara', toastShare:'Bağlantı kopyalandı!', toastSave:'Kişi kaydedildi!' },
+  en: { share:'Share', title:'Creative Designer', saveVal:'Save Contact', whatsappLbl:'WhatsApp', mobileLbl:'Mobile', emailLbl:'Email', websiteLbl:'Website', locationLbl:'Location', socialLbl:'Social Media', qrLbl:'Scan QR to open card', toastShare:'Link copied!', toastSave:'Contact saved!' },
+  de: { share:'Teilen', title:'Creative Designer', saveVal:'Kontakt speichern', whatsappLbl:'WhatsApp', mobileLbl:'Mobil', emailLbl:'E-Mail', websiteLbl:'Webseite', locationLbl:'Standort', socialLbl:'Soziale Medien', qrLbl:'QR scannen', toastShare:'Link kopiert!', toastSave:'Kontakt gespeichert!' },
+  fr: { share:'Partager', title:'Creative Designer', saveVal:'Enregistrer le contact', whatsappLbl:'WhatsApp', mobileLbl:'Mobile', emailLbl:'E-mail', websiteLbl:'Site Web', locationLbl:'Adresse', socialLbl:'Réseaux sociaux', qrLbl:'Scanner le QR', toastShare:'Lien copié !', toastSave:'Contact enregistré !' },
+};
+
+function getLang() { const n=(navigator.language||'tr').slice(0,2).toLowerCase(); return T[n]?n:'tr'; }
+
+function applyLang() {
+  const t=T[getLang()];
+  document.getElementById('i18n-share').textContent        = t.share;
+  document.getElementById('i18n-person-title').textContent = t.title;
+  document.getElementById('i18n-save-val').textContent     = t.saveVal;
+  document.getElementById('i18n-whatsapp-lbl').textContent = t.whatsappLbl;
+  document.getElementById('i18n-mobile-lbl').textContent   = t.mobileLbl;
+  document.getElementById('i18n-email-lbl').textContent    = t.emailLbl;
+  document.getElementById('i18n-website-lbl').textContent  = t.websiteLbl;
+  document.getElementById('i18n-location-lbl').textContent = t.locationLbl;
+  document.getElementById('i18n-social-lbl').textContent   = t.socialLbl;
+  document.getElementById('i18n-qr-lbl').textContent       = t.qrLbl;
+  document.documentElement.lang = getLang();
+}
+applyLang();
+
+const PAGE_URL = window.location.href;
+new QRCode(document.getElementById('qrcode'), {
+  text: PAGE_URL, width: 180, height: 180,
+  colorDark: '#0D0D12', colorLight: '#ffffff',
+  correctLevel: QRCode.CorrectLevel.H,
+});
+
+function shareCard() {
+  const t=T[getLang()];
+  if(navigator.share){ navigator.share({title:'Gurur Dayanık – HealthUp Marketing',url:PAGE_URL}).catch(()=>{}); }
+  else { navigator.clipboard.writeText(PAGE_URL).then(()=>showToast(t.toastShare)); }
+}
+
+function saveContact() {
+  const t=T[getLang()];
+  const vcard=['BEGIN:VCARD','VERSION:3.0','FN:Gurur Dayanık','N:Dayanık;Gurur;;;','ORG:HealthUp Marketing','TITLE:Creative Designer','TEL;TYPE=CELL:+905070560133','EMAIL:info@healthupmarketing.com','URL:https://www.healthupmarketing.com','ADR;TYPE=WORK:;;Çınarlı Mah\\, 1572 Sk. No:33;Konak;İzmir;35170;Turkey','END:VCARD'].join('\r\n');
+  const blob=new Blob([vcard],{type:'text/vcard;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a'); a.href=url; a.download='GururDayanik.vcf'; a.click();
+  URL.revokeObjectURL(url);
+  showToast(t.toastSave);
+}
+
+// Ben Kimim accordion
+let bkOpen = false;
+function toggleBenKimim() {
+  bkOpen = !bkOpen;
+  const panel = document.getElementById('benkimim-panel');
+  const arrow = document.getElementById('bk-arrow');
+  panel.classList.toggle('open', bkOpen);
+  arrow.style.transform = bkOpen ? 'rotate(90deg)' : 'rotate(0deg)';
+}
+
+let toastTimer;
+function showToast(msg) {
+  const el=document.getElementById('toast');
+  el.textContent=msg; el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>el.classList.remove('show'),2400);
+}
+</script>
+</body>
+</html>
