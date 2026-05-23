@@ -1014,8 +1014,8 @@ function setLang(lang){
   document.querySelectorAll('[data-lang-block]').forEach(el=>{
     el.classList.toggle('active', el.getAttribute('data-lang-block')===lang);
   });
-  document.getElementById('btnTR').classList.toggle('active', lang==='tr');
-  document.getElementById('btnEN').classList.toggle('active', lang==='en');
+  document.getElementById('btn-tr').classList.toggle('active', lang==='tr');
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
   try{localStorage.setItem('lang',lang);}catch(e){}
 }
 (function(){
