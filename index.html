@@ -254,9 +254,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .bt-footer-text{text-align:center;margin-top:2rem;font-size:.9rem;color:var(--text-muted);font-style:italic}
 
 /* STORY */
-#story{background:var(--bg-off);padding:8rem 3rem;transition:background .3s}
+#story{background:var(--bg-off);padding:4rem 3rem 8rem;transition:background .3s}
 .story-inner{max-width:1200px;margin:0 auto}
-.story-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem;padding-bottom:4rem;border-bottom:1px solid var(--border)}
+.story-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-bottom:5rem;padding-bottom:4rem;border-bottom:1px solid var(--border)}
 .story-headline{font-family:'DM Serif Display',serif;font-size:clamp(2.5rem,4vw,3.8rem);line-height:1.05;letter-spacing:-.02em;color:var(--text)}
 .story-headline em{font-style:italic}
 .story-desc{font-size:1rem;font-weight:300;color:var(--text-muted);line-height:1.8;margin-bottom:1.5rem}
@@ -666,8 +666,15 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
   .aw-label{display:none;}
   .aw-btn{font-size:.62rem;padding:7px 12px;}
 }
+/* HEALTHUP TALKS */
+.talks-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.talks-embed-wrap{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;box-shadow:0 8px 40px rgba(0,0,0,.35)}
+.talks-embed-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+@media(max-width:900px){
+  .talks-grid{grid-template-columns:1fr;gap:1.5rem}
+  #healthup-talks{padding:2rem 1.5rem 4rem!important}
+}
 </style>
-</head>
 <body>
 
 <!-- ══ SOL ALT: Cookie floating widget ══ -->
@@ -899,6 +906,23 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
   </div>
 </section>
 
+<!-- HEALTHUP TALKS -->
+<section id="healthup-talks" style="background:var(--bg-off);padding:3rem 3rem 7rem;transition:background .3s">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:3.5rem">
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.02em;color:var(--text)">HealthUp <em style="font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Talks</em></h2>
+    </div>
+    <div class="talks-grid">
+      <div class="talks-embed-wrap">
+        <iframe src="https://www.youtube.com/embed/1sATMR4ykLY" title="Sektörün Gerçek Yüzü: Neden HealthUp Marketing? | Çağla &amp; Tolga Çakırgöz #medicaltourism" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="talks-embed-wrap">
+        <iframe src="https://www.youtube.com/embed/9uZsJEs__R4" title="Sağlık Turizminde Trendler &amp; Rekabet | Çağla &amp; Tolga Çakırgöz #healthtourism" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- BRAND TRANSFORM / HİZMETLER -->
 <section id="brand-transform">
   <div class="bt-inner">
@@ -983,8 +1007,7 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
       </h2>
       <div>
         <p class="story-desc"><span data-lang="tr" class="active">Sağlık sektörüne özel geliştirdiğimiz performans odaklı dijital pazarlama sistemleriyle markaların büyüme süreçlerini yönetiyoruz.</span><span data-lang="en">We manage brands’ growth processes with performance-oriented digital marketing systems we have developed specifically for the healthcare sector.</span></p>
-        <p class="story-desc"><span data-lang="tr" class="active">Meta Ads, Google Ads, Yandex Ads ve diğer dijital reklam platformlarında; kreatif üretimden reklam optimizasyonuna kadar hasta sayısını ve satış dönüşümünü artırmaya yönelik tüm stratejileri birlikte kurguluyoruz.
-Ölçülebilir sonuçlar, sürdürülebilir büyüme ve güçlü marka algısı oluşturmayı hedefliyoruz.</span><span data-lang="en">On Meta Ads, Google Ads, Yandex Ads, and other digital advertising platforms, we design all strategies together—from creative production to ad optimization—to increase patient numbers and sales conversions. We aim to create measurable results, sustainable growth, and a strong brand perception.</span></p>
+        <p class="story-desc"><span data-lang="tr" class="active">Meta Ads, Google Ads, Yandex Ads ve diğer dijital reklam platformlarında; kreatif üretimden reklam optimizasyonuna kadar hasta sayısını ve satış dönüşümünü artıran stratejiler geliştiriyoruz. Ölçülebilir sonuçlar, sürdürülebilir büyüme ve güçlü marka algısı hedefliyoruz.</span><span data-lang="en">"Across Meta Ads, Google Ads, Yandex Ads, and other digital platforms, we create performance-driven strategies that increase patient acquisition, boost conversions, and support sustainable growth."</span></p>
         <a href="#contact-form" class="story-link"><span data-lang="tr" class="active">Birlikte çalışalım →</span><span data-lang="en">Let's work together →</span></a>
       </div>
     </div>
@@ -1218,7 +1241,7 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
         <div class="team-card-img-wrap">
           <!-- FOTOĞRAF LİNKİ: Çağla Çakırgöz -->
           <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/cagla-cakirgoz.webp" alt="Çağla Çakırgöz" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
-          <div class="team-card-num">01</div>
+          
         </div>
         <div class="team-card-info">
           <span class="team-card-role"><span data-lang="tr" class="active">Kurucu</span><span data-lang="en">Founder</span></span>
@@ -1229,7 +1252,7 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
         <div class="team-card-img-wrap">
           <!-- FOTOĞRAF LİNKİ: Tolga Çakırgöz -->
           <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/tolga-cakirgoz.webp" alt="Tolga Çakırgöz" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
-          <div class="team-card-num">02</div>
+          
         </div>
         <div class="team-card-info">
           <span class="team-card-role"><span data-lang="tr" class="active">Kurucu</span><span data-lang="en">Founder</span></span>
@@ -1244,7 +1267,7 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
         <div class="team-card-img-wrap">
           <!-- FOTOĞRAF LİNKİ: Doğukan Demir -->
           <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/dogukan.webp" alt="Doğukan Demir" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
-          <div class="team-card-num">03</div>
+          
         </div>
         <div class="team-card-info">
           <span class="team-card-role"><span data-lang="tr" class="active">Dijital Pazarlama</span><span data-lang="en">Digital Marketing</span></span>
@@ -1255,7 +1278,7 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
         <div class="team-card-img-wrap">
           <!-- FOTOĞRAF LİNKİ: Ayşe Betül Karaca -->
           <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/betul-karaca.webp" alt="Ayşe Betül Karaca" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
-          <div class="team-card-num">04</div>
+          
         </div>
         <div class="team-card-info">
           <span class="team-card-role"><span data-lang="tr" class="active">Kreatif Tasarımcı</span><span data-lang="en">Creative Designer</span></span>
@@ -1266,7 +1289,7 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
         <div class="team-card-img-wrap">
           <!-- FOTOĞRAF LİNKİ: Gurur Dayanık -->
           <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/gurur-dayanik.webp" alt="Gurur Dayanık" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
-          <div class="team-card-num">05</div>
+          
         </div>
         <div class="team-card-info">
           <span class="team-card-role"><span data-lang="tr" class="active">Kreatif Tasarımcı</span><span data-lang="en">Creative Designer</span></span>
@@ -1281,42 +1304,26 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
 <section id="testimonials">
   <div class="testi-outer">
     <div class="testi-section-header">
-      <div class="bt-tag"><span data-lang="tr" class="active">Müşteri Yorumları</span><span data-lang="en">Client Reviews</span></div>
+      <div class="bt-tag"><span data-lang="tr" class="active">İş Birlikterimizin Ortalama Sonuçları</span><span data-lang="en">Client Reviews</span></div>
       <h2 class="testi-section-title"><span data-lang-block="tr" class="active">Gerçek <em>Deneyim</em></span><span data-lang-block="en">Real <em>Experience</em></span></h2>
     </div>
     <div class="testi-grid">
       <div class="testi-item">
-        <div class="testi-item-stat">+312%</div>
-        <p class="testi-item-quote"><span data-lang="tr" class="active">"Sadece iş yapan bir ekip değil. Gerçek sonuçlar üreten bir ortak."</span><span data-lang="en">"Not just a team that gets things done. A true partner that drives real results."</span></p>
-        <div class="testi-item-author">
-          <div class="testi-avatar">EU</div>
-          <div>
-            <div class="testi-name">Dr. Ervin Umer</div>
-            <div class="testi-role">Founder · Livera Dental</div>
-          </div>
-        </div>
+        <div class="testi-item-stat">+54%</div>
+        <p class="testi-item-quote"><span data-lang="tr" class="active">Nitelikli hasta başvurularında büyüme<br>“Daha doğru hedefleme ve kreatif stratejilerle lead kalitesi güçlendirildi.”
+</span><span data-lang="en">Growth in Qualified Patient Leads<br>"Lead quality improved through more accurate targeting and optimized creative strategies."</span></p>
       </div>
       <div class="testi-item">
-        <div class="testi-item-stat">4.2× ROAS</div>
-        <p class="testi-item-quote"><span data-lang="tr" class="active">"Google Ads ile başlayan süreç, yıl boyunca dolu bir boru hattına dönüştü."</span><span data-lang="en">"What started with Google Ads turned into a system that keeps our pipeline full year round."</span></p>
-        <div class="testi-item-author">
-          <div class="testi-avatar">AÖ</div>
-          <div>
-            <div class="testi-name">Abdullah Özkarslı</div>
-            <div class="testi-role">CEO · DentPrime</div>
-          </div>
-        </div>
+        <div class="testi-item-stat">5.6× ROAS</div>
+        <p class="testi-item-quote"><span data-lang="tr" class="active">Reklam yatırım getirisi<br>“Meta ve Google Ads kampanyalarında performans odaklı büyüme sağlandı.”
+</span><span data-lang="en">Return on Ad Spend<br>“Performance-driven growth was achieved across Meta and Google Ads campaigns.”</span></p>
+        
       </div>
       <div class="testi-item">
-        <div class="testi-item-stat">−47% CPB</div>
-        <p class="testi-item-quote"><span data-lang="tr" class="active">"Karar veren, uygulayan ve optimize eden bir ekip. Her şey hızlı ve ölçülebilir."</span><span data-lang="en">"A team that decides, executes and optimizes. Every process moves fast, clear and measurable."</span></p>
-        <div class="testi-item-author">
-          <div class="testi-avatar">DF</div>
-          <div>
-            <div class="testi-name">Dr. Fero</div>
-            <div class="testi-role">Founder · Doctor Fero Clinic</div>
-          </div>
-        </div>
+        <div class="testi-item-stat">-42% CPL</div>
+        <p class="testi-item-quote"><span data-lang="tr" class="active">Daha verimli lead maliyeti<br>“Optimize edilmiş reklam süreçleriyle hasta kazanım maliyetleri düşürüldü.”</span><span data-lang="en">More efficient lead cost<br>
+“Patient acquisition costs were reduced through optimized advertising processes.”</span></p>
+        
       </div>
     </div>
   </div>
@@ -1330,26 +1337,26 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
       <a href="blog.html" class="section-all-link"><span data-lang="tr" class="active">Tüm yazılar →</span><span data-lang="en">All posts →</span></a>
     </div>
     <div class="blog-grid">
-      <a href="#" class="blog-card">
+      <a href="blog.html" class="blog-card">
         <div class="blog-thumb"><img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&q=80" alt="SEO"></div>
         <div class="blog-tag-wrap"><span class="blog-tag">SEO</span><span class="blog-read-time">14 dk</span></div>
         <h3 class="blog-title"><span data-lang="tr" class="active">Yeni Bir Domain ile 5 Ayda İngiltere'de #1'e Nasıl Çıktık</span><span data-lang="en">How We Ranked a Brand-New Domain #1 in the UK in 5 Months</span></h3>
         <p class="blog-excerpt"><span data-lang="tr" class="active">Sıfır domain otoritesi, backlink yok, aşırı rekabetçi bir niş. Zirveyi fethetmek için kullandığımız içerik, teknik ve link stratejisi.</span><span data-lang="en">Zero domain authority, no backlinks, a hyper-competitive niche. The exact content, technical and link-building strategy we used.</span></p>
-        <div class="blog-footer"><span class="blog-date">9 Nis 2026</span><span class="blog-arrow">→</span></div>
+        
       </a>
-      <a href="#" class="blog-card">
+      <a href="blog.html" class="blog-card">
         <div class="blog-thumb"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Google Ads"></div>
         <div class="blog-tag-wrap"><span class="blog-tag">Google Ads</span><span class="blog-read-time">16 dk</span></div>
         <h3 class="blog-title"><span data-lang="tr" class="active">Sağlık Sektöründe $4M Google Ads Harcamasından Öğrendiklerimiz</span><span data-lang="en">We Spent $4M on Google Ads for Healthcare. Here's What We Learned.</span></h3>
         <p class="blog-excerpt"><span data-lang="tr" class="active">Beş yıl, düzinelerce klinik, milyonlarca dolarlık reklam harcaması. Gerçekten işe yarayan teklif stratejileri.</span><span data-lang="en">Five years, dozens of clinics, millions in ad spend. The bidding strategies and conversion traps that actually move the needle.</span></p>
-        <div class="blog-footer"><span class="blog-date">8 Nis 2026</span><span class="blog-arrow">→</span></div>
+        
       </a>
-      <a href="#" class="blog-card">
+      <a href="blog.html" class="blog-card">
         <div class="blog-thumb"><img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&q=80" alt="Meta Ads"></div>
         <div class="blog-tag-wrap"><span class="blog-tag">Meta Ads</span><span class="blog-read-time">11 dk</span></div>
         <h3 class="blog-title"><span data-lang="tr" class="active">Dikey Video Müşterimizin CPL'ini %62 Düşürdü: İşte Framework</span><span data-lang="en">Vertical Video Cut Our Client's CPL by 62%. Here's the Framework.</span></h3>
         <p class="blog-excerpt"><span data-lang="tr" class="active">Bir diş kliniğinin tüm Meta hunisini dikey video, sunucu taraflı takip ve CAPI üzerine nasıl yeniden kurduğumuzu anlattık.</span><span data-lang="en">How we rebuilt a dental clinic's entire Meta funnel around vertical video creative, server-side tracking and CAPI.</span></p>
-        <div class="blog-footer"><span class="blog-date">7 Nis 2026</span><span class="blog-arrow">→</span></div>
+        
       </a>
     </div>
   </div>
@@ -1360,7 +1367,7 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
   <div class="cta-blob"></div>
   <div class="cta-inner">
     <div class="cta-eyebrow"><span data-lang="tr" class="active">Hazır mısınız?</span><span data-lang="en">Ready to scale?</span></div>
-    <h2 class="cta-headline"><span data-lang-block="tr" class="active">Sağlık markanız için daha akıllı bir büyüme<br><em>başlatmaya hazır mısınız?</em></span><span data-lang-block="en">Are you ready<br><em>to start smarter growth for your health brand?</em></span></h2>
+    <h2 class="cta-headline"><span data-lang-block="tr" class="active">Sağlık markanız için<br>daha akıllı bir büyüme<br><em>başlatmaya hazır mısınız?</em></span><span data-lang-block="en">Are you ready<br><em>to start smarter growth for your health brand?</em></span></h2>
     <a href="#contact-form" class="btn-primary-white">
       <span data-lang="tr" class="active">Projeye Başla</span><span data-lang="en">Start a Project</span>
       <svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1387,7 +1394,7 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
       <p class="hup-footer-col-sub"><span data-lang="tr" class="active">Bizimle iletişime geçin!</span><span data-lang="en">Get in touch with us!</span></p>
       <ul class="hup-contact-list">
         <li><span class="hup-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span>Çınarlı Mah, 1572 Sk. No:33, 35170 Konak/İzmir</span></li>
-        <li><span class="hup-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span><a href="tel:+905367967126">(536) 796-7126</a></li>
+        <li><span class="hup-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span><a href="tel:+905367967126">+90(536) 796 71 26</a></li>
         <li><span class="hup-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><a href="mailto:info@healthupmarketing.com">info@healthupmarketing.com</a></li>
       </ul>
     </div>
