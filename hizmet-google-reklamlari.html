@@ -103,11 +103,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 /* VISUAL PANEL */
 .service-hero-visual{display:flex;align-items:center;justify-content:center}
-.hero-photo-placeholder{width:100%;aspect-ratio:1/1;border-radius:16px;overflow:hidden;position:relative;border:2px dashed rgba(255,255,255,.15);background:rgba(255,255,255,.03)}
-.hero-photo-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:rgba(255,255,255,.3);text-align:center;padding:2rem}
-.hero-photo-empty svg{opacity:.5}
-.hero-photo-empty span{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.04em}
-.hero-photo-empty small{font-size:.72rem;opacity:.6;font-family:monospace}
+.hero-photo-placeholder{width:100%;aspect-ratio:1/1;border-radius:16px;overflow:hidden}
 .shv-chart-label{font-family:'Syne',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,250,248,.35)}
 .shv-chart{display:flex;align-items:flex-end;gap:7px;height:110px}
 .shv-bar-wrap{display:flex;flex-direction:column;align-items:center;gap:5px;flex:1}
@@ -336,13 +332,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
       <!-- FOTOĞRAF ALANI -->
       <div class="service-hero-visual">
         <div class="hero-photo-placeholder">
-          <!-- Fotoğrafı eklemek için: src="foto.jpg" ekleyin ve placeholder sınıfını kaldırın -->
-          <img id="heroPhoto" src="hizmetler/google-ads.webp" alt="Google Ads">" alt="Google Reklamları" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:16px;">
-          <div class="hero-photo-empty" id="heroPhotoEmpty">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <span>Fotoğraf Ekleyin</span>
-            <small>src="" alanına görsel URL'sini girin</small>
-          </div>
+          <img src="hizmetler/google-ads.webp" alt="Google Reklamları" style="width:100%;height:100%;object-fit:cover;border-radius:16px;">
         </div>
       </div>
     </div>
