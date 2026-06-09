@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel — HealthUp Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0f0f0d;--bg-off:#181815;--bg-card:#1c1c19;
+  --text:#fafaf8;--text-muted:#8a8a82;
+  --border:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.14);
+  --accent:#fe0d6d;--grad:linear-gradient(135deg,#fd7a49 0%,#fe0d6d 100%);
+  --glow:0 0 18px rgba(254,13,109,.35),0 0 36px rgba(253,122,73,.2);
+  --radius:4px;--radius-card:12px;
+  --danger:#ef4444;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.6}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,textarea,select{font-family:inherit;background:var(--bg-card);border:1px solid var(--border);color:var(--text);padding:.75rem 1rem;border-radius:6px;width:100%;font-size:.95rem;transition:border-color .2s,background .2s}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);background:var(--bg-off)}
+label{display:block;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.5rem}
+
+/* ── LOGIN ── */
+.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;background:radial-gradient(ellipse at top right,rgba(254,13,109,.08),transparent 60%),radial-gradient(ellipse at bottom left,rgba(253,122,73,.05),transparent 60%),var(--bg)}
+.login-card{width:100%;max-width:420px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-card);padding:2.5rem}
+.login-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.6rem;letter-spacing:-.03em;margin-bottom:.5rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block;padding-right:.1em}
+.login-sub{color:var(--text-muted);margin-bottom:2rem;font-size:.9rem}
+.field{margin-bottom:1.2rem}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--grad);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;padding:.85rem 1.6rem;border-radius:var(--radius);width:100%;transition:filter .2s,box-shadow .2s,transform .15s;box-shadow:var(--glow)}
+.btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 0 24px rgba(251,16,107,.5)}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed}
+.btn-secondary{background:transparent;border:1px solid var(--border-strong);color:var(--text);padding:.6rem 1.2rem;border-radius:var(--radius);font-family:'Syne',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;transition:background .2s,border-color .2s}
+.btn-secondary:hover{background:var(--bg-off);border-color:var(--accent)}
+.btn-danger{background:transparent;border:1px solid rgba(239,68,68,.3);color:var(--danger);padding:.5rem 1rem;border-radius:var(--radius);font-family:'Syne',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;transition:background .2s}
+.btn-danger:hover{background:rgba(239,68,68,.1)}
+.error{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5;padding:.8rem 1rem;border-radius:6px;font-size:.85rem;margin-bottom:1rem;display:none}
+.error.show{display:block}
+.success{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);color:#86efac;padding:.8rem 1rem;border-radius:6px;font-size:.85rem;margin-bottom:1rem;display:none}
+.success.show{display:block}
+
+/* ── ADMIN LAYOUT ── */
+.admin-wrap{display:none;min-height:100vh}
+.admin-wrap.show{display:block}
+.admin-header{position:sticky;top:0;background:rgba(15,15,13,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;z-index:10}
+.admin-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;letter-spacing:-.03em}
+.admin-logo span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block;padding-right:.1em}
+.admin-userinfo{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--text-muted)}
+.admin-main{max-width:1200px;margin:0 auto;padding:2rem;display:grid;grid-template-columns:300px 1fr;gap:2rem}
+.admin-sidebar{position:sticky;top:96px;align-self:start}
+.admin-content{min-width:0}
+.section-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-card);padding:2rem;margin-bottom:1.5rem}
+.section-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;letter-spacing:-.01em;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between}
+
+/* ── POSTS LIST ── */
+.posts-list{display:flex;flex-direction:column;gap:.5rem}
+.post-item{padding:1rem;border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:background .2s,border-color .2s}
+.post-item:hover{background:var(--bg-off);border-color:var(--border-strong)}
+.post-item.active{background:var(--bg-off);border-color:var(--accent)}
+.post-item-title{font-weight:600;font-size:.9rem;margin-bottom:.25rem;line-height:1.3}
+.post-item-meta{font-size:.72rem;color:var(--text-muted);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.post-item-cat{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--grad);color:#fff;padding:2px 8px;border-radius:3px}
+.post-item-status{font-size:.65rem;padding:2px 6px;border-radius:3px;font-weight:600}
+.post-item-status.published{background:rgba(34,197,94,.15);color:#86efac}
+.post-item-status.draft{background:rgba(234,179,8,.15);color:#fde047}
+.post-item-lang{font-family:'Syne',sans-serif;font-size:.6rem;letter-spacing:.04em;padding:2px 6px;border-radius:3px;font-weight:700;background:rgba(255,255,255,.08);color:var(--text-muted)}
+.post-item-lang.has-en{background:linear-gradient(135deg,rgba(253,122,73,.2),rgba(254,13,109,.2));color:var(--text)}
+
+/* ── FORM ── */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-grid.full{grid-template-columns:1fr}
+.form-grid .full-row{grid-column:1/-1}
+
+/* ── TIPTAP EDITOR ── */
+.editor-wrap{border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--bg-off)}
+.editor-toolbar{display:flex;flex-wrap:wrap;gap:2px;padding:.5rem;background:var(--bg-card);border-bottom:1px solid var(--border)}
+.toolbar-btn{padding:.4rem .65rem;border-radius:4px;font-size:.85rem;color:var(--text-muted);transition:background .15s,color .15s;font-weight:600;min-width:32px;text-align:center}
+.toolbar-btn:hover{background:var(--bg-off);color:var(--text)}
+.toolbar-btn.is-active{background:rgba(254,13,109,.15);color:var(--accent)}
+.toolbar-divider{width:1px;background:var(--border);margin:4px 6px}
+.tiptap-editor{padding:1.25rem;min-height:320px;font-size:.95rem;line-height:1.75;outline:none}
+.tiptap-editor h1{font-family:'DM Serif Display',serif;font-size:1.9rem;line-height:1.15;margin:1.5rem 0 .75rem;letter-spacing:-.01em}
+.tiptap-editor h2{font-family:'DM Serif Display',serif;font-size:1.5rem;line-height:1.2;margin:1.3rem 0 .6rem;letter-spacing:-.01em}
+.tiptap-editor h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;margin:1rem 0 .5rem}
+.tiptap-editor p{margin:.5rem 0}
+.tiptap-editor ul,.tiptap-editor ol{margin:.75rem 0;padding-left:1.5rem}
+.tiptap-editor li{margin:.25rem 0}
+.tiptap-editor a{color:var(--accent);text-decoration:underline}
+.tiptap-editor img{max-width:100%;height:auto;border-radius:6px;margin:.75rem 0;display:block}
+.tiptap-editor blockquote{border-left:3px solid var(--accent);padding-left:1rem;margin:1rem 0;color:var(--text-muted);font-style:italic}
+.tiptap-editor strong{font-weight:700;color:var(--text)}
+.tiptap-editor em{font-style:italic}
+.tiptap-editor code{background:var(--bg);padding:2px 6px;border-radius:3px;font-family:monospace;font-size:.9em}
+.tiptap-editor:empty::before{content:attr(data-placeholder);color:var(--text-muted);pointer-events:none}
+
+/* image upload helper */
+.image-upload-row{display:flex;gap:.5rem;align-items:center}
+.image-upload-row input[type="file"]{display:none}
+.image-preview{margin-top:.75rem;max-width:280px;border-radius:6px;border:1px solid var(--border);display:none}
+.image-preview.show{display:block}
+
+/* publish toggle */
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;background:var(--bg-off);border:1px solid var(--border);border-radius:6px}
+.toggle-row label{margin:0;text-transform:none;letter-spacing:0;font-family:'DM Sans',sans-serif;font-weight:500;font-size:.9rem;color:var(--text)}
+.toggle-switch{position:relative;width:44px;height:24px;background:var(--border-strong);border-radius:12px;cursor:pointer;transition:background .2s;flex-shrink:0}
+.toggle-switch::after{content:'';position:absolute;top:2px;left:2px;width:20px;height:20px;background:#fff;border-radius:50%;transition:left .2s}
+.toggle-switch.on{background:var(--accent)}
+.toggle-switch.on::after{left:22px}
+
+/* form actions */
+.form-actions{display:flex;gap:.75rem;justify-content:flex-end;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);flex-wrap:wrap}
+.form-actions .btn-danger{margin-right:auto}
+.btn-primary.compact{padding:.7rem 1.4rem;width:auto}
+
+/* loading */
+.loading{text-align:center;padding:3rem;color:var(--text-muted);font-size:.9rem}
+.empty{text-align:center;padding:3rem 1.5rem;color:var(--text-muted);font-size:.9rem}
+
+/* ── LANGUAGE TABS ── */
+.lang-tabs{display:flex;align-items:center;gap:0;margin-bottom:1.5rem;padding-bottom:0;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.lang-tab{padding:.7rem 1.2rem;border:none;background:transparent;color:var(--text-muted);font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.05em;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s}
+.lang-tab:hover{color:var(--text)}
+.lang-tab.active{color:var(--text);border-bottom-color:var(--accent)}
+.lang-tab-hint{margin-left:auto;font-size:.72rem;color:var(--text-muted);font-style:italic;padding:0 .5rem}
+.lang-pill{display:inline-block;font-family:'Syne',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.05em;background:var(--grad);color:#fff;padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:middle;text-transform:uppercase}
+
+/* mobile */
+@media(max-width:900px){
+  .admin-main{grid-template-columns:1fr;padding:1rem}
+  .admin-sidebar{position:static}
+  .form-grid{grid-template-columns:1fr}
+  .admin-header{padding:1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN VIEW -->
+<div class="login-wrap" id="loginView">
+  <div class="login-card">
+    <div class="login-logo">HealthUp <span>Admin</span></div>
+    <p class="login-sub">Yazı yönetim paneline giriş yapın.</p>
+    <div class="error" id="loginError"></div>
+    <form id="loginForm">
+      <div class="field">
+        <label>E-posta</label>
+        <input type="email" id="loginEmail" required placeholder="ornek@healthup.com">
+      </div>
+      <div class="field">
+        <label>Şifre</label>
+        <input type="password" id="loginPassword" required placeholder="••••••••">
+      </div>
+      <button type="submit" class="btn-primary" id="loginBtn">Giriş Yap</button>
+    </form>
+  </div>
+</div>
+
+<!-- ADMIN VIEW -->
+<div class="admin-wrap" id="adminView">
+  <header class="admin-header">
+    <div class="admin-logo">HealthUp <span>Admin</span></div>
+    <div class="admin-userinfo">
+      <span id="userEmail"></span>
+      <button class="btn-secondary" id="logoutBtn">Çıkış</button>
+    </div>
+  </header>
+
+  <main class="admin-main">
+
+    <!-- SIDEBAR: Posts list -->
+    <aside class="admin-sidebar">
+      <div class="section-card">
+        <div class="section-title">
+          <span>Yazılar</span>
+          <button class="btn-primary compact" id="newPostBtn" style="padding:.4rem .8rem;font-size:.7rem;width:auto">+ Yeni</button>
+        </div>
+        <div class="posts-list" id="postsList">
+          <div class="loading">Yükleniyor…</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CONTENT: Editor -->
+    <section class="admin-content">
+      <div class="section-card">
+        <div class="error" id="formError"></div>
+        <div class="success" id="formSuccess"></div>
+        <div id="emptyState" class="empty">
+          Sol taraftan bir yazı seçin veya <strong>+ Yeni</strong> ile başlayın.
+        </div>
+        <form id="postForm" style="display:none">
+          <!-- Language tabs -->
+          <div class="lang-tabs">
+            <button type="button" class="lang-tab active" data-lang-tab="tr">🇹🇷 Türkçe</button>
+            <button type="button" class="lang-tab" data-lang-tab="en">🇬🇧 English</button>
+            <span class="lang-tab-hint">Her dili ayrı kaydedebilirsin. EN boş bırakılırsa yazı sadece TR'de görünür.</span>
+          </div>
+
+          <div class="form-grid">
+            <!-- Slug + Category: tek dil, paylaşımlı -->
+            <div>
+              <label>Slug (URL) *</label>
+              <input type="text" id="postSlug" required placeholder="ornegin-baslik-burada" pattern="[a-z0-9\-]+">
+            </div>
+            <div>
+              <label>Kategori *</label>
+              <select id="postCategory" required>
+                <option value="">— Seçin —</option>
+                <option value="google">Google Ads</option>
+                <option value="meta">Meta Ads</option>
+                <option value="seo">SEO</option>
+                <option value="crm">CRM</option>
+                <option value="strateji">Strateji</option>
+              </select>
+            </div>
+
+            <!-- BAŞLIK: TR + EN ayrı, sekme ile -->
+            <div class="full-row">
+              <label>
+                Başlık *
+                <span class="lang-pill" data-pill="tr">TR</span>
+                <span class="lang-pill" data-pill="en" style="display:none">EN</span>
+              </label>
+              <input type="text" id="postTitle_tr" data-lang-field="tr" placeholder="Yazının başlığı (Türkçe)">
+              <input type="text" id="postTitle_en" data-lang-field="en" placeholder="Article title (English)" style="display:none">
+            </div>
+
+            <!-- ÖZET: TR + EN -->
+            <div class="full-row">
+              <label>
+                Özet (kart görünümünde gösterilecek)
+                <span class="lang-pill" data-pill="tr">TR</span>
+                <span class="lang-pill" data-pill="en" style="display:none">EN</span>
+              </label>
+              <textarea id="postExcerpt_tr" data-lang-field="tr" rows="2" placeholder="Yazıyı 2-3 cümleyle özetleyin"></textarea>
+              <textarea id="postExcerpt_en" data-lang-field="en" rows="2" placeholder="Summarize the article in 2-3 sentences" style="display:none"></textarea>
+            </div>
+
+            <!-- Okuma süresi + kapak: paylaşımlı -->
+            <div>
+              <label>Okuma Süresi (dakika)</label>
+              <input type="number" id="postReadTime" min="1" value="5">
+            </div>
+            <div>
+              <label>Kapak Görseli</label>
+              <div class="image-upload-row">
+                <input type="text" id="postCoverImage" placeholder="https://... veya yükle">
+                <button type="button" class="btn-secondary" id="uploadCoverBtn">Yükle</button>
+                <input type="file" id="coverFileInput" accept="image/*">
+              </div>
+              <img id="coverPreview" class="image-preview" alt="">
+            </div>
+
+            <!-- İÇERİK: TR + EN ayrı editör -->
+            <div class="full-row">
+              <label>
+                İçerik *
+                <span class="lang-pill" data-pill="tr">TR</span>
+                <span class="lang-pill" data-pill="en" style="display:none">EN</span>
+              </label>
+              <div class="editor-wrap" data-lang-field="tr">
+                <div class="editor-toolbar" id="editorToolbar_tr"></div>
+                <div class="tiptap-editor" id="editor_tr" data-placeholder="Yazınızı buraya girin..."></div>
+              </div>
+              <div class="editor-wrap" data-lang-field="en" style="display:none">
+                <div class="editor-toolbar" id="editorToolbar_en"></div>
+                <div class="tiptap-editor" id="editor_en" data-placeholder="Write your article here..."></div>
+              </div>
+            </div>
+
+            <!-- SEO Meta: TR + EN -->
+            <div class="full-row">
+              <label>
+                SEO Meta Açıklama
+                <span class="lang-pill" data-pill="tr">TR</span>
+                <span class="lang-pill" data-pill="en" style="display:none">EN</span>
+              </label>
+              <textarea id="postMetaDescription_tr" data-lang-field="tr" rows="2" placeholder="Arama motorlarında gösterilecek açıklama (150-160 karakter ideal)"></textarea>
+              <textarea id="postMetaDescription_en" data-lang-field="en" rows="2" placeholder="Description shown on search engines (150-160 chars ideal)" style="display:none"></textarea>
+            </div>
+
+            <div class="full-row">
+              <div class="toggle-row">
+                <label>Yayında mı?</label>
+                <div class="toggle-switch on" id="publishToggle"></div>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-danger" id="deleteBtn" style="display:none">Sil</button>
+            <button type="button" class="btn-secondary" id="cancelBtn">Vazgeç</button>
+            <button type="submit" class="btn-primary compact" id="saveBtn">Kaydet</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ─── SUPABASE + TIPTAP ─── -->
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { Editor } from 'https://esm.sh/@tiptap/core@2.6.6'
+import StarterKit from 'https://esm.sh/@tiptap/starter-kit@2.6.6'
+import Link from 'https://esm.sh/@tiptap/extension-link@2.6.6'
+import Image from 'https://esm.sh/@tiptap/extension-image@2.6.6'
+import Placeholder from 'https://esm.sh/@tiptap/extension-placeholder@2.6.6'
+
+// ─── CONFIG ───
+const SUPABASE_URL  = 'https://phpdqfighpxnjqgyopbm.supabase.co'
+const SUPABASE_KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBocGRxZmlnaHB4bmpxZ3lvcGJtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMjg4NjUsImV4cCI6MjA5NjYwNDg2NX0.xVlph7o7VsEV_6gCcDyy3RmuisqjxF2VM0Z0r3TsXc8'
+const sb = createClient(SUPABASE_URL, SUPABASE_KEY)
+
+// ─── STATE ───
+let currentUser = null
+let currentPostId = null
+let editorTR = null
+let editorEN = null
+let publishToggle = true
+let currentLangTab = 'tr'
+
+// ─── DOM ───
+const $ = id => document.getElementById(id)
+const loginView  = $('loginView')
+const adminView  = $('adminView')
+const loginForm  = $('loginForm')
+const loginError = $('loginError')
+const postsList  = $('postsList')
+const postForm   = $('postForm')
+const emptyState = $('emptyState')
+const formError  = $('formError')
+const formSuccess= $('formSuccess')
+
+// ─── ERROR / SUCCESS HELPERS ───
+function showError(el, msg){ el.textContent = msg; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'), 5000) }
+function showSuccess(el, msg){ el.textContent = msg; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'), 3500) }
+
+// ─── AUTH ───
+async function init(){
+  const { data: { session } } = await sb.auth.getSession()
+  if(session){ enterAdmin(session.user) }
+}
+
+async function login(email, password){
+  $('loginBtn').disabled = true
+  const { data, error } = await sb.auth.signInWithPassword({ email, password })
+  $('loginBtn').disabled = false
+  if(error){ showError(loginError, 'Giriş başarısız: ' + error.message); return }
+  enterAdmin(data.user)
+}
+
+function enterAdmin(user){
+  currentUser = user
+  loginView.style.display = 'none'
+  adminView.classList.add('show')
+  $('userEmail').textContent = user.email
+  loadPosts()
+}
+
+async function logout(){
+  await sb.auth.signOut()
+  location.reload()
+}
+
+loginForm.addEventListener('submit', e => {
+  e.preventDefault()
+  login($('loginEmail').value.trim(), $('loginPassword').value)
+})
+$('logoutBtn').addEventListener('click', logout)
+
+// ─── POSTS LIST ───
+async function loadPosts(){
+  postsList.innerHTML = '<div class="loading">Yükleniyor…</div>'
+  const { data, error } = await sb.from('posts').select('id,title_tr,title_en,category,published,created_at').order('created_at', { ascending:false })
+  if(error){ postsList.innerHTML = `<div class="empty">Hata: ${error.message}</div>`; return }
+  if(!data.length){ postsList.innerHTML = '<div class="empty">Henüz yazı yok.<br><br>+ Yeni butonuyla başlayın.</div>'; return }
+  postsList.innerHTML = ''
+  data.forEach(p => {
+    const div = document.createElement('div')
+    div.className = 'post-item' + (p.id === currentPostId ? ' active' : '')
+    div.dataset.id = p.id
+    const hasEN = !!p.title_en
+    div.innerHTML = `
+      <div class="post-item-title">${escapeHtml(p.title_tr || p.title_en || '(başlıksız)')}</div>
+      <div class="post-item-meta">
+        <span class="post-item-cat">${escapeHtml(p.category || 'genel')}</span>
+        <span class="post-item-status ${p.published ? 'published' : 'draft'}">${p.published ? 'Yayında' : 'Taslak'}</span>
+        <span class="post-item-lang ${hasEN ? 'has-en' : 'tr-only'}">${hasEN ? 'TR+EN' : 'TR'}</span>
+        <span>${new Date(p.created_at).toLocaleDateString('tr-TR')}</span>
+      </div>
+    `
+    div.addEventListener('click', () => loadPost(p.id))
+    postsList.appendChild(div)
+  })
+}
+
+function escapeHtml(s){ return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])) }
+
+// ─── POST FORM (DUAL LANGUAGE) ───
+function getActiveEditor(){ return currentLangTab === 'tr' ? editorTR : editorEN }
+
+function setupEditors(contentTR = '', contentEN = ''){
+  if(editorTR){ editorTR.destroy(); editorTR = null }
+  if(editorEN){ editorEN.destroy(); editorEN = null }
+
+  const sharedExtensions = lang => [
+    StarterKit,
+    Link.configure({ openOnClick:false, HTMLAttributes:{ rel:'noopener noreferrer' } }),
+    Image.configure({ inline:false, allowBase64:true }),
+    Placeholder.configure({ placeholder: lang==='tr' ? 'Yazınızı buraya girin...' : 'Write your article here...' })
+  ]
+
+  editorTR = new Editor({
+    element: $('editor_tr'),
+    extensions: sharedExtensions('tr'),
+    content: contentTR || '',
+    onUpdate: () => { if(currentLangTab==='tr') buildToolbar() },
+    onSelectionUpdate: () => { if(currentLangTab==='tr') buildToolbar() }
+  })
+  editorEN = new Editor({
+    element: $('editor_en'),
+    extensions: sharedExtensions('en'),
+    content: contentEN || '',
+    onUpdate: () => { if(currentLangTab==='en') buildToolbar() },
+    onSelectionUpdate: () => { if(currentLangTab==='en') buildToolbar() }
+  })
+  buildToolbar()
+}
+
+function buildToolbar(){
+  const ed = getActiveEditor()
+  if(!ed) return
+  const toolbarId = currentLangTab === 'tr' ? 'editorToolbar_tr' : 'editorToolbar_en'
+  const tb = $(toolbarId)
+  if(!tb) return
+  tb.innerHTML = ''
+  const btns = [
+    { cmd:'toggleBold',       label:'B',     check:()=>ed.isActive('bold'),   style:'font-weight:800' },
+    { cmd:'toggleItalic',     label:'I',     check:()=>ed.isActive('italic'), style:'font-style:italic' },
+    { cmd:'toggleStrike',     label:'S',     check:()=>ed.isActive('strike'), style:'text-decoration:line-through' },
+    { divider:true },
+    { run:()=>ed.chain().focus().toggleHeading({ level:1 }).run(), label:'H1', check:()=>ed.isActive('heading',{level:1}) },
+    { run:()=>ed.chain().focus().toggleHeading({ level:2 }).run(), label:'H2', check:()=>ed.isActive('heading',{level:2}) },
+    { run:()=>ed.chain().focus().toggleHeading({ level:3 }).run(), label:'H3', check:()=>ed.isActive('heading',{level:3}) },
+    { divider:true },
+    { cmd:'toggleBulletList',  label:'•',    check:()=>ed.isActive('bulletList') },
+    { cmd:'toggleOrderedList', label:'1.',   check:()=>ed.isActive('orderedList') },
+    { cmd:'toggleBlockquote',  label:'❝',    check:()=>ed.isActive('blockquote') },
+    { divider:true },
+    { run:setLink,             label:'🔗',   check:()=>ed.isActive('link') },
+    { run:insertImage,         label:'🖼',   check:()=>false },
+    { divider:true },
+    { run:()=>ed.chain().focus().undo().run(), label:'↺', check:()=>false },
+    { run:()=>ed.chain().focus().redo().run(), label:'↻', check:()=>false },
+  ]
+  btns.forEach(b => {
+    if(b.divider){ const d=document.createElement('div'); d.className='toolbar-divider'; tb.appendChild(d); return }
+    const btn = document.createElement('button')
+    btn.type = 'button'
+    btn.className = 'toolbar-btn' + (b.check() ? ' is-active' : '')
+    btn.innerHTML = b.label
+    if(b.style) btn.style.cssText = b.style
+    btn.addEventListener('click', () => {
+      if(b.cmd) ed.chain().focus()[b.cmd]().run()
+      else if(b.run) b.run()
+      buildToolbar()
+    })
+    tb.appendChild(btn)
+  })
+}
+
+function setLink(){
+  const ed = getActiveEditor()
+  const prev = ed.getAttributes('link').href || ''
+  const url = prompt('Link URL (boş = kaldır):', prev)
+  if(url === null) return
+  if(url === ''){ ed.chain().focus().unsetLink().run(); return }
+  ed.chain().focus().extendMarkRange('link').setLink({ href:url }).run()
+}
+
+async function insertImage(){
+  const ed = getActiveEditor()
+  const choice = confirm('Tamam = bilgisayardan yükle\nİptal = URL gir')
+  if(choice){
+    const input = document.createElement('input')
+    input.type = 'file'; input.accept = 'image/*'
+    input.onchange = async () => {
+      const file = input.files[0]; if(!file) return
+      const url = await uploadImage(file)
+      if(url) ed.chain().focus().setImage({ src:url }).run()
+    }
+    input.click()
+  } else {
+    const url = prompt('Görsel URL:')
+    if(url) ed.chain().focus().setImage({ src:url }).run()
+  }
+}
+
+// ─── LANGUAGE TAB SWITCHER ───
+document.querySelectorAll('.lang-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const lang = tab.dataset.langTab
+    currentLangTab = lang
+    // tab styles
+    document.querySelectorAll('.lang-tab').forEach(t => t.classList.toggle('active', t.dataset.langTab === lang))
+    // show/hide fields by data-lang-field
+    document.querySelectorAll('[data-lang-field]').forEach(el => {
+      el.style.display = el.dataset.langField === lang ? '' : 'none'
+    })
+    // show/hide pill labels
+    document.querySelectorAll('[data-pill]').forEach(p => {
+      p.style.display = p.dataset.pill === lang ? 'inline-block' : 'none'
+    })
+    // rebuild toolbar for active editor
+    buildToolbar()
+  })
+})
+
+async function uploadImage(file){
+  const ext = (file.name.split('.').pop() || 'jpg').toLowerCase()
+  const filename = `${Date.now()}-${Math.random().toString(36).slice(2,8)}.${ext}`
+  const { data, error } = await sb.storage.from('blog-images').upload(filename, file, { cacheControl:'3600', upsert:false })
+  if(error){ alert('Yükleme hatası: ' + error.message); return null }
+  const { data: pub } = sb.storage.from('blog-images').getPublicUrl(filename)
+  return pub.publicUrl
+}
+
+// title → slug helper (TR title used as base)
+function slugify(s){
+  return (s||'').toLowerCase()
+    .replace(/ı/g,'i').replace(/ş/g,'s').replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ö/g,'o').replace(/ç/g,'c')
+    .replace(/[^a-z0-9\s-]/g,'').trim().replace(/\s+/g,'-').replace(/-+/g,'-').slice(0,80)
+}
+$('postTitle_tr').addEventListener('input', () => {
+  if(!currentPostId && !$('postSlug').dataset.touched){
+    $('postSlug').value = slugify($('postTitle_tr').value)
+  }
+})
+$('postTitle_en').addEventListener('input', () => {
+  // only fill slug from EN if TR is empty and not touched
+  if(!currentPostId && !$('postSlug').dataset.touched && !$('postTitle_tr').value){
+    $('postSlug').value = slugify($('postTitle_en').value)
+  }
+})
+$('postSlug').addEventListener('input', () => { $('postSlug').dataset.touched = '1' })
+
+// Cover image upload
+$('uploadCoverBtn').addEventListener('click', () => $('coverFileInput').click())
+$('coverFileInput').addEventListener('change', async e => {
+  const f = e.target.files[0]; if(!f) return
+  $('uploadCoverBtn').textContent = 'Yükleniyor…'
+  const url = await uploadImage(f)
+  $('uploadCoverBtn').textContent = 'Yükle'
+  if(url){
+    $('postCoverImage').value = url
+    $('coverPreview').src = url
+    $('coverPreview').classList.add('show')
+  }
+})
+$('postCoverImage').addEventListener('input', e => {
+  const v = e.target.value
+  if(v){ $('coverPreview').src = v; $('coverPreview').classList.add('show') }
+  else { $('coverPreview').classList.remove('show') }
+})
+
+// publish toggle
+$('publishToggle').addEventListener('click', () => {
+  publishToggle = !publishToggle
+  $('publishToggle').classList.toggle('on', publishToggle)
+})
+
+// new post
+$('newPostBtn').addEventListener('click', () => {
+  currentPostId = null
+  showForm({})
+  document.querySelectorAll('.post-item').forEach(el=>el.classList.remove('active'))
+  // Always default to TR tab on new
+  document.querySelector('.lang-tab[data-lang-tab="tr"]').click()
+})
+
+function showForm(post){
+  emptyState.style.display = 'none'
+  postForm.style.display = 'block'
+  // TR fields
+  $('postTitle_tr').value      = post.title_tr || ''
+  $('postExcerpt_tr').value    = post.excerpt_tr || ''
+  $('postMetaDescription_tr').value = post.meta_description_tr || ''
+  // EN fields
+  $('postTitle_en').value      = post.title_en || ''
+  $('postExcerpt_en').value    = post.excerpt_en || ''
+  $('postMetaDescription_en').value = post.meta_description_en || ''
+  // Shared
+  $('postSlug').value     = post.slug || ''
+  $('postSlug').dataset.touched = post.slug ? '1' : ''
+  $('postCategory').value = post.category || ''
+  $('postReadTime').value = post.read_time || 5
+  $('postCoverImage').value = post.cover_image || ''
+  publishToggle = post.published !== false
+  $('publishToggle').classList.toggle('on', publishToggle)
+  if(post.cover_image){ $('coverPreview').src = post.cover_image; $('coverPreview').classList.add('show') }
+  else { $('coverPreview').classList.remove('show') }
+  setupEditors(post.content_tr || '', post.content_en || '')
+  $('deleteBtn').style.display = currentPostId ? 'inline-flex' : 'none'
+  $('saveBtn').textContent = currentPostId ? 'Güncelle' : 'Kaydet'
+}
+
+async function loadPost(id){
+  currentPostId = id
+  document.querySelectorAll('.post-item').forEach(el=>el.classList.toggle('active', el.dataset.id===id))
+  const { data, error } = await sb.from('posts').select('*').eq('id', id).single()
+  if(error){ showError(formError, 'Yazı yüklenemedi: ' + error.message); return }
+  showForm(data)
+  window.scrollTo({ top:0, behavior:'smooth' })
+}
+
+// save
+postForm.addEventListener('submit', async e => {
+  e.preventDefault()
+
+  // Require slug, category, and at least TR title + content
+  const titleTR = $('postTitle_tr').value.trim()
+  const titleEN = $('postTitle_en').value.trim()
+  const slug    = $('postSlug').value.trim().toLowerCase()
+  const category= $('postCategory').value
+
+  if(!slug || !category){
+    showError(formError, 'Slug ve kategori zorunlu.')
+    return
+  }
+  if(!titleTR && !titleEN){
+    showError(formError, 'En az bir dilde başlık girmelisin.')
+    return
+  }
+
+  $('saveBtn').disabled = true
+  $('saveBtn').textContent = 'Kaydediliyor…'
+
+  const contentTR = editorTR ? editorTR.getHTML() : ''
+  const contentEN = editorEN ? editorEN.getHTML() : ''
+  // TipTap returns '<p></p>' even when empty — normalize
+  const cleanTR = (contentTR === '<p></p>') ? '' : contentTR
+  const cleanEN = (contentEN === '<p></p>') ? '' : contentEN
+
+  const payload = {
+    slug,
+    category,
+    // TR
+    title_tr:    titleTR || null,
+    excerpt_tr:  $('postExcerpt_tr').value.trim() || null,
+    content_tr:  cleanTR || null,
+    meta_description_tr: $('postMetaDescription_tr').value.trim() || null,
+    // EN
+    title_en:    titleEN || null,
+    excerpt_en:  $('postExcerpt_en').value.trim() || null,
+    content_en:  cleanEN || null,
+    meta_description_en: $('postMetaDescription_en').value.trim() || null,
+    // Shared
+    read_time:   parseInt($('postReadTime').value) || 5,
+    cover_image: $('postCoverImage').value.trim() || null,
+    published:   publishToggle,
+    author_name: currentUser.email
+  }
+
+  let res
+  if(currentPostId){
+    payload.updated_at = new Date().toISOString()
+    res = await sb.from('posts').update(payload).eq('id', currentPostId).select().single()
+  } else {
+    payload.author_id = currentUser.id
+    res = await sb.from('posts').insert(payload).select().single()
+  }
+
+  $('saveBtn').disabled = false
+  $('saveBtn').textContent = currentPostId ? 'Güncelle' : 'Kaydet'
+
+  if(res.error){
+    showError(formError, 'Kayıt başarısız: ' + res.error.message)
+    return
+  }
+  currentPostId = res.data.id
+  $('saveBtn').textContent = 'Güncelle'
+  $('deleteBtn').style.display = 'inline-flex'
+  showSuccess(formSuccess, 'Yazı kaydedildi ✓')
+  loadPosts()
+})
+
+// delete
+$('deleteBtn').addEventListener('click', async () => {
+  if(!currentPostId) return
+  if(!confirm('Bu yazıyı kalıcı olarak silmek istediğinden emin misin?')) return
+  const { error } = await sb.from('posts').delete().eq('id', currentPostId)
+  if(error){ showError(formError, 'Silme hatası: ' + error.message); return }
+  currentPostId = null
+  postForm.style.display = 'none'
+  emptyState.style.display = 'block'
+  loadPosts()
+})
+
+// cancel
+$('cancelBtn').addEventListener('click', () => {
+  currentPostId = null
+  postForm.style.display = 'none'
+  emptyState.style.display = 'block'
+  document.querySelectorAll('.post-item').forEach(el=>el.classList.remove('active'))
+})
+
+// boot
+init()
+</script>
+</body>
+</html>

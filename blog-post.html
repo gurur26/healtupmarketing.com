@@ -10,24 +10,32 @@
   document.documentElement.setAttribute('data-theme', t || 'dark');
 })();
 </script>
-<title>HealthUp Marketing — Blog</title>
+<title>Yazı yükleniyor… — HealthUp Marketing</title>
 
-<!-- SEO + Sosyal Paylaşım -->
-<meta name="description" content="Sağlık turizmi, dijital pazarlama, Google Ads, Meta Ads ve CRM üzerine derinlikli yazılar. HealthUp Marketing Blog.">
-<link rel="canonical" href="https://gurur26.github.io/healtupmarketing.com/blog.html">
+<!-- SEO + Sosyal Paylaşım (JS ile dinamik doldurulur) -->
+<meta name="description" content="HealthUp Marketing blog yazısı.">
+<link rel="canonical" id="canonicalUrl" href="">
 
-<!-- Open Graph -->
-<meta property="og:type" content="website">
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="HealthUp Marketing">
-<meta property="og:title" content="HealthUp Marketing — Blog">
-<meta property="og:description" content="Sağlık turizmi, dijital pazarlama, Google Ads, Meta Ads ve CRM üzerine derinlikli yazılar.">
-<meta property="og:url" content="https://gurur26.github.io/healtupmarketing.com/blog.html">
+<meta property="og:title" id="ogTitle" content="HealthUp Marketing — Blog">
+<meta property="og:description" id="ogDescription" content="HealthUp Marketing blog yazısı.">
+<meta property="og:image" id="ogImage" content="">
+<meta property="og:url" id="ogUrl" content="">
 <meta property="og:locale" content="tr_TR">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="HealthUp Marketing — Blog">
-<meta name="twitter:description" content="Sağlık turizmi, dijital pazarlama, Google Ads, Meta Ads ve CRM üzerine derinlikli yazılar.">
+<meta name="twitter:title" id="twitterTitle" content="HealthUp Marketing — Blog">
+<meta name="twitter:description" id="twitterDescription" content="HealthUp Marketing blog yazısı.">
+<meta name="twitter:image" id="twitterImage" content="">
+
+<!-- Article meta -->
+<meta property="article:author" id="articleAuthor" content="HealthUp Marketing">
+<meta property="article:published_time" id="articlePublished" content="">
+<meta property="article:section" id="articleSection" content="">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -336,6 +344,71 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
   .hup-footer-inner{grid-template-columns:1fr;gap:2.5rem;padding:3rem 1.5rem 2rem}
   .hup-footer-bottom{padding:1rem 1.5rem}
 }
+/* ── POST VIEW ── */
+.post-view{padding-top:64px}
+.post-hero{position:relative;min-height:520px;color:#fafaf8;display:flex;align-items:flex-end;overflow:hidden;background:#0a0a0a}
+.post-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.post-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.55) 0%,rgba(10,10,10,.4) 40%,rgba(10,10,10,.95) 100%);z-index:1}
+.post-hero-inner{position:relative;z-index:2;max-width:840px;margin:0 auto;padding:6rem 2rem 4rem;width:100%}
+.post-back{display:inline-flex;align-items:center;gap:6px;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;margin-bottom:2rem;transition:color .2s}
+.post-back:hover{color:#fff}
+.post-meta-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:1.2rem;font-size:.78rem;color:rgba(255,255,255,.55)}
+.post-tag{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--grad);color:#fff;padding:5px 12px;border-radius:3px}
+.post-meta-divider{opacity:.4}
+.post-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4.5vw,3.4rem);line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:1rem}
+.post-excerpt{font-size:1.05rem;font-weight:300;color:rgba(255,255,255,.65);line-height:1.75;max-width:680px;margin-bottom:1.5rem}
+.post-author{font-size:.85rem;color:rgba(255,255,255,.5);font-style:italic}
+
+.post-body-wrap{background:var(--bg);padding:5rem 0 3rem;transition:background .3s}
+.post-body{max-width:760px;margin:0 auto;padding:0 2rem;font-size:1.05rem;line-height:1.85;color:var(--text)}
+.post-body h1{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.15;letter-spacing:-.01em;margin:2.5rem 0 1rem}
+.post-body h2{font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);line-height:1.2;letter-spacing:-.01em;margin:2.5rem 0 1rem}
+.post-body h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1.2rem;letter-spacing:-.01em;margin:2rem 0 .7rem;color:var(--text)}
+.post-body p{margin:1.1rem 0;color:var(--text)}
+.post-body a{color:var(--accent);text-decoration:underline;text-decoration-color:rgba(254,13,109,.4);text-underline-offset:3px;transition:text-decoration-color .2s}
+.post-body a:hover{text-decoration-color:var(--accent)}
+.post-body strong{font-weight:700;color:var(--text)}
+.post-body em{font-style:italic}
+.post-body ul,.post-body ol{margin:1rem 0 1.2rem;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.post-body ul li{padding-left:24px;position:relative;color:var(--text)}
+.post-body ul li::before{content:'';width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#fd7a49,#fe0d6d);position:absolute;left:0;top:11px}
+.post-body ol{counter-reset:post-c}
+.post-body ol li{counter-increment:post-c;padding-left:2.3rem;position:relative;color:var(--text)}
+.post-body ol li::before{content:counter(post-c);position:absolute;left:0;top:3px;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#fd7a49,#fe0d6d);color:#fff;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+.post-body blockquote{margin:2rem 0;padding:1.2rem 1.5rem;border-left:3px solid var(--accent);background:var(--bg-off);border-radius:0 8px 8px 0;font-style:italic;color:var(--text-muted)}
+.post-body blockquote p{margin:0;color:var(--text-muted)}
+.post-body img{max-width:100%;height:auto;border-radius:8px;margin:1.5rem auto;display:block;box-shadow:0 4px 24px rgba(0,0,0,.15)}
+.post-body code{background:var(--bg-off);padding:2px 6px;border-radius:3px;font-family:'SF Mono',Menlo,monospace;font-size:.92em;color:var(--accent)}
+.post-body pre{background:var(--bg-off);padding:1.2rem;border-radius:8px;overflow-x:auto;margin:1.5rem 0;border:1px solid var(--border)}
+.post-body pre code{background:none;padding:0;color:var(--text)}
+.post-body hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
+
+.post-footer-wrap{background:var(--bg);padding:2rem 0 5rem;max-width:760px;margin:0 auto;padding-left:2rem;padding-right:2rem}
+.post-share{display:flex;align-items:center;gap:10px;padding:1.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:3rem}
+.post-share-label{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.12em;color:var(--text-muted);margin-right:.5rem}
+.post-share a,.post-share button{width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:transparent;display:flex;align-items:center;justify-content:center;color:var(--text-muted);transition:border-color .2s,color .2s,background .2s;cursor:pointer}
+.post-share a:hover,.post-share button:hover{border-color:var(--accent);color:var(--accent);background:rgba(254,13,109,.05)}
+
+.post-related-wrap{padding-top:1rem}
+.related-title{font-family:'DM Serif Display',serif;font-size:1.6rem;letter-spacing:-.01em;margin-bottom:1.5rem}
+.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.related-card{display:block;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;text-decoration:none;color:var(--text);transition:border-color .2s,transform .2s}
+.related-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.related-card-img{aspect-ratio:16/10;background:var(--bg-off);overflow:hidden}
+.related-card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.related-card-body{padding:1.2rem}
+.related-card-tag{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem;display:inline-block}
+.related-card-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;line-height:1.3;letter-spacing:-.01em}
+
+@media(max-width:760px){
+  .post-hero-inner{padding:5rem 1.5rem 3rem}
+  .post-hero{min-height:420px}
+  .post-body{padding:0 1.5rem}
+  .post-footer-wrap{padding-left:1.5rem;padding-right:1.5rem}
+  .related-grid{grid-template-columns:1fr}
+  .post-body-wrap{padding:3rem 0 2rem}
+}
+
 </style>
 </head>
 <body>
@@ -438,122 +511,55 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
   </a>
 </div>
 
-<!-- HERO -->
-<section class="blog-hero">
-  <div class="hero-grid-bg"></div>
-  <div class="hero-blob"></div>
-  <div class="hero-blob-2"></div>
-  <div class="hero-inner">
-    <div class="hero-eyebrow">
-      <div class="hero-eyebrow-line"></div>
-      <span><span data-lang="tr" class="active">Blog · HealthUp Marketing</span><span data-lang="en">Blog · HealthUp Marketing</span></span>
-    </div>
-    <h1 class="hero-h1">
-      <span data-lang-block="tr" class="active">Sağlık turizminde<br><em>içgörüler ve stratejiler.</em></span>
-      <span data-lang-block="en">Insights and strategies<br><em>in health tourism.</em></span>
-    </h1>
-    <p class="hero-sub">
-      <span data-lang="tr" class="active">Google Ads, Meta, CRM ve hasta kazanımı konularında sektörden uzmanlar tarafından yazılmış derinlemesine analizler.</span>
-      <span data-lang="en">In-depth analyses written by industry experts on Google Ads, Meta, CRM and patient acquisition.</span>
-    </p>
-  </div>
-</section>
+<!-- POST VIEW -->
+<article class="post-view">
 
-<!-- FILTERS -->
-<div class="filters-bar">
-  <div class="filters-inner">
-    <button class="filter-btn active" data-filter="all">
-      <span data-lang="tr" class="active">Tümü</span><span data-lang="en">All</span>
-    </button>
-    <button class="filter-btn" data-filter="google">Google Ads</button>
-    <button class="filter-btn" data-filter="meta">Meta Ads</button>
-    <button class="filter-btn" data-filter="seo">SEO</button>
-    <button class="filter-btn" data-filter="crm">CRM</button>
-    <button class="filter-btn" data-filter="strateji">
-      <span data-lang="tr" class="active">Strateji</span><span data-lang="en">Strategy</span>
-    </button>
-  </div>
-</div>
-
-<!-- FEATURED POST -->
-<section class="featured-section">
-  <div class="featured-inner">
-    <div class="featured-label">
-      <span data-lang="tr" class="active">Öne Çıkan Yazı</span><span data-lang="en">Featured Post</span>
-    </div>
-    <a href="#" class="featured-card" id="featuredCard" style="display:none">
-        <div class="featured-img-wrap">
-          <img id="featuredImg" src="" alt="">
-        </div>
-        <div class="featured-content" style="color:var(--hero-text)">
-          <div class="featured-meta">
-            <span class="featured-tag" id="featuredTag"></span>
-          </div>
-          <h2 class="featured-title" id="featuredTitle"></h2>
-          <p class="featured-excerpt" id="featuredExcerpt"></p>
-          <span class="featured-cta">
-            <span data-lang="tr" class="active">Yazıyı oku</span><span data-lang="en">Read article</span> →
-          </span>
-        </div>
+  <!-- HERO (cover image + title) -->
+  <header class="post-hero">
+    <div class="post-hero-overlay"></div>
+    <img id="postCover" class="post-cover" src="" alt="">
+    <div class="post-hero-inner">
+      <a href="blog.html" class="post-back">
+        <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span data-lang="tr" class="active">Tüm Yazılar</span><span data-lang="en">All Posts</span>
       </a>
-  </div>
-</section>
-
-<!-- BLOG GRID -->
-<section class="blog-section">
-  <div class="blog-inner">
-    <div class="blog-grid" id="blogGrid">
-      <!-- Posts will be inserted by JS -->
-      <div class="loading-state" id="postsLoading" style="grid-column:1/-1;text-align:center;padding:4rem 2rem;color:var(--text-muted)">Yazılar yükleniyor…</div>
-        </div>
-  </div>
-</section>
-
-<!-- NEWSLETTER -->
-<section class="newsletter-section">
-  <div class="newsletter-inner">
-    <div>
-      <div class="nl-label">Newsletter</div>
-      <h2 class="nl-h2">
-        <span data-lang-block="tr" class="active">Sektör içgörülerini<br><em>kaçırmayın.</em></span>
-        <span data-lang-block="en">Don't miss<br><em>industry insights.</em></span>
-      </h2>
-      <p class="nl-sub">
-        <span data-lang="tr" class="active">Her ay sağlık turizmi pazarlamasından en değerli analiz, strateji ve vaka çalışmaları doğrudan gelen kutunuza.</span>
-        <span data-lang="en">Every month, the most valuable analyses, strategies and case studies from health tourism marketing delivered directly to your inbox.</span>
-      </p>
-    </div>
-    <div>
-      <div class="nl-form">
-        <input type="email" class="nl-input"
-          placeholder="E-posta adresiniz"
-          data-placeholder-tr="E-posta adresiniz"
-          data-placeholder-en="Your email address">
-        <button class="nl-btn">
-          <span data-lang="tr" class="active">Abone Ol</span><span data-lang="en">Subscribe</span>
-        </button>
+      <div class="post-meta-row">
+        <span class="post-tag" id="postTag"></span>
+        <span class="post-meta-divider">·</span>
+        <span class="post-date" id="postDate"></span>
+        <span class="post-meta-divider">·</span>
+        <span class="post-read" id="postRead"></span>
       </div>
-      <p class="nl-note">
-        <span data-lang="tr" class="active">Spam yok. İstediğiniz zaman çıkabilirsiniz.</span>
-        <span data-lang="en">No spam. Unsubscribe anytime.</span>
-      </p>
+      <h1 class="post-title" id="postTitle">Yükleniyor…</h1>
+      <p class="post-excerpt" id="postExcerpt"></p>
+      <div class="post-author" id="postAuthor"></div>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <div class="post-body-wrap">
+    <div class="post-body" id="postContent">
+      <div style="text-align:center;padding:4rem 1rem;color:var(--text-muted)">Yazı yükleniyor…</div>
     </div>
   </div>
-</section>
 
-<!-- CTA -->
-<section class="blog-cta">
-  <div class="blog-cta-blob"></div>
-  <div class="blog-cta-inner">
-    <div class="blog-cta-eye"><span data-lang="tr" class="active">Stratejinizi konuşalım</span><span data-lang="en">Let's talk strategy</span></div>
-    <h2 class="blog-cta-h2"><span data-lang-block="tr" class="active">Sağlık turizminde daha güçlü bir sistem kurmaya hazır mısınız?</span><span data-lang-block="en">Ready to build a stronger system in health tourism?</span></h2>
-    <p class="blog-cta-sub"><span data-lang="tr" class="active">Mevcut reklam yapınızı, satış sürecinizi ve dijital hasta kazanım sisteminizi birlikte analiz edelim.</span><span data-lang="en">Let's analyze your current ad structure, sales process and digital patient acquisition system together.</span></p>
-    <a href="https://healthupmarketing.com/iletisim/" class="blog-cta-btn">
-      <span data-lang="tr" class="active">Analiz İste</span><span data-lang="en">Request Analysis</span>
-      <svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
+  <!-- SHARE & RELATED -->
+  <div class="post-footer-wrap">
+    <div class="post-share">
+      <span class="post-share-label" data-lang="tr">PAYLAŞ</span><span class="post-share-label" data-lang="en" style="display:none">SHARE</span>
+      <a href="#" id="shareTwitter" target="_blank" rel="noopener" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05A4.28 4.28 0 0016.11 4c-2.37 0-4.29 1.92-4.29 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.64-.58 1.38-.58 2.17 0 1.49.76 2.81 1.91 3.58-.71-.02-1.37-.22-1.95-.54v.05c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 01-1.93.07 4.28 4.28 0 004 2.98 8.6 8.6 0 01-5.33 1.84c-.34 0-.68-.02-1.02-.06A12.13 12.13 0 008.29 21c7.55 0 11.68-6.25 11.68-11.68 0-.18 0-.36-.01-.54.8-.58 1.5-1.3 2.05-2.12L22.46 6z"/></svg></a>
+      <a href="#" id="shareLinkedIn" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.27 18.5v-8.43H5.5v8.43h2.77zM6.88 8.81a1.6 1.6 0 100-3.21 1.6 1.6 0 000 3.21zm11.66 9.69V13.5c0-2.71-1.45-3.97-3.38-3.97-1.56 0-2.26.86-2.65 1.46v-1.25H9.74v8.76h2.77v-4.86c0-.46.04-.92.18-1.25.36-.92 1.21-1.87 2.62-1.87 1.85 0 2.46 1.41 2.46 3.47v4.51h2.77z"/></svg></a>
+      <a href="#" id="shareWhatsApp" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20.52 3.48A11.92 11.92 0 0012.05 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.13 1.6 5.93L0 24l6.32-1.65a11.86 11.86 0 005.72 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.17-3.42-8.42zM12.05 21.8h-.01a9.88 9.88 0 01-5.03-1.38l-.36-.21-3.73.98 1-3.64-.23-.37a9.86 9.86 0 01-1.51-5.27c0-5.45 4.44-9.89 9.9-9.89 2.64 0 5.13 1.03 6.99 2.9a9.83 9.83 0 012.9 6.99c-.01 5.45-4.44 9.89-9.92 9.89z"/></svg></a>
+      <button id="copyLink" aria-label="Linki kopyala"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></button>
+    </div>
+
+    <!-- Related -->
+    <div class="post-related-wrap" id="relatedWrap" style="display:none">
+      <h2 class="related-title"><span data-lang="tr" class="active">Diğer Yazılar</span><span data-lang="en">Related Posts</span></h2>
+      <div class="related-grid" id="relatedGrid"></div>
+    </div>
   </div>
-</section>
+</article>
 
 <!-- FOOTER -->
 <footer class="hup-footer">
@@ -626,23 +632,7 @@ function setLang(lang){
   try{localStorage.setItem('lang',lang);}catch(e){}
 }
 
-// FILTER
-let currentFilter = 'all';
-document.querySelectorAll('.filter-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    currentFilter = btn.getAttribute('data-filter');
-    applyFilter();
-  });
-});
-function applyFilter(){
-  document.querySelectorAll('#blogGrid .blog-card').forEach(card=>{
-    const match=currentFilter==='all'||card.getAttribute('data-category')===currentFilter;
-    card.classList.toggle('hidden',!match);
-  });
-}
-window.applyBlogFilter = applyFilter;
+// (filter removed for post view)
 
 // INIT
 (function(){
@@ -695,7 +685,7 @@ if(ham&&drawer){
 
 </script>
 
-<!-- ─── SUPABASE: Load posts ─── -->
+<!-- ─── SUPABASE: Load single post ─── -->
 <script type="module">
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 
@@ -709,6 +699,19 @@ const CATEGORY_LABELS = {
   seo:      { tr:'SEO',        en:'SEO' },
   crm:      { tr:'CRM',        en:'CRM' },
   strateji: { tr:'Strateji',   en:'Strategy' }
+}
+
+const STRINGS = {
+  notFoundTitle:   { tr:'Yazı bulunamadı', en:'Article not found' },
+  notFoundBody:    { tr:'Aradığınız yazı yayında değil veya silinmiş.', en:'The article you are looking for is not published or has been removed.' },
+  backToAll:       { tr:'← Tüm yazılara dön', en:'← Back to all posts' },
+  notInLang:       { tr:'Bu yazı henüz İngilizce olarak mevcut değil.', en:'This article is not yet available in English.' },
+  readInTR:        { tr:'Türkçe okuyun', en:'Read in Turkish' },
+  readInEN:        { tr:'Read in English', en:'Read in English' },
+  noContent:       { tr:'Bu yazının içeriği henüz girilmemiş.', en:'No content has been added to this article yet.' },
+  noSlug:          { tr:'Yazı bulunamadı.', en:'Article not found.' },
+  copied:          { tr:'Link kopyalandı ✓', en:'Link copied ✓' },
+  readUnit:        { tr:'dk okuma', en:'min read' }
 }
 
 function escapeHtml(s){
@@ -728,8 +731,6 @@ function getCurrentLang(){
   try { return localStorage.getItem('lang') || 'tr' } catch { return 'tr' }
 }
 
-// Pick localized field with TR fallback. If picking EN and no EN value exists, return null
-// so we can hide the card entirely.
 function pick(post, field, lang){
   const en = post[field + '_en']
   const tr = post[field + '_tr']
@@ -739,106 +740,229 @@ function pick(post, field, lang){
   return tr || en || null
 }
 
-let allPosts = []  // cache so we can re-render on language change
+let currentPost = null
 
-async function loadBlog(){
-  const grid = document.getElementById('blogGrid')
-  const loading = document.getElementById('postsLoading')
-
-  const { data: posts, error } = await sb
-    .from('posts')
-    .select('id,title_tr,title_en,slug,excerpt_tr,excerpt_en,category,cover_image,read_time,created_at')
-    .eq('published', true)
-    .order('created_at', { ascending:false })
-
-  if(loading) loading.remove()
-
-  if(error){
-    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:4rem 2rem;color:var(--text-muted)">Yazılar yüklenemedi: ${escapeHtml(error.message)}</div>`
-    document.querySelector('.featured-section').style.display = 'none'
-    return
-  }
-
-  allPosts = posts || []
-  renderBlog()
-}
-
-function renderBlog(){
+async function loadPost(){
+  const params = new URLSearchParams(location.search)
+  const slug = params.get('slug')
   const lang = getCurrentLang()
-  const grid = document.getElementById('blogGrid')
-  const featuredCard = document.getElementById('featuredCard')
-  const featuredSection = document.querySelector('.featured-section')
-
-  // Filter posts that have content in the current language
-  const availablePosts = allPosts.filter(p => {
-    const title = pick(p, 'title', lang)
-    return !!title
-  })
-
-  if(!availablePosts.length){
-    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:4rem 2rem;color:var(--text-muted)">
-      <p style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--text);margin-bottom:.5rem">${lang==='en' ? 'Coming soon.' : 'Yakında burada olacak.'}</p>
-      <p>${lang==='en' ? 'No published articles available in English yet.' : 'Şu anda yayında yazı bulunmuyor.'}</p>
-    </div>`
-    if(featuredSection) featuredSection.style.display = 'none'
+  if(!slug){
+    document.getElementById('postContent').innerHTML = `<div style="text-align:center;padding:3rem;color:var(--text-muted)">${STRINGS.noSlug[lang]} <a href="blog.html" style="color:var(--accent)">${STRINGS.backToAll[lang]}</a></div>`
     return
   }
 
-  if(featuredSection) featuredSection.style.display = ''
+  const { data: post, error } = await sb
+    .from('posts')
+    .select('*')
+    .eq('slug', slug)
+    .eq('published', true)
+    .single()
 
-  const featured = availablePosts[0]
-  const rest = availablePosts.slice(1)
-
-  if(featuredCard && featured){
-    const fTitle = pick(featured, 'title', lang)
-    const fExcerpt = pick(featured, 'excerpt', lang) || ''
-    featuredCard.style.display = ''
-    featuredCard.href = `blog-post.html?slug=${encodeURIComponent(featured.slug)}`
-    featuredCard.setAttribute('data-category', featured.category || '')
-    document.getElementById('featuredImg').src = featured.cover_image || 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=900&q=80'
-    document.getElementById('featuredImg').alt = fTitle
-    document.getElementById('featuredTag').textContent = (CATEGORY_LABELS[featured.category]?.[lang]) || featured.category || ''
-    document.getElementById('featuredTitle').textContent = fTitle
-    document.getElementById('featuredExcerpt').textContent = fExcerpt
+  if(error || !post){
+    document.title = STRINGS.notFoundTitle[lang] + ' — HealthUp Marketing'
+    document.getElementById('postTitle').textContent = STRINGS.notFoundTitle[lang]
+    document.getElementById('postContent').innerHTML = `<div style="text-align:center;padding:3rem;color:var(--text-muted)">${STRINGS.notFoundBody[lang]}<br><br><a href="blog.html" style="color:var(--accent);font-weight:600">${STRINGS.backToAll[lang]}</a></div>`
+    return
   }
 
-  grid.innerHTML = rest.map(p => {
-    const title = pick(p, 'title', lang)
-    const excerpt = pick(p, 'excerpt', lang) || ''
-    const catLabel = (CATEGORY_LABELS[p.category]?.[lang]) || p.category || ''
-    const readUnit = lang==='en' ? 'min' : 'dk'
-    return `
-    <a href="blog-post.html?slug=${encodeURIComponent(p.slug)}" class="blog-card" data-category="${escapeHtml(p.category||'')}">
-      <div class="blog-thumb">
-        ${p.cover_image
-          ? `<img src="${escapeHtml(p.cover_image)}" alt="${escapeHtml(title)}">`
-          : `<div style="width:100%;height:100%;background:linear-gradient(135deg,rgba(254,13,109,.15),rgba(253,122,73,.1));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;color:var(--text-muted);font-size:.85rem;letter-spacing:.1em;text-transform:uppercase">HealthUp</div>`
-        }
-      </div>
-      <div class="blog-tag-wrap">
-        <span class="blog-tag">${escapeHtml(catLabel)}</span>
-        ${p.read_time ? `<span class="blog-read-time">${p.read_time} ${readUnit}</span>` : ''}
-      </div>
-      <h3 class="blog-title">${escapeHtml(title)}</h3>
-      <p class="blog-excerpt">${escapeHtml(excerpt)}</p>
-    </a>`
-  }).join('')
-
-  // re-apply current filter
-  if(window.applyBlogFilter) window.applyBlogFilter()
+  currentPost = post
+  renderPost()
 }
 
-// Expose renderBlog so language switch can re-render
-window.renderBlog = renderBlog
+function renderPost(){
+  if(!currentPost) return
+  const lang = getCurrentLang()
+  const post = currentPost
 
-// Hook into setLang
+  const title           = pick(post, 'title', lang)
+  const excerpt         = pick(post, 'excerpt', lang)
+  const content         = pick(post, 'content', lang)
+  const metaDescription = pick(post, 'meta_description', lang)
+
+  // If EN version requested but doesn't exist → show fallback notice
+  if(lang === 'en' && !title){
+    const trTitle = post.title_tr || ''
+    document.title = (trTitle || STRINGS.notFoundTitle.en) + ' — HealthUp Marketing'
+    document.getElementById('postCover').style.display = 'none'
+    document.querySelector('.post-hero').style.background = 'linear-gradient(135deg,rgba(254,13,109,.15),rgba(253,122,73,.1)),#0a0a0a'
+    document.getElementById('postTag').textContent = (CATEGORY_LABELS[post.category]?.en) || post.category || ''
+    document.getElementById('postDate').textContent = formatDate(post.created_at, lang)
+    document.getElementById('postRead').textContent = ''
+    document.getElementById('postTitle').textContent = trTitle || STRINGS.notFoundTitle.en
+    document.getElementById('postExcerpt').textContent = ''
+    document.getElementById('postAuthor').textContent = ''
+    document.getElementById('postContent').innerHTML = `
+      <div style="text-align:center;padding:3rem 1rem;color:var(--text-muted)">
+        <p style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--text);margin-bottom:1rem">${STRINGS.notInLang.en}</p>
+        <button onclick="setLang('tr')" style="background:var(--grad);color:#fff;border:none;padding:.8rem 1.6rem;border-radius:6px;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;margin-top:1rem">${STRINGS.readInTR.en}</button>
+        <br><br>
+        <a href="blog.html" style="color:var(--accent);font-weight:600">${STRINGS.backToAll.en}</a>
+      </div>`
+    document.getElementById('relatedWrap').style.display = 'none'
+    return
+  }
+
+  // Normal rendering
+  document.title = `${title} — HealthUp Marketing`
+
+  // ─── SEO & Sosyal Paylaşım meta tag'leri ───
+  const setMeta = (id, value) => {
+    const el = document.getElementById(id)
+    if(!el) return
+    if(el.tagName === 'LINK') el.href = value
+    else el.setAttribute('content', value)
+  }
+
+  const pageUrl = location.href.split('#')[0]  // canonical URL'de fragment olmaz
+  const seoDescription = metaDescription || excerpt || `${title} — HealthUp Marketing blog yazısı.`
+  const seoImage = post.cover_image || 'https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/og-default.jpg'
+
+  setMeta('canonicalUrl', pageUrl)
+
+  // Standard meta description (Google snippet için)
+  let metaDesc = document.querySelector('meta[name="description"]')
+  if(metaDesc) metaDesc.setAttribute('content', seoDescription)
+
+  // Open Graph (FB, LinkedIn, WhatsApp)
+  setMeta('ogTitle', title)
+  setMeta('ogDescription', seoDescription)
+  setMeta('ogImage', seoImage)
+  setMeta('ogUrl', pageUrl)
+  const ogLocale = document.querySelector('meta[property="og:locale"]')
+  if(ogLocale) ogLocale.setAttribute('content', lang === 'en' ? 'en_US' : 'tr_TR')
+
+  // Twitter
+  setMeta('twitterTitle', title)
+  setMeta('twitterDescription', seoDescription)
+  setMeta('twitterImage', seoImage)
+
+  // Article
+  if(post.author_name) setMeta('articleAuthor', post.author_name)
+  if(post.created_at)  setMeta('articlePublished', new Date(post.created_at).toISOString())
+  if(post.category)    setMeta('articleSection', (CATEGORY_LABELS[post.category]?.[lang]) || post.category)
+
+  // <html lang> attribute (arama motorları okur)
+  document.documentElement.lang = lang === 'en' ? 'en' : 'tr'
+
+  // ─── JSON-LD Structured Data (Schema.org Article) ───
+  // Google Rich Results için: yazı tarihi, başlık, yazar, görsel
+  const existingLd = document.getElementById('articleJsonLd')
+  if(existingLd) existingLd.remove()
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "description": seoDescription,
+    "image": seoImage,
+    "datePublished": post.created_at,
+    "dateModified": post.updated_at || post.created_at,
+    "author": {
+      "@type": "Person",
+      "name": post.author_name || "HealthUp Marketing"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "HealthUp Marketing",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://healthupmarketing.com/wp-content/uploads/2025/01/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": pageUrl
+    },
+    "inLanguage": lang === 'en' ? 'en' : 'tr',
+    "articleSection": (CATEGORY_LABELS[post.category]?.[lang]) || post.category || ''
+  }
+  const ldScript = document.createElement('script')
+  ldScript.id = 'articleJsonLd'
+  ldScript.type = 'application/ld+json'
+  ldScript.textContent = JSON.stringify(jsonLd, null, 2)
+  document.head.appendChild(ldScript)
+
+  if(post.cover_image){
+    const cover = document.getElementById('postCover')
+    cover.src = post.cover_image
+    cover.alt = title
+    cover.style.display = ''
+    document.querySelector('.post-hero').style.background = '#0a0a0a'
+  } else {
+    document.getElementById('postCover').style.display = 'none'
+    document.querySelector('.post-hero').style.background = 'linear-gradient(135deg,rgba(254,13,109,.15),rgba(253,122,73,.1)),#0a0a0a'
+  }
+  document.getElementById('postTag').textContent = (CATEGORY_LABELS[post.category]?.[lang]) || post.category || ''
+  document.getElementById('postDate').textContent = formatDate(post.created_at, lang)
+  document.getElementById('postRead').textContent = post.read_time ? `${post.read_time} ${STRINGS.readUnit[lang]}` : ''
+  document.getElementById('postTitle').textContent = title
+  document.getElementById('postExcerpt').textContent = excerpt || ''
+  document.getElementById('postAuthor').textContent = post.author_name || ''
+
+  document.getElementById('postContent').innerHTML = content || `<p>${STRINGS.noContent[lang]}</p>`
+
+  const url = encodeURIComponent(location.href)
+  const tEnc = encodeURIComponent(title)
+  document.getElementById('shareTwitter').href = `https://twitter.com/intent/tweet?text=${tEnc}&url=${url}`
+  document.getElementById('shareLinkedIn').href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`
+  document.getElementById('shareWhatsApp').href = `https://wa.me/?text=${tEnc}%20${url}`
+  const copyBtn = document.getElementById('copyLink')
+  copyBtn.onclick = async () => {
+    try { await navigator.clipboard.writeText(location.href); alert(STRINGS.copied[lang]) }
+    catch { prompt('Link:', location.href) }
+  }
+
+  // Related posts
+  if(post.category){
+    loadRelated(post, lang)
+  }
+}
+
+async function loadRelated(post, lang){
+  const { data: related } = await sb
+    .from('posts')
+    .select('id,title_tr,title_en,slug,category,cover_image')
+    .eq('published', true)
+    .eq('category', post.category)
+    .neq('id', post.id)
+    .order('created_at', { ascending:false })
+    .limit(8)  // fetch more, then filter by language
+
+  // Filter by language availability
+  const availableRelated = (related || []).filter(r => pick(r, 'title', lang)).slice(0, 4)
+
+  if(availableRelated.length){
+    document.getElementById('relatedWrap').style.display = 'block'
+    document.getElementById('relatedGrid').innerHTML = availableRelated.map(r => {
+      const rTitle = pick(r, 'title', lang)
+      const catLabel = (CATEGORY_LABELS[r.category]?.[lang]) || r.category || ''
+      return `
+        <a href="blog-post.html?slug=${encodeURIComponent(r.slug)}" class="related-card">
+          <div class="related-card-img">
+            ${r.cover_image
+              ? `<img src="${escapeHtml(r.cover_image)}" alt="${escapeHtml(rTitle)}">`
+              : `<div style="width:100%;height:100%;background:linear-gradient(135deg,rgba(254,13,109,.15),rgba(253,122,73,.1));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;color:var(--text-muted);font-size:.8rem">HealthUp</div>`
+            }
+          </div>
+          <div class="related-card-body">
+            <span class="related-card-tag">${escapeHtml(catLabel)}</span>
+            <h3 class="related-card-title">${escapeHtml(rTitle)}</h3>
+          </div>
+        </a>`
+    }).join('')
+  } else {
+    document.getElementById('relatedWrap').style.display = 'none'
+  }
+}
+
+// Hook into language switcher
 const _origSetLang = window.setLang
 window.setLang = function(lang){
   if(_origSetLang) _origSetLang(lang)
-  if(allPosts.length) renderBlog()
+  if(currentPost) renderPost()
 }
 
-loadBlog()
+loadPost()
 </script>
 
 </body>

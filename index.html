@@ -232,7 +232,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .bt-tag{display:inline-block;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;border:1px solid rgba(254,121,72,.35);padding:6px 14px;border-radius:2px;margin-bottom:1.5rem;background-color:rgba(254,121,72,.06)}
 .bt-headline{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.02em;color:var(--text)}
 .bt-cards{display:grid;grid-template-columns:repeat(4,1fr) 200px;gap:0;border:1px solid var(--border-strong);border-radius:var(--radius-card);overflow:hidden;box-shadow:0 2px 24px rgba(0,0,0,.06)}
-.bt-card{background:var(--bg-card);padding:2rem 1.75rem;border-right:1px solid var(--border);display:flex;flex-direction:column;transition:background .2s;min-width:0;overflow:hidden}
+.bt-card{background:var(--bg-card);padding:2rem 1.75rem;border-right:1px solid var(--border);display:flex;flex-direction:column;transition:background .2s;min-width:0;overflow:hidden;cursor:pointer}
 .bt-card:hover{background:var(--card-hover)}
 .bt-card-photo{width:100%;height:160px;border-radius:8px;overflow:hidden;margin-bottom:1.4rem;background:var(--surface);position:relative}
 .bt-card-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
@@ -932,7 +932,7 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
     </div>
     <div class="bt-cards" style="grid-template-columns:repeat(3,1fr)">
       <!-- Google Reklamları -->
-      <div class="bt-card">
+      <div class="bt-card" onclick="if(!event.target.closest('a')){location.href='hizmet-google-reklamlari.html';}">
         <div class="bt-card-photo">
           <!-- FOTOĞRAF LİNKİ: Google Reklamları -->
           <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/google.webp" alt="Google Reklamları" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
@@ -942,7 +942,7 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
         <a href="hizmet-google-reklamlari.html" class="bt-card-btn"><span data-lang="tr" class="active">Devamını Gör</span><span data-lang="en">Learn More</span></a>
       </div>
       <!-- Web Sitesi -->
-      <div class="bt-card">
+      <div class="bt-card" onclick="if(!event.target.closest('a')){location.href='hizmet-web-sitesi.html';}">
         <div class="bt-card-photo">
           <!-- FOTOĞRAF LİNKİ: Web Sitesi -->
           <img data-lang="tr" class="active" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/webtasarimi.webp" alt="Web Sitesi" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
@@ -953,7 +953,7 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
         <a href="hizmet-web-sitesi.html" class="bt-card-btn"><span data-lang="tr" class="active">Devamını Gör</span><span data-lang="en">Learn More</span></a>
       </div>
       <!-- Sosyal Medya Yönetimi -->
-      <div class="bt-card">
+      <div class="bt-card" onclick="if(!event.target.closest('a')){location.href='hizmet-sosyal-medya.html';}">
         <div class="bt-card-photo">
           <!-- FOTOĞRAF LİNKİ: Sosyal Medya Yönetimi -->
           <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/sosyalmedya.webp" alt="Sosyal Medya Yönetimi" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
@@ -963,7 +963,7 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
         <a href="hizmet-sosyal-medya.html" class="bt-card-btn"><span data-lang="tr" class="active">Devamını Gör</span><span data-lang="en">Learn More</span></a>
       </div>
       <!-- Meta Reklamları -->
-      <div class="bt-card">
+      <div class="bt-card" onclick="if(!event.target.closest('a')){location.href='hizmet-meta-reklamlari.html';}">
         <div class="bt-card-photo">
           <!-- FOTOĞRAF LİNKİ: Meta Reklamları -->
           <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/meta.webp" alt="Meta Reklamları" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
@@ -973,7 +973,7 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
         <a href="hizmet-meta-reklamlari.html" class="bt-card-btn"><span data-lang="tr" class="active">Devamını Gör</span><span data-lang="en">Learn More</span></a>
       </div>
       <!-- Satış Eğitimi ve Danışmanlığı -->
-      <div class="bt-card">
+      <div class="bt-card" onclick="if(!event.target.closest('a')){location.href='hizmet-satis-egitimi.html';}">
         <div class="bt-card-photo">
           <!-- FOTOĞRAF LİNKİ: Satış Eğitimi -->
           <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/satisegitimi.webp" alt="Satış Eğitimi ve Danışmanlığı" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
@@ -983,7 +983,7 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
         <a href="hizmet-satis-egitimi.html" class="bt-card-btn"><span data-lang="tr" class="active">Devamını Gör</span><span data-lang="en">Learn More</span></a>
       </div>
       <!-- HealthUp CRM -->
-      <div class="bt-card" style="border-right:none">
+      <div class="bt-card" style="border-right:none" onclick="if(!event.target.closest('a')){location.href='hizmet-crm.html';}">
         <div class="bt-card-photo">
           <!-- FOTOĞRAF LİNKİ: HealthUp CRM -->
           <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/healthupcrm.webp" alt="HealthUp CRM" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
@@ -1099,7 +1099,7 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
     <div class="proj-header">
       <div class="proj-header-left">
         <h2 class="proj-title"><span data-lang-block="tr" class="active">Portföy değil,<br><em>projeler.</em></span><span data-lang-block="en">Not a portfolio.<br><em>Our projects.</em></span></h2>
-        <a href="#" class="proj-all-link">
+        <a href="projeler.html" class="proj-all-link">
           <span data-lang="tr" class="active">Tümünü gör</span><span data-lang="en">See all</span> →
         </a>
       </div>
@@ -1118,13 +1118,9 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
       <div class="proj-slider" id="projSlider">
 
         <!-- Kart 1: DentPrime -->
-        <a href="#" class="proj-card">
+        <a href="projeler.html" class="proj-card">
           <div class="proj-card-img">
             <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=700&q=80" alt="DentPrime">
-            <div class="proj-card-badges">
-              <span class="proj-badge">01</span>
-              <span class="proj-badge">2024</span>
-            </div>
             <div class="proj-card-logo">HealthUp × DentPrime</div>
           </div>
           <div class="proj-card-body">
@@ -1132,18 +1128,13 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
               <h3 class="proj-card-name">DentPrime</h3>
               <span class="proj-card-cat"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></span>
             </div>
-            <span class="proj-card-cta"><span data-lang="tr" class="active">İNCELE</span><span data-lang="en">VIEW</span> →</span>
           </div>
         </a>
 
         <!-- Kart 2: Livera Dental -->
-        <a href="#" class="proj-card">
+        <a href="projeler.html" class="proj-card">
           <div class="proj-card-img">
             <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&q=80" alt="Livera Dental">
-            <div class="proj-card-badges">
-              <span class="proj-badge">02</span>
-              <span class="proj-badge">2024</span>
-            </div>
             <div class="proj-card-logo">HealthUp × Livera</div>
           </div>
           <div class="proj-card-body">
@@ -1151,18 +1142,13 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
               <h3 class="proj-card-name">Livera Dental Clinic</h3>
               <span class="proj-card-cat"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></span>
             </div>
-            <span class="proj-card-cta"><span data-lang="tr" class="active">İNCELE</span><span data-lang="en">VIEW</span> →</span>
           </div>
         </a>
 
         <!-- Kart 3: Avrupa Sağlık Diş -->
-        <a href="#" class="proj-card">
+        <a href="projeler.html" class="proj-card">
           <div class="proj-card-img">
             <img src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=700&q=80" alt="Avrupa Sağlık Diş">
-            <div class="proj-card-badges">
-              <span class="proj-badge">03</span>
-              <span class="proj-badge">2024</span>
-            </div>
             <div class="proj-card-logo">HealthUp × Avrupa Sağlık</div>
           </div>
           <div class="proj-card-body">
@@ -1170,18 +1156,13 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
               <h3 class="proj-card-name">Avrupa Sağlık Diş</h3>
               <span class="proj-card-cat"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></span>
             </div>
-            <span class="proj-card-cta"><span data-lang="tr" class="active">İNCELE</span><span data-lang="en">VIEW</span> →</span>
           </div>
         </a>
 
         <!-- Kart 4: Doctor Fero -->
-        <a href="#" class="proj-card">
+        <a href="projeler.html" class="proj-card">
           <div class="proj-card-img">
             <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=700&q=80" alt="Doctor Fero">
-            <div class="proj-card-badges">
-              <span class="proj-badge">04</span>
-              <span class="proj-badge">2023</span>
-            </div>
             <div class="proj-card-logo">HealthUp × Doctor Fero</div>
           </div>
           <div class="proj-card-body">
@@ -1189,18 +1170,13 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
               <h3 class="proj-card-name">Doctor Fero</h3>
               <span class="proj-card-cat"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></span>
             </div>
-            <span class="proj-card-cta"><span data-lang="tr" class="active">İNCELE</span><span data-lang="en">VIEW</span> →</span>
           </div>
         </a>
 
         <!-- Kart 5: Mednfly -->
-        <a href="#" class="proj-card">
+        <a href="projeler.html" class="proj-card">
           <div class="proj-card-img">
             <img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=700&q=80" alt="Mednfly">
-            <div class="proj-card-badges">
-              <span class="proj-badge">05</span>
-              <span class="proj-badge">2024</span>
-            </div>
             <div class="proj-card-logo">HealthUp × Mednfly</div>
           </div>
           <div class="proj-card-body">
@@ -1208,7 +1184,6 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
               <h3 class="proj-card-name">Mednfly</h3>
               <span class="proj-card-cat"><span data-lang="tr" class="active">Diş Turizmi</span><span data-lang="en">Dental Tourism</span></span>
             </div>
-            <span class="proj-card-cta"><span data-lang="tr" class="active">İNCELE</span><span data-lang="en">VIEW</span> →</span>
           </div>
         </a>
 
