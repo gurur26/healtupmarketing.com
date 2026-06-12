@@ -4,10 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Panel — HealthUp Marketing</title>
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<meta name="theme-color" content="#0f0f0d">
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <style>
+html{scroll-behavior:smooth}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#0f0f0d;--bg-off:#181815;--bg-card:#1c1c19;
@@ -134,6 +143,31 @@ label{display:block;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:7
   .form-grid{grid-template-columns:1fr}
   .admin-header{padding:1rem}
 }
+/* ── TAB BAR ── */
+.admin-tabs{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;gap:4px;border-bottom:1px solid var(--border)}
+.admin-tab{font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.02em;color:var(--text-muted);background:none;border:none;padding:.9rem 1.4rem;cursor:pointer;position:relative;transition:color .2s;display:flex;align-items:center;gap:8px}
+.admin-tab:hover{color:var(--text)}
+.admin-tab.active{color:var(--text)}
+.admin-tab.active::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--grad)}
+.msg-badge{background:var(--grad);color:#fff;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;padding:0 5px}
+.admin-main-single{max-width:1200px;margin:0 auto;padding:2rem}
+/* ── MESSAGE CARDS ── */
+.msg-item{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.4rem;margin-bottom:.8rem;transition:border-color .2s}
+.msg-item.unread{border-left:3px solid;border-left-color:#fb106b;background:rgba(251,16,107,.03)}
+.msg-item-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:.6rem}
+.msg-item-name{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:var(--text);display:flex;align-items:center;gap:8px}
+.msg-unread-dot{width:8px;height:8px;border-radius:50%;background:var(--grad);flex-shrink:0}
+.msg-item-date{font-size:.72rem;color:var(--text-muted);white-space:nowrap}
+.msg-item-meta{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-size:.8rem;margin-bottom:.7rem}
+.msg-item-meta a{color:var(--accent);text-decoration:none}
+.msg-item-meta a:hover{text-decoration:underline}
+.msg-item-meta .lbl{color:var(--text-muted)}
+.msg-item-body{font-size:.86rem;color:var(--text);line-height:1.6;white-space:pre-wrap;background:var(--bg-off);border-radius:6px;padding:.8rem 1rem;margin-bottom:.7rem}
+.msg-item-actions{display:flex;gap:.5rem}
+.msg-btn{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.02em;padding:.4rem .8rem;border-radius:6px;border:1px solid var(--border);background:none;color:var(--text-muted);cursor:pointer;transition:all .2s}
+.msg-btn:hover{color:var(--text);border-color:var(--text-muted)}
+.msg-btn.danger:hover{color:#fff;background:#dc2626;border-color:#dc2626}
+.msg-lang-tag{font-size:.62rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text-muted);border:1px solid var(--border);border-radius:3px;padding:1px 5px}
 </style>
 </head>
 <body>
@@ -168,7 +202,16 @@ label{display:block;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:7
     </div>
   </header>
 
-  <main class="admin-main">
+  <!-- TAB BAR -->
+  <div class="admin-tabs">
+    <button class="admin-tab active" data-view="posts">Yazılar</button>
+    <button class="admin-tab" data-view="messages">
+      Mesajlar
+      <span class="msg-badge" id="msgBadge" style="display:none">0</span>
+    </button>
+  </div>
+
+  <main class="admin-main" id="view-posts">
 
     <!-- SIDEBAR: Posts list -->
     <aside class="admin-sidebar">
@@ -200,10 +243,14 @@ label{display:block;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:7
           </div>
 
           <div class="form-grid">
-            <!-- Slug + Category: tek dil, paylaşımlı -->
+            <!-- Slug TR + Slug EN + Category -->
             <div>
-              <label>Slug (URL) *</label>
-              <input type="text" id="postSlug" required placeholder="ornegin-baslik-burada" pattern="[a-z0-9\-]+">
+              <label>Slug TR (URL) *</label>
+              <input type="text" id="postSlug" required placeholder="ornek-turkce-baslik" pattern="[a-z0-9\-]+">
+            </div>
+            <div>
+              <label>Slug EN (URL)</label>
+              <input type="text" id="postSlugEn" placeholder="example-english-title" pattern="[a-z0-9\-]+">
             </div>
             <div>
               <label>Kategori *</label>
@@ -299,6 +346,19 @@ label{display:block;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:7
     </section>
 
   </main>
+
+  <!-- MESSAGES VIEW -->
+  <main class="admin-main-single" id="view-messages" style="display:none">
+    <div class="section-card">
+      <div class="section-title">
+        <span>Gelen Mesajlar</span>
+        <button class="btn-secondary compact" id="refreshMsgBtn" style="padding:.4rem .8rem;font-size:.7rem;width:auto">↻ Yenile</button>
+      </div>
+      <div id="messagesList">
+        <div class="loading">Yükleniyor…</div>
+      </div>
+    </div>
+  </main>
 </div>
 
 <!-- ─── SUPABASE + TIPTAP ─── -->
@@ -359,6 +419,7 @@ function enterAdmin(user){
   adminView.classList.add('show')
   $('userEmail').textContent = user.email
   loadPosts()
+  loadMessages()
 }
 
 async function logout(){
@@ -541,12 +602,13 @@ $('postTitle_tr').addEventListener('input', () => {
   }
 })
 $('postTitle_en').addEventListener('input', () => {
-  // only fill slug from EN if TR is empty and not touched
-  if(!currentPostId && !$('postSlug').dataset.touched && !$('postTitle_tr').value){
-    $('postSlug').value = slugify($('postTitle_en').value)
+  // EN başlığından otomatik EN slug üret (dokunulmadıysa)
+  if(!currentPostId && !$('postSlugEn').dataset.touched){
+    $('postSlugEn').value = slugify($('postTitle_en').value)
   }
 })
 $('postSlug').addEventListener('input', () => { $('postSlug').dataset.touched = '1' })
+$('postSlugEn').addEventListener('input', () => { $('postSlugEn').dataset.touched = '1' })
 
 // Cover image upload
 $('uploadCoverBtn').addEventListener('click', () => $('coverFileInput').click())
@@ -596,6 +658,8 @@ function showForm(post){
   // Shared
   $('postSlug').value     = post.slug || ''
   $('postSlug').dataset.touched = post.slug ? '1' : ''
+  $('postSlugEn').value   = post.slug_en || ''
+  $('postSlugEn').dataset.touched = post.slug_en ? '1' : ''
   $('postCategory').value = post.category || ''
   $('postReadTime').value = post.read_time || 5
   $('postCoverImage').value = post.cover_image || ''
@@ -625,14 +689,25 @@ postForm.addEventListener('submit', async e => {
   const titleTR = $('postTitle_tr').value.trim()
   const titleEN = $('postTitle_en').value.trim()
   const slug    = $('postSlug').value.trim().toLowerCase()
+  const slugEn  = $('postSlugEn').value.trim().toLowerCase()
   const category= $('postCategory').value
 
   if(!slug || !category){
-    showError(formError, 'Slug ve kategori zorunlu.')
+    showError(formError, 'Slug TR ve kategori zorunlu.')
     return
   }
   if(!titleTR && !titleEN){
     showError(formError, 'En az bir dilde başlık girmelisin.')
+    return
+  }
+  // EN içerik varsa EN slug da olmalı (yoksa EN URL üretilemez)
+  if(titleEN && !slugEn){
+    showError(formError, 'İngilizce başlık girdiysen İngilizce slug da girmelisin.')
+    return
+  }
+  // TR ve EN slug aynı olamaz (URL çakışması olur)
+  if(slugEn && slugEn === slug){
+    showError(formError, 'TR slug ile EN slug aynı olamaz.')
     return
   }
 
@@ -647,6 +722,7 @@ postForm.addEventListener('submit', async e => {
 
   const payload = {
     slug,
+    slug_en:     slugEn || null,
     category,
     // TR
     title_tr:    titleTR || null,
@@ -706,6 +782,106 @@ $('cancelBtn').addEventListener('click', () => {
   postForm.style.display = 'none'
   emptyState.style.display = 'block'
   document.querySelectorAll('.post-item').forEach(el=>el.classList.remove('active'))
+})
+
+// ═══════════════════════════════════════════════
+// MESAJLAR (İletişim formu gönderimleri)
+// ═══════════════════════════════════════════════
+let messagesCache = []
+
+function formatMsgDate(iso){
+  if(!iso) return ''
+  const d = new Date(iso)
+  const months = ['Oca','Şub','Mar','Nis','May','Haz','Tem','Ağu','Eyl','Eki','Kas','Ara']
+  const pad = n => String(n).padStart(2,'0')
+  return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}, ${pad(d.getHours())}:${pad(d.getMinutes())}`
+}
+
+async function loadMessages(){
+  const list = $('messagesList')
+  const { data: msgs, error } = await sb
+    .from('messages')
+    .select('*')
+    .order('created_at', { ascending: false })
+
+  if(error){
+    list.innerHTML = `<div class="empty">Mesajlar yüklenemedi: ${escapeHtml(error.message)}</div>`
+    return
+  }
+
+  messagesCache = msgs || []
+  const unread = messagesCache.filter(m => !m.is_read).length
+
+  // Badge güncelle
+  const badge = $('msgBadge')
+  if(unread > 0){ badge.textContent = unread; badge.style.display = 'inline-flex' }
+  else { badge.style.display = 'none' }
+
+  if(messagesCache.length === 0){
+    list.innerHTML = '<div class="empty">Henüz mesaj yok.</div>'
+    return
+  }
+
+  list.innerHTML = messagesCache.map(m => {
+    const unreadCls = m.is_read ? '' : 'unread'
+    const dot = m.is_read ? '' : '<span class="msg-unread-dot"></span>'
+    const phone = m.phone ? `<span><span class="lbl">Tel:</span> <a href="tel:${escapeHtml(m.phone)}">${escapeHtml(m.phone)}</a></span>` : ''
+    const company = m.company ? `<span><span class="lbl">Firma:</span> ${escapeHtml(m.company)}</span>` : ''
+    const body = m.message ? `<div class="msg-item-body">${escapeHtml(m.message)}</div>` : ''
+    return `
+      <div class="msg-item ${unreadCls}" data-id="${m.id}">
+        <div class="msg-item-head">
+          <div class="msg-item-name">${dot}${escapeHtml(m.name)} <span class="msg-lang-tag">${escapeHtml(m.lang||'tr')}</span></div>
+          <div class="msg-item-date">${formatMsgDate(m.created_at)}</div>
+        </div>
+        <div class="msg-item-meta">
+          <span><span class="lbl">E-posta:</span> <a href="mailto:${escapeHtml(m.email)}">${escapeHtml(m.email)}</a></span>
+          ${phone}
+          ${company}
+        </div>
+        ${body}
+        <div class="msg-item-actions">
+          ${m.is_read
+            ? `<button class="msg-btn" data-action="unread" data-id="${m.id}">Okunmadı işaretle</button>`
+            : `<button class="msg-btn" data-action="read" data-id="${m.id}">Okundu işaretle</button>`}
+          <button class="msg-btn danger" data-action="delete" data-id="${m.id}">Sil</button>
+        </div>
+      </div>`
+  }).join('')
+}
+
+// Mesaj aksiyonları (okundu / okunmadı / sil)
+$('messagesList').addEventListener('click', async (e) => {
+  const btn = e.target.closest('.msg-btn')
+  if(!btn) return
+  const id = btn.dataset.id
+  const action = btn.dataset.action
+
+  if(action === 'read' || action === 'unread'){
+    const newVal = (action === 'read')
+    const { error } = await sb.from('messages').update({ is_read: newVal }).eq('id', id)
+    if(error){ alert('Güncellenemedi: ' + error.message); return }
+    loadMessages()
+  } else if(action === 'delete'){
+    if(!confirm('Bu mesajı silmek istediğine emin misin?')) return
+    const { error } = await sb.from('messages').delete().eq('id', id)
+    if(error){ alert('Silinemedi: ' + error.message); return }
+    loadMessages()
+  }
+})
+
+$('refreshMsgBtn').addEventListener('click', loadMessages)
+
+// ─── SEKME GEÇİŞİ ───
+document.querySelectorAll('.admin-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'))
+    tab.classList.add('active')
+    const view = tab.dataset.view
+    $('view-posts').style.display    = (view === 'posts')    ? '' : 'none'
+    $('view-messages').style.display = (view === 'messages') ? '' : 'none'
+    if(view === 'messages') loadMessages()  // her açılışta tazele
+  })
 })
 
 // boot

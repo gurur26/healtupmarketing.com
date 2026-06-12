@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="tr" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
-<script>try{localStorage.setItem("lang","tr");}catch(e){}</script>
+<script>try{localStorage.setItem("lang","en");}catch(e){}</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
 (function(){
-  var t;
-  try{t=localStorage.getItem('theme');}catch(e){}
-  document.documentElement.setAttribute('data-theme', t || 'dark');
+  var t;try{t=localStorage.getItem('theme');}catch(e){}
+  document.documentElement.setAttribute('data-theme',t||'dark');
 })();
 </script>
-<title>HealthUp CRM — HealthUp Marketing</title>
-<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
-<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
-<link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
-<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-<link rel="manifest" href="favicon/site.webmanifest">
+<title>Social Media Management — HealthUp Marketing</title>
+<link rel="icon" type="image/x-icon" href="../favicon/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="../favicon/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+<link rel="manifest" href="../favicon/site.webmanifest">
 <meta name="theme-color" content="#0f0f0d">
 
 
-<link rel="canonical" href="https://healthupmarketing.com/hizmet-crm.html">
-<link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-crm.html">
-<link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-crm.html">
-<link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-crm.html">
+<meta name="description" content="The power of social media in health tourism: stand out in international competition with strategic content.">
+<link rel="canonical" href="https://healthupmarketing.com/en/service-social-media.html">
+<link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-sosyal-medya.html">
+<link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-social-media.html">
+<link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-sosyal-medya.html">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,8 +38,7 @@ html{scroll-behavior:smooth}
   --border:rgba(10,10,10,0.1);--border-strong:rgba(10,10,10,0.18);
   --nav-bg:rgba(250,250,248,0.92);
   --hero-bg:#0a0a0a;--hero-text:#fafaf8;
-  --hero-muted:rgba(250,250,248,0.55);--hero-border:rgba(255,255,255,0.08);
-  --card-hover:#f3f2ef;--icon-bg:#f0efec;
+  --hero-muted:rgba(250,250,248,0.55);
   --toggle-bg:rgba(10,10,10,0.07);
   --card-bg:#ffffff;--card-border:rgba(10,10,10,0.1);
 }
@@ -49,152 +48,92 @@ html{scroll-behavior:smooth}
   --border:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.14);
   --nav-bg:rgba(15,15,13,0.92);
   --hero-bg:#050504;--hero-text:#fafaf8;
-  --hero-muted:rgba(250,250,248,0.45);--hero-border:rgba(255,255,255,0.06);
-  --card-hover:#222220;--icon-bg:#2a2a26;
+  --hero-muted:rgba(250,250,248,0.45);
   --toggle-bg:rgba(255,255,255,0.09);
   --card-bg:#1c1c19;--card-border:rgba(255,255,255,0.08);
 }
-:root{
-  --accent:#fe0d6d;
-  --crm:#0b9e6e;
-  --grad:linear-gradient(135deg,#fd7a49 0%,#fe0d6d 100%);
-  --glow:0 0 18px rgba(254,13,109,.35),0 0 36px rgba(253,122,73,.2);
-  --radius:4px;--radius-card:12px;
-}
+:root{--accent:#fe0d6d;--grad:linear-gradient(135deg,#fd7a49 0%,#fe0d6d 100%);--glow:0 0 18px rgba(254,13,109,.35),0 0 36px rgba(253,122,73,.2)}
 
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .3s,color .3s}
-
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:64px;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:background .3s,border-color .3s}
-.nav-logo-light{display:block}
-.nav-logo-dark{display:none}
-[data-theme="dark"] .nav-logo-light{display:none}
-[data-theme="dark"] .nav-logo-dark{display:block}
-.nav-links{display:flex;gap:2.5rem;list-style:none}
-.nav-links a{font-size:.85rem;font-weight:500;color:var(--text-muted);text-decoration:none;letter-spacing:.01em;transition:color .2s}
-.nav-links a:hover{color:var(--text)}
-.nav-right{display:flex;align-items:center;gap:10px}
-.theme-toggle{width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text);transition:background .2s;flex-shrink:0}
-.theme-toggle svg{width:16px;height:16px}
-.icon-sun{display:none}.icon-moon{display:block}
-[data-theme="dark"] .icon-sun{display:block}[data-theme="dark"] .icon-moon{display:none}
-.lang-toggle{display:flex;align-items:center;background:var(--toggle-bg);border:1px solid var(--border);border-radius:6px;overflow:hidden}
-.lang-btn,a.lang-btn,a.lang-btn:link,a.lang-btn:visited{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:7px 12px;cursor:pointer;background:transparent;border:none;color:var(--text-muted);transition:background .2s,color .2s;line-height:1;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
-.lang-btn.active,a.lang-btn.active,a.lang-btn.active:link,a.lang-btn.active:visited{background:var(--text);color:var(--bg)}
-.lang-btn:hover,a.lang-btn:hover{color:var(--text)}
-.lang-btn.active:hover,a.lang-btn.active:hover{color:var(--bg)}
-.nav-cta{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);color:#fff;padding:10px 22px;border-radius:4px;text-decoration:none;transition:box-shadow .25s,transform .15s,filter .25s;white-space:nowrap;box-shadow:var(--glow)}
-.nav-cta:hover{box-shadow:0 0 28px rgba(251,16,107,.6),0 0 56px rgba(254,121,72,.35);transform:translateY(-1px);filter:brightness(1.08)}
-
-/* ── HAMBURGER ── */
-.hamburger{display:none;width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;align-items:center;justify-content:center;color:var(--text);flex-shrink:0;transition:background .2s}
-.hamburger svg{width:18px;height:18px}
-.hamburger .ham-open{display:block}.hamburger .ham-close{display:none}
-.hamburger.open .ham-open{display:none}.hamburger.open .ham-close{display:block}
-.mobile-drawer{position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:99;display:flex;flex-direction:column;padding:2rem 1.5rem;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);border-top:1px solid var(--border);overflow-y:auto}
-.mobile-drawer.open{transform:translateX(0)}
-.mobile-nav-links{list-style:none;display:flex;flex-direction:column;border-bottom:1px solid var(--border);padding-bottom:1.5rem;margin-bottom:1.5rem}
-.mobile-nav-links li a{display:flex;align-items:center;justify-content:space-between;font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;letter-spacing:-.02em;color:var(--text);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border);transition:color .2s}
-.mobile-nav-links li:last-child a{border-bottom:none}
-.mobile-nav-links li a:hover{color:var(--accent)}
-.mobile-nav-links li a::after{content:'→';font-size:1rem;color:var(--text-muted)}
-.mobile-cta{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--accent);color:#fff;padding:15px 24px;border-radius:4px;text-decoration:none;text-align:center;display:block;transition:opacity .2s}
-.mobile-cta:hover{opacity:.85}
 
 /* ── HERO ── */
 .service-hero{min-height:72vh;padding-top:64px;background:var(--hero-bg);color:var(--hero-text);display:flex;align-items:center;position:relative;overflow:hidden}
 .service-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
-/* CRM tonu — yeşil/teal blob */
-.service-hero::after{content:'';position:absolute;top:-100px;right:-60px;width:560px;height:560px;background:radial-gradient(circle,rgba(11,158,110,.12) 0%,rgba(254,13,109,.06) 55%,transparent 75%);pointer-events:none}
-.blob-left{position:absolute;bottom:-100px;left:-60px;width:380px;height:380px;background:radial-gradient(circle,rgba(11,158,110,.07) 0%,transparent 70%);pointer-events:none;z-index:0}
-
-/* ── HERO İÇ — iki sütun ── */
-.service-hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:5rem 3rem 4rem;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.service-hero::after{content:'';position:absolute;top:-100px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(225,48,108,.1) 0%,rgba(131,58,180,.07) 50%,transparent 75%);pointer-events:none;z-index:0}
+.blob-left{position:absolute;bottom:-100px;left:-60px;width:380px;height:380px;background:radial-gradient(circle,rgba(131,58,180,.06) 0%,transparent 70%);pointer-events:none;z-index:0}
+.service-hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:5rem 3rem 4rem;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 
 .service-breadcrumb{display:flex;align-items:center;gap:8px;font-family:'Syne',sans-serif;font-size:.75rem;font-weight:600;color:rgba(250,250,248,.4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.5rem}
 .service-breadcrumb a{color:rgba(250,250,248,.4);text-decoration:none;transition:color .2s}
-.service-breadcrumb a:hover{color:var(--accent)}
-.service-breadcrumb span{color:var(--accent)}
+.service-breadcrumb a:hover,.service-breadcrumb span{color:var(--accent)}
 
-.service-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(11,158,110,.12);border:1px solid rgba(11,158,110,.28);color:#0fd88e;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:1.5rem}
+.service-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(225,48,108,.12);border:1px solid rgba(225,48,108,.28);color:#e8689a;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:1.5rem}
 
-.service-hero-title{font-family:'DM Serif Display',serif;font-size:clamp(2.2rem,4.5vw,4rem);line-height:1.06;letter-spacing:-.025em;margin-bottom:1.5rem}
+.service-hero-title{font-family:'DM Serif Display',serif;font-size:clamp(2.2rem,4.5vw,3.8rem);line-height:1.05;letter-spacing:-.025em;margin-bottom:1.5rem}
 .service-hero-title em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block;line-height:1.15;padding:.05em .15em .15em .02em}
-
-.service-hero-lead{font-size:1rem;font-weight:300;color:var(--hero-muted);max-width:480px;line-height:1.75;margin-bottom:2.5rem}
-
+.service-hero-lead{font-size:1rem;font-weight:300;color:var(--hero-muted);max-width:480px;line-height:1.75;margin-bottom:2rem}
 .service-hero-cta{display:inline-flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:14px 28px;background:var(--grad);color:#fff;border-radius:6px;text-decoration:none;transition:filter .2s,transform .15s,box-shadow .2s;box-shadow:var(--glow)}
 .service-hero-cta:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 0 28px rgba(254,13,109,.5),0 0 56px rgba(253,122,73,.3)}
-
-.service-hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.07)}
+.service-hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.07);flex-wrap:wrap}
 .service-stat-num{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.03em;line-height:1}
 .service-stat-label{font-size:.78rem;color:rgba(250,250,248,.38);margin-top:.3rem}
 
-/* ── HERO GÖRSEL — dashboard mockup ── */
+/* ── HERO VİZUEL — sosyal medya grid mockup ── */
 .hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
+.sm-mockup-wrap{position:relative;width:100%;max-width:460px}
 
-.dashboard-wrap{position:relative;width:100%;max-width:520px}
+/* Instagram profil grid */
+.ig-profile-frame{background:#111110;border-radius:14px;border:1px solid rgba(255,255,255,.1);box-shadow:0 40px 80px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04);overflow:hidden}
 
-/* Ekran çerçevesi */
-.dash-frame{background:#111110;border-radius:14px;border:1px solid rgba(255,255,255,.1);box-shadow:0 40px 80px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.04);overflow:hidden}
+.ig-profile-header{padding:.9rem 1rem;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:.8rem}
+.ig-profile-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);padding:2px;flex-shrink:0}
+.ig-profile-avatar-inner{width:100%;height:100%;border-radius:50%;background:#1c1a1a;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.6rem;font-weight:800;color:#fff}
+.ig-profile-info{flex:1}
+.ig-profile-name{font-family:'Syne',sans-serif;font-size:.75rem;font-weight:800;color:#fff;line-height:1.2}
+.ig-profile-handle{font-size:.62rem;color:rgba(255,255,255,.4)}
+.ig-profile-stats{display:flex;gap:1.2rem;margin-top:.15rem}
+.ig-pstat{font-family:'Syne',sans-serif;font-size:.58rem;font-weight:700;color:rgba(255,255,255,.6)}
+.ig-pstat strong{color:#fff;display:block;font-size:.72rem}
+.ig-follow-btn{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;background:var(--accent);color:#fff;border:none;border-radius:6px;padding:5px 12px;cursor:default;white-space:nowrap}
 
-/* Üst bar */
-.dash-topbar{display:flex;align-items:center;gap:8px;padding:.7rem 1rem;border-bottom:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.03)}
-.dash-topbar-dot{width:9px;height:9px;border-radius:50%}
-.dash-topbar-dot:nth-child(1){background:#ff5f57}
-.dash-topbar-dot:nth-child(2){background:#febc2e}
-.dash-topbar-dot:nth-child(3){background:#28c840}
-.dash-topbar-title{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;color:rgba(255,255,255,.3);margin-left:8px;letter-spacing:.06em;text-transform:uppercase}
+/* Story highlights */
+.ig-highlights{display:flex;gap:.8rem;padding:.75rem 1rem;border-bottom:1px solid rgba(255,255,255,.06);overflow:hidden}
+.ig-highlight{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0}
+.ig-highlight-ring{width:46px;height:46px;border-radius:50%;padding:2px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)}
+.ig-highlight-img{width:100%;height:100%;border-radius:50%;background:#1c1a1a;border:2px solid #111}
+.ig-highlight-lbl{font-family:'Syne',sans-serif;font-size:.42rem;font-weight:600;color:rgba(255,255,255,.5);text-align:center}
 
-/* Dashboard içerik */
-.dash-body{padding:1rem;display:flex;flex-direction:column;gap:.75rem}
+/* İçerik grid 3×2 */
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.ig-grid-cell{aspect-ratio:1/1;position:relative;overflow:hidden}
+.ig-grid-cell img{width:100%;height:100%;object-fit:cover;display:block}
+/* placeholder renkli hücreler */
+.ig-cell-1{background:linear-gradient(135deg,#1a1a2e,#16213e)}
+.ig-cell-2{background:linear-gradient(135deg,#833ab4 0%,#fd1d1d 50%,#fcb045 100%)}
+.ig-cell-3{background:linear-gradient(135deg,#0f0c29,#302b63)}
+.ig-cell-4{background:linear-gradient(135deg,#fc466b,#3f5efb)}
+.ig-cell-5{background:linear-gradient(135deg,#11998e,#38ef7d)}
+.ig-cell-6{background:linear-gradient(135deg,#373b44,#4286f4)}
+.ig-cell-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:.7rem;color:rgba(255,255,255,.7);text-align:center;padding:.3rem;line-height:1.3}
+.ig-cell-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.4}
+.ig-cell-icon svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.5}
 
-/* Metrik satırı */
-.dash-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
-.dash-metric{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:.75rem .8rem}
-.dash-metric-val{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;line-height:1;margin-bottom:.25rem}
-.dash-metric-lbl{font-size:.58rem;color:rgba(255,255,255,.35);font-family:'Syne',sans-serif;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
-.dash-metric-up{font-size:.6rem;font-family:'Syne',sans-serif;font-weight:700;margin-top:.2rem;display:flex;align-items:center;gap:3px}
+/* Platform bar */
+.ig-platform-bar{padding:.6rem 1rem;border-top:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:.7rem}
+.ig-plat-pill{display:inline-flex;align-items:center;gap:4px;font-family:'Syne',sans-serif;font-size:.52rem;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:.04em}
+.ig-plat-pill svg{width:10px;height:10px}
 
-/* Tablo */
-.dash-table-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.4rem}
-.dash-table-title{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;color:rgba(255,255,255,.55);letter-spacing:.06em;text-transform:uppercase}
-.dash-table-badge{font-family:'Syne',sans-serif;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:10px;background:rgba(11,158,110,.18);color:#0fd88e;letter-spacing:.04em}
-.dash-rows{display:flex;flex-direction:column;gap:.35rem}
-.dash-row{display:flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:6px;padding:.5rem .7rem}
-.dash-row-avatar{width:22px;height:22px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.55rem;font-weight:800;color:#fff}
-.dash-row-info{flex:1;display:flex;flex-direction:column;gap:2px}
-.dash-row-name{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;color:rgba(255,255,255,.75)}
-.dash-row-sub{font-size:.58rem;color:rgba(255,255,255,.3)}
-.dash-row-status{font-family:'Syne',sans-serif;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:10px}
-.s-new{background:rgba(11,158,110,.18);color:#0fd88e}
-.s-followup{background:rgba(254,186,13,.15);color:#febc2e}
-.s-booked{background:rgba(80,120,255,.18);color:#7090ff}
-.s-lost{background:rgba(255,80,80,.12);color:#ff6060}
-
-/* Mini bar chart */
-.dash-chart{display:flex;align-items:flex-end;gap:4px;height:40px;margin-top:.2rem}
-.dash-bar{flex:1;border-radius:3px 3px 0 0;min-height:4px}
-
-/* ── Floating badge'ler ── */
+/* Floating badge */
 .hero-badge{position:absolute;background:rgba(15,15,13,.9);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:.65rem 1rem;display:flex;align-items:center;gap:.6rem;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;color:#fff;white-space:nowrap;box-shadow:0 8px 32px rgba(0,0,0,.4)}
 .hero-badge-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.hero-badge-icon svg{width:14px;height:14px}
+.hero-badge-icon svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .hero-badge-text{display:flex;flex-direction:column;line-height:1.2}
 .hero-badge-text strong{font-size:.75rem;color:#fff}
 .hero-badge-text span{font-size:.62rem;color:rgba(255,255,255,.42);font-weight:600}
-
-.badge-leads{top:-18px;right:0}
-.badge-leads .hero-badge-icon{background:rgba(11,158,110,.18);border:1px solid rgba(11,158,110,.3)}
-.badge-leads .hero-badge-icon svg{stroke:#0fd88e;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
-.badge-source{bottom:30px;left:-28px}
-.badge-source .hero-badge-icon{background:rgba(254,13,109,.16);border:1px solid rgba(254,13,109,.25)}
-.badge-source .hero-badge-icon svg{stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
-.badge-team{bottom:-14px;right:16px}
-.badge-team .hero-badge-icon{background:rgba(254,186,13,.14);border:1px solid rgba(254,186,13,.22)}
-.badge-team .hero-badge-icon svg{stroke:#febc2e;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.badge-engage{bottom:20px;left:-28px}
+.badge-engage .hero-badge-icon{background:rgba(225,48,108,.16);border:1px solid rgba(225,48,108,.28);color:#e1306c}
+.badge-platforms{top:-14px;right:-10px}
+.badge-platforms .hero-badge-icon{background:rgba(131,58,180,.16);border:1px solid rgba(131,58,180,.28);color:#ab6bd4}
 
 /* ── CONTENT ── */
 .service-content{background:var(--bg);padding:6rem 3rem;transition:background .3s}
@@ -206,15 +145,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .service-body ul{margin:1rem 0 1.5rem 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:.7rem}
 .service-body ul li{font-size:.95rem;color:var(--text-muted);line-height:1.6;padding-left:1.4rem;position:relative}
 .service-body ul li::before{content:'→';position:absolute;left:0;color:var(--accent);font-weight:700}
-.service-body .highlight-box{background:var(--bg-off);border:1px solid var(--card-border);border-left:3px solid #0b9e6e;border-radius:8px;padding:1.5rem 1.8rem;margin:2rem 0}
+.service-body .highlight-box{background:var(--bg-off,#181815);border:1px solid var(--card-border);border-left:3px solid var(--accent);border-radius:8px;padding:1.5rem 1.8rem;margin:2rem 0}
 .service-body .highlight-box p{margin-bottom:0;color:var(--text)}
+
+/* Platform kartları */
+.platform-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.5rem 0}
+.platform-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:1.3rem 1.4rem;transition:border-color .2s}
+.platform-card:hover{border-color:rgba(254,13,109,.25)}
+.platform-card-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:.8rem}
+.platform-card-title{font-family:'Syne',sans-serif;font-size:.84rem;font-weight:700;color:var(--text);margin-bottom:.35rem}
+.platform-card-desc{font-size:.78rem;color:var(--text-muted);line-height:1.55}
 
 /* Özellik kartları */
 .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
 .feature-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;padding:1.3rem 1.4rem;transition:border-color .2s}
-.feature-card:hover{border-color:rgba(11,158,110,.3)}
-.feature-card-icon{width:32px;height:32px;border-radius:7px;background:rgba(11,158,110,.1);border:1px solid rgba(11,158,110,.2);display:flex;align-items:center;justify-content:center;margin-bottom:.8rem}
-.feature-card-icon svg{width:16px;height:16px;stroke:#0b9e6e;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.feature-card:hover{border-color:rgba(254,13,109,.25)}
+.feature-card-icon{width:32px;height:32px;border-radius:7px;background:rgba(254,13,109,.1);border:1px solid rgba(254,13,109,.18);display:flex;align-items:center;justify-content:center;margin-bottom:.8rem}
+.feature-card-icon svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .feature-card-title{font-family:'Syne',sans-serif;font-size:.84rem;font-weight:700;color:var(--text);margin-bottom:.35rem}
 .feature-card-desc{font-size:.8rem;color:var(--text-muted);line-height:1.55}
 
@@ -224,23 +171,40 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .sidebar-card-title{font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.2rem}
 .sidebar-process{display:flex;flex-direction:column;gap:1rem}
 .sidebar-step{display:flex;gap:1rem;align-items:flex-start}
-.sidebar-step-num{width:28px;height:28px;min-width:28px;border-radius:50%;background:rgba(11,158,110,.12);border:1px solid rgba(11,158,110,.28);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:800;color:#0b9e6e;margin-top:1px}
+.sidebar-step-num{width:28px;height:28px;min-width:28px;border-radius:50%;background:rgba(254,13,109,.12);border:1px solid rgba(254,13,109,.25);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:800;color:var(--accent);margin-top:1px}
 .sidebar-step-text{font-size:.88rem;color:var(--text-muted);line-height:1.5}
 .sidebar-step-text strong{display:block;color:var(--text);font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;margin-bottom:.2rem}
 .sidebar-cta-btn{display:block;text-align:center;font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:14px;background:var(--grad);color:#fff;border-radius:8px;text-decoration:none;transition:filter .2s,transform .15s,box-shadow .2s;margin-top:.5rem;box-shadow:var(--glow)}
 .sidebar-cta-btn:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 0 28px rgba(254,13,109,.5),0 0 56px rgba(253,122,73,.3)}
 .sidebar-cta-secondary{display:block;text-align:center;font-family:'Syne',sans-serif;font-size:.78rem;font-weight:600;color:var(--text-muted);text-decoration:none;margin-top:.8rem;transition:color .2s}
 .sidebar-cta-secondary:hover{color:var(--accent)}
+.sidebar-list{display:flex;flex-direction:column;gap:.55rem}
+.sidebar-list-item{display:flex;align-items:center;gap:.75rem;padding:.6rem .8rem;background:var(--bg-off,#181815);border:1px solid var(--card-border);border-radius:8px}
+.sidebar-list-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.sidebar-list-label{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--text)}
 
-/* Modül listesi (sidebar) */
-.module-list{display:flex;flex-direction:column;gap:.55rem}
-.module-item{display:flex;align-items:center;gap:.75rem;padding:.6rem .8rem;background:var(--bg);border:1px solid var(--card-border);border-radius:8px}
-.module-dot{width:8px;height:8px;border-radius:50%;background:#0b9e6e;flex-shrink:0}
-.module-label{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--text)}
-.module-note{font-size:.68rem;color:var(--text-muted);margin-left:auto;white-space:nowrap}
+/* ── GÖRSEL GALERİ ── */
+.ad-gallery{background:var(--bg);padding:6rem 0 5rem;overflow:hidden;transition:background .3s}
+.ad-gallery-inner{max-width:1200px;margin:0 auto;padding:0 3rem}
+.ad-gallery-header{margin-bottom:3rem}
+.ad-gallery-tag{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.6rem}
+.ad-gallery-title{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.5rem);line-height:1.1;letter-spacing:-.02em}
+.ad-gallery-title em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block;line-height:1.15;padding:.05em .15em .15em .02em}
+.ad-gallery-track-wrap{overflow:hidden;cursor:grab;user-select:none}
+.ad-gallery-track-wrap:active{cursor:grabbing}
+.ad-gallery-track{display:flex;gap:24px;transition:transform .6s cubic-bezier(.4,0,.2,1);will-change:transform}
+.ad-gallery-item{flex:0 0 360px;width:360px;aspect-ratio:1/1;border-radius:12px;overflow:hidden;border:1px solid var(--card-border)}
+.ad-gallery-item img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.ad-gallery-nav{display:flex;align-items:center;justify-content:center;gap:1.2rem;margin-top:2.2rem}
+.ad-nav-btn{width:40px;height:40px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text);transition:background .2s,border-color .2s;flex-shrink:0}
+.ad-nav-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.ad-nav-btn svg{width:16px;height:16px}
+.ad-gallery-dots{display:flex;gap:6px;align-items:center}
+.ad-dot{width:6px;height:6px;border-radius:50%;background:var(--border-strong,rgba(255,255,255,.2));border:none;cursor:pointer;padding:0;transition:background .2s,transform .2s}
+.ad-dot.active{background:linear-gradient(135deg,#fe0d6d,#fd7a49);transform:scale(1.4)}
 
 /* ── DİĞER HİZMETLER ── */
-.other-services{background:var(--bg-off);padding:6rem 3rem;transition:background .3s}
+.other-services{background:var(--bg-off,#181815);padding:6rem 3rem;transition:background .3s}
 .other-services-inner{max-width:1200px;margin:0 auto}
 .other-services-header{margin-bottom:3rem}
 .other-services-tag{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.6rem}
@@ -262,13 +226,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hup-footer{background:#000000;border-top:1px solid rgba(255,255,255,.06)}
 .hup-footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:280px 1fr 1fr;gap:4rem;padding:4rem 3rem 3rem}
 .hup-footer-brand{display:flex;flex-direction:column;gap:1.2rem}
-.hup-footer-logo{display:flex;align-items:center;text-decoration:none}
 .hup-footer-slogan{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.5;max-width:220px}
 .hup-footer-social{display:flex;gap:10px;margin-top:.4rem}
 .hup-social-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);text-decoration:none;transition:border-color .2s,color .2s}
 .hup-social-btn:hover{border-color:var(--accent);color:var(--accent)}
 .hup-social-btn svg{width:16px;height:16px}
-.hup-footer-col-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:#fff;letter-spacing:-.01em;margin-bottom:.6rem}
+.hup-footer-col-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:.6rem}
 .hup-footer-col-sub{font-size:.82rem;color:rgba(255,255,255,.4);margin-bottom:1.2rem}
 .hup-contact-list{list-style:none;display:flex;flex-direction:column;gap:.9rem}
 .hup-contact-list li{display:flex;align-items:flex-start;gap:10px;font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.5}
@@ -283,10 +246,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hup-footer-bottom span{font-size:.75rem;color:rgba(255,255,255,.25)}
 
 /* ── DATA-LANG ── */
-[data-lang]{display:none!important}
-[data-lang].active{display:inline!important}
-[data-lang-block]{display:none!important}
-[data-lang-block].active{display:block!important}
+[data-lang]{display:none!important}[data-lang].active{display:inline!important}
+[data-lang-block]{display:none!important}[data-lang-block].active{display:block!important}
 
 /* ── MOBILE ── */
 @media(max-width:900px){
@@ -299,7 +260,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
   .service-content{padding:4rem 1.5rem}
   .service-content-inner{grid-template-columns:1fr}
   .service-sidebar{position:static}
+  .platform-grid{grid-template-columns:1fr}
   .feature-grid{grid-template-columns:1fr}
+  .ad-gallery-inner{padding:0 1.5rem}
+  .ad-gallery-item{flex:0 0 300px;width:300px}
   .other-services{padding:4rem 1.5rem}
   .other-cards{grid-template-columns:1fr 1fr;border-radius:8px}
   .other-card{border-right:none;border-bottom:1px solid var(--card-border)}
@@ -309,14 +273,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
   .hup-footer-bottom{padding:1.2rem 1.5rem}
 }
 /* NAV */
-
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:64px;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:background .3s,border-color .3s}
 .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-.03em;color:var(--text);text-decoration:none;transition:color .3s}
 .nav-logo-light{display:block}
 .nav-logo-dark{display:none}
 [data-theme="dark"] .nav-logo-light{display:none}
 [data-theme="dark"] .nav-logo-dark{display:block}
 .nav-badge{display:inline-block;font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--grad);color:#fff;padding:2px 6px;border-radius:2px;vertical-align:super;margin-left:4px}
-
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
 .nav-links a{font-size:.85rem;font-weight:500;color:var(--text-muted);text-decoration:none;letter-spacing:.01em;transition:color .2s}
 .nav-links a:hover{color:var(--text)}
 /* SERVICES DROPDOWN */
@@ -337,27 +301,27 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-dropdown-divider{height:1px;background:var(--border);margin:6px 4px}
 .nav-dropdown-all{display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 12px;border-radius:8px;text-decoration:none;font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);color:#fff;transition:filter .2s,transform .15s}
 .nav-dropdown-all:hover{filter:brightness(1.08);transform:translateY(-1px)}
-
+.nav-right{display:flex;align-items:center;gap:10px}
 /* Theme toggle */
-
+.theme-toggle{width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text);transition:background .2s;flex-shrink:0}
 .theme-toggle svg{width:16px;height:16px}
 .icon-sun{display:none}.icon-moon{display:block}
 [data-theme="dark"] .icon-sun{display:block}[data-theme="dark"] .icon-moon{display:none}
 /* Lang toggle */
-
+.lang-toggle{display:flex;align-items:center;background:var(--toggle-bg);border:1px solid var(--border);border-radius:6px;overflow:hidden}
 .lang-btn,a.lang-btn,a.lang-btn:link,a.lang-btn:visited{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:7px 12px;cursor:pointer;background:transparent;border:none;color:var(--text-muted);transition:background .2s,color .2s;line-height:1;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
 .lang-btn.active,a.lang-btn.active,a.lang-btn.active:link,a.lang-btn.active:visited{background:var(--text);color:var(--bg)}
 .lang-btn:hover,a.lang-btn:hover{color:var(--text)}
 .lang-btn.active:hover,a.lang-btn.active:hover{color:var(--bg)}
-
+.nav-cta{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);color:#fff;padding:10px 22px;border-radius:4px;text-decoration:none;transition:box-shadow .25s,transform .15s,filter .25s;white-space:nowrap;box-shadow:var(--glow)}
 .nav-cta:hover{box-shadow:0 0 28px rgba(251,16,107,.6),0 0 56px rgba(254,121,72,.35);transform:translateY(-1px);filter:brightness(1.08)}
 /* HAMBURGER */
-
+.hamburger{display:none;width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;align-items:center;justify-content:center;color:var(--text);flex-shrink:0;transition:background .2s}
 .hamburger svg{width:18px;height:18px;transition:opacity .2s}
 .hamburger .ham-open{display:block}.hamburger .ham-close{display:none}
 .hamburger.open .ham-open{display:none}.hamburger.open .ham-close{display:block}
 /* Mobile drawer */
-
+.mobile-drawer{position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:99;display:flex;flex-direction:column;padding:2rem 1.5rem;gap:0;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);border-top:1px solid var(--border);overflow-y:auto}
 .mobile-drawer.open{transform:translateX(0)}
 .mobile-nav-links{list-style:none;display:flex;flex-direction:column;gap:0;border-bottom:1px solid var(--border);padding-bottom:1.5rem;margin-bottom:1.5rem}
 .mobile-nav-links li a{display:flex;align-items:center;justify-content:space-between;font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;letter-spacing:-.02em;color:var(--text);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border);transition:color .2s}
@@ -513,45 +477,45 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
   <ul class="nav-links">
     <li class="nav-dropdown" id="servicesDropdown">
       <a href="index.html#brand-transform" class="nav-dropdown-trigger" id="servicesLink">
-        Hizmetlerimiz
+        Services
         <svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <div class="nav-dropdown-menu">
-        <a href="hizmet-google-reklamlari.html" class="nav-dropdown-item">
+        <a href="service-google-ads.html" class="nav-dropdown-item">
           <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="currentColor" opacity=".15"/><path d="M12.48 10.92v2.19h3.56c-.15.96-1.09 2.81-3.56 2.81-2.14 0-3.89-1.77-3.89-3.95s1.75-3.95 3.89-3.95c1.22 0 2.03.52 2.5 .97l1.7-1.64C15.45 6.47 14.06 5.9 12.48 5.9c-3.6 0-6.52 2.92-6.52 6.5s2.92 6.5 6.52 6.5c3.76 0 6.25-2.64 6.25-6.36 0-.43-.05-.75-.11-1.08h-6.14z" fill="currentColor"/></svg></span>
-          Google Reklamları
+          Google Ads
         </a>
-        <a href="hizmet-web-sitesi.html" class="nav-dropdown-item">
+        <a href="service-website.html" class="nav-dropdown-item">
           <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M3 8h18M8 3v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-          Web Sitesi
+          Website
         </a>
-        <a href="hizmet-sosyal-medya.html" class="nav-dropdown-item">
+        <a href="service-social-media.html" class="nav-dropdown-item">
           <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51L8.59 10.49" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-          Sosyal Medya Yönetimi
+          Social Media
         </a>
-        <a href="hizmet-meta-reklamlari.html" class="nav-dropdown-item">
+        <a href="service-meta-ads.html" class="nav-dropdown-item">
           <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l7 4.5-7 4.5z" fill="currentColor" opacity=".2"/><path d="M4 12c0 2.4 1.4 4.5 3.5 5.6C9 18.5 10.5 19 12 19s3-.5 4.5-1.4C18.6 16.5 20 14.4 20 12c0-1.7-.6-3.3-1.7-4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8.5 8.5c.8-1.2 2.1-2 3.5-2 1.8 0 3.3 1 4.1 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-          Meta Reklamları
+          Meta Ads
         </a>
-        <a href="hizmet-satis-egitimi.html" class="nav-dropdown-item">
+        <a href="service-sales-training.html" class="nav-dropdown-item">
           <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-          Satış Eğitimi &amp; Danışmanlık
+          Sales Training
         </a>
-        <a href="hizmet-crm.html" class="nav-dropdown-item">
+        <a href="service-crm.html" class="nav-dropdown-item">
           <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
           <span>HealthUp CRM</span>
         </a>
         <div class="nav-dropdown-divider"></div>
         <a href="index.html#brand-transform" class="nav-dropdown-all" id="servicesAllLink">
-          Tüm Hizmetler →
+          All Services →
         </a>
       </div>
     </li>
-    <li><a href="hakkimizda.html">Hakkımızda</a></li>
-    <li><a href="projeler.html">Projeler</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="sss.html">SSS</a></li>
-    <li><a href="iletisim.html">İletişim</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="nav-right">
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -559,11 +523,11 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
       <svg class="icon-sun" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg>
     </button>
     <div class="lang-toggle">
-      <button class="lang-btn active" id="btn-tr" type="button">TR</button><button class="lang-btn" id="btn-en" type="button" onclick="location.href='en/service-crm.html'">EN</button>
+      <button class="lang-btn" id="btn-tr" type="button" onclick="location.href='../hizmet-sosyal-medya.html'">TR</button><button class="lang-btn active" id="btn-en" type="button">EN</button>
     </div>
-    <a href="iletisim.html" class="nav-cta">
-      Teklif Al →
+    <a href="contact.html" class="nav-cta">
       
+      Get Proposal →
     </a>
     <button class="hamburger" id="hamburger" aria-label="Menü">
       <svg class="ham-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -577,27 +541,27 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
   <ul class="mobile-nav-links">
     <li class="mobile-services-item">
       <a href="index.html#brand-transform" class="mobile-link mobile-services-toggle">
-        Hizmetlerimiz
+        Services
         <svg viewBox="0 0 12 12" fill="none" style="width:14px;height:14px;transition:transform .25s"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <ul class="mobile-services-list">
-        <li><a href="hizmet-google-reklamlari.html" class="mobile-link mobile-service-link">Google Reklamları</a></li>
-        <li><a href="hizmet-web-sitesi.html" class="mobile-link mobile-service-link">Web Sitesi</a></li>
-        <li><a href="hizmet-sosyal-medya.html" class="mobile-link mobile-service-link">Sosyal Medya Yönetimi</a></li>
-        <li><a href="hizmet-meta-reklamlari.html" class="mobile-link mobile-service-link">Meta Reklamları</a></li>
-        <li><a href="hizmet-satis-egitimi.html" class="mobile-link mobile-service-link">Satış Eğitimi &amp; Danışmanlık</a></li>
-        <li><a href="hizmet-crm.html" class="mobile-link mobile-service-link">HealthUp CRM</a></li>
+        <li><a href="service-google-ads.html" class="mobile-link mobile-service-link">Google Ads</a></li>
+        <li><a href="service-website.html" class="mobile-link mobile-service-link">Website</a></li>
+        <li><a href="service-social-media.html" class="mobile-link mobile-service-link">Social Media</a></li>
+        <li><a href="service-meta-ads.html" class="mobile-link mobile-service-link">Meta Ads</a></li>
+        <li><a href="service-sales-training.html" class="mobile-link mobile-service-link">Sales Training</a></li>
+        <li><a href="service-crm.html" class="mobile-link mobile-service-link">HealthUp CRM</a></li>
       </ul>
     </li>
-    <li><a href="hakkimizda.html" class="mobile-link">Hakkımızda</a></li>
-    <li><a href="projeler.html" class="mobile-link">Projeler</a></li>
+    <li><a href="about.html" class="mobile-link">About</a></li>
+    <li><a href="projects.html" class="mobile-link">Projects</a></li>
     <li><a href="blog.html" class="mobile-link">Blog</a></li>
-    <li><a href="sss.html" class="mobile-link">SSS</a></li>
-    <li><a href="iletisim.html" class="mobile-link">İletişim</a></li>
+    <li><a href="faq.html" class="mobile-link">FAQ</a></li>
+    <li><a href="contact.html" class="mobile-link">Contact</a></li>
   </ul>
-  <a href="iletisim.html" class="mobile-cta mobile-link">
-    Teklif Al →
+  <a href="contact.html" class="mobile-cta mobile-link">
     
+    Get Proposal →
   </a>
 </div>
 
@@ -607,181 +571,153 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
   <div class="service-hero-inner">
 
     <!-- SOL: metin -->
-    <div class="service-hero-left">
+    <div>
       <div class="service-breadcrumb">
-        <a href="index.html">Ana Sayfa</a>
+        <a href="index.html">Home</a>
         <span>›</span>
-        <a href="index.html#brand-transform">Hizmetler</a>
+        <a href="index.html#brand-transform">Services</a>
         <span>›</span>
-        <span>HealthUp CRM</span>
+        <span>Social Media</span>
       </div>
 
       <div class="service-tag">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        Hasta Yönetim Sistemi
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Social Media Management
       </div>
 
       <h1 class="service-hero-title">
-        Sağlık Turizminin<br><em>Akıllı CRM'i</em>
         
+        We Take Your Brand<br>to the <em>Top</em> on Social Media
       </h1>
 
       <p class="service-hero-lead">
-        Hasta takibinden kaynak analizine, ekip performansından reklam optimizasyonuna — HealthUp CRM, sağlık turizminin tüm iş süreçlerini tek çatı altında yönetmenizi sağlar.
         
+        Professional social media management on Instagram, Facebook and YouTube that influences international patient prospects, builds trust and grows brand awareness at a global scale.
       </p>
 
       <a href="index.html#contact-form" class="service-hero-cta">
-        Demo Talep Et →
         
+        Free Strategy Session →
       </a>
 
       <div class="service-hero-stats">
         <div class="service-stat">
           <div class="service-stat-num">3×</div>
-          <div class="service-stat-label">Satış ekibi verimliliği</div>
+          <div class="service-stat-label">Average engagement growth</div>
         </div>
         <div class="service-stat">
-          <div class="service-stat-num">−40%</div>
-          <div class="service-stat-label">Hasta kaybı oranı</div>
+          <div class="service-stat-num">3</div>
+          <div class="service-stat-label">Platforms under one roof</div>
         </div>
         <div class="service-stat">
-          <div class="service-stat-num">360°</div>
-          <div class="service-stat-label">Hasta yolculuğu görünürlüğü</div>
+          <div class="service-stat-num">30+</div>
+          <div class="service-stat-label">Active accounts managed</div>
         </div>
       </div>
     </div>
 
-    <!-- SAĞ: dashboard mockup -->
+    <!-- SAĞ: Instagram profil mockup -->
     <div class="hero-visual">
-      <div class="dashboard-wrap">
+      <div class="sm-mockup-wrap">
 
-        <!-- Floating badge — leads -->
-        <div class="hero-badge badge-leads">
+        <!-- Floating badge — platformlar -->
+        <div class="hero-badge badge-platforms">
+          <div class="hero-badge-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div class="hero-badge-text">
+            <strong>IG · FB · YT</strong>
+            <span>All platforms</span>
+          </div>
+        </div>
+
+        <!-- Instagram profil çerçevesi -->
+        <div class="ig-profile-frame">
+
+          <!-- Header -->
+          <div class="ig-profile-header">
+            <div class="ig-profile-avatar">
+              <div class="ig-profile-avatar-inner">HUP</div>
+            </div>
+            <div class="ig-profile-info">
+              <div class="ig-profile-name">healthupmarketing</div>
+              <div class="ig-profile-stats">
+                <span class="ig-pstat"><strong>284</strong> posts</span>
+                <span class="ig-pstat"><strong>12.4K</strong> followers</span>
+                <span class="ig-pstat"><strong>98</strong> following</span>
+              </div>
+            </div>
+            <button class="ig-follow-btn">Follow</button>
+          </div>
+
+          <!-- Highlights -->
+          <div class="ig-highlights">
+            <div class="ig-highlight">
+              <div class="ig-highlight-ring"><div class="ig-highlight-img" style="background:linear-gradient(135deg,#833ab4,#fd1d1d)"></div></div>
+              <span class="ig-highlight-lbl">Cases</span>
+            </div>
+            <div class="ig-highlight">
+              <div class="ig-highlight-ring"><div class="ig-highlight-img" style="background:linear-gradient(135deg,#1877f2,#0f2e72)"></div></div>
+              <span class="ig-highlight-lbl">Team</span>
+            </div>
+            <div class="ig-highlight">
+              <div class="ig-highlight-ring"><div class="ig-highlight-img" style="background:linear-gradient(135deg,#11998e,#38ef7d)"></div></div>
+              <span class="ig-highlight-lbl">Blog</span>
+            </div>
+            <div class="ig-highlight">
+              <div class="ig-highlight-ring"><div class="ig-highlight-img" style="background:linear-gradient(135deg,#fc466b,#3f5efb)"></div></div>
+              <span class="ig-highlight-lbl">SSS</span>
+            </div>
+            <div class="ig-highlight">
+              <div class="ig-highlight-ring"><div class="ig-highlight-img" style="background:linear-gradient(135deg,#f7971e,#ffd200)"></div></div>
+              <span class="ig-highlight-lbl">Tips</span>
+            </div>
+          </div>
+
+          <!-- İçerik grid -->
+          <div class="ig-grid">
+            <div class="ig-grid-cell ig-cell-1">
+              <div class="ig-cell-overlay">Patient Conversion</div>
+            </div>
+            <div class="ig-grid-cell ig-cell-2">
+              <div class="ig-cell-icon"><svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
+            </div>
+            <div class="ig-grid-cell ig-cell-3">
+              <div class="ig-cell-overlay">Global Brand</div>
+            </div>
+            <div class="ig-grid-cell ig-cell-4">
+              <div class="ig-cell-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+            </div>
+            <div class="ig-grid-cell ig-cell-5">
+              <div class="ig-cell-overlay">Reels & Video</div>
+            </div>
+            <div class="ig-grid-cell ig-cell-6">
+              <div class="ig-cell-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+            </div>
+          </div>
+
+          <!-- Platform bar -->
+          <div class="ig-platform-bar">
+            <span class="ig-plat-pill">
+              <svg viewBox="0 0 24 24" fill="#1877f2" width="10" height="10"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Facebook
+            </span>
+            <span class="ig-plat-pill" style="margin-left:auto">
+              <svg viewBox="0 0 24 24" fill="#ff0000" width="10" height="10"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+              YouTube
+            </span>
+          </div>
+
+        </div>
+
+        <!-- Floating badge — etkileşim -->
+        <div class="hero-badge badge-engage">
           <div class="hero-badge-icon">
             <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
           </div>
           <div class="hero-badge-text">
-            <strong>+127 Yeni Lead</strong>
-            <span>Bu ay</span>
-          </div>
-        </div>
-
-        <!-- Dashboard çerçevesi -->
-        <div class="dash-frame">
-          <div class="dash-topbar">
-            <div class="dash-topbar-dot"></div>
-            <div class="dash-topbar-dot"></div>
-            <div class="dash-topbar-dot"></div>
-            <span class="dash-topbar-title">HealthUp CRM — Dashboard</span>
-          </div>
-
-          <div class="dash-body">
-
-            <!-- Metrikler -->
-            <div class="dash-metrics">
-              <div class="dash-metric">
-                <div class="dash-metric-val" style="color:#0fd88e">127</div>
-                <div class="dash-metric-lbl">Yeni Lead</div>
-                <div class="dash-metric-up" style="color:#0fd88e">▲ 18%</div>
-              </div>
-              <div class="dash-metric">
-                <div class="dash-metric-val" style="color:#febc2e">43</div>
-                <div class="dash-metric-lbl">Takipte</div>
-                <div class="dash-metric-up" style="color:#febc2e">● 5 bekliyor</div>
-              </div>
-              <div class="dash-metric">
-                <div class="dash-metric-val" style="color:#7090ff">19</div>
-                <div class="dash-metric-lbl">Randevu</div>
-                <div class="dash-metric-up" style="color:#7090ff">▲ 6%</div>
-              </div>
-            </div>
-
-            <!-- Hasta listesi -->
-            <div>
-              <div class="dash-table-header">
-                <span class="dash-table-title">Son Hastalar</span>
-                <span class="dash-table-badge">Canlı</span>
-              </div>
-              <div class="dash-rows">
-                <div class="dash-row">
-                  <div class="dash-row-avatar" style="background:#1877f2">MK</div>
-                  <div class="dash-row-info">
-                    <span class="dash-row-name">Mehmet K.</span>
-                    <span class="dash-row-sub">🇩🇪 Almanya · Diş</span>
-                  </div>
-                  <span class="dash-row-status s-new">Yeni</span>
-                </div>
-                <div class="dash-row">
-                  <div class="dash-row-avatar" style="background:#e1306c">SA</div>
-                  <div class="dash-row-info">
-                    <span class="dash-row-name">Sarah A.</span>
-                    <span class="dash-row-sub">🇬🇧 İngiltere · Estetik</span>
-                  </div>
-                  <span class="dash-row-status s-followup">Takip</span>
-                </div>
-                <div class="dash-row">
-                  <div class="dash-row-avatar" style="background:#0b9e6e">AJ</div>
-                  <div class="dash-row-info">
-                    <span class="dash-row-name">Ahmad J.</span>
-                    <span class="dash-row-sub">🇸🇦 S.Arabistan · Saç</span>
-                  </div>
-                  <span class="dash-row-status s-booked">Randevu</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Mini bar chart — kaynak bazında -->
-            <div>
-              <div class="dash-table-header">
-                <span class="dash-table-title">Kaynak Performansı</span>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:5px">
-                <div style="display:flex;align-items:center;gap:8px">
-                  <span style="font-size:.6rem;color:rgba(255,255,255,.4);width:64px;font-family:'Syne',sans-serif;font-weight:600">Google</span>
-                  <div style="flex:1;height:8px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden"><div style="width:74%;height:100%;background:#1877f2;border-radius:4px"></div></div>
-                  <span style="font-size:.6rem;color:rgba(255,255,255,.45);font-family:'Syne',sans-serif;font-weight:700;width:28px;text-align:right">74%</span>
-                </div>
-                <div style="display:flex;align-items:center;gap:8px">
-                  <span style="font-size:.6rem;color:rgba(255,255,255,.4);width:64px;font-family:'Syne',sans-serif;font-weight:600">Meta</span>
-                  <div style="flex:1;height:8px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden"><div style="width:52%;height:100%;background:#e1306c;border-radius:4px"></div></div>
-                  <span style="font-size:.6rem;color:rgba(255,255,255,.45);font-family:'Syne',sans-serif;font-weight:700;width:28px;text-align:right">52%</span>
-                </div>
-                <div style="display:flex;align-items:center;gap:8px">
-                  <span style="font-size:.6rem;color:rgba(255,255,255,.4);width:64px;font-family:'Syne',sans-serif;font-weight:600">WhatsApp</span>
-                  <div style="flex:1;height:8px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden"><div style="width:38%;height:100%;background:#25d366;border-radius:4px"></div></div>
-                  <span style="font-size:.6rem;color:rgba(255,255,255,.45);font-family:'Syne',sans-serif;font-weight:700;width:28px;text-align:right">38%</span>
-                </div>
-                <div style="display:flex;align-items:center;gap:8px">
-                  <span style="font-size:.6rem;color:rgba(255,255,255,.4);width:64px;font-family:'Syne',sans-serif;font-weight:600">Organik</span>
-                  <div style="flex:1;height:8px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden"><div style="width:24%;height:100%;background:#0b9e6e;border-radius:4px"></div></div>
-                  <span style="font-size:.6rem;color:rgba(255,255,255,.45);font-family:'Syne',sans-serif;font-weight:700;width:28px;text-align:right">24%</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Floating badge — kaynak -->
-        <div class="hero-badge badge-source">
-          <div class="hero-badge-icon">
-            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
-          </div>
-          <div class="hero-badge-text">
-            <strong>Kaynak Takibi</strong>
-            <span>Google · Meta · WhatsApp</span>
-          </div>
-        </div>
-
-        <!-- Floating badge — ekip -->
-        <div class="hero-badge badge-team">
-          <div class="hero-badge-icon">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-          </div>
-          <div class="hero-badge-text">
-            <strong>Departman Bazlı</strong>
-            <span>Satış · Operasyon · Aftercare</span>
+            <strong>+3× Engagement</strong>
+            <span>Average increase</span>
           </div>
         </div>
 
@@ -795,94 +731,105 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
 <section class="service-content">
   <div class="service-content-inner">
 
-    <!-- ANA METİN -->
     <div class="service-body">
 
-      <h2>HealthUp CRM <em>Nedir?</em></h2>
+      <h2>The Power of Social Media in <em>Health Tourism</em></h2>
       <p>
-        HealthUp CRM, HealthUp Marketing tarafından sağlık turizmi sektörüne özel olarak geliştirilen bir müşteri ilişkileri yönetimi sistemidir. Hastane, klinik, doktor ve acentelerin hasta süreçlerini düzenlemek, takip etmek ve optimize etmek amacıyla tasarlanmıştır.
         
+        International patients turn to social media most when researching health services and making decisions. They research clinics on social media, read reviews, watch video content and listen to recommendations from accounts they trust. Managing this process professionally is no longer a choice but a necessity for gaining recognition at a global scale.
       </p>
       <p>
-        Genel amaçlı CRM sistemlerinin aksine HealthUp CRM, sağlık turizminin kendine özgü dinamiklerini — çok dilli hasta yönetimi, ülke bazlı segmentasyon, çok kanallı lead takibi ve departman bazlı iş akışı — merkeze alarak kurgulanmıştır.
         
+        At HealthUp Marketing, we don't see social media management as simply making regular posts. Without running content strategy, audience segmentation, platform analytics and continuous optimisation together, social media investment cannot turn into opportunity.
       </p>
 
       <div class="highlight-box">
-        <p><strong>Sağlık turizminde genel bir CRM yetmez.</strong> Hastanın geldiği ülkeyi, kaynağı, hangi tedaviyi araştırdığını ve hangi departmanın sorumlu olduğunu aynı anda takip etmek; yalnızca sektöre özel geliştirilmiş bir sistemle mümkündür.</p>
+        <p><strong>Social media management for health content is not a job for a generic agency.</strong> Patient privacy, compliance of treatment content with platform policies, multilingual community management and healthcare-specific crisis communication — only a team that knows the sector can manage these correctly.</p>
       </div>
 
-      <h2>Temel <em>Özellikler</em></h2>
+      <h2>Platforms We <em>Manage</em></h2>
+
+      <div class="platform-grid">
+        <div class="platform-card">
+          <div class="platform-card-icon" style="background:linear-gradient(135deg,rgba(131,58,180,.15),rgba(253,29,29,.15));border:1px solid rgba(225,48,108,.2)">
+            <svg width="20" height="20" viewBox="0 0 24 24"><defs><linearGradient id="ig2" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#f09433"/><stop offset="50%" style="stop-color:#dc2743"/><stop offset="100%" style="stop-color:#bc1888"/></linearGradient></defs><rect width="24" height="24" rx="5" fill="url(#ig2)"/><path fill="#fff" d="M12 7.5A4.5 4.5 0 1 0 12 16.5 4.5 4.5 0 0 0 12 7.5zM12 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm5.25-8.5a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25z"/></svg>
+          </div>
+          <div class="platform-card-title">Instagram</div>
+          <div class="platform-card-desc">Reels, story, carousel and highlight management. Build patient trust with visually focused content.</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-icon" style="background:rgba(24,119,242,.1);border:1px solid rgba(24,119,242,.25)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#1877f2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </div>
+          <div class="platform-card-title">Facebook</div>
+          <div class="platform-card-desc">Page management, community building, campaign announcements and patient review management.</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-card-icon" style="background:rgba(255,0,0,.08);border:1px solid rgba(255,0,0,.2)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#ff0000"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          </div>
+          <div class="platform-card-title">YouTube</div>
+          <div class="platform-card-desc">Build trust with patient experience videos, treatment process content and informative interviews.</div>
+        </div>
+      </div>
+
+      <h2>What Does Our Service <em>Include?</em></h2>
 
       <div class="feature-grid">
         <div class="feature-card">
           <div class="feature-card-icon">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           </div>
-          <div class="feature-card-title">Hasta Takibi & Yönetimi</div>
-          <div class="feature-card-desc">Hasta listelerini hızlı yönetin, tekrarlı kayıtları önleyin ve veri bütünlüğünü koruyun.</div>
+          <div class="feature-card-title">Content Calendar & Planning</div>
+          <div class="feature-card-desc">Monthly content plan, platform-based scheduling and trend tracking for consistent publishing.</div>
         </div>
         <div class="feature-card">
           <div class="feature-card-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
           </div>
-          <div class="feature-card-title">Otomatik Hatırlatmalar</div>
-          <div class="feature-card-desc">Satış ve operasyon ekipleri için zamanlanmış hatırlatmalar; hiçbir adım atlanmaz.</div>
+          <div class="feature-card-title">Reels & Video Production</div>
+          <div class="feature-card-desc">Short video content focused on patient conversion, with scripting and editing support.</div>
         </div>
         <div class="feature-card">
           <div class="feature-card-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
           </div>
-          <div class="feature-card-title">Departman Bazlı Veritabanı</div>
-          <div class="feature-card-desc">Satış, operasyon ve aftercare ekipleri için ayrı iş akışları ve hasta listeleri.</div>
+          <div class="feature-card-title">Community Management</div>
+          <div class="feature-card-desc">Comment replies, DM management and multilingual community communication.</div>
         </div>
         <div class="feature-card">
           <div class="feature-card-icon">
             <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           </div>
-          <div class="feature-card-title">Detaylı Raporlama</div>
-          <div class="feature-card-desc">Hangi kaynaktan kaç hasta geldiğini, hangi kanalın dönüştürdüğünü net verilerle görün.</div>
+          <div class="feature-card-title">Analytics & Reporting</div>
+          <div class="feature-card-desc">Monthly performance reports, engagement analysis and content optimisation recommendations.</div>
         </div>
         <div class="feature-card">
           <div class="feature-card-icon">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
           </div>
-          <div class="feature-card-title">Ülke Bazlı Segmentasyon</div>
-          <div class="feature-card-desc">Hangi ülkeden daha fazla talep geldiğini analiz edin, stratejinizi coğrafyaya göre şekillendirin.</div>
+          <div class="feature-card-title">Multilingual Content</div>
+          <div class="feature-card-desc">Content production and localisation in TR / EN / AR for the target market.</div>
         </div>
         <div class="feature-card">
           <div class="feature-card-icon">
-            <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
           </div>
-          <div class="feature-card-title">Çalışan Performansı</div>
-          <div class="feature-card-desc">Hangi çalışanın hangi kaynakta başarılı olduğunu ölçün; görev dağılımını optimize edin.</div>
+          <div class="feature-card-title">Target Audience & Strategy Management</div>
+          <div class="feature-card-desc">Growth focused on conversions through target audience analysis, competitor tracking, and effective content strategy.</div>
         </div>
       </div>
 
-      <h2>Reklam Optimizasyonuna <em>Doğrudan Katkı</em></h2>
+      <h2><em>Strengthen</em> Your Digital Presence</h2>
       <p>
-        HealthUp CRM yalnızca bir hasta takip aracı değil; reklam bütçenizi en verimli şekilde yönlendirmenizi sağlayan bir karar destek sistemidir. Google, Meta, WhatsApp başvuruları, organik aramalar ve referans kaynaklı veriler tek panoda bir araya gelir.
         
+        Successful social media management requires maintaining a brand's digital presence continuously and consistently. Content calendar and planning processes ensure regular posting, increasing brand memorability. Users searching for health services continuously interact with the brand and trust is reinforced.
       </p>
       <ul>
-        <li><strong>Kaynak bazlı ROI analizi:</strong> Hangi kanalın gerçek hasta getirdiğini, hangisinin bütçe tükettiğini görün.</li>
-        <li><strong>Kampanya optimizasyonu için gerçek veri:</strong> CRM'deki hasta verisini reklam platformlarıyla senkronize ederek dönüşüm optimizasyonu yapın.</li>
-        <li><strong>Bütçe yeniden dağıtımı:</strong> Düşük performanslı kanallarda bütçeyi kısın; başarılı kanalları güçlendirin.</li>
-        <li><strong>Referans hasta verisi:</strong> Memnun hastalardan gelen referansları takip edin ve bu kanalın değerini ölçün.</li>
-      </ul>
-
-      <h2>Kimler <em>Kullanabilir?</em></h2>
-      <p>
-        HealthUp CRM; sağlık turizmi alanında faaliyet gösteren her ölçekteki kurum için uygundur. İster tek hekimli bir klinik olun, ister çok şubeli bir hastane zinciri — sistem, ihtiyacınıza göre yapılandırılır.
-        
-      </p>
-      <ul>
-        <li>Diş klinikleri ve dental grupları</li>
-        <li>Estetik cerrahi merkezleri</li>
-        <li>Saç ekimi klinikleri</li>
-        <li>Göz hastalıkları ve lazer merkezleri</li>
-        <li>Check-up ve sağlık turizmi acenteleri</li>
-        <li>Çok şubeli hastane zincirleri</li>
+        <li><strong>Audience segmentation:</strong> Content strategy by country, language and interest.</li>
+        <li><strong>Hashtag strategy:</strong> Health-tourism-specific, country-based hashtag research.</li>
+        <li><strong>Crisis communication:</strong> Fast, professional response management for negative comments and crisis situations.</li>
+        <li><strong>Brand voice consistency:</strong> Same brand language and visual identity across all platforms.</li>
       </ul>
     </div>
 
@@ -890,95 +837,71 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
     <aside class="service-sidebar">
 
       <div class="sidebar-card">
-        <div class="sidebar-card-title">Onboarding Süreci</div>
+        <div class="sidebar-card-title">Working Process</div>
         <div class="sidebar-process">
           <div class="sidebar-step">
             <div class="sidebar-step-num">1</div>
             <div class="sidebar-step-text">
-              <strong>Keşif Görüşmesi</strong>
-              Mevcut süreçlerinizi, ekip yapınızı ve hedeflerinizi öğreniyoruz.
+              <strong>Current State Analysis</strong>
+              Audit of existing accounts, competitor analysis and target audience identification.
             </div>
           </div>
           <div class="sidebar-step">
             <div class="sidebar-step-num">2</div>
             <div class="sidebar-step-text">
-              <strong>Özelleştirme</strong>
-              CRM, kurumunuzun departman yapısına ve kaynak takibine göre yapılandırılır.
+              <strong>Strategy & Content Plan</strong>
+              Platform-based strategy, monthly content calendar and creative brief preparation.
             </div>
           </div>
           <div class="sidebar-step">
             <div class="sidebar-step-num">3</div>
             <div class="sidebar-step-text">
-              <strong>Veri Aktarımı</strong>
-              Mevcut hasta verileriniz güvenli biçimde sisteme aktarılır.
+              <strong>Content Production</strong>
+              Graphic design, video editing and copywriting.
             </div>
           </div>
           <div class="sidebar-step">
             <div class="sidebar-step-num">4</div>
             <div class="sidebar-step-text">
-              <strong>Ekip Eğitimi</strong>
-              Tüm departmanlar için uygulamalı CRM kullanım eğitimi verilir.
+              <strong>Publishing & Community</strong>
+              Scheduled publishing, comment management and engagement tracking.
             </div>
           </div>
           <div class="sidebar-step">
             <div class="sidebar-step-num">5</div>
             <div class="sidebar-step-text">
-              <strong>Sürekli Destek</strong>
-              Aylık optimizasyon görüşmeleri ve teknik destek.
+              <strong>Reporting & Optimisation</strong>
+              Monthly performance report and strategy update.
             </div>
           </div>
         </div>
       </div>
 
       <div class="sidebar-card">
-        <div class="sidebar-card-title">CRM Modülleri</div>
-        <div class="module-list">
-          <div class="module-item">
-            <div class="module-dot"></div>
-            <span class="module-label">Hasta Yönetimi</span>
-            <span class="module-note">✓</span>
-          </div>
-          <div class="module-item">
-            <div class="module-dot"></div>
-            <span class="module-label">Kaynak Analizi</span>
-            <span class="module-note">✓</span>
-          </div>
-          <div class="module-item">
-            <div class="module-dot"></div>
-            <span class="module-label">Departman Akışları</span>
-            <span class="module-note">✓</span>
-          </div>
-          <div class="module-item">
-            <div class="module-dot"></div>
-            <span class="module-label">Performans Raporları</span>
-            <span class="module-note">✓</span>
-          </div>
-          <div class="module-item">
-            <div class="module-dot"></div>
-            <span class="module-label">Ülke Segmentasyonu</span>
-            <span class="module-note">✓</span>
-          </div>
-          <div class="module-item">
-            <div class="module-dot" style="background:#febc2e"></div>
-            <span class="module-label">WhatsApp Entegrasyonu</span>
-            <span class="module-note" style="color:#febc2e">Yakında</span>
-          </div>
+        <div class="sidebar-card-title">What's in the Packages?</div>
+        <div class="sidebar-list">
+          <div class="sidebar-list-item"><div class="sidebar-list-dot"></div><span class="sidebar-list-label">Monthly content calendar</span></div>
+          <div class="sidebar-list-item"><div class="sidebar-list-dot"></div><span class="sidebar-list-label">Visual & video design</span></div>
+          <div class="sidebar-list-item"><div class="sidebar-list-dot"></div><span class="sidebar-list-label">Comment & DM management</span></div>
+          <div class="sidebar-list-item"><div class="sidebar-list-dot"></div><span class="sidebar-list-label">Multilingual content</span></div>
+          <div class="sidebar-list-item"><div class="sidebar-list-dot"></div><span class="sidebar-list-label">Monthly analytics report</span></div>
+          <div class="sidebar-list-item"><div class="sidebar-list-dot"></div><span class="sidebar-list-label">Hashtag research</span></div>
         </div>
       </div>
 
       <div class="sidebar-card">
-        <div class="sidebar-card-title">Demo Talep Edin</div>
+        <div class="sidebar-card-title">Let's Get Started</div>
         <p style="font-size:.85rem;color:var(--text-muted);line-height:1.6;margin-bottom:1.2rem">
-          HealthUp CRM'i canlı ortamda görün. 30 dakikalık ücretsiz demo için iletişime geçin.
           
+          We audit your accounts for free. Get in touch for a 30-minute strategy session.
         </p>
         <a href="index.html#contact-form" class="sidebar-cta-btn">
-          Demo Talep Et →
           
+          Get Free Audit →
         </a>
-        <a href="projeler.html" class="sidebar-cta-secondary">
-          Başarı Hikayelerini Gör
+        <a href="projects.html" class="sidebar-cta-secondary">
           
+          View Success Stories
         </a>
       </div>
 
@@ -986,46 +909,82 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
   </div>
 </section>
 
+<!-- GÖRSEL GALERİ -->
+<section class="ad-gallery">
+  <div class="ad-gallery-inner">
+    <div class="ad-gallery-header">
+      <div class="ad-gallery-tag">Content Examples</div>
+      <h2 class="ad-gallery-title">
+        
+        Our <em>Social Media Content</em>
+      </h2>
+    </div>
+    <div class="ad-gallery-track-wrap">
+      <div class="ad-gallery-track" id="adGalleryTrack">
+        <div class="ad-gallery-item"><img src="kreatifler/sosyalmedya/23.webp" alt="İçerik 1"></div>
+        <div class="ad-gallery-item"><img src="kreatifler/sosyalmedya/21.webp" alt="İçerik 2"></div>
+        <div class="ad-gallery-item"><img src="kreatifler/sosyalmedya/22.webp" alt="İçerik 3"></div>
+        <div class="ad-gallery-item"><img src="kreatifler/sosyalmedya/24.webp" alt="İçerik 4"></div>
+        <div class="ad-gallery-item"><img src="kreatifler/sosyalmedya/25.webp" alt="İçerik 5"></div>
+        <div class="ad-gallery-item"><img src="kreatifler/sosyalmedya/26.webp" alt="İçerik 6"></div>
+        <div class="ad-gallery-item"><img src="kreatifler/sosyalmedya/27.webp" alt="İçerik 7"></div>
+        <div class="ad-gallery-item"><img src="kreatifler/sosyalmedya/22.webp" alt="İçerik 8"></div>
+        <div class="ad-gallery-item"><img src="kreatifler/sosyalmedya/21.webp" alt="İçerik 9"></div>
+        <div class="ad-gallery-item"><img src="kreatifler/sosyalmedya/23.webp" alt="İçerik 10"></div>
+      </div>
+    </div>
+    <div class="ad-gallery-nav">
+      <button class="ad-nav-btn" id="adPrev" aria-label="Önceki">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="ad-gallery-dots" id="adDots"></div>
+      <button class="ad-nav-btn" id="adNext" aria-label="Sonraki">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
 <!-- DİĞER HİZMETLER -->
 <section class="other-services">
   <div class="other-services-inner">
     <div class="other-services-header">
-      <div class="other-services-tag">Tüm Hizmetlerimiz</div>
+      <div class="other-services-tag">All Services</div>
       <h2 class="other-services-title">
-        Diğer <em>Hizmetlerimiz</em>
         
+        Our Other <em>Services</em>
       </h2>
     </div>
     <div class="other-cards">
-      <a href="hizmet-crm.html" class="other-card active-service">
+      <a href="service-social-media.html" class="other-card active-service">
+        <div class="other-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+        <div class="other-card-name">Social Media</div>
+        <div class="other-card-desc">Management that helps you stand out internationally.</div>
+        <div class="other-card-link">Current Page</div>
+      </a>
+      <a href="service-google-ads.html" class="other-card">
+        <div class="other-card-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+        <div class="other-card-name">Google Ads</div>
+        <div class="other-card-desc">Capture the right patient at the right moment on search.</div>
+        <div class="other-card-link">Learn More →</div>
+      </a>
+      <a href="service-meta-ads.html" class="other-card">
+        <div class="other-card-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
+        <div class="other-card-name">Meta Ads</div>
+        <div class="other-card-desc">Growth with Facebook, Instagram and WhatsApp.</div>
+        <div class="other-card-link">Learn More →</div>
+      </a>
+      <a href="service-website.html" class="other-card">
+        <div class="other-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="other-card-name">Website</div>
+        <div class="other-card-desc">Conversion-focused, fast and powerful infrastructures.</div>
+        <div class="other-card-link">Learn More →</div>
+      </a>
+      <a href="service-crm.html" class="other-card">
         <div class="other-card-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
         <div class="other-card-name">HealthUp CRM</div>
-        <div class="other-card-desc">Sağlık turizmine özel müşteri yönetim sistemi.</div>
-        <div class="other-card-link">Aktif Sayfa</div>
-      </a>
-      <a href="hizmet-google-reklamlari.html" class="other-card">
-        <div class="other-card-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
-        <div class="other-card-name">Google Reklamları</div>
-        <div class="other-card-desc">Arama ağında doğru hastayı doğru anda yakalayın.</div>
-        <div class="other-card-link">Devamını Gör →</div>
-      </a>
-      <a href="hizmet-meta-reklamlari.html" class="other-card">
-        <div class="other-card-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
-        <div class="other-card-name">Meta Reklamları</div>
-        <div class="other-card-desc">Facebook, Instagram ve WhatsApp ile büyüme.</div>
-        <div class="other-card-link">Devamını Gör →</div>
-      </a>
-      <a href="hizmet-web-sitesi.html" class="other-card">
-        <div class="other-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-        <div class="other-card-name">Web Sitesi</div>
-        <div class="other-card-desc">Dönüşüme odaklı, hızlı ve güçlü altyapılar.</div>
-        <div class="other-card-link">Devamını Gör →</div>
-      </a>
-      <a href="hizmet-satis-egitimi.html" class="other-card">
-        <div class="other-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
-        <div class="other-card-name">Satış Eğitimi</div>
-        <div class="other-card-desc">Ekibinizi global rekabet için hazırlayan danışmanlık.</div>
-        <div class="other-card-link">Devamını Gör →</div>
+        <div class="other-card-desc">Customer management system built for health tourism.</div>
+        <div class="other-card-link">Learn More →</div>
       </a>
     </div>
   </div>
@@ -1038,7 +997,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
       <a href="index.html" class="hup-footer-logo">
         <img src="https://healthupmarketing.com/wp-content/uploads/2025/01/logo.png" alt="HealthUp Marketing" style="height:44px;width:auto;object-fit:contain">
       </a>
-      <p class="hup-footer-slogan">Sağlıkta Güçlü Pazarlama, Akıllı Büyüme</p>
+      <p class="hup-footer-slogan">Strong Marketing in Health, Smart Growth</p>
       <div class="hup-footer-social">
         <a href="#" class="hup-social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
         <a href="#" class="hup-social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
@@ -1047,8 +1006,8 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
       </div>
     </div>
     <div class="hup-footer-col">
-      <h4 class="hup-footer-col-title">İletişim Bilgileri</h4>
-      <p class="hup-footer-col-sub">Bizimle iletişime geçin!</p>
+      <h4 class="hup-footer-col-title">Contact Info</h4>
+      <p class="hup-footer-col-sub">Get in touch with us!</p>
       <ul class="hup-contact-list">
         <li><span class="hup-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span>Çınarlı Mah, 1572 Sk. No:33, 35170 Konak/İzmir</span></li>
         <li><span class="hup-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span><a href="tel:+905367967126">+90 536 796 71 26</a></li>
@@ -1056,20 +1015,20 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
       </ul>
     </div>
     <div class="hup-footer-col">
-      <h4 class="hup-footer-col-title">Hızlı Erişim</h4>
+      <h4 class="hup-footer-col-title">Quick Links</h4>
       <div class="hup-footer-nav">
-        <a href="hakkimizda.html">Hakkımızda</a>
-        <a href="index.html#brand-transform">Hizmetlerimiz</a>
-        <a href="projeler.html">Projeler</a>
+        <a href="about.html">About Us</a>
+        <a href="index.html#brand-transform">Services</a>
+        <a href="projects.html">Projects</a>
         <a href="blog.html">Blog</a>
-        <a href="sss.html">SSS</a>
-        <a href="iletisim.html">İletişim</a>
-        <a href="gizlilik.html">Gizlilik</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
       </div>
     </div>
   </div>
   <div class="hup-footer-bottom">
-    <span>© 2026 HealthUp Marketing. Tüm hakları saklıdır.</span>
+    <span>© 2026 HealthUp Marketing. All rights reserved.</span>
   </div>
 </footer>
 
@@ -1085,19 +1044,18 @@ document.getElementById('themeToggle').addEventListener('click',()=>{
 // LANG
 function setLang(lang){
   document.querySelectorAll('[data-lang]').forEach(el=>{
-    el.classList.toggle('active', el.getAttribute('data-lang')===lang);
+    el.classList.toggle('active',el.getAttribute('data-lang')===lang);
   });
   document.querySelectorAll('[data-lang-block]').forEach(el=>{
-    el.classList.toggle('active', el.getAttribute('data-lang-block')===lang);
+    el.classList.toggle('active',el.getAttribute('data-lang-block')===lang);
   });
-  document.getElementById('btn-tr').classList.toggle('active', lang==='tr');
-  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-tr').classList.toggle('active',lang==='tr');
+  document.getElementById('btn-en').classList.toggle('active',lang==='en');
   try{localStorage.setItem('lang',lang);}catch(e){}
 }
 (function(){
-  var saved;
-  try{saved=localStorage.getItem('lang')||'tr';}catch(e){saved='tr';}
-  setLang(saved);
+  var s;try{s=localStorage.getItem('lang')||'tr';}catch(e){s='tr';}
+  setLang(s);
 })();
 
 
@@ -1117,8 +1075,70 @@ function setLang(lang){
 })();
 
 
+// AD GALLERY
+(function(){
+  var track   = document.getElementById('adGalleryTrack');
+  var dotsWrap= document.getElementById('adDots');
+  var btnPrev = document.getElementById('adPrev');
+  var btnNext = document.getElementById('adNext');
+  if(!track) return;
+
+  var GAP     = 24;                          // gap: 24px (1.5rem)
+  var ITEM_W  = window.innerWidth <= 900 ? 300 : 360;  // matches CSS
+  var STEP    = ITEM_W + GAP;
+  var items   = track.querySelectorAll('.ad-gallery-item');
+  var total   = items.length;
+  var visible = window.innerWidth <= 900 ? 1 : 3;
+  var maxIdx  = total - visible;
+  var current = 0;
+  var autoTimer;
+
+  // dots
+  for(var i = 0; i <= maxIdx; i++){
+    (function(idx){
+      var d = document.createElement('button');
+      d.className = 'ad-dot' + (idx===0?' active':'');
+      d.setAttribute('aria-label','Slayt '+(idx+1));
+      d.addEventListener('click', function(){ goTo(idx); });
+      dotsWrap.appendChild(d);
+    })(i);
+  }
+
+  function goTo(idx){
+    current = Math.max(0, Math.min(idx, maxIdx));
+    track.style.transform = 'translateX(-' + (current * STEP) + 'px)';
+    dotsWrap.querySelectorAll('.ad-dot').forEach(function(d,i){
+      d.classList.toggle('active', i === current);
+    });
+    resetAuto();
+  }
+
+  function resetAuto(){
+    clearInterval(autoTimer);
+    autoTimer = setInterval(function(){
+      goTo(current >= maxIdx ? 0 : current + 1);
+    }, 3200);
+  }
+
+  btnPrev && btnPrev.addEventListener('click', function(){ goTo(current - 1); });
+  btnNext && btnNext.addEventListener('click', function(){ goTo(current + 1); });
+
+  // swipe / drag
+  var startX = 0, dragging = false;
+  var wrap = track.parentElement;
+  wrap.addEventListener('mousedown',  function(e){ dragging=true; startX=e.clientX; });
+  wrap.addEventListener('mousemove',  function(e){ if(!dragging) return; e.preventDefault(); });
+  wrap.addEventListener('mouseup',    function(e){ if(!dragging)return; dragging=false; var d=startX-e.clientX; if(Math.abs(d)>40) goTo(d>0?current+1:current-1); });
+  wrap.addEventListener('mouseleave', function(){ dragging=false; });
+  wrap.addEventListener('touchstart', function(e){ startX=e.touches[0].clientX; }, {passive:true});
+  wrap.addEventListener('touchend',   function(e){ var d=startX-e.changedTouches[0].clientX; if(Math.abs(d)>40) goTo(d>0?current+1:current-1); }, {passive:true});
+
+  goTo(0);
+  resetAuto();
+})();
+
 </script>
-<script>window.setLang = function(l){if(l==="en"){location.href="en/service-crm.html";return;}try{localStorage.setItem("lang",l);}catch(e){}};
+<script>window.setLang = function(l){if(l==="tr"){location.href="../hizmet-sosyal-medya.html";return;}try{localStorage.setItem("lang",l);}catch(e){}};
 
 
 

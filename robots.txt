@@ -1,0 +1,19 @@
+# HealthUp Marketing — robots.txt
+# https://healthupmarketing.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Admin panel — arama motorları indekslemesin
+Disallow: /admin.html
+Disallow: /admin/
+
+# SQL / yapılandırma dosyaları indekslenmesin
+Disallow: /*.sql$
+
+# Test/dev dosyaları (varsa)
+Disallow: /test/
+Disallow: /draft/
+
+# Sitemap konumu
+Sitemap: https://healthupmarketing.com/sitemap.xml

@@ -11,6 +11,14 @@
 })();
 </script>
 <title>Yazı yükleniyor… — HealthUp Marketing</title>
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<meta name="theme-color" content="#0f0f0d">
+
+
 
 <!-- SEO + Sosyal Paylaşım (JS ile dinamik doldurulur) -->
 <meta name="description" content="HealthUp Marketing blog yazısı.">
@@ -90,10 +98,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .icon-sun{display:none}.icon-moon{display:block}
 [data-theme="dark"] .icon-sun{display:block}[data-theme="dark"] .icon-moon{display:none}
 .lang-toggle{display:flex;align-items:center;background:var(--toggle-bg);border:1px solid var(--border);border-radius:6px;overflow:hidden}
-.lang-btn{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:7px 12px;cursor:pointer;background:transparent;border:none;color:var(--text-muted);transition:background .2s,color .2s;line-height:1}
-.lang-btn.active{background:var(--text);color:var(--bg)}
-.nav-cta{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--text);color:var(--bg);padding:10px 22px;border-radius:var(--radius);text-decoration:none;transition:background .2s,color .3s;white-space:nowrap}
-[data-theme="dark"] .nav-cta{background:var(--grad);color:#fff}
+.lang-btn,a.lang-btn,a.lang-btn:link,a.lang-btn:visited{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:7px 12px;cursor:pointer;background:transparent;border:none;color:var(--text-muted);transition:background .2s,color .2s;line-height:1;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.lang-btn.active,a.lang-btn.active,a.lang-btn.active:link,a.lang-btn.active:visited{background:var(--text);color:var(--bg)}
+.lang-btn:hover,a.lang-btn:hover{color:var(--text)}
+.lang-btn.active:hover,a.lang-btn.active:hover{color:var(--bg)}
+.nav-cta{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);color:#fff;padding:10px 22px;border-radius:var(--radius);text-decoration:none;transition:box-shadow .25s,transform .15s,filter .25s;white-space:nowrap;box-shadow:var(--glow)}
+.nav-cta:hover{box-shadow:0 0 28px rgba(251,16,107,.6),0 0 56px rgba(254,121,72,.35);transform:translateY(-1px);filter:brightness(1.08)}
 
 /* ── HERO ── */
 .blog-hero{min-height:48vh;padding-top:64px;background:var(--hero-bg);color:var(--hero-text);display:flex;align-items:flex-end;position:relative;overflow:hidden}
@@ -255,14 +265,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .mobile-cta-m:hover{background:#e0005a}
 @media(max-width:900px){.nav-links{display:none!important}.nav-cta{display:none!important}.hamburger{display:flex!important}}
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:64px;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:background .3s,border-color .3s}
-.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-.03em;color:var(--text);text-decoration:none;transition:color .3s}
+
+
 .nav-logo-light{display:block}
 .nav-logo-dark{display:none}
 [data-theme="dark"] .nav-logo-light{display:none}
 [data-theme="dark"] .nav-logo-dark{display:block}
 .nav-badge{display:inline-block;font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--grad);color:#fff;padding:2px 6px;border-radius:2px;vertical-align:super;margin-left:4px}
-.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+
 .nav-links a{font-size:.85rem;font-weight:500;color:var(--text-muted);text-decoration:none;letter-spacing:.01em;transition:color .2s}
 .nav-links a:hover{color:var(--text)}
 /* SERVICES DROPDOWN */
@@ -271,12 +281,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-dropdown-trigger svg{width:12px;height:12px;transition:transform .25s;flex-shrink:0}
 .nav-dropdown:hover .nav-dropdown-trigger svg,.nav-dropdown.open .nav-dropdown-trigger svg{transform:rotate(180deg)}
 .nav-dropdown-menu{position:absolute;top:calc(100% + 4px);left:50%;transform:translateX(-50%) translateY(-6px);background:#ffffff;border:1px solid var(--border-strong);border-radius:12px;padding:8px;min-width:220px;box-shadow:0 8px 32px rgba(0,0,0,.14),0 2px 8px rgba(0,0,0,.08);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease;z-index:200}
-[data-theme="dark"] .nav-dropdown-menu{background:#1c1c19}
 .nav-dropdown-menu::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);border:6px solid transparent;border-bottom-color:var(--border-strong);border-top:none}
 .nav-dropdown-menu::after{content:'';position:absolute;top:-5px;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top:none}
 [data-theme="light"] .nav-dropdown-menu::after{border-bottom-color:#ffffff}
 [data-theme="dark"]  .nav-dropdown-menu::after{border-bottom-color:#1c1c19}
-.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown.open .nav-dropdown-menu{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown.open .nav-dropdown-menu{opacity:1;visibility:visible;pointer-events:all;transform:translateX(-50%) translateY(0)}
 .nav-dropdown-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;text-decoration:none;color:var(--text-muted);font-size:.82rem;font-weight:500;transition:background .18s,color .18s;white-space:nowrap}
 .nav-dropdown-item:hover{background:var(--card-hover);color:var(--text)}
 .nav-dropdown-item-icon{width:28px;height:28px;border-radius:6px;background:var(--icon-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -284,26 +293,27 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-dropdown-divider{height:1px;background:var(--border);margin:6px 4px}
 .nav-dropdown-all{display:flex;align-items:center;justify-content:center;gap:6px;padding:9px 12px;border-radius:8px;text-decoration:none;font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);color:#fff;transition:filter .2s,transform .15s}
 .nav-dropdown-all:hover{filter:brightness(1.08);transform:translateY(-1px)}
-.nav-right{display:flex;align-items:center;gap:10px}
+
 /* Theme toggle */
-.theme-toggle{width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text);transition:background .2s;flex-shrink:0}
+
 .theme-toggle svg{width:16px;height:16px}
 .icon-sun{display:none}.icon-moon{display:block}
 [data-theme="dark"] .icon-sun{display:block}[data-theme="dark"] .icon-moon{display:none}
 /* Lang toggle */
-.lang-toggle{display:flex;align-items:center;background:var(--toggle-bg);border:1px solid var(--border);border-radius:6px;overflow:hidden}
-.lang-btn{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:7px 12px;cursor:pointer;background:transparent;border:none;color:var(--text-muted);transition:background .2s,color .2s;line-height:1}
-.lang-btn.active{background:var(--text);color:var(--bg)}
-.nav-cta{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);color:#fff;padding:10px 22px;border-radius:var(--radius);text-decoration:none;transition:box-shadow .25s,transform .15s,filter .25s;white-space:nowrap;box-shadow:var(--glow)}
+
+.lang-btn,a.lang-btn,a.lang-btn:link,a.lang-btn:visited{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:7px 12px;cursor:pointer;background:transparent;border:none;color:var(--text-muted);transition:background .2s,color .2s;line-height:1;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.lang-btn.active,a.lang-btn.active,a.lang-btn.active:link,a.lang-btn.active:visited{background:var(--text);color:var(--bg)}
+.lang-btn:hover,a.lang-btn:hover{color:var(--text)}
+.lang-btn.active:hover,a.lang-btn.active:hover{color:var(--bg)}
+
 .nav-cta:hover{box-shadow:0 0 28px rgba(251,16,107,.6),0 0 56px rgba(254,121,72,.35);transform:translateY(-1px);filter:brightness(1.08)}
-[data-theme="dark"] .nav-cta{background:var(--grad);color:#fff}
 /* HAMBURGER */
-.hamburger{display:none;width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;align-items:center;justify-content:center;color:var(--text);flex-shrink:0;transition:background .2s}
+
 .hamburger svg{width:18px;height:18px;transition:opacity .2s}
 .hamburger .ham-open{display:block}.hamburger .ham-close{display:none}
 .hamburger.open .ham-open{display:none}.hamburger.open .ham-close{display:block}
 /* Mobile drawer */
-.mobile-drawer{position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:99;display:flex;flex-direction:column;padding:2rem 1.5rem;gap:0;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);border-top:1px solid var(--border);overflow-y:auto}
+
 .mobile-drawer.open{transform:translateX(0)}
 .mobile-nav-links{list-style:none;display:flex;flex-direction:column;gap:0;border-bottom:1px solid var(--border);padding-bottom:1.5rem;margin-bottom:1.5rem}
 .mobile-nav-links li a{display:flex;align-items:center;justify-content:space-between;font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;letter-spacing:-.02em;color:var(--text);text-decoration:none;padding:1rem 0;border-bottom:1px solid var(--border);transition:color .2s}
@@ -409,6 +419,123 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
   .post-body-wrap{padding:3rem 0 2rem}
 }
 
+
+/* ── LANG BUTTON OVERRIDE (always wins) ── */
+nav a.lang-btn,nav a.lang-btn:link,nav a.lang-btn:visited,
+.lang-toggle a.lang-btn,.lang-toggle a.lang-btn:link,.lang-toggle a.lang-btn:visited{
+  background:transparent !important;
+  color:var(--text-muted) !important;
+  text-decoration:none !important;
+  border:none !important;
+  padding:7px 12px !important;
+  font-family:'Syne',sans-serif !important;
+  font-size:.7rem !important;
+  font-weight:700 !important;
+  letter-spacing:.06em !important;
+  line-height:1 !important;
+  cursor:pointer !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  transition:background .2s,color .2s !important;
+}
+nav a.lang-btn.active,nav a.lang-btn.active:link,nav a.lang-btn.active:visited,
+.lang-toggle a.lang-btn.active,.lang-toggle a.lang-btn.active:link,.lang-toggle a.lang-btn.active:visited{
+  background:var(--text) !important;
+  color:var(--bg) !important;
+}
+nav a.lang-btn:hover{color:var(--text) !important;}
+nav a.lang-btn.active:hover{color:var(--bg) !important;}
+
+/* ── DROPDOWN HOVER BRIDGE (prevents menu closing in the gap) ── */
+
+.nav-dropdown::after{
+  content:'';
+  position:absolute;
+  top:100%;
+  left:0;
+  right:0;
+  height:14px;
+  background:transparent;
+  pointer-events:none;
+}
+.nav-dropdown:hover::after,.nav-dropdown.open::after{
+  pointer-events:all;
+}
+/* Also expand the dropdown menu's hit-area upward by removing the gap */
+
+/* Make sure dropdown stays open while hovering its menu */
+.nav-dropdown-menu:hover{
+  opacity:1 !important;
+  pointer-events:all !important;
+  transform:translateX(-50%) translateY(0) !important;
+}
+
+/* ── HAMBURGER MOBILE OVERRIDE (force visible on mobile) ── */
+@media(max-width:900px){
+  .hamburger{display:flex !important;align-items:center !important;justify-content:center !important;}
+  .nav-links{display:none !important;}
+  .nav-cta{display:none !important;}
+}
+
+
+
+/* ── NAV MOBILE LAYOUT FORCE (overrides everything) ── */
+@media(max-width:900px){
+  nav{
+    position:fixed !important;
+    top:0 !important;
+    left:0 !important;
+    right:0 !important;
+    width:auto !important;
+    padding:0 1.5rem !important;
+    height:64px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    box-sizing:border-box !important;
+  }
+  nav > .nav-logo{margin-right:auto;}
+  nav > .nav-links{display:none !important;}
+  nav > .nav-cta{display:none !important;}
+  nav > .nav-right{
+    margin-left:auto !important;
+    margin-right:0 !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:6px !important;
+    flex-shrink:0 !important;
+  }
+  .hamburger{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    margin-left:0 !important;
+  }
+}
+/* ── MOBILE CTA STYLE (gradient button) ── */
+.mobile-cta{display:block !important;font-family:'Syne',sans-serif !important;font-size:.9rem !important;font-weight:700 !important;letter-spacing:.06em !important;text-transform:uppercase !important;background:var(--grad) !important;color:#fff !important;padding:14px 24px !important;border-radius:var(--radius,4px) !important;text-decoration:none !important;text-align:center !important;margin-top:1.5rem !important;box-shadow:var(--glow,0 0 18px rgba(254,13,109,.35)) !important;transition:filter .2s,transform .15s !important;}
+.mobile-cta:hover{filter:brightness(1.08) !important;transform:translateY(-1px) !important;}
+
+/* ── HAMBURGER VISIBILITY — DEFINITIVE (theme & override proof) ── */
+.hamburger{display:none;}
+@media(min-width:901px){
+  .hamburger{display:none !important;}
+}
+@media(max-width:900px){
+  .hamburger{display:flex !important;align-items:center !important;justify-content:center !important;}
+}
+
+/* ── DROPDOWN DARK MODE (menu bg + borders) ── */
+[data-theme="dark"] .nav-dropdown-menu{background:#1c1c19;border-color:rgba(255,255,255,.1)}
+[data-theme="dark"] .nav-dropdown-menu::before{border-bottom-color:rgba(255,255,255,.1)}
+
+/* ── NAV DROPDOWN TRIGGER ALIGNMENT (match other nav links) ── */
+.nav-links{align-items:center !important;}
+.nav-links > li{display:flex;align-items:center;}
+.nav-links a,.nav-dropdown-trigger{line-height:1 !important;}
+.nav-dropdown-trigger{height:auto;}
+.nav-dropdown-trigger svg{width:11px;height:11px;}
 </style>
 </head>
 <body>
@@ -641,23 +768,7 @@ function setLang(lang){
   setLang(saved);
 })();
 
-// HAMBURGER
-const ham=document.getElementById('hamburger');
-const drawer=document.getElementById('mobileDrawer');
-if(ham&&drawer){
-  ham.addEventListener('click',()=>{
-    ham.classList.toggle('open');
-    drawer.classList.toggle('open');
-    document.body.style.overflow=drawer.classList.contains('open')?'hidden':'';
-  });
-  document.querySelectorAll('.mobile-link').forEach(a=>{
-    a.addEventListener('click',()=>{
-      ham.classList.remove('open');
-      drawer.classList.remove('open');
-      document.body.style.overflow='';
-    });
-  });
-}
+
 // SERVICES DROPDOWN
 (function(){
   var dd=document.getElementById('servicesDropdown');
@@ -672,16 +783,7 @@ if(ham&&drawer){
   if(al) al.addEventListener('click',scrollSvc);
   document.addEventListener('click',function(e){if(!dd.contains(e.target))dd.classList.remove('open');});
 })();
-// MOBILE SERVICES ACCORDION
-(function(){
-  var tg=document.querySelector('.mobile-services-toggle');
-  var li=document.querySelector('.mobile-services-list');
-  if(!tg||!li) return;
-  tg.addEventListener('click',function(e){
-    if(!li.classList.contains('open')){e.preventDefault();li.classList.add('open');tg.classList.add('expanded');}
-    else{li.classList.remove('open');tg.classList.remove('expanded');}
-  });
-})();
+
 
 </script>
 
@@ -745,24 +847,49 @@ let currentPost = null
 async function loadPost(){
   const params = new URLSearchParams(location.search)
   const slug = params.get('slug')
-  const lang = getCurrentLang()
+  let lang = getCurrentLang()
   if(!slug){
     document.getElementById('postContent').innerHTML = `<div style="text-align:center;padding:3rem;color:var(--text-muted)">${STRINGS.noSlug[lang]} <a href="blog.html" style="color:var(--accent)">${STRINGS.backToAll[lang]}</a></div>`
     return
   }
 
-  const { data: post, error } = await sb
+  // Slug hem TR (slug) hem EN (slug_en) kolonunda aranır.
+  // Önce TR slug olarak dene:
+  let { data: post } = await sb
     .from('posts')
     .select('*')
     .eq('slug', slug)
     .eq('published', true)
-    .single()
+    .maybeSingle()
 
-  if(error || !post){
+  let slugLang = 'tr'  // bulunan slug'ın dili
+
+  // TR'de bulunamazsa EN slug olarak dene:
+  if(!post){
+    const res = await sb
+      .from('posts')
+      .select('*')
+      .eq('slug_en', slug)
+      .eq('published', true)
+      .maybeSingle()
+    if(res.data){
+      post = res.data
+      slugLang = 'en'
+    }
+  }
+
+  if(!post){
     document.title = STRINGS.notFoundTitle[lang] + ' — HealthUp Marketing'
     document.getElementById('postTitle').textContent = STRINGS.notFoundTitle[lang]
     document.getElementById('postContent').innerHTML = `<div style="text-align:center;padding:3rem;color:var(--text-muted)">${STRINGS.notFoundBody[lang]}<br><br><a href="blog.html" style="color:var(--accent);font-weight:600">${STRINGS.backToAll[lang]}</a></div>`
     return
+  }
+
+  // URL'deki slug hangi dile aitse o dili göster (SEO: URL = dil)
+  // slugLang öncelikli — kullanıcı EN slug'la geldiyse EN göster
+  if(slugLang !== lang){
+    lang = slugLang
+    setLang(lang)  // arayüzü URL'deki dile getir
   }
 
   currentPost = post
@@ -818,6 +945,30 @@ function renderPost(){
   const seoImage = post.cover_image || 'https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/og-default.jpg'
 
   setMeta('canonicalUrl', pageUrl)
+
+  // ─── hreflang etiketleri (SEO: dil alternatifleri) ───
+  // Önceki hreflang'leri temizle
+  document.querySelectorAll('link[data-hreflang]').forEach(el => el.remove())
+  const origin = location.origin + location.pathname.replace(/[^\/]*$/, '')  // .../  (blog-post.html'siz dizin)
+  const addHreflang = (hl, href) => {
+    const link = document.createElement('link')
+    link.rel = 'alternate'
+    link.hreflang = hl
+    link.href = href
+    link.setAttribute('data-hreflang', '1')
+    document.head.appendChild(link)
+  }
+  const trUrl = post.slug    ? origin + 'blog-post.html?slug=' + encodeURIComponent(post.slug)    : null
+  const enUrl = post.slug_en ? origin + 'blog-post.html?slug=' + encodeURIComponent(post.slug_en) : null
+  if(trUrl) addHreflang('tr', trUrl)
+  if(enUrl) addHreflang('en', enUrl)
+  // x-default → TR (ana dil)
+  if(trUrl) addHreflang('x-default', trUrl)
+
+  // canonical her zaman GÖRÜNEN dilin kendi URL'i olmalı
+  const selfUrl = (lang === 'en' && enUrl) ? enUrl : (trUrl || pageUrl)
+  setMeta('canonicalUrl', selfUrl)
+  document.documentElement.setAttribute('lang', lang)
 
   // Standard meta description (Google snippet için)
   let metaDesc = document.querySelector('meta[name="description"]')
@@ -928,16 +1079,22 @@ async function loadRelated(post, lang){
     .order('created_at', { ascending:false })
     .limit(8)  // fetch more, then filter by language
 
-  // Filter by language availability
-  const availableRelated = (related || []).filter(r => pick(r, 'title', lang)).slice(0, 4)
+  // Filter by language availability:
+  // EN modunda hem title_en hem slug_en dolu olmalı
+  const availableRelated = (related || []).filter(r => {
+    if(lang === 'en') return (r.title_en && r.title_en.trim() && r.slug_en && r.slug_en.trim())
+    return pick(r, 'title', lang)
+  }).slice(0, 4)
 
   if(availableRelated.length){
     document.getElementById('relatedWrap').style.display = 'block'
     document.getElementById('relatedGrid').innerHTML = availableRelated.map(r => {
       const rTitle = pick(r, 'title', lang)
       const catLabel = (CATEGORY_LABELS[r.category]?.[lang]) || r.category || ''
+      // Dile göre doğru slug: EN modunda slug_en, TR modunda slug
+      const rSlug = (lang === 'en') ? r.slug_en : r.slug
       return `
-        <a href="blog-post.html?slug=${encodeURIComponent(r.slug)}" class="related-card">
+        <a href="blog-post.html?slug=${encodeURIComponent(rSlug)}" class="related-card">
           <div class="related-card-img">
             ${r.cover_image
               ? `<img src="${escapeHtml(r.cover_image)}" alt="${escapeHtml(rTitle)}">`
@@ -955,14 +1112,81 @@ async function loadRelated(post, lang){
   }
 }
 
-// Hook into language switcher
+// Hook into language switcher — dil değişince diğer dilin slug URL'ine git
 const _origSetLang = window.setLang
 window.setLang = function(lang){
+  // Yazı yüklüyse: dil değişince URL'i o dilin slug'ına çevir
+  if(currentPost){
+    const targetSlug = (lang === 'en') ? currentPost.slug_en : currentPost.slug
+
+    // Hedef dilde slug yoksa (örn. EN çevirisi yapılmamış):
+    if(!targetSlug){
+      // Sadece arayüzü değiştir, fallback ("bu dilde yok") ekranını göster
+      if(_origSetLang) _origSetLang(lang)
+      renderPost()
+      return
+    }
+
+    // Zaten o slug'daysak gereksiz yenileme yapma
+    const currentSlug = new URLSearchParams(location.search).get('slug')
+    if(currentSlug === targetSlug){
+      if(_origSetLang) _origSetLang(lang)
+      renderPost()
+      return
+    }
+
+    // Diğer dilin slug'ına git → URL değişir, sayfa yenilenir (SEO dostu)
+    try{ localStorage.setItem('lang', lang) }catch(e){}
+    location.href = 'blog-post.html?slug=' + encodeURIComponent(targetSlug)
+    return
+  }
+
+  // Yazı yoksa (genel sayfa davranışı)
   if(_origSetLang) _origSetLang(lang)
-  if(currentPost) renderPost()
 }
 
 loadPost()
+
+
+
+
+// ── HAMBURGER + MOBILE ACCORDION (standardized) ──
+(function(){
+  var ham = document.getElementById('hamburger');
+  var drawer = document.getElementById('mobileDrawer');
+  if(ham && drawer){
+    ham.addEventListener('click', function(){
+      ham.classList.toggle('open');
+      drawer.classList.toggle('open');
+      document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+    });
+    document.querySelectorAll('.mobile-link').forEach(function(a){
+      a.addEventListener('click', function(){
+        // Hizmetler accordion: menüyü kapatma
+        if(a.classList.contains('mobile-services-toggle')) return;
+        ham.classList.remove('open');
+        drawer.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+  // Accordion toggle
+  var tg = document.querySelector('.mobile-services-toggle');
+  var li = document.querySelector('.mobile-services-list');
+  if(tg && li){
+    tg.addEventListener('click', function(e){
+      e.preventDefault();
+      if(li.classList.contains('open')){
+        li.classList.remove('open');
+        tg.classList.remove('expanded');
+      } else {
+        li.classList.add('open');
+        tg.classList.add('expanded');
+      }
+    });
+  }
+})();
+
 </script>
 
 </body>

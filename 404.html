@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sayfa Bulunamadı — HealthUp Marketing</title>
+<meta name="description" content="Aradığınız sayfa bulunamadı.">
+<meta name="robots" content="noindex,follow">
+<link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<meta name="theme-color" content="#0f0f0d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0f0f0d;--text:#fafaf8;--text-muted:#8a8a82;
+  --accent:#fe0d6d;--grad:linear-gradient(135deg,#fd7a49 0%,#fe0d6d 100%);
+  --glow:0 0 18px rgba(254,13,109,.35),0 0 36px rgba(253,122,73,.2);
+}
+html,body{height:100%}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;overflow:hidden;position:relative}
+/* Background subtle gradient */
+body::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(254,13,109,.08),transparent 60%),radial-gradient(ellipse at bottom left,rgba(253,122,73,.05),transparent 60%);z-index:0;pointer-events:none}
+.wrap{position:relative;z-index:1;max-width:560px}
+.code{font-family:'DM Serif Display',serif;font-size:clamp(7rem,18vw,12rem);font-weight:400;line-height:.9;letter-spacing:-.05em;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1.5rem;display:inline-block;padding:.05em .1em .15em 0}
+.eyebrow{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.2rem}
+h1{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.2;letter-spacing:-.02em;color:var(--text);margin-bottom:1rem}
+h1 em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block;line-height:1.15;padding:.05em .15em .15em .02em}
+p{font-size:1rem;font-weight:300;color:var(--text-muted);line-height:1.7;margin-bottom:2.5rem;max-width:480px;margin-left:auto;margin-right:auto}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:14px 28px;border-radius:4px;text-decoration:none;transition:transform .15s,filter .2s,box-shadow .25s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:var(--glow)}
+.btn-primary:hover{transform:translateY(-1px);filter:brightness(1.08);box-shadow:0 0 28px rgba(251,16,107,.6),0 0 56px rgba(254,121,72,.35)}
+.btn-secondary{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.15)}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.brand{position:absolute;top:2rem;left:50%;transform:translateX(-50%);font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:-.02em;color:var(--text);text-decoration:none;z-index:2}
+</style>
+</head>
+<body>
+<a href="/index.html" class="brand">HealthUp Marketing</a>
+<div class="wrap">
+  <div class="code">404</div>
+  <div class="eyebrow">Sayfa Bulunamadı</div>
+  <h1>Bu sayfa <em>kayboldu.</em></h1>
+  <p>Aradığınız sayfa taşınmış, silinmiş ya da hiç var olmamış olabilir. Endişelenmeyin, sizi doğru yere yönlendirelim.</p>
+  <div class="actions">
+    <a href="/index.html" class="btn btn-primary">Ana Sayfa</a>
+    <a href="/iletisim.html" class="btn btn-secondary">İletişime Geç</a>
+  </div>
+</div>
+</body>
+</html>

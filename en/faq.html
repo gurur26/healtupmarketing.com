@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="tr" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
-<script>try{localStorage.setItem("lang","tr");}catch(e){}</script>
+<script>try{localStorage.setItem("lang","en");}catch(e){}</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
@@ -11,19 +11,20 @@
   document.documentElement.setAttribute('data-theme', t || 'dark');
 })();
 </script>
-<title>HealthUp Marketing — Blog</title>
-<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
-<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
-<link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
-<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-<link rel="manifest" href="favicon/site.webmanifest">
+<title>FAQ — HealthUp Marketing</title>
+<link rel="icon" type="image/x-icon" href="../favicon/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="../favicon/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+<link rel="manifest" href="../favicon/site.webmanifest">
 <meta name="theme-color" content="#0f0f0d">
 
 
-<link rel="canonical" href="https://healthupmarketing.com/blog.html">
-<link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/blog.html">
-<link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/blog.html">
-<link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/blog.html">
+<meta name="description" content="Frequently asked questions about our services, working process, pricing and health tourism marketing.">
+<link rel="canonical" href="https://healthupmarketing.com/en/faq.html">
+<link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/sss.html">
+<link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/faq.html">
+<link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/sss.html">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,11 +36,12 @@
   --bg:#fafaf8;--bg-off:#f3f2ef;--bg-card:#ffffff;
   --text:#0a0a0a;--text-muted:#8a8a82;
   --border:rgba(10,10,10,0.1);--border-strong:rgba(10,10,10,0.18);
-  --nav-bg:rgba(250,250,248,1);
+  --nav-bg:rgba(250,250,248,0.92);
   --card-hover:#f3f2ef;--icon-bg:#f0efec;
   --toggle-bg:rgba(10,10,10,0.07);
-  --hero-bg:#0a0a0a;--hero-text:#fafaf8;--hero-muted:rgba(250,250,248,0.55);
-  --featured-bg:#0a0a0a;
+  --hero-bg:#0a0a0a;--hero-text:#fafaf8;
+  --hero-muted:rgba(250,250,248,0.55);
+  --dark-card:#111111;--dark-border:rgba(255,255,255,0.1);
 }
 [data-theme="dark"]{
   --bg:#0f0f0d;--bg-off:#181815;--bg-card:#1c1c19;
@@ -48,8 +50,9 @@
   --nav-bg:rgba(15,15,13,0.92);
   --card-hover:#222220;--icon-bg:#2a2a26;
   --toggle-bg:rgba(255,255,255,0.09);
-  --hero-bg:#050504;--hero-text:#fafaf8;--hero-muted:rgba(250,250,248,0.45);
-  --featured-bg:#111110;
+  --hero-bg:#050504;--hero-text:#fafaf8;
+  --hero-muted:rgba(250,250,248,0.45);
+  --dark-card:#111111;--dark-border:rgba(255,255,255,0.1);
 }
 :root{
   --accent:#fe0d6d;--grad-start:#fd7a49;--grad-end:#fe0d6d;
@@ -74,161 +77,220 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links a{font-size:.85rem;font-weight:500;color:var(--text-muted);text-decoration:none;letter-spacing:.01em;transition:color .2s}
 .nav-links a:hover,.nav-links a.active-page{color:var(--text)}
 .nav-right{display:flex;align-items:center;gap:10px}
+
 .theme-toggle{width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text);transition:background .2s;flex-shrink:0}
 .theme-toggle svg{width:16px;height:16px}
 .icon-sun{display:none}.icon-moon{display:block}
 [data-theme="dark"] .icon-sun{display:block}[data-theme="dark"] .icon-moon{display:none}
+
 .lang-toggle{display:flex;align-items:center;background:var(--toggle-bg);border:1px solid var(--border);border-radius:6px;overflow:hidden}
 .lang-btn,a.lang-btn,a.lang-btn:link,a.lang-btn:visited{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:7px 12px;cursor:pointer;background:transparent;border:none;color:var(--text-muted);transition:background .2s,color .2s;line-height:1;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
 .lang-btn.active,a.lang-btn.active,a.lang-btn.active:link,a.lang-btn.active:visited{background:var(--text);color:var(--bg)}
 .lang-btn:hover,a.lang-btn:hover{color:var(--text)}
 .lang-btn.active:hover,a.lang-btn.active:hover{color:var(--bg)}
-.nav-cta{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);color:#fff;padding:10px 22px;border-radius:var(--radius);text-decoration:none;transition:box-shadow .25s,transform .15s,filter .25s;white-space:nowrap;box-shadow:var(--glow)}
-.nav-cta:hover{box-shadow:0 0 28px rgba(251,16,107,.6),0 0 56px rgba(254,121,72,.35);transform:translateY(-1px);filter:brightness(1.08)}
+
+
 
 /* ── HERO ── */
-.blog-hero{min-height:48vh;padding-top:64px;background:var(--hero-bg);color:var(--hero-text);display:flex;align-items:flex-end;position:relative;overflow:hidden}
-.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
-.hero-blob{position:absolute;top:-80px;right:-60px;width:600px;height:600px;background:radial-gradient(circle,rgba(254,13,109,.10) 0%,transparent 65%);pointer-events:none}
-.hero-blob-2{position:absolute;bottom:-100px;left:-40px;width:400px;height:400px;background:radial-gradient(circle,rgba(253,122,73,.07) 0%,transparent 65%);pointer-events:none}
-.hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:4rem 3rem 4rem;width:100%}
-.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:2rem}
+.sss-hero{
+  min-height:65vh;padding-top:64px;
+  background:var(--hero-bg);
+  color:var(--hero-text);
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+}
+.hero-blob{position:absolute;top:-100px;right:-60px;width:700px;height:700px;background:radial-gradient(circle,rgba(254,13,109,.1) 0%,transparent 65%);pointer-events:none}
+.hero-blob-2{position:absolute;bottom:-100px;left:-60px;width:500px;height:500px;background:radial-gradient(circle,rgba(253,122,73,.08) 0%,transparent 65%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 3rem;width:100%}
+
+/* Two-column hero layout */
+.hero-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;min-height:calc(65vh - 64px)}
+.hero-left{display:flex;flex-direction:column;justify-content:center}
+.hero-right{position:relative;display:flex;align-items:center;justify-content:center}
+.hero-visual{
+  width:100%;height:460px;
+  border-radius:16px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.1);
+  background:var(--bg-card);
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  margin:2.5rem 0;
+}
+.hero-visual-img{
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+.hero-visual-overlay{
+  display:none;
+}
+.hero-visual-placeholder{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+  background:linear-gradient(135deg,rgba(253,122,73,.06) 0%,rgba(254,13,109,.1) 100%);
+  border:2px dashed rgba(255,255,255,.1);border-radius:16px;
+}
+.hero-visual-placeholder-icon{
+  width:56px;height:56px;border-radius:12px;
+  background:linear-gradient(135deg,#fd7a49,#fe0d6d);
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-visual-placeholder-icon svg{width:26px;height:26px;color:#fff}
+.hero-visual-placeholder p{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+
+/* Floating stat cards on visual */
+.hero-visual-badge{
+  position:absolute;bottom:20px;left:20px;
+  background:rgba(0,0,0,.6);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.1);border-radius:10px;
+  padding:12px 18px;display:flex;align-items:center;gap:10px;
+}
+.hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(254,13,109,.6)}
+.hero-badge-text{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:2.5rem}
 .hero-eyebrow-line{width:40px;height:1px;background:var(--grad)}
 .hero-eyebrow span{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-h1{font-family:'DM Serif Display',serif;font-size:clamp(3rem,7vw,5.5rem);line-height:1;letter-spacing:-.03em;margin-bottom:1.8rem;max-width:760px}
+.hero-h1{font-family:'DM Serif Display',serif;font-size:clamp(2.6rem,5vw,5rem);line-height:1;letter-spacing:-.03em;margin-bottom:1.5rem}
 .hero-h1 em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block;line-height:1.15;padding:.05em .15em .15em .02em}
-.hero-sub{font-size:1rem;font-weight:300;color:var(--hero-muted);max-width:540px;line-height:1.8}
+.hero-sub{font-size:1rem;font-weight:300;color:var(--hero-muted);line-height:1.8}
 
-/* ── FILTERS ── */
-.filters-bar{background:var(--bg-off);border-bottom:1px solid var(--border);position:sticky;top:64px;z-index:90;transition:background .3s}
-.filters-inner{max-width:1200px;margin:0 auto;padding:0 3rem;display:flex;gap:8px;align-items:center;height:56px;overflow-x:auto}
-.filter-btn{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:7px 18px;border-radius:999px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;transition:background .2s,color .2s,border-color .2s;white-space:nowrap;flex-shrink:0}
-.filter-btn.active,.filter-btn:hover{background:var(--text);color:var(--bg);border-color:var(--text)}
-[data-theme="dark"] .filter-btn.active,[data-theme="dark"] .filter-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+@media(max-width:900px){
+  .hero-layout{grid-template-columns:1fr;gap:3rem;min-height:auto;padding:3rem 0}
+  .hero-right{display:none}
+}
 
-/* ── FEATURED POST ── */
-.featured-section{background:var(--featured-bg);border-bottom:1px solid var(--border);padding:4rem 0;transition:background .3s}
-.featured-inner{max-width:1200px;margin:0 auto;padding:0 3rem}
-.featured-label{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:2rem;display:flex;align-items:center;gap:10px}
-.featured-label::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.08)}
-[data-theme="dark"] .featured-label::after{background:rgba(0,0,0,.08)}
-.featured-card{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;text-decoration:none;color:var(--hero-text)}
-[data-theme="dark"] .featured-card{color:var(--hero-text)}
-.featured-img-wrap{border-radius:var(--radius-card);overflow:hidden;aspect-ratio:16/10;background:var(--bg-off)}
-.featured-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
-.featured-card:hover .featured-img-wrap img{transform:scale(1.03)}
-.featured-meta{display:flex;align-items:center;gap:12px;margin-bottom:1.5rem;flex-wrap:wrap}
-.featured-tag{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--accent);color:#fff;padding:4px 10px;border-radius:2px}
-.featured-read{font-size:.75rem;color:rgba(250,250,248,.4)}
-[data-theme="dark"] .featured-read{color:var(--text-muted)}
-.featured-date{font-size:.75rem;color:rgba(250,250,248,.35)}
-[data-theme="dark"] .featured-date{color:var(--text-muted)}
-.featured-title{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);line-height:1.1;letter-spacing:-.025em;color:var(--hero-text);margin-bottom:1rem}
-[data-theme="dark"] .featured-title{color:var(--hero-text)}
-.featured-excerpt{font-size:.95rem;color:rgba(250,250,248,.5);line-height:1.75;margin-bottom:2rem}
-[data-theme="dark"] .featured-excerpt{color:rgba(250,250,248,.55)}
-.featured-cta{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
-.featured-card:hover .featured-cta{gap:10px}
+/* ── SSS SECTION ── */
+.sss-section{padding:7rem 0;border-top:1px solid var(--border)}
+.sss-inner{max-width:1200px;margin:0 auto;padding:0 3rem}
 
-/* ── BLOG GRID ── */
-.blog-section{padding:5rem 0;background:var(--bg);transition:background .3s}
-.blog-inner{max-width:1200px;margin:0 auto;padding:0 3rem}
-.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);border-radius:var(--radius-card);overflow:hidden}
-.blog-card{padding:2rem;border-right:1px solid var(--border);text-decoration:none;color:var(--text);background:var(--bg-card);display:flex;flex-direction:column;transition:background .2s;position:relative}
-.blog-card:last-child{border-right:none}
-.blog-card:nth-child(3n){border-right:none}
-.blog-card:nth-child(n+4){border-top:1px solid var(--border)}
-.blog-card:hover{background:var(--card-hover)}
-.blog-card.hidden{display:none}
+/* Centered heading above FAQ grid */
+.sss-heading{text-align:center;margin-bottom:4rem}
+.sss-heading-label{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem}
+.sss-heading-h2{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3rem);line-height:1.05;letter-spacing:-.025em;margin-bottom:.75rem}
+.sss-heading-h2 em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block;line-height:1.15;padding:.05em .15em .15em .02em}
+.sss-heading-sub{font-size:.95rem;color:var(--text-muted);max-width:480px;margin:0 auto}
 
-.blog-thumb{width:100%;height:180px;border-radius:8px;overflow:hidden;margin-bottom:1.2rem;flex-shrink:0;background:var(--bg-off)}
-.blog-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
-.blog-card:hover .blog-thumb img{transform:scale(1.04)}
+/* 2-column FAQ grid: questions as cards side by side, answers full-width below */
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 2rem}
+.faq-col{display:flex;flex-direction:column}
 
-.blog-tag-wrap{margin-bottom:1rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.blog-tag{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--border);padding:3px 8px;border-radius:2px;color:var(--text-muted)}
-.blog-read-time{font-size:.72rem;color:var(--text-muted)}
+@media(max-width:900px){
+  .sss-inner{padding:0 1.5rem}
+  .faq-grid{grid-template-columns:1fr;gap:0}
+  .sss-section{padding:4rem 0}
+}
 
-.blog-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;line-height:1.4;letter-spacing:-.01em;margin-bottom:.75rem;flex:1;color:var(--text)}
-.blog-excerpt{font-size:.82rem;color:var(--text-muted);line-height:1.65;margin-bottom:1.2rem;flex:1}
-.blog-footer{display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--border);margin-top:auto}
-.blog-date{font-size:.75rem;color:var(--text-muted)}
-.blog-arrow{font-size:.85rem;color:var(--text-muted);font-weight:600;transition:color .2s}
-.blog-card:hover .blog-arrow{color:var(--accent)}
+/* ── ACCORDION ── */
+.faq-list{display:flex;flex-direction:column;gap:0}
+.faq-item{border-top:1px solid var(--border)}
+.faq-item:last-child{border-bottom:1px solid var(--border)}
+.faq-question{
+  width:100%;background:none;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+  padding:1.6rem 0;text-align:left;color:var(--text);
+  font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;letter-spacing:-.01em;
+  transition:color .2s;
+}
+.faq-question:hover{color:var(--accent)}
+.faq-icon{
+  flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-muted);transition:background .2s,border-color .2s,transform .3s,color .2s;
+}
+.faq-icon svg{width:13px;height:13px;transition:transform .3s}
+.faq-item.open .faq-icon{background:var(--accent);border-color:var(--accent);color:#fff}
+.faq-item.open .faq-icon svg{transform:rotate(45deg)}
+.faq-answer{
+  display:grid;grid-template-rows:0fr;
+  transition:grid-template-rows .35s cubic-bezier(.4,0,.2,1);
+}
+.faq-item.open .faq-answer{grid-template-rows:1fr}
+.faq-answer-inner{overflow:hidden}
+.faq-answer-body{
+  font-size:.95rem;font-weight:300;color:var(--text-muted);line-height:1.85;
+  padding-bottom:1.6rem;
+}
+.faq-answer-body strong{color:var(--text);font-weight:600}
+.faq-answer-body ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:1rem}
+.faq-answer-body ul li{padding-left:20px;position:relative}
+.faq-answer-body ul li::before{content:'';width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#fd7a49,#fe0d6d);position:absolute;left:0;top:8px}
+.faq-answer-body ol{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:1rem;counter-reset:steps}
+.faq-answer-body ol li{padding-left:2.5rem;position:relative;counter-increment:steps}
+.faq-answer-body ol li::before{content:counter(steps);position:absolute;left:0;top:0;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#fd7a49,#fe0d6d);color:#fff;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center}
 
-/* ── NEWSLETTER ── */
-.newsletter-section{background:var(--bg-off);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:4rem 0;transition:background .3s}
-.newsletter-inner{max-width:1200px;margin:0 auto;padding:0 3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.nl-label{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem}
-.nl-h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.1;letter-spacing:-.025em;color:var(--text);margin-bottom:.8rem}
-.nl-h2 em{font-style:italic}
-.nl-sub{font-size:.88rem;color:var(--text-muted);line-height:1.7}
-.nl-form{display:flex;gap:10px;align-items:stretch}
-.nl-input{flex:1;font-family:'DM Sans',sans-serif;font-size:.88rem;padding:12px 16px;border:1px solid var(--border-strong);border-radius:var(--radius);background:var(--bg-card);color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s}
-.nl-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(254,13,109,.1)}
-.nl-input::placeholder{color:var(--text-muted)}
-.nl-btn{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--text);color:var(--bg);border:none;padding:12px 22px;border-radius:var(--radius);cursor:pointer;transition:background .2s,color .3s;white-space:nowrap}
-.nl-btn:hover{background:var(--accent);color:#fff}
-.nl-note{font-size:.72rem;color:var(--text-muted);margin-top:.7rem}
+/* ── CONTACT SUPPORT ── */
+.sss-contact{background:var(--hero-bg);border-top:1px solid rgba(255,255,255,.08);padding:7rem 0}
+.sss-contact-inner{max-width:1200px;margin:0 auto;padding:0 3rem}
 
-/* ── CTA ── */
-.blog-cta{background:linear-gradient(135deg,#fd7a49 0%,#fe0d6d 100%);padding:6rem 3rem;text-align:center;position:relative;overflow:hidden}
-.blog-cta-blob{position:absolute;top:-150px;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(255,255,255,.07) 0%,transparent 70%);pointer-events:none}
-.blog-cta-inner{position:relative;z-index:1}
-.blog-cta-eye{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:1.5rem}
-.blog-cta-h2{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3.2rem);line-height:1.05;letter-spacing:-.02em;color:#fff;margin-bottom:1rem;max-width:680px;margin-left:auto;margin-right:auto}
-.blog-cta-sub{font-size:.95rem;color:rgba(255,255,255,.75);max-width:520px;margin:0 auto 2rem;line-height:1.7}
-.blog-cta-btn{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:#fff;color:#fd7a49;padding:13px 34px;border-radius:var(--radius);display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .15s}
-.blog-cta-btn:hover{background:rgba(255,255,255,.9);transform:translateY(-1px)}
-.blog-cta-btn svg{width:14px;height:14px}
+/* Centered heading */
+.sss-contact-top{text-align:center;margin-bottom:4rem}
+.sss-contact-label{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1rem}
+.sss-contact-h2{font-family:'DM Serif Display',serif;font-size:clamp(2.2rem,4vw,3.5rem);line-height:1.05;letter-spacing:-.025em;color:#fafaf8;margin-bottom:1rem}
+.sss-contact-h2 em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block;line-height:1.15;padding:.05em .15em .15em .02em}
+.sss-contact-body{font-size:1rem;font-weight:300;color:rgba(250,250,248,.5);line-height:1.8;max-width:480px;margin:0 auto}
+
+/* Three-card row */
+.sss-contact-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem}
+.sss-contact-card{
+  display:flex;flex-direction:column;align-items:flex-start;gap:14px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--radius-card);padding:1.8rem 1.8rem;
+  text-decoration:none;color:#fafaf8;
+  transition:background .2s,border-color .2s;width:100%;
+}
+.sss-contact-card:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2)}
+.sss-contact-card-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#fd7a49,#fe0d6d);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sss-contact-card-icon svg{width:20px;height:20px;color:#fff}
+.sss-contact-card-label{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2px}
+.sss-contact-card-val{font-size:.92rem;font-weight:500}
+
+@media(max-width:900px){
+  .sss-contact-inner{padding:0 1.5rem}
+  .sss-contact-cols{grid-template-columns:1fr}
+  .sss-contact{padding:4rem 0}
+}
+
+/* ── CTA BANNER ── */
+.hm-cta{background:linear-gradient(135deg,#fd7a49 0%,#fe0d6d 100%);padding:7rem 3rem;text-align:center;position:relative;overflow:hidden}
+.hm-cta-blob{position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 70%);pointer-events:none}
+.hm-cta-inner{position:relative;z-index:1}
+.hm-cta-eyebrow{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:1.5rem}
+.hm-cta-h2{font-family:'DM Serif Display',serif;font-size:clamp(2.2rem,4vw,3.5rem);line-height:1.05;letter-spacing:-.02em;color:#fff;margin-bottom:1.2rem;max-width:780px;margin-left:auto;margin-right:auto}
+.hm-cta-sub{font-size:1rem;color:rgba(255,255,255,.7);max-width:560px;margin:0 auto 2.5rem;line-height:1.7}
+.hm-cta-btn{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:#fff;color:#fd7a49;padding:15px 38px;border-radius:var(--radius);display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .15s}
+.hm-cta-btn:hover{background:rgba(255,255,255,.9);transform:translateY(-1px)}
+.hm-cta-btn svg{width:14px;height:14px}
 
 /* ── FOOTER ── */
-.pf-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:280px 1fr 1fr;gap:4rem;padding:4rem 3rem 3rem}
-.pf-brand{display:flex;flex-direction:column;gap:1.2rem}
-.pf-logo img{height:40px;width:auto;object-fit:contain}
-.pf-slogan{font-size:.85rem;color:rgba(255,255,255,.35);line-height:1.5;max-width:220px}
-.pf-social{display:flex;gap:10px;margin-top:.4rem}
-.pf-social-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);text-decoration:none;transition:border-color .2s,color .2s}
-.pf-social-btn:hover{border-color:var(--accent);color:var(--accent)}
-.pf-social-btn svg{width:15px;height:15px}
-.pf-col-title{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.8rem}
-.pf-col-sub{font-size:.8rem;color:rgba(255,255,255,.3);margin-bottom:1.2rem}
-.pf-contact-list{list-style:none;display:flex;flex-direction:column;gap:.9rem}
-.pf-contact-list li{display:flex;align-items:flex-start;gap:10px;font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.5}
-.pf-contact-list a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
-.pf-contact-list a:hover{color:var(--accent)}
-.pf-contact-icon{flex-shrink:0;width:16px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-top:2px}
-.pf-contact-icon svg{width:15px;height:15px}
-.pf-nav{display:grid;grid-template-columns:1fr 1fr;gap:.5rem 2rem}
-.pf-nav a{font-size:.8rem;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s;padding:.2rem 0}
-.pf-nav a:hover{color:#fff}
-.pf-bottom{border-top:1px solid rgba(255,255,255,.06);padding:1.2rem 3rem}
-.pf-bottom span{font-size:.75rem;color:rgba(255,255,255,.2)}
+[data-theme="light"] .hm-social-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);text-decoration:none;transition:border-color .2s,color .2s}
+.hm-social-btn:hover{border-color:var(--accent);color:var(--accent)}
+.hm-social-btn svg{width:15px;height:15px}
+.hm-contact-list{list-style:none;display:flex;flex-direction:column;gap:.9rem}
+.hm-contact-list li{display:flex;align-items:flex-start;gap:10px;font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.5}
+.hm-contact-list a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.hm-contact-list a:hover{color:var(--accent)}
+.hm-contact-icon{flex-shrink:0;width:16px;color:var(--accent);margin-top:2px}
+.hm-contact-icon svg{width:15px;height:15px}
+/* footer data-lang: override display:none/.active=inline so footer items show correctly */
 
-/* i18n */
+/* Lang visibility */
 [data-lang]{display:none}
 [data-lang].active{display:inline}
 [data-lang-block]{display:none!important}
 [data-lang-block].active{display:block!important}
 
+/* responsive */
 @media(max-width:900px){
   nav{padding:0 1.5rem}.nav-links{display:none}.nav-right{gap:6px}
-  .hero-inner,.featured-inner,.blog-inner,.newsletter-inner,.blog-cta{padding-left:1.5rem;padding-right:1.5rem}
-  .featured-card{grid-template-columns:1fr;gap:2rem}
-  .blog-grid{grid-template-columns:1fr}
-  .blog-card{border-right:none;border-bottom:1px solid var(--border)}
-  .blog-card:nth-child(3n){border-right:none}
-  .blog-card:nth-child(n+4){border-top:none}
-  .newsletter-inner{grid-template-columns:1fr;gap:2rem}
-  .nl-form{flex-direction:column}
-  .pf-inner{grid-template-columns:1fr;gap:2.5rem;padding:3rem 1.5rem 2rem}
-  .pf-bottom{padding:1rem 1.5rem}
-  .blog-section{padding:3rem 0}
-  .featured-section{padding:3rem 0}
-}
-@media(max-width:600px){
-  .blog-grid{grid-template-columns:1fr}
-}
+  .hero-inner{padding:0 1.5rem}
+  .sss-inner{padding:0 1.5rem}
+  .sss-layout{grid-template-columns:1fr;gap:2.5rem}
+  .sss-label{position:static}
+  .sss-section{padding:4rem 0}
+  .sss-contact-inner{padding:0 1.5rem}
+  .sss-contact-grid{grid-template-columns:1fr;gap:2.5rem}
+  .sss-contact{padding:4rem 0}
+  .hm-cta{padding:4rem 1.5rem}
+    }
 
 /* ── HAMBURGER ── */
 .hamburger{display:none;width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;align-items:center;justify-content:center;color:var(--text);flex-shrink:0;transition:background .2s}
@@ -286,7 +348,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .lang-btn.active,a.lang-btn.active,a.lang-btn.active:link,a.lang-btn.active:visited{background:var(--text);color:var(--bg)}
 .lang-btn:hover,a.lang-btn:hover{color:var(--text)}
 .lang-btn.active:hover,a.lang-btn.active:hover{color:var(--bg)}
-
+.nav-cta{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);color:#fff;padding:10px 22px;border-radius:var(--radius);text-decoration:none;transition:box-shadow .25s,transform .15s,filter .25s;white-space:nowrap;box-shadow:var(--glow)}
 .nav-cta:hover{box-shadow:0 0 28px rgba(251,16,107,.6),0 0 56px rgba(254,121,72,.35);transform:translateY(-1px);filter:brightness(1.08)}
 /* HAMBURGER */
 
@@ -465,45 +527,45 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
   <ul class="nav-links">
     <li class="nav-dropdown" id="servicesDropdown">
       <a href="index.html#brand-transform" class="nav-dropdown-trigger" id="servicesLink">
-        Hizmetlerimiz
+        Services
         <svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <div class="nav-dropdown-menu">
-        <a href="hizmet-google-reklamlari.html" class="nav-dropdown-item">
+        <a href="service-google-ads.html" class="nav-dropdown-item">
           <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="currentColor" opacity=".15"/><path d="M12.48 10.92v2.19h3.56c-.15.96-1.09 2.81-3.56 2.81-2.14 0-3.89-1.77-3.89-3.95s1.75-3.95 3.89-3.95c1.22 0 2.03.52 2.5 .97l1.7-1.64C15.45 6.47 14.06 5.9 12.48 5.9c-3.6 0-6.52 2.92-6.52 6.5s2.92 6.5 6.52 6.5c3.76 0 6.25-2.64 6.25-6.36 0-.43-.05-.75-.11-1.08h-6.14z" fill="currentColor"/></svg></span>
-          Google Reklamları
+          Google Ads
         </a>
-        <a href="hizmet-web-sitesi.html" class="nav-dropdown-item">
+        <a href="service-website.html" class="nav-dropdown-item">
           <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M3 8h18M8 3v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-          Web Sitesi
+          Website
         </a>
-        <a href="hizmet-sosyal-medya.html" class="nav-dropdown-item">
+        <a href="service-social-media.html" class="nav-dropdown-item">
           <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51L8.59 10.49" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-          Sosyal Medya Yönetimi
+          Social Media
         </a>
-        <a href="hizmet-meta-reklamlari.html" class="nav-dropdown-item">
+        <a href="service-meta-ads.html" class="nav-dropdown-item">
           <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l7 4.5-7 4.5z" fill="currentColor" opacity=".2"/><path d="M4 12c0 2.4 1.4 4.5 3.5 5.6C9 18.5 10.5 19 12 19s3-.5 4.5-1.4C18.6 16.5 20 14.4 20 12c0-1.7-.6-3.3-1.7-4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8.5 8.5c.8-1.2 2.1-2 3.5-2 1.8 0 3.3 1 4.1 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-          Meta Reklamları
+          Meta Ads
         </a>
-        <a href="hizmet-satis-egitimi.html" class="nav-dropdown-item">
+        <a href="service-sales-training.html" class="nav-dropdown-item">
           <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-          Satış Eğitimi &amp; Danışmanlık
+          Sales Training
         </a>
-        <a href="hizmet-crm.html" class="nav-dropdown-item">
+        <a href="service-crm.html" class="nav-dropdown-item">
           <span class="nav-dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
           <span>HealthUp CRM</span>
         </a>
         <div class="nav-dropdown-divider"></div>
         <a href="index.html#brand-transform" class="nav-dropdown-all" id="servicesAllLink">
-          Tüm Hizmetler →
+          All Services →
         </a>
       </div>
     </li>
-    <li><a href="hakkimizda.html">Hakkımızda</a></li>
-    <li><a href="projeler.html">Projeler</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="sss.html">SSS</a></li>
-    <li><a href="iletisim.html">İletişim</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="nav-right">
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -511,11 +573,11 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
       <svg class="icon-sun" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg>
     </button>
     <div class="lang-toggle">
-      <button class="lang-btn active" id="btn-tr" type="button">TR</button><button class="lang-btn" id="btn-en" type="button" onclick="location.href='en/blog.html'">EN</button>
+      <button class="lang-btn" id="btn-tr" type="button" onclick="location.href='../sss.html'">TR</button><button class="lang-btn active" id="btn-en" type="button">EN</button>
     </div>
-    <a href="iletisim.html" class="nav-cta">
-      Teklif Al →
+    <a href="contact.html" class="nav-cta">
       
+      Get Proposal →
     </a>
     <button class="hamburger" id="hamburger" aria-label="Menü">
       <svg class="ham-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -529,141 +591,267 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
   <ul class="mobile-nav-links">
     <li class="mobile-services-item">
       <a href="index.html#brand-transform" class="mobile-link mobile-services-toggle">
-        Hizmetlerimiz
+        Services
         <svg viewBox="0 0 12 12" fill="none" style="width:14px;height:14px;transition:transform .25s"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <ul class="mobile-services-list">
-        <li><a href="hizmet-google-reklamlari.html" class="mobile-link mobile-service-link">Google Reklamları</a></li>
-        <li><a href="hizmet-web-sitesi.html" class="mobile-link mobile-service-link">Web Sitesi</a></li>
-        <li><a href="hizmet-sosyal-medya.html" class="mobile-link mobile-service-link">Sosyal Medya Yönetimi</a></li>
-        <li><a href="hizmet-meta-reklamlari.html" class="mobile-link mobile-service-link">Meta Reklamları</a></li>
-        <li><a href="hizmet-satis-egitimi.html" class="mobile-link mobile-service-link">Satış Eğitimi &amp; Danışmanlık</a></li>
-        <li><a href="hizmet-crm.html" class="mobile-link mobile-service-link">HealthUp CRM</a></li>
+        <li><a href="service-google-ads.html" class="mobile-link mobile-service-link">Google Ads</a></li>
+        <li><a href="service-website.html" class="mobile-link mobile-service-link">Website</a></li>
+        <li><a href="service-social-media.html" class="mobile-link mobile-service-link">Social Media</a></li>
+        <li><a href="service-meta-ads.html" class="mobile-link mobile-service-link">Meta Ads</a></li>
+        <li><a href="service-sales-training.html" class="mobile-link mobile-service-link">Sales Training</a></li>
+        <li><a href="service-crm.html" class="mobile-link mobile-service-link">HealthUp CRM</a></li>
       </ul>
     </li>
-    <li><a href="hakkimizda.html" class="mobile-link">Hakkımızda</a></li>
-    <li><a href="projeler.html" class="mobile-link">Projeler</a></li>
+    <li><a href="about.html" class="mobile-link">About</a></li>
+    <li><a href="projects.html" class="mobile-link">Projects</a></li>
     <li><a href="blog.html" class="mobile-link">Blog</a></li>
-    <li><a href="sss.html" class="mobile-link">SSS</a></li>
-    <li><a href="iletisim.html" class="mobile-link">İletişim</a></li>
+    <li><a href="faq.html" class="mobile-link">FAQ</a></li>
+    <li><a href="contact.html" class="mobile-link">Contact</a></li>
   </ul>
-  <a href="iletisim.html" class="mobile-cta mobile-link">
-    Teklif Al →
+  <a href="contact.html" class="mobile-cta mobile-link">
     
+    Get Proposal →
   </a>
 </div>
 
 <!-- HERO -->
-<section class="blog-hero">
-  <div class="hero-grid-bg"></div>
+<section class="sss-hero">
   <div class="hero-blob"></div>
   <div class="hero-blob-2"></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">
-      <div class="hero-eyebrow-line"></div>
-      <span>Blog · HealthUp Marketing</span>
-    </div>
-    <h1 class="hero-h1">
-      Sağlık turizminde<br><em>içgörüler ve stratejiler.</em>
-      
-    </h1>
-    <p class="hero-sub">
-      Google Ads, Meta, CRM ve hasta kazanımı konularında sektörden uzmanlar tarafından yazılmış derinlemesine analizler.
-      
-    </p>
-  </div>
-</section>
-
-<!-- FILTERS -->
-<div class="filters-bar">
-  <div class="filters-inner">
-    <button class="filter-btn active" data-filter="all">
-      Tümü
-    </button>
-    <button class="filter-btn" data-filter="google">Google Ads</button>
-    <button class="filter-btn" data-filter="meta">Meta Ads</button>
-    <button class="filter-btn" data-filter="seo">SEO</button>
-    <button class="filter-btn" data-filter="crm">CRM</button>
-    <button class="filter-btn" data-filter="strateji">
-      Strateji
-    </button>
-  </div>
-</div>
-
-<!-- FEATURED POST -->
-<section class="featured-section" id="featuredSection" style="display:none">
-  <div class="featured-inner">
-    <div class="featured-label">
-      <span data-lang="tr">Öne Çıkan Yazı</span><span data-lang="en">Featured Post</span>
-    </div>
-    <a href="#" class="featured-card" id="featuredCard" data-category="">
-      <div class="featured-img-wrap">
-        <img id="featuredImg" src="" alt="Featured blog post">
-      </div>
-      <div class="featured-content" style="color:var(--hero-text)">
-        <div class="featured-meta">
-          <span class="featured-tag" id="featuredTag"></span>
+    <div class="hero-layout">
+      <div class="hero-left">
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-line"></div>
+          <span>FAQ · HealthUp Marketing</span>
         </div>
-        <h2 class="featured-title" id="featuredTitle"></h2>
-        <p class="featured-excerpt" id="featuredExcerpt"></p>
-        <span class="featured-cta">
-          <span data-lang="tr">Yazıyı oku →</span><span data-lang="en">Read article →</span>
-        </span>
+        <h1 class="hero-h1">
+          
+          Clear answers to<br>your <em>questions.</em>
+        </h1>
+        <p class="hero-sub">
+          
+          We've compiled the most frequently asked questions about HealthUp Marketing. If you can't find what you're looking for, contact us directly.
+        </p>
       </div>
-    </a>
-  </div>
-</section>
-
-<!-- BLOG GRID -->
-<section class="blog-section">
-  <div class="blog-inner">
-    <div class="blog-grid" id="blogGrid">
-      <!-- Yazılar Supabase'den dinamik yüklenir -->
+      <div class="hero-right">
+        <div class="hero-visual">
+          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/faq.webp" alt="FAQ Hero" class="hero-visual-img">
+          <div class="hero-visual-overlay"></div>
+          <div class="hero-visual-badge">
+            <div class="hero-badge-dot"></div>
+            <div class="hero-badge-text">10 years of industry experience</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- NEWSLETTER -->
-<section class="newsletter-section">
-  <div class="newsletter-inner">
-    <div>
-      <div class="nl-label">Newsletter</div>
-      <h2 class="nl-h2">
-        Sektör içgörülerini<br><em>kaçırmayın.</em>
+<!-- SSS / ACCORDION -->
+<section class="sss-section">
+  <div class="sss-inner">
+    <!-- Centered heading -->
+    <div class="sss-heading">
+      <div class="sss-heading-label">Frequently Asked Questions</div>
+      <h2 class="sss-heading-h2">Everything you're <em>wondering about.</em></h2>
+      <p class="sss-heading-sub">If you can't find your question, contact us directly.</p>
+    </div>
+
+    <!-- 2-column FAQ grid -->
+    <div class="faq-grid">
+      <!-- Left column: S1, S3, S5, S7, S9 -->
+      <div class="faq-col">
+
+        <div class="faq-item">
+          <button class="faq-question">
+            
+            How is HealthUp Marketing different from other agencies?
+            <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner"><div class="faq-answer-body">
+            
+            HealthUp Marketing is a <strong>specialized agency offering marketing and sales consultancy exclusively for the healthcare sector</strong>. Our founders have <strong>over 10 years of health tourism experience</strong>. As the <strong>first and only marketing &amp; sales consultancy agency working exclusively in health tourism</strong>, we enable companies to grow and reach their goals.
+          </div></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            
+            What services does HealthUp Marketing offer?
+            <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner"><div class="faq-answer-body">
+            
+            Specifically for the healthcare sector:<ul><li><strong>Digital marketing and ad management</strong></li><li><strong>Social media management and content production</strong></li><li><strong>Website design and optimization</strong></li><li><strong>Sales consulting and team training</strong></li><li><strong>CRM management and process optimization</strong></li><li><strong>360° health tourism consulting</strong></li></ul>
+          </div></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            
+            How can I start working with HealthUp Marketing?
+            <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner"><div class="faq-answer-body">
+            
+            <ol><li><strong>Get in Touch:</strong> Contact us and share your needs.</li><li><strong>Free Initial Consultation:</strong> We'll analyze your business needs and present tailored service recommendations.</li><li><strong>Detailed Strategy Meeting:</strong> We'll explain the solutions in a detailed meeting and share our proposal.</li><li><strong>Let's Begin!</strong> Let's start working together to achieve your goals.</li></ol>
+          </div></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            
+            How is HealthUp Marketing's pricing determined?
+            <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner"><div class="faq-answer-body">
+            
+            Every company has different needs and goals. <strong>That's why we don't have a fixed pricing policy</strong>. We analyze your company's requirements in our initial consultations and <strong>create a tailored service package with the most efficient pricing for you</strong>.
+          </div></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            
+            What should I do to get higher quality leads?
+            <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner"><div class="faq-answer-body">
+            
+            To obtain effective leads, <strong>just running ads is not enough</strong>. <strong>Correct targeting, engaging creatives, technically flawless optimizations and a strong sales strategy</strong> must all work together. <strong>At HealthUp Marketing, we create ads completely tailored to your needs, ensuring you receive the highest converting leads.</strong>
+          </div></div></div>
+        </div>
+
+      </div><!-- /faq-col left -->
+
+      <!-- Right column: S2, S4, S6, S8, S10 -->
+      <div class="faq-col">
+
+        <div class="faq-item">
+          <button class="faq-question">
+            
+            If HealthUp Marketing doesn't bring patients directly, how does it contribute to businesses?
+            <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner"><div class="faq-answer-body">
+            
+            We <strong>connect your brand with the right target audience</strong>, enabling potential patients to interact with you. Additionally, through <strong>sales training, business development and 360° health tourism consulting</strong>, we analyze your company's gaps and support your growth.
+          </div></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            
+            Why are digital marketing strategies critically important in the healthcare sector?
+            <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner"><div class="faq-answer-body">
+            
+            Health tourism is a <strong>highly competitive sector</strong> and <strong>standing out without the right strategy is very difficult</strong>. You need specialized strategies to get ahead of competitors with strong positioning. <strong>You need to plan your digital strategy properly to best manage the patient journey, build trust, and be present on the most effective platforms.</strong>
+          </div></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            
+            How does HealthUp Marketing evaluate success?
+            <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner"><div class="faq-answer-body">
+            
+            We evaluate success not just by <strong>receiving patient applications, but by sales conversion rates</strong>. <strong>We provide our business partners with detailed custom reports</strong>, continuously tracking conversion rates and ad performance. <strong>Through budget optimization, conversion analysis and regular meetings</strong>, we continuously improve strategies.
+          </div></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            
+            Why should health tourism companies work with a professional agency?
+            <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner"><div class="faq-answer-body">
+            
+            <strong>For companies new to the sector, those wanting to improve performance, or those not getting the results they want</strong>, professional support is essential. <strong>Instead of wasting time and budget with trial and error</strong>, you can reach your goals with <strong>an expert team that knows the sector and works result-oriented</strong>.
+          </div></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            
+            How can we strengthen our sales team in health tourism?
+            <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner"><div class="faq-answer-body">
+            
+            In health tourism, simply getting leads is not enough — your sales team needs to <strong>have the knowledge, experience and persuasion power to convert those leads</strong>. <strong>At HealthUp Marketing, we strengthen your team by offering sales training and consulting services specifically designed for health tourism.</strong>
+          </div></div></div>
+        </div>
+
+      </div><!-- /faq-col right -->
+    </div><!-- /faq-grid -->
+  </div>
+</section>
+
+
+<!-- İLETİŞİM -->
+<section class="sss-contact" id="iletisim">
+  <div class="sss-contact-inner">
+    <!-- Centered heading -->
+    <div class="sss-contact-top">
+      <div class="sss-contact-label">Support</div>
+      <h2 class="sss-contact-h2">
         
+        Couldn't find the answer? <em>Ask us.</em>
       </h2>
-      <p class="nl-sub">
-        Her ay sağlık turizmi pazarlamasından en değerli analiz, strateji ve vaka çalışmaları doğrudan gelen kutunuza.
+      <p class="sss-contact-body">
         
+        You can contact us directly for all your questions. We'll get back to you as soon as possible.
       </p>
     </div>
-    <div>
-      <div class="nl-form">
-        <input type="email" class="nl-input"
-          placeholder="E-posta adresiniz"
-          data-placeholder-tr="E-posta adresiniz"
-          data-placeholder-en="Your email address">
-        <button class="nl-btn">
-          Abone Ol
-        </button>
-      </div>
-      <p class="nl-note">
-        Spam yok. İstediğiniz zaman çıkabilirsiniz.
-        
-      </p>
+    <!-- Three-card row -->
+    <div class="sss-contact-cols">
+      <a href="tel:+905367967126" class="sss-contact-card">
+        <div class="sss-contact-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <div>
+          <div class="sss-contact-card-label">Phone</div>
+          <div class="sss-contact-card-val">+90 536 796 71 26</div>
+        </div>
+      </a>
+      <a href="mailto:info@healthupmarketing.com" class="sss-contact-card">
+        <div class="sss-contact-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="sss-contact-card-label">Email</div>
+          <div class="sss-contact-card-val">info@healthupmarketing.com</div>
+        </div>
+      </a>
+      <a href="https://wa.me/905367967126" class="sss-contact-card" target="_blank">
+        <div class="sss-contact-card-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <div>
+          <div class="sss-contact-card-label">WhatsApp</div>
+          <div class="sss-contact-card-val">Message now</div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="blog-cta">
-  <div class="blog-cta-blob"></div>
-  <div class="blog-cta-inner">
-    <div class="blog-cta-eye">Stratejinizi konuşalım</div>
-    <h2 class="blog-cta-h2">Sağlık turizminde daha güçlü bir sistem kurmaya hazır mısınız?</h2>
-    <p class="blog-cta-sub">Mevcut reklam yapınızı, satış sürecinizi ve dijital hasta kazanım sisteminizi birlikte analiz edelim.</p>
-    <a href="https://healthupmarketing.com/iletisim/" class="blog-cta-btn">
-      Analiz İste
+<section class="hm-cta">
+  <div class="hm-cta-blob"></div>
+  <div class="hm-cta-inner">
+    <div class="hm-cta-eyebrow">Still thinking about it?</div>
+    <h2 class="hm-cta-h2">Are you ready to build a stronger system in health tourism?</h2>
+    <p class="hm-cta-sub">Let's analyze your current ad structure, sales process and digital patient acquisition system together. Let's clearly draw the growth roadmap that fits you.</p>
+    <a href="https://healthupmarketing.com/iletisim/" class="hm-cta-btn">
+      Request Analysis
       <svg viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </div>
@@ -676,7 +864,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
       <a href="index.html" class="hup-footer-logo">
         <img src="https://healthupmarketing.com/wp-content/uploads/2025/01/logo.png" alt="HealthUp Marketing" style="height:44px;width:auto;object-fit:contain">
       </a>
-      <p class="hup-footer-slogan">Sağlıkta Güçlü Pazarlama, Akıllı Büyüme</p>
+      <p class="hup-footer-slogan">Strong Marketing in Health, Smart Growth</p>
       <div class="hup-footer-social">
         <a href="#" class="hup-social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
         <a href="#" class="hup-social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
@@ -685,8 +873,8 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
       </div>
     </div>
     <div class="hup-footer-col">
-      <h4 class="hup-footer-col-title">İletişim Bilgileri</h4>
-      <p class="hup-footer-col-sub">Bizimle iletişime geçin!</p>
+      <h4 class="hup-footer-col-title">Contact Info</h4>
+      <p class="hup-footer-col-sub">Get in touch with us!</p>
       <ul class="hup-contact-list">
         <li><span class="hup-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span>Çınarlı Mah, 1572 Sk. No:33, 35170 Konak/İzmir</span></li>
         <li><span class="hup-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span><a href="tel:+905367967126">+90 536 796 71 26</a></li>
@@ -694,20 +882,20 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
       </ul>
     </div>
     <div class="hup-footer-col">
-      <h4 class="hup-footer-col-title">Hızlı Erişim</h4>
+      <h4 class="hup-footer-col-title">Quick Links</h4>
       <div class="hup-footer-nav">
-        <a href="hakkimizda.html">Hakkımızda</a>
-        <a href="index.html#brand-transform">Hizmetlerimiz</a>
-        <a href="projeler.html">Projeler</a>
+        <a href="about.html">About Us</a>
+        <a href="index.html#brand-transform">Services</a>
+        <a href="projects.html">Projects</a>
         <a href="blog.html">Blog</a>
-        <a href="sss.html">SSS</a>
-        <a href="iletisim.html">İletişim</a>
-        <a href="gizlilik.html">Gizlilik</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
       </div>
     </div>
   </div>
   <div class="hup-footer-bottom">
-    <span>© 2026 HealthUp Marketing. Tüm hakları saklıdır.</span>
+    <span>© 2026 HealthUp Marketing. All rights reserved.</span>
   </div>
 </footer>
 
@@ -730,30 +918,12 @@ function setLang(lang){
     el.classList.remove('active');
     if(el.getAttribute('data-lang-block')===lang) el.classList.add('active');
   });
-  document.querySelectorAll('[data-placeholder-'+lang+']').forEach(el=>{
-    el.placeholder=el.getAttribute('data-placeholder-'+lang);
-  });
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
   const btn=document.getElementById('btn-'+lang);
   if(btn) btn.classList.add('active');
   document.documentElement.setAttribute('lang',lang);
   try{localStorage.setItem('lang',lang);}catch(e){}
 }
-
-// FILTER
-document.querySelectorAll('.filter-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter=btn.getAttribute('data-filter');
-    document.querySelectorAll('#blogGrid .blog-card').forEach(card=>{
-      const match=filter==='all'||card.getAttribute('data-category')===filter;
-      card.classList.toggle('hidden',!match);
-    });
-  });
-});
-
-// INIT
 (function(){
   let saved='tr';
   try{saved=localStorage.getItem('lang')||'tr';}catch(e){}
@@ -778,123 +948,7 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
 
 
 </script>
-
-<!-- ─── SUPABASE BLOG LİSTESİ (TR) ─── -->
-<script type="module">
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
-
-const SUPABASE_URL = 'https://phpdqfighpxnjqgyopbm.supabase.co'
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBocGRxZmlnaHB4bmpxZ3lvcGJtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMjg4NjUsImV4cCI6MjA5NjYwNDg2NX0.xVlph7o7VsEV_6gCcDyy3RmuisqjxF2VM0Z0r3TsXc8'
-const sb = createClient(SUPABASE_URL, SUPABASE_KEY)
-
-const LANG = 'tr'  // Bu dosya TR — EN için en/blog.html kullanılır
-
-const CATEGORY_LABELS = {
-  google:'Google Ads', meta:'Meta Ads', seo:'SEO', crm:'CRM', strateji:'Strateji'
-}
-
-function esc(s){
-  return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))
-}
-
-function pick(post, field){
-  // TR dosyası: önce TR, yoksa EN'e düşme YOK (TR listede sadece TR içerik)
-  return post[field + '_tr'] || ''
-}
-
-function postUrl(post){
-  // TR listede kartlar TR slug'a gider
-  return 'blog-post.html?slug=' + encodeURIComponent(post.slug)
-}
-
-function cardHtml(post){
-  const title = pick(post,'title') || '(başlıksız)'
-  const excerpt = pick(post,'excerpt') || ''
-  const cat = post.category || ''
-  const catLabel = CATEGORY_LABELS[cat] || cat
-  const img = post.cover_image || 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&q=80'
-  const read = post.read_time ? `${post.read_time} dk` : ''
-  return `
-    <a href="${postUrl(post)}" class="blog-card" data-category="${esc(cat)}">
-      <div class="blog-thumb"><img src="${esc(img)}" alt="${esc(title)}" loading="lazy"></div>
-      <div class="blog-tag-wrap">
-        <span class="blog-tag">${esc(catLabel)}</span>
-        ${read ? `<span class="blog-read-time">${esc(read)}</span>` : ''}
-      </div>
-      <h3 class="blog-title">${esc(title)}</h3>
-      <p class="blog-excerpt">${esc(excerpt)}</p>
-    </a>`
-}
-
-function featuredHtml(post){
-  const title = pick(post,'title') || '(başlıksız)'
-  const excerpt = pick(post,'excerpt') || ''
-  const cat = post.category || ''
-  const catLabel = CATEGORY_LABELS[cat] || cat
-  const img = post.cover_image || 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=900&q=80'
-  document.getElementById('featuredImg').src = img
-  document.getElementById('featuredImg').alt = title
-  document.getElementById('featuredTag').textContent = catLabel
-  document.getElementById('featuredTitle').textContent = title
-  document.getElementById('featuredExcerpt').textContent = excerpt
-  const card = document.getElementById('featuredCard')
-  card.href = postUrl(post)
-  card.setAttribute('data-category', cat)
-  document.getElementById('featuredSection').style.display = 'block'
-}
-
-async function loadBlogList(){
-  const grid = document.getElementById('blogGrid')
-  grid.innerHTML = '<div style="grid-column:1/-1;padding:3rem;text-align:center;color:var(--text-muted)">Yükleniyor…</div>'
-
-  const { data: posts, error } = await sb
-    .from('posts')
-    .select('*')
-    .eq('published', true)
-    .order('created_at', { ascending: false })
-
-  if(error){
-    grid.innerHTML = '<div style="grid-column:1/-1;padding:3rem;text-align:center;color:var(--text-muted)">Yazılar yüklenemedi.</div>'
-    return
-  }
-
-  // TR listede: title_tr dolu olan yazılar gösterilir
-  const visible = (posts || []).filter(p => (p.title_tr && p.title_tr.trim()))
-
-  if(visible.length === 0){
-    grid.innerHTML = '<div style="grid-column:1/-1;padding:3rem;text-align:center;color:var(--text-muted)">Henüz yazı yok.</div>'
-    document.getElementById('featuredSection').style.display = 'none'
-    return
-  }
-
-  // İlk yazı = öne çıkan
-  featuredHtml(visible[0])
-
-  // Kalanlar grid'e (öne çıkan hariç). Eğer tek yazı varsa onu da grid'de göster.
-  const rest = visible.length > 1 ? visible.slice(1) : visible
-  grid.innerHTML = rest.map(cardHtml).join('')
-
-  applyCurrentFilter()
-}
-
-// Filtre: dinamik kartlara da uygulanır
-function applyCurrentFilter(){
-  const active = document.querySelector('.filter-btn.active')
-  const filter = active ? active.getAttribute('data-filter') : 'all'
-  document.querySelectorAll('#blogGrid .blog-card').forEach(card=>{
-    const match = filter==='all' || card.getAttribute('data-category')===filter
-    card.classList.toggle('hidden', !match)
-  })
-}
-// Filtre butonlarına yeniden bağla (dinamik kartlar için)
-document.querySelectorAll('.filter-btn').forEach(btn=>{
-  btn.addEventListener('click', applyCurrentFilter)
-})
-
-loadBlogList()
-</script>
-
-<script>window.setLang = function(l){if(l==="en"){location.href="en/blog.html";return;}try{localStorage.setItem("lang",l);}catch(e){}};
+<script>window.setLang = function(l){if(l==="tr"){location.href="../sss.html";return;}try{localStorage.setItem("lang",l);}catch(e){}};
 
 
 
