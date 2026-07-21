@@ -416,9 +416,11 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
 
 .hero-brand-badges{display:flex;align-items:center;gap:14px;margin-left:1rem;padding-left:1rem;border-left:1px solid rgba(255,255,255,.15)}
 .hero-brand-logos{display:flex;align-items:center}
-.brand-logo-circle{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-left:-10px;overflow:hidden;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.brand-logo-circle{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-left:-10px;overflow:hidden;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.3);background:#fff;border:2px solid rgba(255,255,255,.2)}
 .brand-logo-circle:first-child{margin-left:0}
-.brand-logo-count{background:var(--grad);border:2px solid rgba(255,255,255,.3)!important;font-family:'Syne',sans-serif;font-size:.6rem;font-weight:800;color:#fff}
+.brand-logo-circle img{width:100%;height:100%;object-fit:cover;display:block}
+.brand-logo-circle.logo-empty{background:linear-gradient(135deg,#e5e5e5,#f5f5f5)}
+.brand-logo-count{background:var(--grad)!important;border:2px solid rgba(255,255,255,.3)!important;font-family:'Syne',sans-serif;font-size:.6rem;font-weight:800;color:#fff}
 .hero-brand-text{font-size:.75rem;color:rgba(250,250,248,.6);max-width:160px;line-height:1.4}
 .hero-brand-text em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600}
 
@@ -967,20 +969,25 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
           <div class="hero-eyebrow-line"></div>
           <div class="hero-brand-badges" style="margin-left:0;padding-left:0;border-left:none">
             <div class="hero-brand-logos">
-              <div class="brand-logo-circle" title="Acıbadem" style="background:#fff;border:2px solid rgba(255,255,255,.2)">
-                <svg viewBox="0 0 40 40" fill="none" style="width:22px;height:22px"><circle cx="20" cy="20" r="18" fill="#003b6f"/><text x="20" y="25" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="sans-serif">A</text></svg>
+              <!-- LOGO 1 — put your logo at: brand-logos/marka1.png -->
+              <div class="brand-logo-circle" title="Brand 1">
+                <img src="brand-logos/logo-1.webp" alt="Marka 1" onerror="this.style.display='none';this.parentElement.classList.add('logo-empty')">
               </div>
-              <div class="brand-logo-circle" title="Liv Hospital" style="background:#fff;border:2px solid rgba(255,255,255,.2)">
-                <svg viewBox="0 0 40 40" fill="none" style="width:22px;height:22px"><circle cx="20" cy="20" r="18" fill="#e8002d"/><text x="20" y="25" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold" font-family="sans-serif">LIV</text></svg>
+              <!-- LOGO 2 -->
+              <div class="brand-logo-circle" title="Marka 2">
+                <img src="brand-logos/logo-2.webp" alt="Marka 2" onerror="this.style.display='none';this.parentElement.classList.add('logo-empty')">
               </div>
-              <div class="brand-logo-circle" title="Medicana" style="background:#fff;border:2px solid rgba(255,255,255,.2)">
-                <svg viewBox="0 0 40 40" fill="none" style="width:22px;height:22px"><circle cx="20" cy="20" r="18" fill="#009b77"/><text x="20" y="25" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="sans-serif">MED</text></svg>
+              <!-- LOGO 3 -->
+              <div class="brand-logo-circle" title="Marka 3">
+                <img src="brand-logos/logo-3.webp" alt="Marka 3" onerror="this.style.display='none';this.parentElement.classList.add('logo-empty')">
               </div>
-              <div class="brand-logo-circle" title="Memoria" style="background:#fff;border:2px solid rgba(255,255,255,.2)">
-                <svg viewBox="0 0 40 40" fill="none" style="width:22px;height:22px"><circle cx="20" cy="20" r="18" fill="#c0392b"/><text x="20" y="25" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="sans-serif">MEM</text></svg>
+              <!-- LOGO 4 -->
+              <div class="brand-logo-circle" title="Marka 4">
+                <img src="brand-logos/logo-4.webp" alt="Marka 4" onerror="this.style.display='none';this.parentElement.classList.add('logo-empty')">
               </div>
-              <div class="brand-logo-circle brand-logo-count" title="50+ marka">
-                <span>50+</span>
+              <!-- LOGO 5 -->
+              <div class="brand-logo-circle" title="Marka 5">
+                <img src="brand-logos/logo-5.webp" alt="Marka 5" onerror="this.style.display='none';this.parentElement.classList.add('logo-empty')">
               </div>
             </div>
             <span class="hero-brand-text">Strong partnerships with over <em>50 reputable brands</em></span>
@@ -1027,27 +1034,39 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
   </div>
   <div class="marquee-wrapper">
     <div class="marquee-track">
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/1.webp" class="marquee-item-logo" alt="Marka 1"></div>
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/2.webp" class="marquee-item-logo" alt="Marka 2"></div>
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/3.webp" class="marquee-item-logo" alt="Marka 3"></div>
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/4.webp" class="marquee-item-logo" alt="Marka 4"></div>
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/5.webp" class="marquee-item-logo" alt="Marka 5"></div>
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/6.webp" class="marquee-item-logo" alt="Marka 6"></div>
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/7.webp" class="marquee-item-logo" alt="Marka 7"></div>
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/8.webp" class="marquee-item-logo" alt="Marka 8"></div>
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/9.webp" class="marquee-item-logo" alt="Marka 9"></div>
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/10.webp" class="marquee-item-logo" alt="Marka 10"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/1.webp" class="marquee-item-logo" alt="Marka 1"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/2.webp" class="marquee-item-logo" alt="Marka 2"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/3.webp" class="marquee-item-logo" alt="Marka 3"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/4.webp" class="marquee-item-logo" alt="Marka 4"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/5.webp" class="marquee-item-logo" alt="Marka 5"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/6.webp" class="marquee-item-logo" alt="Marka 6"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/7.webp" class="marquee-item-logo" alt="Marka 7"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/8.webp" class="marquee-item-logo" alt="Marka 8"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/9.webp" class="marquee-item-logo" alt="Marka 9"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/10.webp" class="marquee-item-logo" alt="Marka 10"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="logolar/11.webp" class="marquee-item-logo" alt="Marka 11"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="logolar/12.webp" class="marquee-item-logo" alt="Marka 12"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="logolar/13.webp" class="marquee-item-logo" alt="Marka 13"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="logolar/14.webp" class="marquee-item-logo" alt="Marka 14"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="logolar/15.webp" class="marquee-item-logo" alt="Marka 15"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="logolar/16.webp" class="marquee-item-logo" alt="Marka 16"></div>
       <!-- duplicate for seamless loop -->
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/1.webp" class="marquee-item-logo" alt="Marka 1"></div>
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/2.webp" class="marquee-item-logo" alt="Marka 2"></div>
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/3.webp" class="marquee-item-logo" alt="Marka 3"></div>
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/4.webp" class="marquee-item-logo" alt="Marka 4"></div>
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/5.webp" class="marquee-item-logo" alt="Marka 5"></div>
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/6.webp" class="marquee-item-logo" alt="Marka 6"></div>
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/7.webp" class="marquee-item-logo" alt="Marka 7"></div>
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/8.webp" class="marquee-item-logo" alt="Marka 8"></div>
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/9.webp" class="marquee-item-logo" alt="Marka 9"></div>
-      <div class="marquee-item"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/10.webp" class="marquee-item-logo" alt="Marka 10"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/1.webp" class="marquee-item-logo" alt="Marka 1"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/2.webp" class="marquee-item-logo" alt="Marka 2"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/3.webp" class="marquee-item-logo" alt="Marka 3"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/4.webp" class="marquee-item-logo" alt="Marka 4"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/5.webp" class="marquee-item-logo" alt="Marka 5"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/6.webp" class="marquee-item-logo" alt="Marka 6"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/7.webp" class="marquee-item-logo" alt="Marka 7"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/8.webp" class="marquee-item-logo" alt="Marka 8"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/9.webp" class="marquee-item-logo" alt="Marka 9"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/logolar/10.webp" class="marquee-item-logo" alt="Marka 10"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="logolar/11.webp" class="marquee-item-logo" alt="Marka 11"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="logolar/12.webp" class="marquee-item-logo" alt="Marka 12"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="logolar/13.webp" class="marquee-item-logo" alt="Marka 13"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="logolar/14.webp" class="marquee-item-logo" alt="Marka 14"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="logolar/15.webp" class="marquee-item-logo" alt="Marka 15"></div>
+      <div class="marquee-item"><img loading="lazy" decoding="async" src="logolar/16.webp" class="marquee-item-logo" alt="Marka 16"></div>
     </div>
   </div>
   <div class="clients-stats">
@@ -1087,7 +1106,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
       <div class="bt-card" onclick="if(!event.target.closest('a')){location.href='service-google-ads.html';}">
         <div class="bt-card-photo">
           <!-- FOTOĞRAF LİNKİ: Google Reklamları -->
-          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/google.webp" alt="Google Ads" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
+          <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/google.webp" alt="Google Ads" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
         </div>
         <div class="bt-card-title">Google Ads</div>
         <p class="bt-card-desc">Google Ads sits at the center of digital marketing strategies in health, reaching your target audience at exactly the right moment.</p>
@@ -1098,7 +1117,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
         <div class="bt-card-photo">
           <!-- FOTOĞRAF LİNKİ: Web Sitesi -->
           
-          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/webdesing.webp" alt="Website" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
+          <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/webdesing.webp" alt="Website" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
         </div>
         <div class="bt-card-title">Website</div>
         <p class="bt-card-desc">Website software defines the functionality of a web site through coding and design processes. We build powerful infrastructures.</p>
@@ -1108,7 +1127,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
       <div class="bt-card" onclick="if(!event.target.closest('a')){location.href='service-social-media.html';}">
         <div class="bt-card-photo">
           <!-- FOTOĞRAF LİNKİ: Sosyal Medya Yönetimi -->
-          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/sosyalmedya.webp" alt="Social Media Management" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
+          <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/sosyalmedya.webp" alt="Social Media Management" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
         </div>
         <div class="bt-card-title">Social Media Management</div>
         <p class="bt-card-desc">The power of social media in health tourism helps you stand out in international competition in the health tourism sector.</p>
@@ -1118,7 +1137,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
       <div class="bt-card" onclick="if(!event.target.closest('a')){location.href='service-meta-ads.html';}">
         <div class="bt-card-photo">
           <!-- FOTOĞRAF LİNKİ: Meta Reklamları -->
-          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/meta.webp" alt="Meta Ads" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
+          <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/meta.webp" alt="Meta Ads" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
         </div>
         <div class="bt-card-title">Meta Ads</div>
         <p class="bt-card-desc">Facebook, Instagram and WhatsApp ads drive growth in your health tourism through targeted demographic and behavioral data.</p>
@@ -1128,7 +1147,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
       <div class="bt-card" onclick="if(!event.target.closest('a')){location.href='service-sales-training.html';}">
         <div class="bt-card-photo">
           <!-- FOTOĞRAF LİNKİ: Satış Eğitimi -->
-          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/satisegitimi.webp" alt="Sales Training & Consulting" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
+          <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/satisegitimi.webp" alt="Sales Training & Consulting" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
         </div>
         <div class="bt-card-title">Sales Training & Consulting</div>
         <p class="bt-card-desc">As the health tourism sector continues to grow globally, competition increases every day. We prepare your team.</p>
@@ -1138,7 +1157,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
       <div class="bt-card" style="border-right:none" onclick="if(!event.target.closest('a')){location.href='service-crm.html';}">
         <div class="bt-card-photo">
           <!-- FOTOĞRAF LİNKİ: HealthUp CRM -->
-          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/healthupcrm.webp" alt="HealthUp CRM" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
+          <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/hizmetler/healthupcrm.webp" alt="HealthUp CRM" onerror="this.closest('.bt-card-photo').classList.add('no-photo')">
         </div>
         <div class="bt-card-title">HealthUp CRM</div>
         <p class="bt-card-desc">HealthUp CRM is a customer management system specifically developed by HealthUp Marketing for the health tourism sector.</p>
@@ -1205,39 +1224,39 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
           <!-- Kolon 1: Aşağı inen — 1,3,5,7,9,11,13 -->
           <div class="gallery-col">
             <div class="gallery-track gallery-down">
-              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/1.webp" alt="Kreatif 1"></div>
-              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/3.webp" alt="Kreatif 3"></div>
-              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/5.webp" alt="Kreatif 5"></div>
-              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/7.webp" alt="Kreatif 7"></div>
-              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/9.webp" alt="Kreatif 9"></div>
-              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/11.webp" alt="Kreatif 11"></div>
-              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/13.webp" alt="Kreatif 13"></div>
+              <div class="gallery-img"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/1.webp" alt="Kreatif 1"></div>
+              <div class="gallery-img gallery-img--tall"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/3.webp" alt="Kreatif 3"></div>
+              <div class="gallery-img"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/5.webp" alt="Kreatif 5"></div>
+              <div class="gallery-img gallery-img--tall"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/7.webp" alt="Kreatif 7"></div>
+              <div class="gallery-img"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/9.webp" alt="Kreatif 9"></div>
+              <div class="gallery-img gallery-img--tall"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/11.webp" alt="Kreatif 11"></div>
+              <div class="gallery-img"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/13.webp" alt="Kreatif 13"></div>
               <!-- duplicate for seamless loop -->
-              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/1.webp" alt="Kreatif 1"></div>
-              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/3.webp" alt="Kreatif 3"></div>
-              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/5.webp" alt="Kreatif 5"></div>
-              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/7.webp" alt="Kreatif 7"></div>
-              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/9.webp" alt="Kreatif 9"></div>
-              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/11.webp" alt="Kreatif 11"></div>
-              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/13.webp" alt="Kreatif 13"></div>
+              <div class="gallery-img"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/1.webp" alt="Kreatif 1"></div>
+              <div class="gallery-img gallery-img--tall"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/3.webp" alt="Kreatif 3"></div>
+              <div class="gallery-img"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/5.webp" alt="Kreatif 5"></div>
+              <div class="gallery-img gallery-img--tall"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/7.webp" alt="Kreatif 7"></div>
+              <div class="gallery-img"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/9.webp" alt="Kreatif 9"></div>
+              <div class="gallery-img gallery-img--tall"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/11.webp" alt="Kreatif 11"></div>
+              <div class="gallery-img"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/13.webp" alt="Kreatif 13"></div>
             </div>
           </div>
           <!-- Kolon 2: Yukarı çıkan — 2,4,6,8,10,12 -->
           <div class="gallery-col">
             <div class="gallery-track gallery-up">
-              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/2.webp" alt="Kreatif 2"></div>
-              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/4.webp" alt="Kreatif 4"></div>
-              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/6.webp" alt="Kreatif 6"></div>
-              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/8.webp" alt="Kreatif 8"></div>
-              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/10.webp" alt="Kreatif 10"></div>
-              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/12.webp" alt="Kreatif 12"></div>
+              <div class="gallery-img gallery-img--tall"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/2.webp" alt="Kreatif 2"></div>
+              <div class="gallery-img"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/4.webp" alt="Kreatif 4"></div>
+              <div class="gallery-img gallery-img--tall"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/6.webp" alt="Kreatif 6"></div>
+              <div class="gallery-img"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/8.webp" alt="Kreatif 8"></div>
+              <div class="gallery-img gallery-img--tall"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/10.webp" alt="Kreatif 10"></div>
+              <div class="gallery-img"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/12.webp" alt="Kreatif 12"></div>
               <!-- duplicate for seamless loop -->
-              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/2.webp" alt="Kreatif 2"></div>
-              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/4.webp" alt="Kreatif 4"></div>
-              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/6.webp" alt="Kreatif 6"></div>
-              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/8.webp" alt="Kreatif 8"></div>
-              <div class="gallery-img gallery-img--tall"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/10.webp" alt="Kreatif 10"></div>
-              <div class="gallery-img"><img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/12.webp" alt="Kreatif 12"></div>
+              <div class="gallery-img gallery-img--tall"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/2.webp" alt="Kreatif 2"></div>
+              <div class="gallery-img"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/4.webp" alt="Kreatif 4"></div>
+              <div class="gallery-img gallery-img--tall"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/6.webp" alt="Kreatif 6"></div>
+              <div class="gallery-img"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/8.webp" alt="Kreatif 8"></div>
+              <div class="gallery-img gallery-img--tall"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/10.webp" alt="Kreatif 10"></div>
+              <div class="gallery-img"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/kreatifler/12.webp" alt="Kreatif 12"></div>
             </div>
           </div>
         </div>
@@ -1274,7 +1293,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
         <!-- Kart 1: DentPrime -->
         <a href="projects.html" class="proj-card">
           <div class="proj-card-img">
-            <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=700&q=80" alt="DentPrime">
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=700&q=80" alt="DentPrime">
             <div class="proj-card-logo">HealthUp × DentPrime</div>
           </div>
           <div class="proj-card-body">
@@ -1288,7 +1307,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
         <!-- Kart 2: Livera Dental -->
         <a href="projects.html" class="proj-card">
           <div class="proj-card-img">
-            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&q=80" alt="Livera Dental">
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&q=80" alt="Livera Dental">
             <div class="proj-card-logo">HealthUp × Livera</div>
           </div>
           <div class="proj-card-body">
@@ -1302,7 +1321,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
         <!-- Kart 3: Avrupa Sağlık Diş -->
         <a href="projects.html" class="proj-card">
           <div class="proj-card-img">
-            <img src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=700&q=80" alt="Avrupa Sağlık Diş">
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=700&q=80" alt="Avrupa Sağlık Diş">
             <div class="proj-card-logo">HealthUp × Avrupa Sağlık</div>
           </div>
           <div class="proj-card-body">
@@ -1316,7 +1335,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
         <!-- Kart 4: Doctor Fero -->
         <a href="projects.html" class="proj-card">
           <div class="proj-card-img">
-            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=700&q=80" alt="Doctor Fero">
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=700&q=80" alt="Doctor Fero">
             <div class="proj-card-logo">HealthUp × Doctor Fero</div>
           </div>
           <div class="proj-card-body">
@@ -1330,7 +1349,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
         <!-- Kart 5: Mednfly -->
         <a href="projects.html" class="proj-card">
           <div class="proj-card-img">
-            <img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=700&q=80" alt="Mednfly">
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=700&q=80" alt="Mednfly">
             <div class="proj-card-logo">HealthUp × Mednfly</div>
           </div>
           <div class="proj-card-body">
@@ -1369,7 +1388,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
       <div class="team-card">
         <div class="team-card-img-wrap">
           <!-- FOTOĞRAF LİNKİ: Çağla Çakırgöz -->
-          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/cagla-cakirgoz.webp" alt="Çağla Çakırgöz" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
+          <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/cagla-cakirgoz.webp" alt="Çağla Çakırgöz" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
           
         </div>
         <div class="team-card-info">
@@ -1380,7 +1399,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
       <div class="team-card">
         <div class="team-card-img-wrap">
           <!-- FOTOĞRAF LİNKİ: Tolga Çakırgöz -->
-          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/tolga-cakirgoz.webp" alt="Tolga Çakırgöz" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
+          <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/tolga-cakirgoz.webp" alt="Tolga Çakırgöz" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
           
         </div>
         <div class="team-card-info">
@@ -1395,7 +1414,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
       <div class="team-card">
         <div class="team-card-img-wrap">
           <!-- FOTOĞRAF LİNKİ: Doğukan Demir -->
-          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/dogukan.webp" alt="Doğukan Demir" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
+          <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/dogukan.webp" alt="Doğukan Demir" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
           
         </div>
         <div class="team-card-info">
@@ -1406,7 +1425,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
       <div class="team-card">
         <div class="team-card-img-wrap">
           <!-- FOTOĞRAF LİNKİ: Ayşe Betül Karaca -->
-          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/betul-karaca.webp" alt="Ayşe Betül Karaca" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
+          <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/betul-karaca.webp" alt="Ayşe Betül Karaca" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
           
         </div>
         <div class="team-card-info">
@@ -1417,7 +1436,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
       <div class="team-card">
         <div class="team-card-img-wrap">
           <!-- FOTOĞRAF LİNKİ: Gurur Dayanık -->
-          <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/gurur-dayanik.webp" alt="Gurur Dayanık" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
+          <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/gurur-dayanik.webp" alt="Gurur Dayanık" class="team-card-img" onerror="this.src='';this.closest('.team-card-img-wrap').classList.add('no-photo')">
           
         </div>
         <div class="team-card-info">
@@ -1463,28 +1482,8 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
       <h2 class="section-title">Latest from<br><em>the blog.</em></h2>
       <a href="blog.html" class="section-all-link">All posts →</a>
     </div>
-    <div class="blog-grid">
-      <a href="blog.html" class="blog-card">
-        <div class="blog-thumb"><img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&q=80" alt="SEO"></div>
-        <div class="blog-tag-wrap"><span class="blog-tag">SEO</span><span class="blog-read-time">14 dk</span></div>
-        <h3 class="blog-title">How We Ranked a Brand-New Domain #1 in the UK in 5 Months</h3>
-        <p class="blog-excerpt">Zero domain authority, no backlinks, a hyper-competitive niche. The exact content, technical and link-building strategy we used.</p>
-        
-      </a>
-      <a href="blog.html" class="blog-card">
-        <div class="blog-thumb"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Google Ads"></div>
-        <div class="blog-tag-wrap"><span class="blog-tag">Google Ads</span><span class="blog-read-time">16 dk</span></div>
-        <h3 class="blog-title">We Spent $4M on Google Ads for Healthcare. Here's What We Learned.</h3>
-        <p class="blog-excerpt">Five years, dozens of clinics, millions in ad spend. The bidding strategies and conversion traps that actually move the needle.</p>
-        
-      </a>
-      <a href="blog.html" class="blog-card">
-        <div class="blog-thumb"><img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&q=80" alt="Meta Ads"></div>
-        <div class="blog-tag-wrap"><span class="blog-tag">Meta Ads</span><span class="blog-read-time">11 dk</span></div>
-        <h3 class="blog-title">Vertical Video Cut Our Client's CPL by 62%. Here's the Framework.</h3>
-        <p class="blog-excerpt">How we rebuilt a dental clinic's entire Meta funnel around vertical video creative, server-side tracking and CAPI.</p>
-        
-      </a>
+    <div class="blog-grid" id="homeBlogGrid">
+      <!-- Latest 3 posts loaded dynamically from Supabase -->
     </div>
   </div>
 </section>
@@ -1800,6 +1799,51 @@ async function homeHandleSubmit(e){
   return false;
 }
 window.homeHandleSubmit = homeHandleSubmit;
+
+// ─── HOMEPAGE BLOG (latest 3 posts) ───
+(async function loadHomeBlog(){
+  var grid = document.getElementById('homeBlogGrid');
+  if(!grid) return;
+
+  var CAT_LABELS = { google:'Google Ads', meta:'Meta Ads', seo:'SEO', crm:'CRM', strateji:'Strategy' };
+  function esc(s){ return (s||'').replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+  try{
+    // EN: en az title_en + slug_en dolu olanları çek (limit biraz yüksek, filtre sonrası ilk 3)
+    var res = await fetch(HOME_SUPABASE_URL + '/rest/v1/posts?published=eq.true&order=created_at.desc&limit=12', {
+      headers: { 'apikey': HOME_SUPABASE_KEY, 'Authorization': 'Bearer ' + HOME_SUPABASE_KEY }
+    });
+    if(!res.ok){ var s=document.getElementById('blog'); if(s) s.style.display='none'; return; }
+    var posts = await res.json();
+
+    // EN anasayfa: sadece İngilizce çevirisi olanlar (title_en + slug_en)
+    posts = (posts || []).filter(function(p){
+      return p.title_en && p.title_en.trim() && p.slug_en && p.slug_en.trim();
+    }).slice(0, 3);
+
+    if(!posts.length){ var sec=document.getElementById('blog'); if(sec) sec.style.display='none'; return; }
+
+    grid.innerHTML = posts.map(function(p){
+      var title = p.title_en || '';
+      var excerpt = p.excerpt_en || '';
+      var cat = p.category || '';
+      var catLabel = CAT_LABELS[cat] || cat;
+      var img = p.cover_image || 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&q=80';
+      var read = p.read_time ? (p.read_time + ' min') : '';
+      var url = '../blog-post.html?slug=' + encodeURIComponent(p.slug_en);
+      return '<a href="' + url + '" class="blog-card">' +
+        '<div class="blog-thumb"><img src="' + esc(img) + '" alt="' + esc(title) + '" loading="lazy"></div>' +
+        '<div class="blog-tag-wrap"><span class="blog-tag">' + esc(catLabel) + '</span>' +
+        (read ? '<span class="blog-read-time">' + esc(read) + '</span>' : '') + '</div>' +
+        '<h3 class="blog-title">' + esc(title) + '</h3>' +
+        '<p class="blog-excerpt">' + esc(excerpt) + '</p>' +
+        '</a>';
+    }).join('');
+  }catch(err){
+    var sec2 = document.getElementById('blog');
+    if(sec2) sec2.style.display='none';
+  }
+})();
 </script>
 <script>window.setLang = function(l){if(l==="tr"){location.href="../index.html";return;}try{localStorage.setItem("lang",l);}catch(e){}};
 
