@@ -989,6 +989,20 @@ function setLang(lang){
   }
 })();
 
+// ─── FAQ ACCORDION ───
+(function(){
+  var items = document.querySelectorAll('.faq-item');
+  items.forEach(function(item){
+    var q = item.querySelector('.faq-question');
+    if(!q) return;
+    q.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      items.forEach(function(other){ other.classList.remove('open'); });
+      if(!isOpen) item.classList.add('open');
+    });
+  });
+})();
+
 </script>
 </body>
 </html>

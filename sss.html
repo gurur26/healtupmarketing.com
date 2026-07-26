@@ -988,6 +988,22 @@ function setLang(lang){
   }
 })();
 
+// ─── FAQ ACCORDION ───
+(function(){
+  var items = document.querySelectorAll('.faq-item');
+  items.forEach(function(item){
+    var q = item.querySelector('.faq-question');
+    if(!q) return;
+    q.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      // Diğerlerini kapat (tek seferde bir soru açık — istersen bu bloğu kaldır)
+      items.forEach(function(other){ other.classList.remove('open'); });
+      // Tıklanana aç (zaten açıksa kapat)
+      if(!isOpen) item.classList.add('open');
+    });
+  });
+})();
+
 </script>
 </body>
 </html>
