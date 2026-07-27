@@ -367,6 +367,8 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
 .team-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-card);overflow:hidden;transition:transform .2s,box-shadow .2s}
 .team-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08)}
 .team-card-img-wrap{position:relative;aspect-ratio:3/4;background:var(--surface);overflow:hidden}
+/* Kurucu kartlari: genislik ayni kalir, foto yuksekligi kisaltildi */
+.team-founders .team-card-img-wrap{aspect-ratio:3/2}
 .team-card-img-wrap.no-photo{display:flex;align-items:center;justify-content:center}
 .team-card-img-wrap.no-photo::after{content:'📷';font-size:2rem;opacity:.25}
 .team-card-img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .3s}
@@ -379,9 +381,13 @@ footer{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:3re
   .team-founders{grid-template-columns:1fr 1fr}
   .team-grid{grid-template-columns:repeat(3,1fr)}
 }
+@media(max-width:900px){
+  .team-founders .team-card-img-wrap{aspect-ratio:4/3}
+}
 @media(max-width:600px){
   .team-founders{grid-template-columns:1fr 1fr}
   .team-grid{grid-template-columns:1fr 1fr}
+  .team-founders .team-card-img-wrap{aspect-ratio:3/4}
   #team{padding:4rem 1.5rem}
 }
 
