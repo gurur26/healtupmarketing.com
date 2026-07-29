@@ -143,6 +143,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .cform-field textarea::placeholder{color:var(--text-muted)}
 .cform-field select{appearance:none;cursor:pointer}
 .cform-field select option{background:var(--bg-card);color:var(--text)}
+/* ── PHONE GROUP (ülke kodu + numara) ── */
+.phone-group{display:flex;gap:8px}
+.phone-group .phone-code{width:auto;min-width:96px;max-width:112px;flex-shrink:0;padding-right:8px;font-size:.85rem}
+.phone-group input{flex:1;min-width:0}
 .cform-btn{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:var(--grad);color:#fff;border:none;padding:15px 36px;border-radius:40px;cursor:pointer;transition:filter .2s,transform .15s,box-shadow .2s;align-self:flex-start;margin-top:6px;box-shadow:var(--glow);display:inline-flex;align-items:center;gap:10px}
 .cform-btn:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 0 28px rgba(251,16,107,.55)}
 .cform-btn svg{width:16px;height:16px}
@@ -587,10 +591,50 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
           </div>
           <div class="cform-field">
             <label>Telefon</label>
-            <input type="tel" id="field-phone"
-              data-placeholder-tr="(5xx) xxx xx xx"
-              data-placeholder-en="(5xx) xxx xx xx"
-              placeholder="(5xx) xxx xx xx">
+            <div class="phone-group">
+              <select id="field-phone-code" class="phone-code" aria-label="Ülke kodu">
+                <option value="+90">🇹🇷 +90</option>
+                <option value="+44">🇬🇧 +44</option>
+                <option value="+49">🇩🇪 +49</option>
+                <option value="+31">🇳🇱 +31</option>
+                <option value="+1">🇺🇸 +1</option>
+                <option value="+33">🇫🇷 +33</option>
+                <option value="+39">🇮🇹 +39</option>
+                <option value="+34">🇪🇸 +34</option>
+                <option value="+41">🇨🇭 +41</option>
+                <option value="+43">🇦🇹 +43</option>
+                <option value="+32">🇧🇪 +32</option>
+                <option value="+46">🇸🇪 +46</option>
+                <option value="+47">🇳🇴 +47</option>
+                <option value="+45">🇩🇰 +45</option>
+                <option value="+353">🇮🇪 +353</option>
+                <option value="+971">🇦🇪 +971</option>
+                <option value="+966">🇸🇦 +966</option>
+                <option value="+974">🇶🇦 +974</option>
+                <option value="+965">🇰🇼 +965</option>
+                <option value="+973">🇧🇭 +973</option>
+                <option value="+968">🇴🇲 +968</option>
+                <option value="+7">🇷🇺 +7</option>
+                <option value="+380">🇺🇦 +380</option>
+                <option value="+994">🇦🇿 +994</option>
+                <option value="+995">🇬🇪 +995</option>
+                <option value="+20">🇪🇬 +20</option>
+                <option value="+212">🇲🇦 +212</option>
+                <option value="+213">🇩🇿 +213</option>
+                <option value="+216">🇹🇳 +216</option>
+                <option value="+961">🇱🇧 +961</option>
+                <option value="+962">🇯🇴 +962</option>
+                <option value="+964">🇮🇶 +964</option>
+                <option value="+98">🇮🇷 +98</option>
+                <option value="+91">🇮🇳 +91</option>
+                <option value="+92">🇵🇰 +92</option>
+                <option value="+61">🇦🇺 +61</option>
+              </select>
+              <input type="tel" id="field-phone"
+                data-placeholder-tr="5xx xxx xx xx"
+                data-placeholder-en="5xx xxx xx xx"
+                placeholder="5xx xxx xx xx">
+            </div>
           </div>
         </div>
         <div class="cform-field">
@@ -878,7 +922,9 @@ async function handleSubmit(){
   var name    = document.getElementById('field-name').value.trim();
   var company = document.getElementById('field-company').value.trim();
   var email   = document.getElementById('field-email').value.trim();
-  var phone   = document.getElementById('field-phone').value.trim();
+  var phoneNum = document.getElementById('field-phone').value.trim();
+  var phoneCode = document.getElementById('field-phone-code').value;
+  var phone = phoneNum ? (phoneCode + ' ' + phoneNum) : '';
   var message = document.getElementById('field-msg').value.trim();
 
   // Basit doğrulama
