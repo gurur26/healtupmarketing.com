@@ -464,6 +464,43 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
 .nav-dropdown-trigger{height:auto;}
 .nav-dropdown-trigger svg{width:11px;height:11px;}
 </style>
+
+<style id="cookie-consent-style">
+#cookie-widget{
+  position:fixed;bottom:28px;left:28px;z-index:300;
+  display:flex;align-items:center;gap:16px;
+  background:rgba(15,15,13,0.92);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.1);border-radius:40px;
+  padding:10px 10px 10px 20px;box-shadow:0 8px 40px rgba(0,0,0,.45);
+  transition:opacity .4s,transform .4s;
+}
+#cookie-widget.hide{opacity:0;pointer-events:none;transform:translateY(12px);}
+#cookie-widget .cw-text{
+  font-size:.72rem;font-weight:400;letter-spacing:.01em;
+  color:rgba(255,255,255,.5);white-space:nowrap;line-height:1.4;margin:0;
+}
+#cookie-widget .cw-text strong{color:rgba(255,255,255,.82);font-weight:600;}
+#cookie-widget .cw-text a{color:rgba(255,255,255,.5);text-decoration:underline;text-underline-offset:2px;transition:color .2s;}
+#cookie-widget .cw-text a:hover{color:rgba(255,255,255,.82);}
+#cookie-widget .cw-accept{
+  font-family:'Syne',sans-serif;
+  font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  background:#f5f5f0;color:#0a0a0a;border:none;border-radius:30px;
+  padding:8px 18px;cursor:pointer;white-space:nowrap;flex-shrink:0;
+  transition:background .2s,transform .15s,box-shadow .2s;
+}
+#cookie-widget .cw-accept:hover{background:#fff;transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.3);}
+@media(max-width:640px){
+  #cookie-widget{
+    bottom:16px;left:50%;right:auto;transform:translateX(-50%);
+    padding:8px 10px 8px 14px;gap:10px;max-width:calc(100vw - 32px);
+  }
+  #cookie-widget.hide{transform:translateX(-50%) translateY(12px);}
+  #cookie-widget .cw-text{font-size:.66rem;white-space:normal;}
+  #cookie-widget .cw-accept{font-size:.6rem;padding:7px 14px;}
+}
+</style>
 </head>
 <body>
 
@@ -1182,6 +1219,26 @@ function setLang(lang){
   }
 })();
 
+</script>
+
+<div id="cookie-widget">
+  <p class="cw-text"><strong>Çerez kullanıyoruz.</strong> <a href="gizlilik.html">Daha fazla</a></p>
+  <button class="cw-accept" id="cookieAccept">Kabul Et</button>
+</div>
+
+<script id="cookie-consent-js">
+(function(){
+  var w=document.getElementById('cookie-widget');
+  if(!w) return;
+  var accepted=false;
+  try{accepted=localStorage.getItem('cookieAccepted')==='1';}catch(e){}
+  if(accepted){w.classList.add('hide');}
+  var b=document.getElementById('cookieAccept');
+  if(b){b.addEventListener('click',function(){
+    try{localStorage.setItem('cookieAccepted','1');}catch(e){}
+    w.classList.add('hide');
+  });}
+})();
 </script>
 </body>
 </html>
