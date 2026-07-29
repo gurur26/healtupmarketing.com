@@ -841,6 +841,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
 .nav-dropdown-trigger{height:auto;}
 .nav-dropdown-trigger svg{width:11px;height:11px;}
 </style>
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 <body>
 
 <!-- ══ SOL ALT: Cookie floating widget ══ -->
@@ -1260,6 +1261,7 @@ nav a.lang-btn.active:hover{color:var(--bg) !important;}
           <div class="sf-field">
             <textarea id="home-message" rows="4" placeholder="Mesajınız" data-placeholder-tr="Mesajınız" data-placeholder-en="Your message"></textarea>
           </div>
+          <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2" data-captcha="true" style="margin:6px 0"></div>
           <button type="submit" class="sf-btn" id="homeSubmitBtn">
             İletişime Geç
             
@@ -1802,6 +1804,12 @@ async function homeHandleSubmit(e){
     return false;
   }
 
+  var recaptchaToken = (typeof hcaptcha !== 'undefined') ? hcaptcha.getResponse() : '';
+  if(!recaptchaToken){
+    alert(lang==='en' ? 'Please confirm you are not a robot.' : 'Lütfen robot olmadığınızı doğrulayın.');
+    return false;
+  }
+
   var btn = document.getElementById('homeSubmitBtn');
   var origHtml = btn.innerHTML;
   btn.disabled = true;
@@ -1833,7 +1841,8 @@ async function homeHandleSubmit(e){
         access_key: HOME_WEB3FORMS_KEY,
         subject: (lang==='en' ? 'New Contact (Homepage) — ' : 'Yeni İletişim (Anasayfa) — ') + name,
         from_name: 'HealthUp Web Sitesi',
-        name: name, email: email, phone: phone, message: message, dil: lang
+        name: name, email: email, phone: phone, message: message, dil: lang,
+        'h-captcha-response': recaptchaToken
       })
     });
     if(w3Res.ok) ok = true;
@@ -1846,6 +1855,7 @@ async function homeHandleSubmit(e){
     document.getElementById('homeContactForm').querySelectorAll('input,textarea').forEach(function(el){el.value='';});
     window.location.href = 'tesekkurler.html';
   } else {
+    if(typeof hcaptcha !== 'undefined') hcaptcha.reset();
     alert(lang==='en'
       ? 'Something went wrong. Please try again or use the contact page.'
       : 'Bir sorun oluştu. Lütfen tekrar deneyin veya iletişim sayfasını kullanın.');
