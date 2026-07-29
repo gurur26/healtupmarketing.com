@@ -939,9 +939,8 @@ async function handleSubmit(){
   btn.innerHTML = origHtml;
 
   if(ok){
-    document.getElementById('formSuccess').classList.add('show');
     document.getElementById('contactForm').querySelectorAll('input,select,textarea').forEach(function(el){el.value='';});
-    setTimeout(function(){document.getElementById('formSuccess').classList.remove('show');}, 6000);
+    window.location.href = 'tesekkurler.html';
   } else {
     alert(lang==='en'
       ? 'Something went wrong. Please try again or email us directly.'

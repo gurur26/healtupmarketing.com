@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  var t;
+  try{t=localStorage.getItem('theme');}catch(e){}
+  document.documentElement.setAttribute('data-theme', t || 'dark');
+</script>
+<title>Teşekkürler — HealthUp Marketing</title>
+<link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<meta name="theme-color" content="#0f0f0d">
+<!-- Arama motorları bu sayfayı indekslemesin (sadece dönüşüm için) -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://healthupmarketing.com/tesekkurler.html">
+<meta name="description" content="Mesajınız için teşekkürler. En kısa sürede size dönüş yapacağız.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+[data-theme="light"]{
+  --bg:#fafaf8;--bg-off:#f3f2ef;--bg-card:#ffffff;
+  --text:#0a0a0a;--text-muted:#8a8a82;
+  --border:rgba(10,10,10,0.1);--border-strong:rgba(10,10,10,0.18);
+  --nav-bg:rgba(250,250,248,0.85);--toggle-bg:rgba(10,10,10,0.05);
+  --hero-bg:#0a0a0a;--hero-text:#fafaf8;--hero-muted:rgba(250,250,248,0.65);
+}
+[data-theme="dark"]{
+  --bg:#0f0f0d;--bg-off:#181815;--bg-card:#1c1c19;
+  --text:#fafaf8;--text-muted:#6b6b63;
+  --border:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.14);
+  --nav-bg:rgba(15,15,13,0.85);--toggle-bg:rgba(255,255,255,0.06);
+  --hero-bg:#050504;--hero-text:#fafaf8;--hero-muted:rgba(250,250,248,0.65);
+}
+:root{
+  --accent:#fe0d6d;
+  --grad:linear-gradient(135deg,#fe7948 0%,#fb106b 100%);
+  --glow:0 0 24px rgba(254,13,109,.35);
+  --radius:6px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);transition:background .3s,color .3s;display:flex;flex-direction:column;min-height:100vh}
+
+/* NAV (minimal) */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:64px;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:background .3s,border-color .3s}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-.03em;color:var(--text);text-decoration:none}
+.nav-logo-light{display:block}
+.nav-logo-dark{display:none}
+[data-theme="dark"] .nav-logo-light{display:none}
+[data-theme="dark"] .nav-logo-dark{display:block}
+.nav-right{display:flex;align-items:center;gap:.8rem}
+.theme-toggle{width:36px;height:36px;border-radius:50%;background:var(--toggle-bg);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text);transition:background .2s;flex-shrink:0}
+.theme-toggle:hover{background:var(--border)}
+.theme-toggle svg{width:18px;height:18px}
+.sun-icon{display:none}
+[data-theme="dark"] .sun-icon{display:block}
+[data-theme="dark"] .moon-icon{display:none}
+
+/* MAIN */
+.ty-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:8rem 1.5rem 4rem;position:relative;overflow:hidden}
+.ty-wrap::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(128,128,128,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(128,128,128,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.ty-wrap::after{content:'';position:absolute;top:-120px;right:-100px;width:520px;height:520px;background:radial-gradient(circle,rgba(225,48,108,.09) 0%,rgba(131,58,180,.06) 50%,transparent 75%);pointer-events:none;z-index:0}
+.ty-card{position:relative;z-index:2;max-width:560px;text-align:center}
+.ty-icon{width:88px;height:88px;margin:0 auto 2rem;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(254,13,109,.35);animation:pop .5s cubic-bezier(.34,1.56,.64,1)}
+.ty-icon svg{width:44px;height:44px;color:#fff}
+@keyframes pop{0%{transform:scale(0);opacity:0}100%{transform:scale(1);opacity:1}}
+.ty-tag{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem;display:block}
+.ty-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;letter-spacing:-.02em;margin-bottom:1.2rem}
+.ty-title em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block;padding:.05em .1em .12em .02em}
+.ty-lead{font-size:1.05rem;font-weight:300;color:var(--text-muted);line-height:1.75;max-width:440px;margin:0 auto 2.5rem}
+.ty-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.ty-btn{display:inline-flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:14px 28px;border-radius:var(--radius);text-decoration:none;transition:filter .2s,transform .15s,box-shadow .2s,background .2s,color .2s}
+.ty-btn-primary{background:var(--grad);color:#fff;box-shadow:var(--glow)}
+.ty-btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 0 28px rgba(254,13,109,.5),0 0 56px rgba(253,122,73,.3)}
+.ty-btn-secondary{background:var(--toggle-bg);color:var(--text);border:1px solid var(--border-strong)}
+.ty-btn-secondary:hover{background:var(--border);transform:translateY(-1px)}
+
+/* FOOTER (minimal) */
+.ty-footer{text-align:center;padding:1.5rem;font-size:.8rem;color:var(--text-muted);border-top:1px solid var(--border)}
+
+@media(max-width:600px){
+  nav{padding:0 1.5rem}
+  .ty-wrap{padding:7rem 1.5rem 3rem}
+  .ty-actions{flex-direction:column}
+  .ty-btn{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo" style="display:flex;align-items:center;text-decoration:none">
+    <img src="https://healthupmarketing.com/wp-content/uploads/2025/01/logo.png" alt="HealthUp Marketing" class="nav-logo-light" style="height:38px;width:auto;object-fit:contain">
+    <img src="https://raw.githubusercontent.com/gurur26/healtupmarketing.com/refs/heads/main/ekip/hup-logos.webp" alt="HealthUp Marketing" class="nav-logo-dark" style="height:38px;width:auto;object-fit:contain">
+  </a>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Tema değiştir">
+      <svg class="moon-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      <svg class="sun-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    </button>
+  </div>
+</nav>
+
+<main class="ty-wrap">
+  <div class="ty-card">
+    <div class="ty-icon">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+    </div>
+    <span class="ty-tag">Mesajınız Alındı</span>
+    <h1 class="ty-title">Teşekkür<em>ler!</em></h1>
+    <p class="ty-lead">Mesajınız bize başarıyla ulaştı. Ekibimiz en kısa sürede sizinle iletişime geçecek. İlginiz için teşekkür ederiz.</p>
+    <div class="ty-actions">
+      <a href="index.html" class="ty-btn ty-btn-primary">Ana Sayfaya Dön</a>
+      <a href="blog.html" class="ty-btn ty-btn-secondary">Blogu Keşfet</a>
+    </div>
+  </div>
+</main>
+
+<footer class="ty-footer">
+  © <span id="year"></span> HealthUp Marketing. Tüm hakları saklıdır.
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Tema değiştirme
+document.getElementById('themeToggle').addEventListener('click', function(){
+  var cur = document.documentElement.getAttribute('data-theme');
+  var next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  try{ localStorage.setItem('theme', next); }catch(e){}
+});
+</script>
+
+</body>
+</html>

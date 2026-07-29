@@ -1793,10 +1793,8 @@ async function homeHandleSubmit(e){
   btn.innerHTML = origHtml;
 
   if(ok){
-    document.getElementById('homeContactForm').querySelectorAll('input').forEach(function(el){el.value='';});
-    var succ = document.getElementById('homeFormSuccess');
-    succ.style.display = 'block';
-    setTimeout(function(){ succ.style.display = 'none'; }, 6000);
+    document.getElementById('homeContactForm').querySelectorAll('input,textarea').forEach(function(el){el.value='';});
+    window.location.href = 'thank-you.html';
   } else {
     alert(lang==='en'
       ? 'Something went wrong. Please try again or use the contact page.'
