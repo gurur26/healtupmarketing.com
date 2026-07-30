@@ -4,19 +4,19 @@
 
   <!-- ─── ANA SAYFA ─── -->
   <url>
-    <loc>https://healthupmarketing.com/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/index.html"/>
+    <loc>https://healthupmarketing.com/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://healthupmarketing.com/en/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/index.html"/>
+    <loc>https://healthupmarketing.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
@@ -24,19 +24,19 @@
 
   <!-- ─── HAKKIMIZDA ─── -->
   <url>
-    <loc>https://healthupmarketing.com/hakkimizda.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hakkimizda.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/about.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hakkimizda.html"/>
+    <loc>https://healthupmarketing.com/hakkimizda</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hakkimizda"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hakkimizda"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://healthupmarketing.com/en/about.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hakkimizda.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/about.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hakkimizda.html"/>
+    <loc>https://healthupmarketing.com/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hakkimizda"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hakkimizda"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -44,19 +44,19 @@
 
   <!-- ─── İLETİŞİM ─── -->
   <url>
-    <loc>https://healthupmarketing.com/iletisim.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/iletisim.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/iletisim.html"/>
+    <loc>https://healthupmarketing.com/iletisim</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/iletisim"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/iletisim"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://healthupmarketing.com/en/contact.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/iletisim.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/iletisim.html"/>
+    <loc>https://healthupmarketing.com/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/iletisim"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/iletisim"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -64,19 +64,19 @@
 
   <!-- ─── PROJELER ─── -->
   <url>
-    <loc>https://healthupmarketing.com/projeler.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/projeler.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/projects.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/projeler.html"/>
+    <loc>https://healthupmarketing.com/projeler</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/projeler"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/projeler"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://healthupmarketing.com/en/projects.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/projeler.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/projects.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/projeler.html"/>
+    <loc>https://healthupmarketing.com/en/projects</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/projeler"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/projeler"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -84,19 +84,19 @@
 
   <!-- ─── BLOG ─── -->
   <url>
-    <loc>https://healthupmarketing.com/blog.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/blog.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/blog.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/blog.html"/>
+    <loc>https://healthupmarketing.com/blog</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/blog"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://healthupmarketing.com/en/blog.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/blog.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/blog.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/blog.html"/>
+    <loc>https://healthupmarketing.com/en/blog</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/blog"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -104,19 +104,19 @@
 
   <!-- ─── SSS / FAQ ─── -->
   <url>
-    <loc>https://healthupmarketing.com/sss.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/sss.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/faq.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/sss.html"/>
+    <loc>https://healthupmarketing.com/sss</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/sss"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/sss"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://healthupmarketing.com/en/faq.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/sss.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/faq.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/sss.html"/>
+    <loc>https://healthupmarketing.com/en/faq</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/sss"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/sss"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -124,114 +124,114 @@
 
   <!-- ─── HİZMETLER ─── -->
   <url>
-    <loc>https://healthupmarketing.com/hizmet-google-reklamlari.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-google-reklamlari.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-google-ads.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-google-reklamlari.html"/>
+    <loc>https://healthupmarketing.com/hizmet-google-reklamlari</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-google-reklamlari"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-google-ads"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-google-reklamlari"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://healthupmarketing.com/en/service-google-ads.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-google-reklamlari.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-google-ads.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-google-reklamlari.html"/>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://healthupmarketing.com/hizmet-meta-reklamlari.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-meta-reklamlari.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-meta-ads.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-meta-reklamlari.html"/>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://healthupmarketing.com/en/service-meta-ads.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-meta-reklamlari.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-meta-ads.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-meta-reklamlari.html"/>
+    <loc>https://healthupmarketing.com/en/service-google-ads</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-google-reklamlari"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-google-ads"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-google-reklamlari"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://healthupmarketing.com/hizmet-web-sitesi.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-web-sitesi.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-website.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-web-sitesi.html"/>
+    <loc>https://healthupmarketing.com/hizmet-meta-reklamlari</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-meta-reklamlari"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-meta-ads"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-meta-reklamlari"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://healthupmarketing.com/en/service-website.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-web-sitesi.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-website.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-web-sitesi.html"/>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://healthupmarketing.com/hizmet-sosyal-medya.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-sosyal-medya.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-social-media.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-sosyal-medya.html"/>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://healthupmarketing.com/en/service-social-media.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-sosyal-medya.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-social-media.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-sosyal-medya.html"/>
+    <loc>https://healthupmarketing.com/en/service-meta-ads</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-meta-reklamlari"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-meta-ads"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-meta-reklamlari"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://healthupmarketing.com/hizmet-satis-egitimi.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-satis-egitimi.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-sales-training.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-satis-egitimi.html"/>
+    <loc>https://healthupmarketing.com/hizmet-web-sitesi</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-web-sitesi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-website"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-web-sitesi"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://healthupmarketing.com/en/service-sales-training.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-satis-egitimi.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-sales-training.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-satis-egitimi.html"/>
+    <loc>https://healthupmarketing.com/en/service-website</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-web-sitesi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-website"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-web-sitesi"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://healthupmarketing.com/hizmet-crm.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-crm.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-crm.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-crm.html"/>
+    <loc>https://healthupmarketing.com/hizmet-sosyal-medya</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-sosyal-medya"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-social-media"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-sosyal-medya"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://healthupmarketing.com/en/service-crm.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-crm.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-crm.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-crm.html"/>
+    <loc>https://healthupmarketing.com/en/service-social-media</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-sosyal-medya"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-social-media"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-sosyal-medya"/>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://healthupmarketing.com/hizmet-satis-egitimi</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-satis-egitimi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-sales-training"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-satis-egitimi"/>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://healthupmarketing.com/en/service-sales-training</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-satis-egitimi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-sales-training"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-satis-egitimi"/>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://healthupmarketing.com/hizmet-crm</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-crm"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-crm"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-crm"/>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://healthupmarketing.com/en/service-crm</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/hizmet-crm"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/service-crm"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/hizmet-crm"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -239,19 +239,19 @@
 
   <!-- ─── GİZLİLİK ─── -->
   <url>
-    <loc>https://healthupmarketing.com/gizlilik.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/gizlilik.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/privacy.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/gizlilik.html"/>
+    <loc>https://healthupmarketing.com/gizlilik</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/gizlilik"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/gizlilik"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://healthupmarketing.com/en/privacy.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/gizlilik.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/privacy.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/gizlilik.html"/>
+    <loc>https://healthupmarketing.com/en/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://healthupmarketing.com/gizlilik"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://healthupmarketing.com/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://healthupmarketing.com/gizlilik"/>
     <lastmod>2026-06-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
